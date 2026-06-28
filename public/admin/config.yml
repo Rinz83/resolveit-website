@@ -1,0 +1,84 @@
+backend:
+  name: github
+  repo: Rinz83/resolveit-website
+  branch: main
+  base_url: https://www.resolveit.nl
+  auth_endpoint: api/auth
+
+# Uploaded images are stored here and referenced by this public path.
+media_folder: public/images/blog
+public_folder: /images/blog
+
+# Editors see the site in their own language; labels below are bilingual-ish.
+locale: nl
+
+collections:
+  - name: blog_nl
+    label: "Blog — Nederlands"
+    label_singular: "Blogpost (NL)"
+    description: "Nederlandstalige blogartikelen."
+    folder: src/content/blog
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: [pubDate, title]
+    fields:
+      - { label: Titel, name: title, widget: string }
+      - { label: Omschrijving, name: description, widget: text }
+      - { label: Publicatiedatum, name: pubDate, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { label: Auteur, name: author, widget: string, default: "Resolve IT" }
+      - label: Categorie
+        name: category
+        widget: select
+        options:
+          - Salesforce
+          - Billing Platform
+          - CRM Strategie
+          - Consultancy
+          - Datasolver
+          - E-facturatie
+          - Exact Online
+          - Implementatie
+          - Integraties
+          - SharePoint
+          - AI & Innovatie
+      - { label: Afbeelding, name: image, widget: image, required: false }
+      - { label: Concept (niet publiceren), name: draft, widget: boolean, default: false, required: false }
+      - { label: Inhoud, name: body, widget: markdown }
+
+  - name: blog_en
+    label: "Blog — English"
+    label_singular: "Blog post (EN)"
+    description: "English blog articles."
+    folder: src/content/blog/en
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: [pubDate, title]
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Publish date, name: pubDate, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { label: Author, name: author, widget: string, default: "Resolve IT" }
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - Salesforce
+          - Billing Platform
+          - CRM Strategy
+          - Consultancy
+          - Datasolver
+          - E-invoicing
+          - Exact Online
+          - Implementation
+          - Integrations
+          - SharePoint
+          - AI & Innovation
+      - { label: Image, name: image, widget: image, required: false }
+      - { label: Draft (do not publish), name: draft, widget: boolean, default: false, required: false }
+      - { label: Body, name: body, widget: markdown }

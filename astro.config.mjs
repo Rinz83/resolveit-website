@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel/static';
+import vercel from '@astrojs/vercel/serverless';
 import { fileURLToPath } from 'node:url';
 
 // 301-redirects from the ORIGINAL resolveit.nl URLs to the new structure, so
@@ -168,11 +168,12 @@ const redirectsConfig = Object.fromEntries(
   Object.entries(redirects).map(([from, to]) => [from, { status: 301, destination: to }])
 );
 
-// Fully static site deployed to Vercel. The Vercel adapter emits the
-// redirects below as real 301s in the Vercel build output (good for SEO).
+// Deployed to Vercel. Pages are prerendered static HTML by default; only the
+// CMS OAuth endpoints (src/pages/api/*) run as serverless functions. The Vercel
+// adapter emits the redirects below as real 301s (good for SEO).
 export default defineConfig({
   site: 'https://www.resolveit.nl',
-  output: 'static',
+  output: 'hybrid',
   adapter: vercel(),
   publicDir: fileURLToPath(new URL('./public', import.meta.url)),
   srcDir: fileURLToPath(new URL('./src', import.meta.url)),

@@ -11,3 +11,5 @@ Thumbs.db
 .astro/
 .idea/
 .vscode/
+
+.vercel

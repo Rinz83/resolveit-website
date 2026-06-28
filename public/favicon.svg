@@ -1,4 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#0a2d6e"/>
-  <text x="32" y="46" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800" font-size="32" fill="#00aaff">R</text>
+  <defs>
+    <linearGradient id="ri" x1="14" y1="12" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6db757"/>
+      <stop offset="1" stop-color="#6c4494"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#2d2e2b"/>
+  <!-- orbit ring (the logo's signature swoosh around the "o") -->
+  <circle cx="32" cy="32" r="15" fill="none" stroke="url(#ri)" stroke-width="6"
+          stroke-linecap="round" stroke-dasharray="74 30" transform="rotate(-50 32 32)"/>
+  <!-- center mark -->
+  <circle cx="32" cy="32" r="5.5" fill="#ffffff"/>
 </svg>

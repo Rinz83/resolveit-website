@@ -1,0 +1,198 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FormModal from '../../components/FormModal.astro';
+import { calendlyUrl, pardotForms } from '../../i18n/ui.js';
+import '../../styles/product.css';
+
+const features = [
+  { icon: '🏢', title: 'KvK-verrijking', text: 'Zoek op KvK-nummer, handelsnaam of (deel van) adres en verrijk records met handelsnamen, SBI-codes, adressen en vestigingsdetails — met één klik.' },
+  { icon: '✅', title: 'VIES btw-validatie', text: 'Valideer EU-btw-nummers direct vanuit het Salesforce-record. Borg dat uw facturen voldoen aan de wettelijke eisen voor Europese klanten.' },
+  { icon: '🔗', title: 'Peppol Directory', text: 'Zoek Peppol-identificatienummers zonder Salesforce te verlaten. Klaar voor de verplichte e-facturatie die er in heel Europa aankomt.' },
+  { icon: '🔄', title: 'Automatische periodieke checks', text: 'De tool controleert eerder verrijkte bedrijven automatisch. Wijzigingen in het register verschijnen overzichtelijk in een rapport.' },
+  { icon: '🧩', title: 'Modulair inzetbaar', text: 'KvK-integratie, VIES btw-checker en Peppol Directory zijn ook los van elkaar te gebruiken — precies wat u nodig heeft.' },
+  { icon: '🎯', title: 'Schone, actuele data', text: 'Geen vervuilde database meer. Bedrijfsgegevens blijven automatisch up-to-date, zodat u bouwt op betrouwbare informatie.' },
+];
+
+const dataFields = ['KvK-nummer', 'Btw-nummer', 'Vestigingsnummer', 'Rechtsvorm', 'Hoofdvestiging', 'Aantal medewerkers', 'Handelsnamen', 'Adressen', 'SBI-codes', 'Peppol-ID'];
+
+const faqs = [
+  { q: 'Waarop kan ik zoeken in de KvK-integratie?', a: 'Op KvK-nummer, btw-nummer, handelsnaam, adres of een deel van het adres. U bladert door de resultaten uit het Handelsregister en maakt of werkt een Salesforce-record bij met één klik.' },
+  { q: 'Welke bedrijfsgegevens worden opgehaald?', a: 'Onder andere KvK-nummer, btw-nummer, vestigingsnummer, rechtsvorm, hoofd- en nevenvestiging, aantal medewerkers, handelsnamen, adressen en SBI-codes — automatisch in de juiste velden.' },
+  { q: 'Hoe werken de automatische periodieke checks?', a: 'De tool controleert automatisch eerder beoordeelde bedrijven. Zijn er wijzigingen in het Handelsregister, dan worden die overzichtelijk in een rapport getoond, zodat uw database actueel blijft zonder handwerk.' },
+  { q: 'Kan ik de onderdelen los van elkaar gebruiken?', a: 'Ja. De KvK-integratie, de VIES btw-checker en de Peppol Directory zijn elk afzonderlijk inzetbaar — u kiest wat bij uw proces past.' },
+  { q: 'Hoe valideer ik btw-nummers van Europese klanten?', a: 'Via de ingebouwde VIES-validatie controleert u EU-btw-nummers direct vanuit het Salesforce-record. Zo borgt u dat uw facturen voldoen aan de wettelijke eisen voor B2B in Europa.' },
+  { q: 'Waarom is Peppol belangrijk voor e-facturatie?', a: 'E-facturatie via Peppol wordt in heel Europa verplicht — al van kracht in België, vanaf september 2026 in Frankrijk en EU-breed richting 2030. Combineer dit met onze <a href="/producten/exact-online">Influx Exact Connector</a> voor Peppol-conforme facturatie volgens EN 16931.' },
+  { q: 'Zorgt schone data ook voor betere facturatie?', a: 'Zeker. Correcte bedrijfs- en btw-gegevens vormen de basis voor foutloze facturen. Veel klanten combineren Datasolver daarom met onze <a href="/producten/billing-module">Billing Module</a>.' },
+  { q: 'Helpt het bij het opschonen van een vervuilde database?', a: 'Ja. Bestaande accounts worden verrijkt met actuele gegevens en periodiek gecontroleerd. Voor een grondige aanpak kijken onze <a href="/diensten/consultancy">consultancy</a>-experts graag met u mee.' },
+  { q: 'Is er een demo of proefperiode?', a: 'Ja. <a href="/contact">Neem contact op</a> voor een demo of een vrijblijvende proefperiode van de Datasolver-module.' },
+];
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })),
+});
+---
+
+<Layout title="Datasolver / KvK-integratie — Verrijk uw Salesforce-data" description="Automatiseer de verrijking van uw bedrijfsdata in Salesforce: KvK-gegevens, VIES btw-validatie en Peppol Directory. Altijd actuele, betrouwbare data.">
+
+  <section class="pp-hero">
+    <div class="pp-aurora" aria-hidden="true"><span></span><span></span></div>
+    <div class="container pp-hero-inner">
+      <div class="pp-hero-copy">
+        <span class="pp-badge"><span class="pp-badge-dot"></span> Datasolver · Integratie</span>
+        <h1>Verrijk uw <span class="gradient-text">bedrijfsdata</span> automatisch</h1>
+        <p>Haal KvK-gegevens op, valideer btw-nummers en vind Peppol-ID's — <strong>zonder Salesforce te verlaten.</strong> Altijd actuele, schone data om op te bouwen.</p>
+        <div class="pp-hero-actions">
+          <a href="#demo" class="btn btn-primary">Vraag een demo aan</a>
+          <a href="/contact" class="btn btn-outline">Gratis proberen</a>
+        </div>
+      </div>
+      <div class="pp-hero-visual">
+        <div class="ds-card">
+          <div class="ds-search">
+            <span class="ds-search-ico">🔍</span>
+            <span class="ds-search-txt">KvK 34216805</span>
+            <span class="ds-search-cursor"></span>
+          </div>
+          <div class="ds-result">
+            <div class="ds-result-head">
+              <span class="ds-logo">🏢</span>
+              <div><strong>Resolve IT B.V.</strong><small>Hoofdvestiging · Actief</small></div>
+              <span class="ds-check">✓</span>
+            </div>
+            <div class="ds-fields">
+              <div class="ds-field"><span>Rechtsvorm</span><b>B.V.</b></div>
+              <div class="ds-field"><span>SBI-code</span><b>62010</b></div>
+              <div class="ds-field"><span>Btw (VIES)</span><b class="ds-valid">Geldig ✓</b></div>
+              <div class="ds-field"><span>Peppol-ID</span><b>0106:8412…</b></div>
+              <div class="ds-field"><span>Medewerkers</span><b>10+</b></div>
+              <div class="ds-field"><span>Adres</span><b>Nederland</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pp-trust">
+    <div class="container pp-trust-grid">
+      <div><strong>KvK</strong><span>Handelsregister</span></div>
+      <div><strong>VIES</strong><span>btw-validatie</span></div>
+      <div><strong>Peppol</strong><span>e-facturatie-ready</span></div>
+      <div><strong>Auto</strong><span>periodieke updates</span></div>
+    </div>
+  </section>
+
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Functionaliteiten</span>
+        <h2>Drie krachtige tools, één module</h2>
+        <p>Verrijken, valideren en e-facturatie-proof maken — allemaal binnen Salesforce.</p>
+      </div>
+      <div class="grid-3">
+        {features.map((f, i) => (
+          <div class="card pp-feature reveal" style={`--reveal-delay:${(i % 3) * 0.08}s`}>
+            <div class="pp-feature-ico">{f.icon}</div>
+            <h3>{f.title}</h3>
+            <p class="text-muted">{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Wat u ophaalt</span>
+        <h2>Volledige bedrijfsgegevens, met één klik</h2>
+        <p>Direct uit het Handelsregister naar uw Salesforce-record.</p>
+      </div>
+      <div class="ds-fieldgrid reveal">
+        {dataFields.map(f => <span class="ds-fieldchip">{f}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-off-white">
+    <div class="container ds-price-wrap">
+      <div class="reveal">
+        <span class="eyebrow">Waarom Datasolver?</span>
+        <h2>Stop met handmatig data overtypen</h2>
+        <ul class="list-check" style="margin-top:1.5rem;">
+          <li>Nieuwe klanten in seconden aangemaakt en verrijkt</li>
+          <li>Bestaande accounts automatisch actueel gehouden</li>
+          <li>Wettelijk correcte facturen door btw-validatie</li>
+          <li>Klaar voor verplichte Peppol e-facturatie</li>
+          <li>Minder fouten, schonere database</li>
+        </ul>
+      </div>
+      <div class="pp-plan popular reveal" style="max-width:360px;">
+        <span class="pp-plan-flag">Populairste keuze</span>
+        <span class="pp-plan-name">Premium</span>
+        <div class="pp-plan-price"><span class="cur">€</span>95<span class="per">/mnd</span></div>
+        <span class="pp-plan-sub">Alles-in-één bedrijfsdata</span>
+        <ul class="list-check">
+          <li>Nieuwe bedrijven opzoeken</li>
+          <li>Bestaande bedrijven verrijken</li>
+          <li>Automatische periodieke checks</li>
+          <li>VIES btw-validatie</li>
+          <li>Peppol Directory</li>
+        </ul>
+        <a href="#demo" class="btn btn-primary">Vraag een demo aan</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:820px;">
+      <div class="section-header reveal"><span class="eyebrow">Veelgestelde vragen</span><h2>Goed om te weten</h2></div>
+      <div class="pp-faq-list">
+        {faqs.map(f => (
+          <details class="pp-faq reveal"><summary>{f.q}<span class="pp-faq-plus">+</span></summary><p set:html={f.a} /></details>
+        ))}
+      </div>
+    </div>
+    <script type="application/ld+json" set:html={faqJsonLd} is:inline />
+  </section>
+
+  <section class="pp-cta bg-dark">
+    <div class="pp-cta-glow" aria-hidden="true"></div>
+    <div class="container pp-cta-inner reveal">
+      <div><h2>Klaar voor schone, actuele bedrijfsdata?</h2><p>Vraag een demo aan of probeer Datasolver gratis.</p></div>
+      <div class="pp-cta-actions">
+        <a href="#demo" class="btn btn-primary">Vraag een demo aan</a>
+        <a href="/contact" class="btn btn-outline">Stel een vraag</a>
+      </div>
+    </div>
+  </section>
+
+  <FormModal id="demo" title="Vraag een demo aan — Datasolver" formUrl={pardotForms.demoKvk} />
+
+</Layout>
+
+<style>
+.pp-hero-visual { position: relative; }
+.ds-card { background: #fff; border-radius: var(--radius-lg); box-shadow: 0 30px 70px rgba(0,0,0,0.45); padding: 1.5rem; animation: float-y 7s ease-in-out infinite; }
+.ds-search { display: flex; align-items: center; gap: 0.6rem; background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: 10px; padding: 0.7rem 1rem; margin-bottom: 1.25rem; }
+.ds-search-txt { font-weight: 600; color: var(--color-text); font-size: 0.95rem; }
+.ds-search-cursor { width: 2px; height: 18px; background: var(--color-green); animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.ds-result-head { display: flex; align-items: center; gap: 0.75rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-light); margin-bottom: 1rem; }
+.ds-logo { width: 40px; height: 40px; border-radius: 10px; background: rgba(109,183,87,0.14); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+.ds-result-head strong { display: block; color: var(--color-text); font-size: 0.95rem; }
+.ds-result-head small { color: var(--color-text-muted); font-size: 0.78rem; }
+.ds-check { margin-left: auto; width: 26px; height: 26px; border-radius: 50%; background: var(--color-green); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; }
+.ds-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem 1.25rem; }
+.ds-field { display: flex; justify-content: space-between; font-size: 0.82rem; border-bottom: 1px dashed var(--color-light); padding-bottom: 0.4rem; }
+.ds-field span { color: var(--color-text-muted); }
+.ds-field b { color: var(--color-text); }
+.ds-valid { color: var(--color-green-dark) !important; }
+.ds-fieldgrid { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+.ds-fieldchip { background: var(--color-white); border: 1px solid var(--color-light); border-radius: 999px; padding: 0.6rem 1.25rem; font-weight: 600; font-size: 0.88rem; box-shadow: var(--shadow); transition: all var(--transition); }
+.ds-fieldchip:hover { border-color: rgba(109,183,87,0.5); color: var(--color-green-dark); transform: translateY(-2px); }
+.ds-price-wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; justify-items: center; }
+@media (max-width: 820px) { .ds-price-wrap { grid-template-columns: 1fr; gap: 2.5rem; } }
+</style>

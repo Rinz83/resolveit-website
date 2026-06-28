@@ -1,0 +1,48 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ServiceDetail from '../../../components/ServiceDetail.astro';
+---
+<Layout title="Training & Best Practices" description="User training and admin certification so your team manages Salesforce confidently and independently. The best implementation deserves the best adoption.">
+  <ServiceDetail
+    lang="en"
+    eyebrow="Service · Training & Best Practices"
+    title="A team that truly embraces Salesforce"
+    intro="The best implementation delivers nothing if no one uses the system. That’s why we make your team confident and self-reliant — from end user to administrator. So you keep control in-house and get the most out of your Salesforce investment."
+    heroStats={[{ num: 'In-house', label: 'knowledge & control' }, { num: 'Tailored', label: 'per role' }, { num: 'Higher', label: 'adoption' }]}
+    image="/images/cases/case-5.jpg"
+    whatTitle="Adoption isn’t an afterthought, it’s an investment"
+    whatText={[
+      'People remember how they do their work, not which button does what. That’s why we train around concrete daily tasks instead of isolated features. So the knowledge sticks and your team actually uses the system.',
+      'From user training to advanced admin certification: we build knowledge that stays in your organisation. You don’t become dependent on outsiders, but keep control of your own Salesforce environment.',
+    ]}
+    whatList={[
+      'Training tailored to roles and daily tasks',
+      'Admin training for in-house management and certification',
+      'Best practices that prevent mistakes',
+      'Ongoing coaching and knowledge retention',
+    ]}
+    deliverables={[
+      { icon: '🎓', title: 'User training', text: 'Practical, tailored training so everyone is productive right away.' },
+      { icon: '🛠️', title: 'Admin certification', text: 'Trained administrators who manage and adjust Salesforce independently.' },
+      { icon: '📘', title: 'Best practices', text: 'Proven ways of working and clear agreements for consistent use.' },
+      { icon: '🤝', title: 'Ongoing coaching', text: 'Guidance that grows with you, with documentation and manuals.' },
+    ]}
+    steps={[
+      { title: 'Baseline', text: 'We map how your team works and where the biggest opportunities to become more efficient lie.' },
+      { title: 'Tailored training', text: 'We train around concrete tasks, aligned with the roles within your organisation.' },
+      { title: 'Best practices', text: 'We share proven ways of working and set a shared standard for data and usage.' },
+      { title: 'Embed', text: 'With key users, documentation and ongoing coaching, the knowledge stays in-house.' },
+    ]}
+    why={[
+      { icon: '🧠', title: 'Knowledge that stays', text: 'We make you self-reliant instead of dependent. You keep control.' },
+      { icon: '🎯', title: 'Task-focused', text: 'We train on the work your people actually do, not on isolated features.' },
+      { icon: '🌱', title: 'Lasting adoption', text: 'With key users and periodic sessions we keep usage up to standard.' },
+    ]}
+    faqs={[
+      { q: 'Do you train end users as well as administrators?', a: 'Yes. We provide user training for daily work and advanced admin training up to certification, so you can manage Salesforce in-house.' },
+      { q: 'How do you ensure lasting adoption?', a: 'We involve users early, train task-by-task and deploy key users as ambassadors.' },
+      { q: 'Can you combine training with implementation?', a: 'Certainly. Training is a standard part of our <a href="/en/diensten/implementatie">implementation & onboarding</a>, but also available separately for an existing environment.' },
+      { q: 'Is the training tailored to our situation?', a: 'Always. We align with your processes, roles and goals. <a href="/en/contact#afspraak">Schedule a call</a> to discuss the options.' },
+    ]}
+  />
+</Layout>

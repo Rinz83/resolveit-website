@@ -1,0 +1,188 @@
+---
+import '../styles/product.css';
+
+export interface Props {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  heroStats?: { num: string; label: string }[];
+  image: string;
+  whatTitle: string;
+  whatText: string[];
+  whatList?: string[];
+  steps: { title: string; text: string }[];
+  stepsTitle?: string;
+  deliverables: { icon: string; title: string; text: string }[];
+  deliverablesTitle?: string;
+  why: { icon: string; title: string; text: string }[];
+  faqs?: { q: string; a: string }[];
+}
+const {
+  eyebrow, title, intro, heroStats = [], image,
+  whatTitle, whatText, whatList = [],
+  steps, stepsTitle,
+  deliverables, deliverablesTitle,
+  why, faqs = [],
+  lang = 'nl',
+} = Astro.props;
+
+const en = lang === 'en';
+const T = {
+  planGesprek: en ? 'Schedule a call' : 'Plan een gesprek',
+  bekijkCases: en ? 'View cases' : 'Bekijk cases',
+  watWeDoen: en ? 'What we do' : 'Wat we doen',
+  aanpak: stepsTitle || (en ? 'Our approach' : 'Onze aanpak'),
+  zoPakken: en ? 'How we get it done' : 'Zo pakken we het aan',
+  deliverables: deliverablesTitle || (en ? 'What you get' : 'Wat u krijgt'),
+  waarom: en ? 'Why Resolve IT' : 'Waarom Resolve IT',
+  waaromTitle: en ? 'The partner that gets the job done' : 'De partner die de klus klaart',
+  waaromIntro: en ? 'We combine deep Salesforce expertise with a practical approach — and stay involved until you see real results.' : 'Wij combineren diepgaande Salesforce-expertise met een praktische aanpak — en blijven betrokken tot u écht resultaat boekt.',
+  faqEyebrow: en ? 'Frequently asked questions' : 'Veelgestelde vragen',
+  faqTitle: en ? 'Good to know' : 'Goed om te weten',
+  ctaTitle: en ? 'Ready to get started together?' : 'Klaar om samen aan de slag te gaan?',
+  ctaText: en ? 'Schedule a no-obligation call. We think along with you and show you what is possible.' : 'Plan een vrijblijvend gesprek. We denken met u mee en laten u zien wat er mogelijk is.',
+  stelVraag: en ? 'Ask a question' : 'Stel een vraag',
+  contact: en ? '/en/contact' : '/contact',
+  cases: en ? '/en/cases' : '/cases',
+};
+---
+
+<!-- HERO -->
+<section class="pp-hero">
+  <div class="pp-aurora" aria-hidden="true"><span></span><span></span></div>
+  <div class="container pp-hero-inner">
+    <div class="pp-hero-copy">
+      <span class="pp-badge"><span class="pp-badge-dot"></span> {eyebrow}</span>
+      <h1>{title}</h1>
+      <p>{intro}</p>
+      <div class="pp-hero-actions">
+        <a href={`${T.contact}#afspraak`} class="btn btn-primary">{T.planGesprek}</a>
+        <a href={T.cases} class="btn btn-outline">{T.bekijkCases}</a>
+      </div>
+      {heroStats.length > 0 && (
+        <div class="sd-hero-stats">
+          {heroStats.map(s => <div><strong>{s.num}</strong><span>{s.label}</span></div>)}
+        </div>
+      )}
+    </div>
+    <div class="sd-hero-visual">
+      <img src={image} alt={title} />
+      <div class="sd-hero-badge"><span>🏅</span><div><strong>Salesforce</strong><small>Certified Partner</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WAT WE DOEN -->
+<section class="section">
+  <div class="container sd-what">
+    <div class="reveal">
+      <span class="eyebrow">{T.watWeDoen}</span>
+      <h2>{whatTitle}</h2>
+      {whatText.map(p => <p class="text-muted">{p}</p>)}
+      {whatList.length > 0 && (
+        <ul class="list-check" style="margin-top:1.25rem;">{whatList.map(l => <li>{l}</li>)}</ul>
+      )}
+    </div>
+    <div class="sd-deliverables reveal">
+      <h3>{T.deliverables}</h3>
+      <div class="sd-deliv-list">
+        {deliverables.map(d => (
+          <div class="sd-deliv">
+            <span class="sd-deliv-ico">{d.icon}</span>
+            <div><strong>{d.title}</strong><p class="text-muted">{d.text}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AANPAK / STEPS -->
+<section class="section bg-dark pp-how">
+  <div class="pp-how-glow" aria-hidden="true"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="section-header reveal">
+      <span class="eyebrow">{T.aanpak}</span>
+      <h2 class="text-white">{T.zoPakken}</h2>
+    </div>
+    <div class="pp-steps">
+      {steps.map((s, i) => (
+        <div class="pp-step reveal" style={`--reveal-delay:${i * 0.1}s`}>
+          <div class="pp-step-n">{i + 1}</div>
+          <h3 class="text-white">{s.title}</h3>
+          <p style="color:rgba(255,255,255,0.72)">{s.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- WHY RESOLVE IT -->
+<section class="section bg-off-white">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">{T.waarom}</span>
+      <h2>{T.waaromTitle}</h2>
+      <p>{T.waaromIntro}</p>
+    </div>
+    <div class="grid-3">
+      {why.map((w, i) => (
+        <div class="card pp-feature reveal" style={`--reveal-delay:${(i % 3) * 0.08}s`}>
+          <div class="pp-feature-ico">{w.icon}</div>
+          <h3>{w.title}</h3>
+          <p class="text-muted">{w.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{faqs.length > 0 && (
+  <section class="section">
+    <div class="container" style="max-width:820px;">
+      <div class="section-header reveal"><span class="eyebrow">{T.faqEyebrow}</span><h2>{T.faqTitle}</h2></div>
+      <div class="pp-faq-list">
+        {faqs.map(f => (
+          <details class="pp-faq reveal"><summary>{f.q}<span class="pp-faq-plus">+</span></summary><p set:html={f.a} /></details>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- CTA -->
+<section class="pp-cta bg-dark">
+  <div class="pp-cta-glow" aria-hidden="true"></div>
+  <div class="container pp-cta-inner reveal">
+    <div><h2>{T.ctaTitle}</h2><p>{T.ctaText}</p></div>
+    <div class="pp-cta-actions">
+      <a href={`${T.contact}#afspraak`} class="btn btn-primary">{T.planGesprek}</a>
+      <a href={T.contact} class="btn btn-outline">{T.stelVraag}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.pp-hero-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 4rem; align-items: center; }
+@media (max-width: 860px) { .pp-hero-inner { grid-template-columns: 1fr; gap: 3rem; } }
+.sd-hero-stats { display: flex; gap: 2.5rem; margin-top: 2.5rem; }
+.sd-hero-stats strong { display: block; font-size: 1.7rem; font-weight: 800; color: var(--color-green-soft); }
+.sd-hero-stats span { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+.sd-hero-visual { position: relative; }
+.sd-hero-visual img { width: 100%; border-radius: var(--radius-lg); box-shadow: 0 30px 70px rgba(0,0,0,0.45); aspect-ratio: 4/3; object-fit: cover; }
+.sd-hero-badge { position: absolute; bottom: -18px; left: -18px; background: #fff; border-radius: 14px; padding: 0.7rem 1rem; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 0.6rem; }
+.sd-hero-badge span { font-size: 1.5rem; }
+.sd-hero-badge strong { display: block; font-size: 0.9rem; color: var(--color-text); }
+.sd-hero-badge small { font-size: 0.72rem; color: var(--color-text-muted); }
+@media (max-width: 860px) { .sd-hero-stats { gap: 1.75rem; } }
+
+.sd-what { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+@media (max-width: 860px) { .sd-what { grid-template-columns: 1fr; gap: 2.5rem; } }
+.sd-deliverables { background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg); padding: 2rem; }
+.sd-deliverables h3 { margin-bottom: 1.25rem; }
+.sd-deliv-list { display: flex; flex-direction: column; gap: 1.1rem; }
+.sd-deliv { display: flex; gap: 0.85rem; align-items: flex-start; }
+.sd-deliv-ico { font-size: 1.4rem; flex-shrink: 0; }
+.sd-deliv strong { display: block; margin-bottom: 0.15rem; }
+.sd-deliv p { font-size: 0.9rem; }
+</style>

@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+---
+<Layout title="Salesforce Audit & Consultancy" description="Haal meer uit uw bestaande Salesforce. Met een gratis assessment brengen we quick wins, procesverbeteringen en een heldere roadmap in kaart.">
+  <ServiceDetail
+    eyebrow="Dienst · Audit & Consultancy"
+    title="Haal méér uit de Salesforce die u al heeft"
+    intro="Loopt uw Salesforce-omgeving niet zoals u hoopte? U bent niet de enige. Met onze audit brengen we onafhankelijk in kaart waar de kansen en knelpunten zitten — en bepalen we samen uw roadmap naar succes. Vrijblijvend, met een gratis assessment als startpunt."
+    heroStats={[{ num: 'Gratis', label: 'assessment' }, { num: 'Quick', label: 'wins eerst' }, { num: '300+', label: 'projecten' }]}
+    image="/images/cases/case-4.jpg"
+    whatTitle="Onafhankelijk advies dat u verder brengt"
+    whatText={[
+      'Veel organisaties benutten maar een fractie van wat Salesforce kan. Processen zijn organisch gegroeid, rapportages kloppen niet meer en niemand weet nog precies waarom het systeem doet wat het doet.',
+      'Wij kijken er met een frisse, onafhankelijke blik naar. We adviseren in úw belang — niet vanuit de wens om licenties te verkopen — en vertalen onze bevindingen naar concrete stappen die meteen resultaat opleveren.',
+    ]}
+    whatList={[
+      'Onafhankelijk: we adviseren wat ú verder helpt',
+      'Concreet: aanbevelingen die u direct kunt oppakken',
+      'Quick wins eerst: snel resultaat, daarna de lange termijn',
+      'Onderbouwd met data uit uw eigen omgeving',
+    ]}
+    deliverablesTitle="Wat u krijgt"
+    deliverables={[
+      { icon: '🔍', title: 'Gratis assessment', text: 'Een eerste analyse van uw omgeving, zonder verplichtingen.' },
+      { icon: '⚡', title: 'Quick wins', text: 'Wijzigingen met lage inspanning en hoge impact, voor direct merkbaar resultaat.' },
+      { icon: '🛠️', title: 'Procesverbeteringen', text: 'Geoptimaliseerde workflows en automatisering die uw team efficiënter maken.' },
+      { icon: '🗺️', title: 'Strategische roadmap', text: 'Een geprioriteerd plan met features, integraties en maatwerk dat uw groei ondersteunt.' },
+    ]}
+    steps={[
+      { title: 'Assessment', text: 'We starten met een gratis assessment en duiken in uw inrichting, processen, data en gebruikersadoptie.' },
+      { title: 'Analyse', text: 'We brengen knelpunten en kansen in kaart — van security en datakwaliteit tot ongebruikte functionaliteit.' },
+      { title: 'Advies', text: 'U ontvangt een helder rapport met quick wins en structurele verbeterpunten, geprioriteerd op impact.' },
+      { title: 'Roadmap', text: 'Samen bepalen we de volgorde en pakken we de verbeteringen op — zelf of met onze hulp.' },
+    ]}
+    why={[
+      { icon: '🎯', title: 'Echt onafhankelijk', text: 'Geen verborgen agenda. We zeggen ook eerlijk wat niet werkt of overbodig is.' },
+      { icon: '📊', title: 'Onderbouwd', text: 'Onze aanbevelingen berusten op data uit uw eigen Salesforce, niet op aannames.' },
+      { icon: '💬', title: 'Begrijpelijk', text: 'Geen jargon. U krijgt advies dat uw hele organisatie begrijpt en kan uitvoeren.' },
+    ]}
+    faqs={[
+      { q: 'Is het assessment echt gratis?', a: 'Ja. We starten met een vrijblijvend assessment van uw Salesforce-omgeving, zodat u precies weet waar u staat voordat u iets beslist.' },
+      { q: 'Wat onderzoeken jullie precies?', a: 'Onder andere uw inrichting, processen, automatiseringen, datakwaliteit, security/AVG en gebruikersadoptie. Lees meer in onze blog <a href="/blog/wat-verwachten-salesforce-audit">wat u kunt verwachten van onze Salesforce-audit</a>.' },
+      { q: 'Voor wie is een audit geschikt?', a: 'Voor groeiende mkb-organisaties, grotere ondernemingen en organisaties die een nieuwe implementatie plannen — kortom, iedereen die het maximale uit Salesforce wil halen.' },
+      { q: 'Moeten we daarna met jullie verder?', a: 'Nee. U kunt de aanbevelingen ook zelf oppakken. Wilt u hulp, dan staan we klaar. <a href="/contact#afspraak">Plan een gesprek</a>.' },
+    ]}
+  />
+</Layout>

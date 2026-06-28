@@ -1,0 +1,212 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FormModal from '../../components/FormModal.astro';
+import { calendlyUrl, pardotForms } from '../../i18n/ui.js';
+import '../../styles/product.css';
+
+const features = [
+  { icon: '📁', title: 'Automatisch documentbeheer', text: 'Mappen en bestanden worden automatisch en uniform aangemaakt. Zelf bestanden toevoegen en beheren — en nooit meer zoeken.' },
+  { icon: '☁️', title: 'Directe SharePoint-opslag', text: 'Bestanden die u in Salesforce uploadt, gaan automatisch naar SharePoint. Nul extra dataverbruik in Salesforce, mét versiebeheer en samenwerking.' },
+  { icon: '📦', title: 'Naadloze migratie', text: 'Bestaande Salesforce-bestanden verhuizen automatisch naar SharePoint, met behoud van de mappenstructuur — en flink lagere opslagkosten.' },
+  { icon: '🤝', title: 'Vertrouwde werkomgeving', text: 'Uw team werkt gewoon in Salesforce; het beheer gebeurt op de achtergrond in SharePoint. Wijzigingen synchroniseren automatisch.' },
+  { icon: '🗂️', title: 'Mappen koppelen', text: 'Pin mappen aan standaard- en custom Salesforce-objecten, zodat documenten altijd op de juiste plek bij het juiste record staan.' },
+  { icon: '🔐', title: 'Rechten & rollen', text: 'Geavanceerde permissie-synchronisatie en rolgebaseerde toegang, verspreid over meerdere SharePoint-sites.' },
+];
+
+const steps = [
+  { n: '1', title: 'Installeren', text: 'Na installatie verschijnt de module direct in Salesforce — klaar voor gebruik.' },
+  { n: '2', title: 'Opslaan', text: 'Sla documenten op zoals u gewend bent. De koppeling regelt de rest op de achtergrond.' },
+  { n: '3', title: 'Synchroniseren', text: 'Bestanden landen automatisch in SharePoint, in een mappenstructuur die uw Salesforce-objecten volgt.' },
+  { n: '4', title: 'Samenwerken', text: 'Open, bewerk en deel vanuit beide platformen — wijzigingen synchroniseren door de hele organisatie.' },
+];
+
+const plans = [
+  { name: 'Light', price: '5', sub: 'De basis op orde', features: ['Standaard mappenstructuur voor accounts', 'Alleen standaard objecten', 'Mappen aanmaken & hernoemen', 'Bestanden bekijken/bewerken in SharePoint', 'Word, Excel, PowerPoint, PDF'], popular: false },
+  { name: 'Pro', price: '7', sub: 'Voor dagelijkse samenwerking', features: ['Alles uit Light', 'Mappen pinnen aan objecten', 'Koppelen aan standaard & custom objecten', 'Volledige Office realtime samenwerking', 'Alle bestandstypen'], popular: true },
+  { name: 'Enterprise', price: '8', sub: 'Voor complexe organisaties', features: ['Alles uit Pro', 'Migratieservice (Salesforce → SharePoint)', 'Meerdere SharePoint-sites', 'Flow Automation & maatwerk', 'Rechten-synchronisatie & rollen', 'Dedicated accountmanager'], popular: false },
+];
+
+const faqs = [
+  { q: 'Verbruikt de SharePoint-koppeling Salesforce-opslag?', a: 'Nee. Bestanden worden in SharePoint opgeslagen, niet in Salesforce. Dat scheelt aanzienlijk in opslagkosten — terwijl uw team in de vertrouwde Salesforce-interface blijft werken.' },
+  { q: 'Worden bestaande bestanden mee gemigreerd?', a: 'Met de Enterprise-licentie verhuist onze migratieservice bestaande Salesforce-bestanden automatisch naar SharePoint, met behoud van de mappenstructuur. Wilt u dit begeleid laten verlopen? Bekijk onze <a href="/diensten/implementatie">implementatie &amp; onboarding</a>.' },
+  { q: 'Werkt het met meerdere SharePoint-sites?', a: 'Ja. De integratie ondersteunt multidisciplinaire teams verspreid over meerdere SharePoint-sites en schaalt mee met uw organisatie, inclusief rechten- en rollenbeheer.' },
+  { q: 'Welke bestandstypen worden ondersteund?', a: 'In de Light-licentie de standaard Office-types (Word, Excel, PowerPoint) en PDF; vanaf de Pro-licentie zijn alle bestandstypen toegestaan.' },
+  { q: 'Kan ik mappen koppelen aan custom objecten?', a: 'Ja, vanaf de Pro-licentie pint u mappen aan zowel standaard- als custom Salesforce-objecten, zodat documenten altijd bij het juiste record staan. De Light-licentie werkt met standaard objecten.' },
+  { q: 'Hoe veilig en compliant is de opslag?', a: 'U benut de beveiliging, versiebeheer en het rechtenmodel van SharePoint zelf. Met de Enterprise-licentie synchroniseert de koppeling permissies en rolgebaseerde toegang met uw Salesforce-rollen.' },
+  { q: 'Hoe werkt de installatie?', a: 'Na installatie verschijnt de module direct in Salesforce. Bestanden die u uploadt, synchroniseren automatisch op de achtergrond naar SharePoint — zonder dat gebruikers iets merken.' },
+  { q: 'Kan ik dit combineren met andere maatwerkkoppelingen?', a: 'Zeker. Onze <a href="/diensten/development">development &amp; integratie</a>-consultants koppelen SharePoint desgewenst aan uw bredere proces, inclusief Flow Automation en maatwerk.' },
+  { q: 'Is er een demo of proefperiode?', a: 'Ja. <a href="/contact">Neem contact op</a> voor een demo of een gratis proef van de SharePoint-koppeling.' },
+];
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })),
+});
+---
+
+<Layout title="SharePoint-integratie voor Salesforce" description="Beheer documenten naadloos vanuit Salesforce, opgeslagen in SharePoint. Geen extra Salesforce-opslag, automatische synchronisatie en migratie.">
+
+  <section class="pp-hero">
+    <div class="pp-aurora" aria-hidden="true"><span></span><span></span></div>
+    <div class="container pp-hero-inner">
+      <div class="pp-hero-copy">
+        <span class="pp-badge"><span class="pp-badge-dot"></span> SalesPoint · Salesforce × SharePoint</span>
+        <h1>Documenten in <span class="gradient-text">Salesforce</span>, opgeslagen in SharePoint</h1>
+        <p><strong>SalesPoint</strong> verbindt Salesforce en SharePoint in één naadloze koppeling. <strong>Geen dubbele opslag, geen geschakel</strong> — uw team werkt in Salesforce, SharePoint doet het werk op de achtergrond.</p>
+        <div class="pp-hero-actions">
+          <a href="#demo" class="btn btn-primary">Vraag een demo aan</a>
+          <a href="/contact" class="btn btn-outline">Gratis proberen</a>
+        </div>
+        <div class="sp-stores">
+          <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=af6947f7-045b-4d53-b61c-6076f7082235" target="_blank" rel="noopener" class="sp-store">
+            <img src="/images/logos/salesforce.svg" alt="Salesforce AppExchange" />
+            <span><small>Beschikbaar op</small><strong>Salesforce AppExchange</strong></span>
+          </a>
+          <a href="https://marketplace.microsoft.com/en-us/product/automateit.salespoint" target="_blank" rel="noopener" class="sp-store">
+            <img src="/images/logos/microsoft.svg" alt="Microsoft AppSource" />
+            <span><small>Beschikbaar op</small><strong>Microsoft AppSource</strong></span>
+          </a>
+        </div>
+      </div>
+      <div class="pp-hero-visual">
+        <div class="sp-flow">
+          <div class="sp-node sp-sf"><span class="sp-ico"><img src="/images/logos/salesforce.svg" alt="Salesforce" /></span><span>Salesforce</span></div>
+          <div class="sp-stream" aria-hidden="true">
+            <span class="sp-file f1">📄</span>
+            <span class="sp-file f2">📊</span>
+            <span class="sp-file f3">📑</span>
+          </div>
+          <div class="sp-node sp-sp">
+            <span class="sp-ico"><img src="/images/logos/sharepoint.svg" alt="SharePoint" /></span><span>SharePoint</span>
+          </div>
+        </div>
+        <div class="sp-folders">
+          <div class="sp-folder"><span>📂</span> Accounts / Resolve IT</div>
+          <div class="sp-folder"><span>📂</span> Offertes 2026</div>
+          <div class="sp-folder"><span>📂</span> Contracten <span class="sp-sync">⟳ gesynct</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pp-trust">
+    <div class="container pp-trust-grid">
+      <div><strong>0 MB</strong><span>Salesforce-opslag</span></div>
+      <div><strong>100+</strong><span>bedrijven sinds 2014</span></div>
+      <div><strong>Auto</strong><span>synchronisatie</span></div>
+      <div><strong>Office</strong><span>realtime samenwerken</span></div>
+    </div>
+  </section>
+
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Functionaliteiten</span>
+        <h2>Het beste van Salesforce én SharePoint</h2>
+        <p>“Het lijkt zó vanzelfsprekend, alsof Salesforce het zelf heeft gemaakt.”</p>
+      </div>
+      <div class="grid-3">
+        {features.map((f, i) => (
+          <div class="card pp-feature reveal" style={`--reveal-delay:${(i % 3) * 0.08}s`}>
+            <div class="pp-feature-ico">{f.icon}</div>
+            <h3>{f.title}</h3>
+            <p class="text-muted">{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark pp-how">
+    <div class="pp-how-glow" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="section-header reveal">
+        <span class="eyebrow">Zo werkt het</span>
+        <h2 class="text-white">Vier stappen, geen gedoe</h2>
+      </div>
+      <div class="pp-steps">
+        {steps.map((s, i) => (
+          <div class="pp-step reveal" style={`--reveal-delay:${i * 0.1}s`}>
+            <div class="pp-step-n">{s.n}</div>
+            <h3 class="text-white">{s.title}</h3>
+            <p style="color:rgba(255,255,255,0.72)">{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Licenties</span>
+        <h2>Kies de licentie die past</h2>
+        <p>Van basis-documentbeheer tot enterprise-migratie en rollenbeheer.</p>
+      </div>
+      <div class="pp-pricing">
+        {plans.map(p => (
+          <div class={`pp-plan reveal ${p.popular ? 'popular' : ''}`}>
+            {p.popular && <span class="pp-plan-flag">Meest gekozen</span>}
+            <span class="pp-plan-name">{p.name}</span>
+            <div class="pp-plan-price"><span class="cur">€</span>{p.price}<span class="per">p/gebruiker p/mnd</span></div>
+            <span class="pp-plan-sub">{p.sub}</span>
+            <ul class="list-check">{p.features.map(f => <li>{f}</li>)}</ul>
+            <a href="#demo" class={`btn ${p.popular ? 'btn-primary' : 'btn-outline-dark'}`}>Kies {p.name}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-off-white">
+    <div class="container" style="max-width:820px;">
+      <div class="section-header reveal"><span class="eyebrow">Veelgestelde vragen</span><h2>Goed om te weten</h2></div>
+      <div class="pp-faq-list">
+        {faqs.map(f => (
+          <details class="pp-faq reveal"><summary>{f.q}<span class="pp-faq-plus">+</span></summary><p set:html={f.a} /></details>
+        ))}
+      </div>
+    </div>
+    <script type="application/ld+json" set:html={faqJsonLd} is:inline />
+  </section>
+
+  <section class="pp-cta bg-dark">
+    <div class="pp-cta-glow" aria-hidden="true"></div>
+    <div class="container pp-cta-inner reveal">
+      <div><h2>Klaar om documentchaos op te ruimen?</h2><p>Vraag een demo aan of start een gratis proef.</p></div>
+      <div class="pp-cta-actions">
+        <a href="#demo" class="btn btn-primary">Vraag een demo aan</a>
+        <a href="/contact" class="btn btn-outline">Stel een vraag</a>
+      </div>
+    </div>
+  </section>
+
+  <FormModal id="demo" title="Vraag een demo aan — SalesPoint" formUrl={pardotForms.demoSharepoint} />
+
+</Layout>
+
+<style>
+.pp-hero-visual { position: relative; }
+.sp-flow { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 2.5rem 1.5rem; }
+.sp-node { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; font-weight: 700; color: #fff; font-size: 0.95rem; }
+.sp-ico { width: 72px; height: 72px; border-radius: 16px; display: flex; align-items: center; justify-content: center; padding: 14px; background: #fff; border: 1px solid rgba(255,255,255,0.16); box-shadow: 0 10px 24px rgba(0,0,0,0.25); animation: float-y 6s ease-in-out infinite; }
+.sp-ico img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.sp-stores { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 1.75rem; }
+.sp-store { display: inline-flex; align-items: center; gap: 0.7rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0.55rem 1rem; text-decoration: none; transition: background var(--transition), border-color var(--transition); }
+.sp-store:hover { background: rgba(255,255,255,0.14); border-color: rgba(109,183,87,0.5); }
+.sp-store img { width: 30px; height: 30px; background: #fff; border-radius: 7px; padding: 4px; object-fit: contain; flex-shrink: 0; }
+.sp-store small { display: block; font-size: 0.68rem; color: rgba(255,255,255,0.6); }
+.sp-store strong { display: block; font-size: 0.9rem; color: #fff; }
+.sp-sp .sp-ico { animation-delay: 0.7s; }
+.sp-stream { position: relative; height: 56px; min-width: 90px; }
+.sp-file { position: absolute; top: 50%; font-size: 1.5rem; transform: translateY(-50%); animation: sp-move 3s linear infinite; }
+.sp-file.f2 { animation-delay: 1s; }
+.sp-file.f3 { animation-delay: 2s; }
+@keyframes sp-move { from { left: 0; opacity: 0; transform: translateY(-50%) scale(0.7); } 15% { opacity: 1; transform: translateY(-50%) scale(1); } 85% { opacity: 1; } to { left: 100%; opacity: 0; transform: translateY(-50%) scale(0.7); } }
+.sp-folders { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.25rem; }
+.sp-folder { display: flex; align-items: center; gap: 0.6rem; background: var(--color-dark-2); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 0.7rem 1rem; color: rgba(255,255,255,0.85); font-size: 0.85rem; font-weight: 500; }
+.sp-folder:nth-child(1) { animation: float-y 6s ease-in-out infinite; }
+.sp-folder:nth-child(3) { animation: float-y 6.5s ease-in-out infinite 0.5s; }
+.sp-sync { margin-left: auto; color: var(--color-green-soft); font-size: 0.75rem; font-weight: 700; }
+</style>

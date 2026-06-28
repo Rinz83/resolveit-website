@@ -1,0 +1,182 @@
+---
+import { getLangFromUrl, useTranslations, localize } from '../i18n/ui.js';
+const year = new Date().getFullYear();
+const lang = getLangFromUrl(Astro.url.pathname);
+const t = useTranslations(lang);
+const L = (p) => localize(p, lang);
+const en = lang === 'en';
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href={L('/')} class="footer-logo">
+        <img src="/images/Footer-logo.svg" alt="Resolve IT" width="150" height="70" />
+      </a>
+      <p>{t('footer.tagline')}</p>
+      <div class="footer-contact">
+        <a href="tel:+31411799828">📞 +31 411 799 828</a>
+        <a href="mailto:contact@resolveit.nl">✉ contact@resolveit.nl</a>
+        <a href="https://wa.me/0031617824620" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/resolveitnow/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>{t('footer.services')}</h4>
+      <ul>
+        <li><a href={L('/diensten/implementatie')}>{en ? 'Implementation & Onboarding' : 'Implementatie & Onboarding'}</a></li>
+        <li><a href={L('/diensten/consultancy')}>{en ? 'Audit & Consultancy' : 'Audit & Consultancy'}</a></li>
+        <li><a href={L('/diensten/development')}>{en ? 'Development & Integrations' : 'Development & Integraties'}</a></li>
+        <li><a href={L('/diensten/training')}>{en ? 'Training & Best Practices' : 'Training & Best Practices'}</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>{t('nav.producten')}</h4>
+      <ul>
+        <li><a href={L('/producten/billing-module')}>Billing Platform</a></li>
+        <li><a href={L('/producten/kvk-integratie')}>{en ? 'Datasolver (CoC)' : 'KvK Integratie'}</a></li>
+        <li><a href={L('/producten/exact-online')}>Exact Online</a></li>
+        <li><a href={L('/producten/sharepoint')}>{en ? 'SharePoint Integration' : 'SharePoint Integratie'}</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>{t('footer.sectoren')}</h4>
+      <ul>
+        <li><a href={L('/voor-wie/backoffice-services')}>Backoffice Services</a></li>
+        <li><a href={L('/voor-wie/saas')}>SaaS</a></li>
+        <li><a href={L('/voor-wie/professional-services')}>Professional Services</a></li>
+        <li><a href={L('/voor-wie/manufacturing')}>Manufacturing</a></li>
+        <li><a href={L('/voor-wie/recruitment')}>Recruitment</a></li>
+        <li><a href={L('/voor-wie/energie-utilities')}>{en ? 'Energy & Utilities' : 'Energie & Utilities'}</a></li>
+        <li><a href={L('/voor-wie/media-communicatie')}>{en ? 'Media & Communications' : 'Media & Communicatie'}</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>{t('footer.bedrijf')}</h4>
+      <ul>
+        <li><a href={L('/over-ons')}>{t('nav.overons')}</a></li>
+        <li><a href={L('/cases')}>{t('nav.cases')}</a></li>
+        <li><a href={L('/jobs')}>{t('nav.vacatures')}</a></li>
+        <li><a href={L('/blog')}>{t('nav.blog')}</a></li>
+        <li><a href={L('/contact')}>{t('nav.contact')}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>© Resolve IT • Copyright {year}</p>
+      <div class="footer-legal">
+        <a href={L('/algemene-voorwaarden')}>{en ? 'Terms & Conditions' : 'Algemene voorwaarden'}</a>
+        <a href={L('/privacybeleid')}>{en ? 'Privacy Policy' : 'Privacybeleid'}</a>
+        <a href={L('/cookiebeleid')}>{en ? 'Cookie Policy' : 'Cookiebeleid'}</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.site-footer {
+  background: var(--color-dark);
+  color: rgba(255,255,255,0.75);
+  padding-top: 4rem;
+  margin-top: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-brand .footer-logo {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+.footer-brand .footer-logo img { height: 54px; width: auto; }
+.footer-brand p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+.footer-contact a {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.7);
+  transition: color var(--transition);
+}
+.footer-contact a:hover { color: var(--color-accent); }
+
+.footer-social { display: flex; gap: 0.75rem; }
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  transition: all var(--transition);
+}
+.footer-social a:hover {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+.footer-col h4 {
+  color: var(--color-white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col a {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.65);
+  transition: color var(--transition);
+}
+.footer-col a:hover { color: var(--color-accent); }
+
+.footer-bottom {
+  padding: 1.25rem 0;
+}
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  flex-wrap: wrap;
+}
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a {
+  color: rgba(255,255,255,0.4);
+  transition: color var(--transition);
+}
+.footer-legal a:hover { color: rgba(255,255,255,0.8); }
+
+@media (max-width: 1000px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 540px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom-inner { flex-direction: column; align-items: flex-start; }
+}
+</style>

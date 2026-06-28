@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { calendlyUrl, pardotForms } from '../i18n/ui.js';
+---
+
+<Layout title="Contact" description="Neem contact op met Resolve IT. Bel, mail of plan direct een afspraak in via onze agenda.">
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Neem contact op</span>
+      <h1>Hoe kunnen wij u helpen?</h1>
+      <p>Vul het formulier in en we nemen zo snel mogelijk contact met u op. Of gebruik een van de directe kanalen hieronder.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container contact-grid">
+
+      <!-- FORM (Pardot — connected to our CRM) -->
+      <div class="contact-form-col">
+        <h2>Stuur ons een bericht</h2>
+        <iframe
+          class="pardot-form"
+          src={pardotForms.contact}
+          title="Contactformulier Resolve IT"
+          loading="lazy"
+          scrolling="no"
+        ></iframe>
+      </div>
+
+      <!-- INFO -->
+      <div class="contact-info-col">
+        <div class="contact-card">
+          <h3>Direct contact</h3>
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <div>
+              <strong>Telefoon</strong>
+              <a href="tel:+31411799828">+31 411 799 828</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <div>
+              <strong>E-mail</strong>
+              <a href="mailto:contact@resolveit.nl">contact@resolveit.nl</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">💬</span>
+            <div>
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/0031617824620" target="_blank" rel="noopener">Stuur een bericht</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🔗</span>
+            <div>
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/company/resolveitnow/" target="_blank" rel="noopener">Resolve IT</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card" style="margin-top:1.5rem;">
+          <h3>Afspraak inplannen</h3>
+          <p class="text-muted">Liever direct een gesprek inplannen? Kies een moment dat u uitkomt.</p>
+          <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-outline-dark" style="margin-top:1rem;width:100%;justify-content:center;">
+            📅 Plan een afspraak
+          </a>
+        </div>
+
+        <div class="contact-card" style="margin-top:1.5rem;">
+          <h3>Wij zijn gecertificeerd</h3>
+          <p class="text-muted">Resolve IT is een gecertificeerde Salesforce-partner met 10+ gecertificeerde experts en een 5-sterren AppExchange-rating.</p>
+          <div class="cert-badges">
+            <span class="badge">Salesforce Partner</span>
+            <span class="badge">AppExchange ★★★★★</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.contact-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 4rem;
+  align-items: start;
+}
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+
+.contact-form-col h2 { margin-bottom: 2rem; }
+
+.contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group label { font-size: 0.875rem; font-weight: 600; color: var(--color-text); }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid var(--color-light-gray);
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: var(--color-white);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(0, 170, 255, 0.12);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.form-check { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.875rem; }
+.form-check input { margin-top: 0.15rem; flex-shrink: 0; }
+.form-check a { color: var(--color-accent); }
+
+/* Contact info */
+.contact-card {
+  background: var(--color-off-white);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+.contact-card h3 { margin-bottom: 1.25rem; }
+
+.contact-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+.contact-item:last-child { margin-bottom: 0; }
+.contact-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 0.1rem; }
+.contact-item strong { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-muted); margin-bottom: 0.2rem; }
+.contact-item a { color: var(--color-primary); font-weight: 500; transition: color var(--transition); }
+.contact-item a:hover { color: var(--color-accent); }
+
+.cert-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+
+.pardot-form { width: 100%; min-height: 480px; border: 0; display: block; overflow: hidden; }
+</style>

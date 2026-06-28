@@ -1,0 +1,25 @@
+---
+// CRM (Pardot) form in a lightweight CSS-only modal.
+// Opens when the URL hash matches `id` (link to `#<id>`), closes via the
+// backdrop/close link (navigates to `#_`, which matches nothing).
+const { id, title, formUrl, height = 560 } = Astro.props;
+---
+<div class="fm" id={id} role="dialog" aria-modal="true" aria-label={title}>
+  <a class="fm-backdrop" href="#_" aria-label="Close" tabindex="-1"></a>
+  <div class="fm-panel">
+    <a class="fm-close" href="#_" aria-label="Close">&times;</a>
+    <h3 class="fm-title">{title}</h3>
+    <iframe class="pardot-form" src={formUrl} title={title} loading="lazy" scrolling="no" style={`height:${height}px`}></iframe>
+  </div>
+</div>
+
+<style>
+.fm { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; padding: 1rem; }
+.fm:target { display: flex; }
+.fm-backdrop { position: absolute; inset: 0; background: rgba(15,18,20,0.66); backdrop-filter: blur(2px); }
+.fm-panel { position: relative; z-index: 1; background: #fff; border-radius: 16px; width: 100%; max-width: 580px; max-height: 92vh; overflow: auto; padding: 1.75rem; box-shadow: 0 30px 70px rgba(0,0,0,0.4); }
+.fm-title { margin-bottom: 1rem; font-size: 1.25rem; color: var(--color-text); }
+.fm-close { position: absolute; top: 0.5rem; right: 0.9rem; font-size: 1.8rem; line-height: 1; color: var(--color-text-muted); text-decoration: none; }
+.fm-close:hover { color: var(--color-text); }
+.fm iframe { width: 100%; border: 0; display: block; overflow: hidden; }
+</style>

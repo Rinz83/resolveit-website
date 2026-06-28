@@ -1,0 +1,50 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SectorPage from '../../../components/SectorPage.astro';
+const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M3 20V10l5 3V10l5 3V6l5 4v10H3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
+---
+<Layout title="Salesforce for Manufacturing — orders, production & service" description="Salesforce for manufacturers: connect sales, order processing, production planning and service. Real-time grip on orders, forecasts, margins and customer relationships.">
+  <SectorPage
+    lang="en"
+    eyebrow="Industries · Manufacturing"
+    title="From quote to delivery — one chain, no separate islands"
+    intro="In manufacturing, every day of lead time and every euro of margin counts. We connect sales, order processing, production planning and service in Salesforce, so you steer in real time on orders, forecasts and customer satisfaction — and build stronger, longer-lasting relationships."
+    icon={icon}
+    dashboard={{
+      title: 'Orders & Production Dashboard',
+      kpis: [ { label: 'Order book', value: '€2.1M', trend: '▲ 11%' }, { label: 'On-time delivery', value: '96%', trend: '▲ 2%' } ],
+      barLabel: 'Orders per month',
+      bars: [52, 60, 57, 66, 73, 84],
+      ring: '96%', ringLabel: 'OTIF',
+      legend: [ { label: 'Open orders', value: '142', color: '#6db757' }, { label: 'In production', value: '38', color: '#85b160' }, { label: 'Delivered', value: '310', color: '#6c4494' } ],
+    }}
+    painLine="Sales promises, but production and logistics only see it later"
+    painPoints={[
+      'Orders and forecasts don’t match what production and planning can handle',
+      'Complex quotes with configurations and pricing take time and go wrong',
+      'Inventory and lead-time information is spread across separate systems',
+      'Service is reactive: without a central customer and installed-base view it’s firefighting',
+      'Margins per order only become clear afterwards',
+      'Sales forecasts are too unreliable to plan production against',
+    ]}
+    capabilities={[
+      { icon: '🧮', title: 'Quotes & configuration (CPQ)', text: 'Assemble complex quotes and configurations flawlessly with the right pricing — out the door faster.' },
+      { icon: '📦', title: 'Order management', text: 'Orders linked to the sales process, with status and lead time visible in real time.' },
+      { icon: '🔮', title: 'Sales forecasts', text: 'Reliable forecasts that production and procurement can actually plan against.' },
+      { icon: '🔧', title: 'Field service & maintenance', text: 'Plan service and maintenance around a central customer and installed-base view — proactive instead of reactive.' },
+      { icon: '🔗', title: 'ERP & inventory connection', text: 'Connect Salesforce to your ERP and production systems for one truth on inventory and orders.' },
+      { icon: '📊', title: 'Margin & order dashboards', text: 'Insight into order book, OTIF, margins and the full supply chain.' },
+    ]}
+    metrics={[
+      { num: 'Grip', label: 'on orders & forecasts' },
+      { num: 'Faster', label: 'quote turnaround' },
+      { num: 'Proactive', label: 'service' },
+      { num: 'Higher', label: 'delivery reliability' },
+    ]}
+    products={[
+      { label: 'Billing Platform', href: '/en/producten/billing-module', featured: true },
+      { label: 'Exact Online connection', href: '/en/producten/exact-online' },
+      { label: 'Datasolver', href: '/en/producten/kvk-integratie' },
+    ]}
+  />
+</Layout>

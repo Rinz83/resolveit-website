@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { sectors } from '../../data/sectors.js';
+
+const en = {
+  'backoffice-services': { label: 'Backoffice Services', desc: 'Invoicing, contracts, projects, time tracking & data enrichment — automated.', href: '/en/voor-wie/backoffice-services' },
+  'saas': { label: 'SaaS', desc: 'Scalable sales and customer-success processes.', href: '/en/voor-wie/saas' },
+  'professional-services': { label: 'Professional Services', desc: 'Projects, hours and invoicing seamlessly connected.', href: '/en/voor-wie/professional-services' },
+  'manufacturing': { label: 'Manufacturing', desc: 'Orders, inventory and production in real time.', href: '/en/voor-wie/manufacturing' },
+  'recruitment': { label: 'Recruitment', desc: 'Candidates, vacancies and placements in one pipeline.', href: '/en/voor-wie/recruitment' },
+  'energie-utilities': { label: 'Energy & Utilities', desc: 'Contracts, field service and compliance streamlined.', href: '/en/voor-wie/energie-utilities' },
+  'media-communicatie': { label: 'Media & Communications', desc: 'Advertising, subscribers and content in one system.', href: '/en/voor-wie/media-communicatie' },
+  'overige-sectoren': { label: 'Other industries', desc: 'Tailored Salesforce for any sector.', href: '/en/voor-wie/overige-sectoren' },
+};
+---
+
+<Layout title="Industries" description="Resolve IT delivers Salesforce solutions for backoffice services, SaaS, professional services, manufacturing, recruitment, energy, media and more.">
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Industries</span>
+      <h1>Salesforce for your sector</h1>
+      <p>Every industry has unique challenges. We understand yours and deliver solutions that truly fit — whether it’s your backoffice or your entire customer journey.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="sector-grid">
+        {sectors.map((s, i) => (
+          <a href={en[s.slug].href} class="sector-card reveal" style={`--reveal-delay:${(i % 4) * 0.07}s`}>
+            <span class="sector-ico" set:html={s.svg} />
+            <span class="sector-name">{en[s.slug].label}</span>
+            <span class="sector-desc">{en[s.slug].desc}</span>
+            <span class="sector-arrow" aria-hidden="true">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip bg-dark">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="container cta-strip-inner reveal">
+      <div>
+        <h2>Not sure which approach fits you?</h2>
+        <p>Schedule a no-obligation call — we’re happy to think along with you.</p>
+      </div>
+      <div class="cta-strip-actions">
+        <a href="/en/contact#afspraak" class="btn btn-primary">Schedule a call</a>
+        <a href="/en/contact" class="btn btn-outline">Ask a question</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+.sector-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+@media (max-width: 900px) { .sector-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .sector-grid { grid-template-columns: 1fr; } }
+.sector-card { position: relative; display: flex; flex-direction: column; gap: 0.4rem; background: var(--color-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg); padding: 1.6rem 1.5rem; color: var(--color-text); overflow: hidden; transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
+.sector-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(109,183,87,0.06), rgba(108,68,148,0.06)); opacity: 0; transition: opacity var(--transition); }
+.sector-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: rgba(109,183,87,0.4); }
+.sector-card:hover::before { opacity: 1; }
+.sector-card > * { position: relative; z-index: 1; }
+.sector-ico { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(109,183,87,0.14), rgba(108,68,148,0.12)); color: var(--color-green-dark); margin-bottom: 0.6rem; }
+.sector-ico :global(svg) { width: 28px; height: 28px; }
+.sector-card:hover .sector-ico { transform: scale(1.08) rotate(-4deg); }
+.sector-name { font-weight: 700; font-size: 1.02rem; }
+.sector-desc { font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.5; }
+.sector-arrow { margin-top: 0.4rem; color: var(--color-green); font-weight: 700; opacity: 0; transform: translateX(-6px); transition: opacity var(--transition), transform var(--transition); }
+.sector-card:hover .sector-arrow { opacity: 1; transform: translateX(0); }
+.cta-strip { padding: 4.5rem 0; position: relative; overflow: hidden; }
+.cta-glow { position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(109,183,87,0.25), transparent 60%); animation: drift 18s ease-in-out infinite; }
+.cta-strip-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; position: relative; z-index: 1; }
+.cta-strip h2, .cta-strip p { color: #fff; }
+.cta-strip p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; }
+.cta-strip-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+</style>

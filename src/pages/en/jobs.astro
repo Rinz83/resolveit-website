@@ -1,0 +1,175 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const perks = [
+  { icon: '🌴', title: 'Unlimited holidays', text: 'We steer on results and trust, not on attendance.' },
+  { icon: '🕒', title: 'Your own hours', text: 'Set your own hours and work hybrid — at home or in the office.' },
+  { icon: '📚', title: 'Training budget', text: 'Room and budget to grow and get certified.' },
+  { icon: '💻', title: 'Laptop & phone', text: 'The right tools to do your work well (senior: incl. car).' },
+  { icon: '🚀', title: 'Direct impact', text: 'Work on diverse challenges with visible results for clients.' },
+  { icon: '🤝', title: 'Close-knit team', text: 'A young, ambitious and collegial team. Work hard, play hard.' },
+];
+
+const jobs = [
+  {
+    title: 'Salesforce Project Manager',
+    type: 'Full-time',
+    intro: 'You lead Salesforce implementations from start to delivery — on time, within scope and budget.',
+    does: ['Leading implementation projects from A to Z', 'Project plans for scope, schedule, resources and budget', 'Coordinating internal resources and vendors', 'Customer and stakeholder communication', 'Steering on progress via Monday Dev'],
+    asks: ['Bachelor’s (Business, IT or similar)', 'Demonstrable PM experience in IT', 'Hands-on Salesforce knowledge', 'Strong communication skills'],
+  },
+  {
+    title: 'Product Owner / Business Analyst',
+    type: 'Full-time',
+    intro: 'You translate customer needs into clear requirements and safeguard the backlog and quality.',
+    does: ['Defining requirements and deliverables', 'Managing the backlog and planning sprints', 'Quality assurance and testing', 'Spotting bottlenecks and engaging stakeholders', 'Recognising sales and expansion opportunities'],
+    asks: ['Proactive with an eye for detail', 'Strong problem-solving ability', 'Experience juggling multiple projects', 'Commercial mindset', 'Skilled with project management tools'],
+  },
+  {
+    title: 'Salesforce Consultant',
+    type: 'Full-time',
+    intro: 'You are the first point of contact for customers and translate their wishes into working solutions.',
+    does: ['Maintaining primary customer contact', 'Translating customer needs into technical work descriptions', 'Collaborating with fellow experts', 'Delivering innovative solutions', 'Running presentations and workshops'],
+    asks: ['Min. 2.5 years experience in the Salesforce ecosystem', 'Salesforce Administrator + Sales Cloud Consultant certification', 'Solution-oriented with project experience', 'Fluent Dutch and English'],
+  },
+  {
+    title: 'Senior Salesforce Consultant',
+    type: 'Full-time',
+    intro: 'You scope multi-cloud projects, lead workshops and coach juniors as a trusted partner to key accounts.',
+    does: ['Translating customer needs into functional design and automation', 'Leading presentations and workshops', 'Coaching junior consultants and developers', 'Scoping multi-cloud projects', 'Contributing to internal process improvement'],
+    asks: ['Min. 5 years experience in the Salesforce ecosystem', 'Demonstrable growth ambition', 'Experience coaching colleagues', 'Multi-cloud scoping experience', 'Fluent Dutch and English'],
+  },
+];
+---
+
+<Layout title="Careers" description="Working at Resolve IT? Young, ambitious and unconventional. Browse our open Salesforce vacancies and grow with us.">
+
+  <!-- HERO -->
+  <section class="jb-hero">
+    <div class="jb-aurora" aria-hidden="true"><span></span><span></span></div>
+    <div class="container jb-hero-inner">
+      <span class="pp-badge"><span class="pp-badge-dot"></span> Working at Resolve IT</span>
+      <h1>Ready for a new <span class="gradient-text">adventure?</span></h1>
+      <p>Young, unconventional and ambitious — at Resolve IT you work on diverse challenges, devise smart solutions and see the impact at our clients straight away. Work hard, play hard.</p>
+      <div class="jb-hero-actions">
+        <a href="#vacatures" class="btn btn-primary">View vacancies</a>
+        <a href="#open" class="btn btn-outline">Open application</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CULTURE / PERKS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Why Resolve IT?</span>
+        <h2>A place where you really grow</h2>
+        <p>We like to do things differently. Challenge management with critical ideas, take ownership and help build our growth — with the freedom to shape your work your way.</p>
+      </div>
+      <div class="grid-3">
+        {perks.map((p, i) => (
+          <div class="card jb-perk reveal" style={`--reveal-delay:${(i % 3) * 0.08}s`}>
+            <div class="jb-perk-ico">{p.icon}</div>
+            <h3>{p.title}</h3>
+            <p class="text-muted">{p.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VACANCIES -->
+  <section id="vacatures" class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Open vacancies</span>
+        <h2>Will you be our new colleague?</h2>
+      </div>
+      <div class="jb-jobs">
+        {jobs.map(j => (
+          <details class="jb-job reveal">
+            <summary>
+              <div class="jb-job-head">
+                <h3>{j.title}</h3>
+                <span class="badge">{j.type}</span>
+              </div>
+              <span class="jb-job-plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="jb-job-body">
+              <p class="jb-job-intro">{j.intro}</p>
+              <div class="jb-job-cols">
+                <div>
+                  <h4>What you’ll do</h4>
+                  <ul class="list-check">{j.does.map(d => <li>{d}</li>)}</ul>
+                </div>
+                <div>
+                  <h4>What you bring</h4>
+                  <ul class="list-check">{j.asks.map(a => <li>{a}</li>)}</ul>
+                </div>
+              </div>
+              <a href="/en/contact" class="btn btn-primary" style="margin-top:1.5rem;">Apply for this role</a>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN APPLICATION -->
+  <section id="open" class="section">
+    <div class="container jb-open">
+      <div class="reveal">
+        <span class="eyebrow">Nothing that fits?</span>
+        <h2>Surprise us with an open application</h2>
+        <p class="text-muted">See yourself at Resolve IT, but your role isn’t listed? We love meeting talent. Tell us who you are and what drives you.</p>
+        <div class="jb-open-actions">
+          <a href="mailto:rinse@resolveit.nl" class="btn btn-primary">Email rinse@resolveit.nl</a>
+          <a href="/en/contact" class="btn btn-outline-dark">Get in touch</a>
+        </div>
+      </div>
+      <div class="jb-open-card reveal">
+        <span class="jb-open-ico">✨</span>
+        <p>“Step into a world full of opportunities and grow with us.”</p>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.jb-hero { background: var(--color-dark); color: #fff; padding: 6rem 0 4rem; position: relative; overflow: hidden; text-align: center; }
+.jb-aurora { position: absolute; inset: 0; z-index: 0; }
+.jb-aurora span { position: absolute; border-radius: 50%; filter: blur(80px); }
+.jb-aurora span:nth-child(1) { width: 460px; height: 460px; background: rgba(109,183,87,0.35); top: -150px; left: 12%; animation: drift 20s ease-in-out infinite; }
+.jb-aurora span:nth-child(2) { width: 400px; height: 400px; background: rgba(108,68,148,0.35); bottom: -150px; right: 12%; animation: drift 24s ease-in-out infinite reverse; }
+.jb-hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+.jb-hero-inner h1 { color: #fff; font-size: clamp(2.2rem, 5.5vw, 3.6rem); margin-bottom: 1.25rem; }
+.jb-hero-inner p { color: rgba(255,255,255,0.8); font-size: 1.15rem; margin-bottom: 2rem; }
+.jb-hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.jb-perk { display: flex; flex-direction: column; }
+.jb-perk-ico { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; background: linear-gradient(135deg, rgba(109,183,87,0.15), rgba(108,68,148,0.12)); margin-bottom: 1rem; }
+.jb-perk h3 { font-size: 1.08rem; margin-bottom: 0.4rem; }
+
+.jb-jobs { display: flex; flex-direction: column; gap: 1rem; max-width: 860px; margin: 0 auto; }
+.jb-job { background: var(--color-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg); padding: 0 1.5rem; box-shadow: var(--shadow); }
+.jb-job summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; list-style: none; padding: 1.4rem 0; }
+.jb-job summary::-webkit-details-marker { display: none; }
+.jb-job-head { display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap; }
+.jb-job-head h3 { font-size: 1.15rem; }
+.jb-job-plus { font-size: 1.5rem; color: var(--color-green); transition: transform var(--transition); flex-shrink: 0; }
+.jb-job[open] .jb-job-plus { transform: rotate(45deg); }
+.jb-job-body { padding: 0 0 1.6rem; }
+.jb-job-intro { font-size: 1.05rem; color: var(--color-text); margin-bottom: 1.25rem; }
+.jb-job-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+@media (max-width: 600px) { .jb-job-cols { grid-template-columns: 1fr; gap: 1.25rem; } }
+.jb-job-cols h4 { margin-bottom: 0.6rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-muted); }
+
+.jb-open { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 3rem; align-items: center; }
+@media (max-width: 768px) { .jb-open { grid-template-columns: 1fr; gap: 2rem; } }
+.jb-open-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.jb-open-card { background: linear-gradient(135deg, var(--color-green), var(--color-green-dark)); border-radius: var(--radius-lg); padding: 2.5rem; color: #fff; text-align: center; }
+.jb-open-ico { font-size: 2.5rem; }
+.jb-open-card p { font-size: 1.2rem; font-style: italic; margin-top: 1rem; }
+</style>
+</content>

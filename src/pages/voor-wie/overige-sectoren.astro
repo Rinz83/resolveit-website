@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectorPage from '../../components/SectorPage.astro';
+const icon = `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" stroke="currentColor" stroke-width="1.1"/></svg>`;
+---
+<Layout title="Salesforce voor andere sectoren — maatwerk CRM" description="Salesforce is voor elke branche aanpasbaar. Resolve IT vertaalt uw specifieke processen naar een schaalbare CRM-oplossing op maat, ongeacht uw sector.">
+  <SectorPage
+    eyebrow="Voor wie? · Overige sectoren"
+    title="Staat uw branche er niet bij? Dan bouwen we het op maat"
+    intro="Salesforce is geen standaardpakket maar een platform. Wij vertalen de processen die úw organisatie uniek maken naar een schaalbare oplossing — of u nu in zorg, onderwijs, vastgoed, non-profit of een nichemarkt zit. Eén systeem, volledig op uw werkwijze afgestemd."
+    icon={icon}
+    dashboard={{
+      title: 'Your Custom Dashboard',
+      kpis: [
+        { label: 'Pipeline', value: '€940K', trend: '▲ 12%' },
+        { label: 'Win rate', value: '41%', trend: '▲ 5%' },
+      ],
+      barLabel: 'Resultaat per maand',
+      bars: [48, 55, 53, 62, 70, 85],
+      ring: '100%',
+      ringLabel: 'op maat',
+      legend: [
+        { label: 'Op uw proces', value: '✓', color: '#6db757' },
+        { label: 'Uw objecten', value: '✓', color: '#85b160' },
+        { label: 'Uw KPI’s', value: '✓', color: '#6c4494' },
+      ],
+    }}
+    painLine="Standaardsoftware dwingt u in processen die niet bij u passen"
+    painPoints={[
+      'Generieke pakketten dekken net niet wat uw organisatie uniek maakt',
+      'Losse tools die niet met elkaar praten zorgen voor dubbel werk',
+      'Zonder centraal systeem ontbreekt het overzicht om goed te sturen',
+      'Veel handmatige stappen die eigenlijk geautomatiseerd zouden moeten zijn',
+      'Software die niet meegroeit met uw organisatie',
+      'Rapportages samenstellen kost dagen in plaats van seconden',
+    ]}
+    capabilities={[
+      { icon: '🧩', title: 'Maatwerkconfiguratie', text: 'Salesforce volledig ingericht op uw specifieke processen en werkwijze.' },
+      { icon: '🗂️', title: 'Branchespecifieke objecten', text: 'Custom objecten, velden en workflows die precies uw realiteit weerspiegelen.' },
+      { icon: '🔗', title: 'Integraties', text: 'Koppel uw bestaande systemen, zodat alles in één omgeving samenkomt.' },
+      { icon: '⚙️', title: 'Procesautomatisering', text: 'Automatiseer uw unieke processen en elimineer repetitief handwerk.' },
+      { icon: '📊', title: 'Dashboards op maat', text: 'Realtime inzicht in precies de KPI’s die voor úw organisatie tellen.' },
+      { icon: '🚀', title: 'Schaalbaar', text: 'Een fundament dat meegroeit met uw organisatie en ambities.' },
+    ]}
+    metrics={[
+      { num: 'Maatwerk', label: 'voor uw branche' },
+      { num: '1 systeem', label: 'voor uw hele proces' },
+      { num: 'Schaalbaar', label: 'meegroeiend' },
+      { num: 'Volledig', label: 'inzicht & grip' },
+    ]}
+    products={[
+      { label: 'Billing Platform', href: '/producten/billing-module', featured: true },
+      { label: 'Onze producten', href: '/producten' },
+      { label: 'Development & Integraties', href: '/diensten/development' },
+    ]}
+  />
+</Layout>

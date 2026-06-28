@@ -1,0 +1,211 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const services = [
+  {
+    icon: '/images/Icon-1.svg',
+    eyebrow: 'Implementatie & Onboarding',
+    title: 'Een fundament dat aansluit op uw strategie',
+    href: '/diensten/implementatie',
+    description: 'Salesforce is enorm krachtig — maar alleen als het wordt ingericht in lijn met uw doelen én omarmd door uw team. Wij begeleiden u van strategie tot livegang.',
+    steps: [
+      { n: 'Prepare', t: 'We analyseren uw behoeften, processen en doelen en ontwerpen de ideale oplossing.' },
+      { n: 'Design', t: 'We vertalen de visie naar een concreet plan met ontwerpen en user stories.' },
+      { n: 'Build', t: 'We bouwen volgens de roadmap, in nauwe samenwerking met uw organisatie.' },
+      { n: 'Accelerate', t: 'We zorgen voor een soepele overgang met training en support.' },
+    ],
+  },
+  {
+    icon: '/images/Icon-2.svg',
+    eyebrow: 'Audit & Consultancy',
+    title: 'Haal meer uit uw bestaande Salesforce',
+    href: '/diensten/consultancy',
+    description: 'Loopt uw Salesforce-omgeving niet zoals u hoopte? Met een gratis assessment brengen we kansen en knelpunten in kaart en bepalen we samen uw roadmap naar succes.',
+    steps: [
+      { n: 'Quick wins', t: 'Wijzigingen met lage inspanning en hoge impact, voor direct resultaat.' },
+      { n: 'Procesverbetering', t: 'We optimaliseren workflows, automatisering en de efficiëntie van uw systeem.' },
+      { n: 'Roadmap', t: 'Een geprioriteerd plan met features, integraties en maatwerk dat groei ondersteunt.' },
+    ],
+  },
+  {
+    icon: '/images/Icon-3.svg',
+    eyebrow: 'Development & Integraties',
+    title: 'Koppel Salesforce aan uw hele landschap',
+    href: '/diensten/development',
+    description: 'Resolve IT helpt u slagen met Salesforce — nu en in de jaren erna. We bouwen maatwerk en koppelen uw systemen aan Salesforce via API, vaak binnen enkele weken.',
+    steps: [
+      { n: 'Maatwerk', t: 'Functionaliteit op maat waar standaard Salesforce tekortschiet.' },
+      { n: 'Integraties', t: 'Koppelingen met de tools die u al gebruikt, robuust en onderhoudbaar.' },
+      { n: 'Doorontwikkeling', t: 'Een langetermijnpartner die meegroeit met uw organisatie.' },
+    ],
+  },
+  {
+    icon: '/images/Icon-4.svg',
+    eyebrow: 'Training & Best Practices',
+    title: 'Een team dat Salesforce echt benut',
+    href: '/diensten/training',
+    description: 'De beste implementatie faalt zonder adoptie. Met gebruikers- en admin-training maken we uw team zelfverzekerd en zelfstandig — zodat u in-house de regie houdt.',
+    steps: [
+      { n: 'Gebruikerstraining', t: 'Trainingen rond concrete dagelijkse taken, niet rond losse knoppen.' },
+      { n: 'Admin-training', t: 'We leiden uw beheerders op tot gecertificeerde admins.' },
+      { n: 'Best practices', t: 'We delen bewezen werkwijzen zodat u veelgemaakte fouten voorkomt.' },
+    ],
+  },
+];
+
+const integrations = ['Stripe', 'Exact Online', 'SharePoint', 'OneDrive', 'Google Drive', 'Aircall', 'SAP', 'DocuSign', 'ChatGPT', 'Microsoft Teams'];
+---
+
+<Layout title="Onze diensten" description="Salesforce-implementatie, audit & consultancy, development & integraties en training. Van strategie tot livegang en daarna — Resolve IT begeleidt u bij elke stap.">
+
+  <!-- HERO -->
+  <section class="sv-hero">
+    <div class="sv-aurora" aria-hidden="true"><span></span><span></span></div>
+    <div class="container sv-hero-inner">
+      <span class="pp-badge"><span class="pp-badge-dot"></span> Onze diensten</span>
+      <h1>Alles voor blijvend <span class="gradient-text">Salesforce-succes</span></h1>
+      <p>Van de eerste implementatie tot doorlopende optimalisatie, maatwerk en training. Wij zijn uw partner bij elke stap — onafhankelijk, praktisch en met bewezen resultaat.</p>
+      <div class="sv-hero-actions">
+        <a href="/contact#afspraak" class="btn btn-primary">Plan een gesprek</a>
+        <a href="/cases" class="btn btn-outline">Bekijk cases</a>
+      </div>
+      <div class="sv-hero-stats">
+        <div><strong>300+</strong><span>projecten</span></div>
+        <div><strong>10+</strong><span>experts</span></div>
+        <div><strong>5★</strong><span>AppExchange</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <div class="sv-list">
+        {services.map((s, i) => (
+          <div class={`sv-row ${i % 2 === 1 ? 'reverse' : ''}`}>
+            <div class="sv-text reveal">
+              <img src={s.icon} alt="" class="sv-icon" width="80" height="61" />
+              <span class="eyebrow">{s.eyebrow}</span>
+              <h2>{s.title}</h2>
+              <p class="text-muted">{s.description}</p>
+              <a href={s.href} class="btn btn-outline-dark" style="margin-top:1.25rem;">Meer over {s.eyebrow.split(' ')[0].toLowerCase()}</a>
+            </div>
+            <div class="sv-steps reveal">
+              {s.steps.map((st, j) => (
+                <div class="sv-step">
+                  <span class="sv-step-n">{j + 1}</span>
+                  <div><strong>{st.n}</strong><p class="text-muted">{st.t}</p></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INTEGRATIONS -->
+  <section class="section bg-dark sv-integrations">
+    <div class="sv-int-glow" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="section-header reveal">
+        <span class="eyebrow">Development & Integraties</span>
+        <h2 class="text-white">Koppel Salesforce aan uw favoriete tools</h2>
+        <p style="color:rgba(255,255,255,0.7)">Wij koppelen Salesforce aan vrijwel elk systeem — vaak binnen enkele weken, robuust en onderhoudbaar.</p>
+      </div>
+      <div class="sv-int-grid reveal">
+        {integrations.map(t => <span class="sv-int-chip">{t}</span>)}
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a href="/diensten/development" class="btn btn-primary">Bekijk development & integraties</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH / WHY US -->
+  <section class="section bg-off-white">
+    <div class="container sv-why">
+      <div class="reveal">
+        <span class="eyebrow">Onze aanpak</span>
+        <h2>Waarom organisaties met ons werken</h2>
+        <p class="text-muted">Wij combineren diepgaande Salesforce-expertise met een praktische, no-nonsense aanpak. U merkt dat aan elke samenwerking.</p>
+      </div>
+      <ul class="sv-why-grid reveal">
+        {[
+          { icon: '🎯', t: 'Onafhankelijk advies', d: 'We adviseren in uw belang, niet vanuit licentieverkoop.' },
+          { icon: '🧭', t: 'Praktische aanpak', d: 'We denken mee als partner en bouwen in korte cycli.' },
+          { icon: '💬', t: 'Heldere communicatie', d: 'Geen jargon — u begrijpt altijd wat we doen en waarom.' },
+          { icon: '🤝', t: 'Langdurige relatie', d: 'We blijven betrokken, ook na livegang.' },
+          { icon: '🏅', t: 'Gecertificeerde experts', d: 'Een team van gecertificeerde consultants en developers.' },
+          { icon: '🧩', t: 'Maatwerk dat past', d: 'Oplossingen afgestemd op uw specifieke situatie.' },
+        ].map(w => (
+          <li class="sv-why-item"><span class="sv-why-ico">{w.icon}</span><div><strong>{w.t}</strong><p class="text-muted">{w.d}</p></div></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sv-cta bg-dark">
+    <div class="sv-cta-glow" aria-hidden="true"></div>
+    <div class="container sv-cta-inner reveal">
+      <div><h2>Benieuwd wat we voor u kunnen betekenen?</h2><p>Plan een vrijblijvend gesprek — we denken graag met u mee.</p></div>
+      <div class="sv-cta-actions">
+        <a href="/contact#afspraak" class="btn btn-primary">Plan een gesprek</a>
+        <a href="/producten/billing-module" class="btn btn-outline">Bekijk Billing Platform</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.sv-hero { background: var(--color-dark); color: #fff; padding: 6rem 0 4rem; position: relative; overflow: hidden; text-align: center; }
+.sv-aurora { position: absolute; inset: 0; z-index: 0; }
+.sv-aurora span { position: absolute; border-radius: 50%; filter: blur(80px); }
+.sv-aurora span:nth-child(1) { width: 480px; height: 480px; background: rgba(109,183,87,0.35); top: -160px; left: 10%; animation: drift 20s ease-in-out infinite; }
+.sv-aurora span:nth-child(2) { width: 420px; height: 420px; background: rgba(108,68,148,0.35); bottom: -160px; right: 10%; animation: drift 24s ease-in-out infinite reverse; }
+.sv-hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+.sv-hero-inner h1 { color: #fff; font-size: clamp(2.2rem, 5.5vw, 3.6rem); margin-bottom: 1.25rem; }
+.sv-hero-inner p { color: rgba(255,255,255,0.8); font-size: 1.15rem; margin-bottom: 2rem; }
+.sv-hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.sv-hero-stats { display: flex; gap: 2.5rem; justify-content: center; }
+.sv-hero-stats strong { display: block; font-size: 1.8rem; font-weight: 800; color: var(--color-green-soft); }
+.sv-hero-stats span { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+
+.sv-list { display: flex; flex-direction: column; gap: 5rem; }
+.sv-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.sv-row.reverse { direction: rtl; }
+.sv-row.reverse > * { direction: ltr; }
+@media (max-width: 820px) { .sv-row, .sv-row.reverse { grid-template-columns: 1fr; direction: ltr; gap: 2rem; } }
+.sv-icon { height: 60px; width: auto; margin-bottom: 1rem; }
+.sv-text h2 { margin-bottom: 0.75rem; }
+.sv-steps { display: flex; flex-direction: column; gap: 1rem; }
+.sv-step { display: flex; gap: 1rem; align-items: flex-start; background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: var(--radius); padding: 1.1rem 1.35rem; transition: transform var(--transition), box-shadow var(--transition); }
+.sv-step:hover { transform: translateX(4px); box-shadow: var(--shadow); }
+.sv-step-n { flex-shrink: 0; width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, var(--color-green), var(--color-green-dark)); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.sv-step strong { display: block; margin-bottom: 0.15rem; }
+.sv-step p { font-size: 0.9rem; }
+
+.sv-integrations { position: relative; overflow: hidden; }
+.sv-int-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 700px; background: radial-gradient(circle, rgba(109,183,87,0.16), transparent 60%); animation: drift 22s ease-in-out infinite; }
+.sv-int-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+.sv-int-chip { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); color: #fff; border-radius: 999px; padding: 0.6rem 1.4rem; font-weight: 600; font-size: 0.9rem; transition: all var(--transition); }
+.sv-int-chip:hover { background: rgba(109,183,87,0.18); border-color: rgba(109,183,87,0.5); transform: translateY(-2px); }
+
+.sv-why { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3.5rem; align-items: start; }
+@media (max-width: 820px) { .sv-why { grid-template-columns: 1fr; gap: 2rem; } }
+.sv-why-grid { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+@media (max-width: 540px) { .sv-why-grid { grid-template-columns: 1fr; } }
+.sv-why-item { display: flex; gap: 0.85rem; align-items: flex-start; }
+.sv-why-ico { font-size: 1.5rem; flex-shrink: 0; }
+.sv-why-item strong { display: block; margin-bottom: 0.2rem; }
+.sv-why-item p { font-size: 0.88rem; }
+
+.sv-cta { padding: 4.5rem 0; position: relative; overflow: hidden; }
+.sv-cta-glow { position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(109,183,87,0.25), transparent 60%); animation: drift 18s ease-in-out infinite; }
+.sv-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; position: relative; z-index: 1; }
+.sv-cta h2, .sv-cta p { color: #fff; }
+.sv-cta p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; }
+.sv-cta-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+</style>

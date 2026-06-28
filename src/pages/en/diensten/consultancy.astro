@@ -1,0 +1,48 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ServiceDetail from '../../../components/ServiceDetail.astro';
+---
+<Layout title="Salesforce Audit & Consultancy" description="Get more out of your existing Salesforce. With a free assessment we map quick wins, process improvements and a clear roadmap.">
+  <ServiceDetail
+    lang="en"
+    eyebrow="Service · Audit & Consultancy"
+    title="Get more out of the Salesforce you already have"
+    intro="Is your Salesforce environment not performing as you hoped? You’re not alone. With our audit we map — independently — where the opportunities and bottlenecks are, and together we set your roadmap to success. No obligations, with a free assessment as the starting point."
+    heroStats={[{ num: 'Free', label: 'assessment' }, { num: 'Quick', label: 'wins first' }, { num: '300+', label: 'projects' }]}
+    image="/images/cases/case-4.jpg"
+    whatTitle="Independent advice that moves you forward"
+    whatText={[
+      'Many organisations use only a fraction of what Salesforce can do. Processes have grown organically, reports no longer add up and no one quite knows why the system does what it does.',
+      'We look at it with a fresh, independent perspective. We advise in your interest — not from a desire to sell licences — and translate our findings into concrete steps that deliver results right away.',
+    ]}
+    whatList={[
+      'Independent: we advise what helps YOU forward',
+      'Concrete: recommendations you can act on directly',
+      'Quick wins first: fast results, then the long term',
+      'Backed by data from your own environment',
+    ]}
+    deliverables={[
+      { icon: '🔍', title: 'Free assessment', text: 'An initial analysis of your environment, with no obligations.' },
+      { icon: '⚡', title: 'Quick wins', text: 'Low-effort, high-impact changes for immediately noticeable results.' },
+      { icon: '🛠️', title: 'Process improvements', text: 'Optimised workflows and automation that make your team more efficient.' },
+      { icon: '🗺️', title: 'Strategic roadmap', text: 'A prioritised plan of features, integrations and customisation that supports your growth.' },
+    ]}
+    steps={[
+      { title: 'Assessment', text: 'We start with a free assessment and dive into your configuration, processes, data and user adoption.' },
+      { title: 'Analysis', text: 'We map bottlenecks and opportunities — from security and data quality to unused functionality.' },
+      { title: 'Advice', text: 'You receive a clear report with quick wins and structural improvements, prioritised by impact.' },
+      { title: 'Roadmap', text: 'Together we set the order and tackle the improvements — yourself or with our help.' },
+    ]}
+    why={[
+      { icon: '🎯', title: 'Truly independent', text: 'No hidden agenda. We also tell you honestly what doesn’t work or is redundant.' },
+      { icon: '📊', title: 'Evidence-based', text: 'Our recommendations are based on data from your own Salesforce, not on assumptions.' },
+      { icon: '💬', title: 'Understandable', text: 'No jargon. You get advice your whole organisation understands and can act on.' },
+    ]}
+    faqs={[
+      { q: 'Is the assessment really free?', a: 'Yes. We start with a no-obligation assessment of your Salesforce environment, so you know exactly where you stand before deciding anything.' },
+      { q: 'What exactly do you examine?', a: 'Among other things your configuration, processes, automations, data quality, security/GDPR and user adoption.' },
+      { q: 'Who is an audit suitable for?', a: 'For growing SMEs, larger enterprises and organisations planning a new implementation — anyone who wants to get the most out of Salesforce.' },
+      { q: 'Do we have to continue with you afterwards?', a: 'No. You can act on the recommendations yourself. If you want help, we’re ready. <a href="/en/contact#afspraak">Schedule a call</a>.' },
+    ]}
+  />
+</Layout>

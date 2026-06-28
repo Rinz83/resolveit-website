@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { cover, photo } from '../../data/blogCovers.js';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog', ({ data }) => !data.draft))
+    .filter(p => !p.slug.startsWith('en/'));
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const fmt = (d) => d.toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <article>
+    <div class="post-hero">
+      <div class="container">
+        <a href="/blog" class="back-link">← Terug naar blog</a>
+        <span class="badge" style="margin-top:1rem;">{post.data.category}</span>
+        <h1>{post.data.title}</h1>
+        <div class="post-meta">
+          <span>{post.data.author}</span>
+          <span>·</span>
+          <time>{fmt(post.data.pubDate)}</time>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <img src={post.data.image || photo(post.slug)} alt={post.data.title} class="post-feature-img" />
+    </div>
+
+    <div class="section">
+      <div class="container prose post-content">
+        <Content />
+      </div>
+    </div>
+
+    <section class="cta-strip bg-dark">
+      <div class="container cta-strip-inner">
+        <div>
+          <h2>Vragen over Salesforce?</h2>
+          <p>Onze experts denken graag met u mee.</p>
+        </div>
+        <div class="cta-strip-actions">
+          <a href="/contact" class="btn btn-primary">Neem contact op</a>
+        </div>
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<style>
+.post-hero {
+  background: var(--color-dark);
+  color: var(--color-white);
+  padding: 6rem 0 3rem;
+  text-align: center;
+}
+.post-hero h1 { color: var(--color-white); margin: 1rem auto; max-width: 800px; }
+.back-link { color: var(--color-green-soft); font-size: 0.9rem; font-weight: 600; }
+.post-meta { display: flex; gap: 0.5rem; justify-content: center; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+
+.post-feature-img {
+  width: 100%;
+  max-width: 900px;
+  margin: -2rem auto 0;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 2;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.post-content { font-size: 1.08rem; }
+
+.cta-strip { padding: 4rem 0; }
+.cta-strip-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; }
+.cta-strip h2, .cta-strip p { color: var(--color-white); }
+.cta-strip p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; }
+.cta-strip-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+</style>

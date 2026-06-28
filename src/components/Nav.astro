@@ -1,0 +1,326 @@
+---
+import { getLangFromUrl, useTranslations, localize, altLangPath, calendlyUrl } from '../i18n/ui.js';
+
+const currentPath = Astro.url.pathname;
+const lang = getLangFromUrl(currentPath);
+const t = useTranslations(lang);
+const L = (p) => localize(p, lang);
+
+const childLabels = {
+  '/diensten/implementatie': { nl: 'Implementatie & Onboarding', en: 'Implementation & Onboarding' },
+  '/diensten/consultancy': { nl: 'Audit & Consultancy', en: 'Audit & Consultancy' },
+  '/diensten/development': { nl: 'Development & Integraties', en: 'Development & Integrations' },
+  '/diensten/training': { nl: 'Training & Best Practices', en: 'Training & Best Practices' },
+  '/producten/billing-module': { nl: 'Billing Platform', en: 'Billing Platform' },
+  '/producten/kvk-integratie': { nl: 'KvK Integratie', en: 'Datasolver (CoC)' },
+  '/producten/exact-online': { nl: 'Exact Online', en: 'Exact Online' },
+  '/producten/sharepoint': { nl: 'SharePoint Integratie', en: 'SharePoint Integration' },
+  '/voor-wie/backoffice-services': { nl: 'Backoffice Services', en: 'Backoffice Services' },
+  '/voor-wie/saas': { nl: 'SaaS', en: 'SaaS' },
+  '/voor-wie/professional-services': { nl: 'Professional Services', en: 'Professional Services' },
+  '/voor-wie/manufacturing': { nl: 'Manufacturing', en: 'Manufacturing' },
+  '/voor-wie/recruitment': { nl: 'Recruitment', en: 'Recruitment' },
+  '/voor-wie/energie-utilities': { nl: 'Energie & Utilities', en: 'Energy & Utilities' },
+  '/voor-wie/media-communicatie': { nl: 'Media & Communicatie', en: 'Media & Communications' },
+  '/voor-wie/overige-sectoren': { nl: 'Overige sectoren', en: 'Other industries' },
+};
+const cl = (p) => childLabels[p][lang];
+
+const navLinks = [
+  { label: t('nav.diensten'), href: '/diensten', children: ['/diensten/implementatie','/diensten/consultancy','/diensten/development','/diensten/training'] },
+  { label: t('nav.producten'), href: '/producten', children: ['/producten/billing-module','/producten/kvk-integratie','/producten/exact-online','/producten/sharepoint'] },
+  { label: t('nav.voorwie'), href: '/voor-wie', children: ['/voor-wie/backoffice-services','/voor-wie/saas','/voor-wie/professional-services','/voor-wie/manufacturing','/voor-wie/recruitment','/voor-wie/energie-utilities','/voor-wie/media-communicatie','/voor-wie/overige-sectoren'] },
+  { label: t('nav.overons'), href: '/over-ons' },
+  { label: t('nav.cases'), href: '/cases' },
+  { label: t('nav.blog'), href: '/blog' },
+  { label: t('nav.vacatures'), href: '/jobs' },
+  { label: t('nav.contact'), href: '/contact' },
+];
+
+const toggleHref = altLangPath(currentPath);
+const toggleLabel = t('lang.label');
+
+interface Props { transparent?: boolean; }
+const { transparent = false } = Astro.props;
+---
+
+<header class={`site-header ${transparent ? 'transparent' : ''}`} id="site-header">
+  <div class="container header-inner">
+    <a href={L('/')} class="logo" aria-label="Resolve IT Home">
+      <img class="logo-dark" src="/images/Logo-colored.png" alt="Resolve IT" width="120" height="56" />
+      <img class="logo-light" src="/images/Footer-logo.svg" alt="Resolve IT" width="120" height="56" />
+    </a>
+
+    <nav class="main-nav" aria-label="Hoofdnavigatie">
+      <ul class="nav-list">
+        {navLinks.map(link => (
+          <li class={`nav-item ${link.children ? 'has-dropdown' : ''}`}>
+            <a
+              href={L(link.href)}
+              class={`nav-link ${currentPath.startsWith(L(link.href)) && link.href !== '/' ? 'active' : ''}`}
+            >
+              {link.label}
+              {link.children && <span class="chevron" aria-hidden="true">▾</span>}
+            </a>
+            {link.children && (
+              <ul class="dropdown">
+                {link.children.map(child => (
+                  <li>
+                    <a href={L(child)} class="dropdown-link">{cl(child)}</a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href={toggleHref} class="lang-toggle" aria-label="Switch language">🌐 {toggleLabel}</a>
+      <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary btn-sm">{t('nav.afspraak')}</a>
+      <button class="mobile-toggle" aria-label="Menu" id="mobile-toggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <ul class="mobile-nav-list">
+    {navLinks.map(link => (
+      <li>
+        <a href={L(link.href)} class="mobile-nav-link">{link.label}</a>
+        {link.children && (
+          <ul class="mobile-sub">
+            {link.children.map(child => (
+              <li><a href={L(child)} class="mobile-sub-link">{cl(child)}</a></li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))}
+    <li><a href={toggleHref} class="mobile-nav-link">🌐 {toggleLabel}</a></li>
+    <li><a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:1rem;display:inline-flex;">{t('nav.afspraak')}</a></li>
+  </ul>
+</div>
+
+<style>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-white);
+  box-shadow: 0 1px 0 var(--color-light-gray);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Transparent overlay mode (homepage): header floats over the dark hero
+   and turns solid white once the user scrolls. */
+.site-header.transparent {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.site-header.transparent.scrolled {
+  background: var(--color-white);
+  box-shadow: 0 2px 16px rgba(29,35,39,0.08);
+}
+.site-header.transparent:not(.scrolled) .logo-dark { display: none; }
+.site-header.transparent:not(.scrolled) .logo-light { display: block; }
+.site-header.transparent:not(.scrolled) .nav-link { color: rgba(255,255,255,0.92); }
+.site-header.transparent:not(.scrolled) .nav-link:hover,
+.site-header.transparent:not(.scrolled) .nav-link.active {
+  color: #fff;
+  background: rgba(255,255,255,0.14);
+}
+.site-header.transparent:not(.scrolled) .mobile-toggle span { background: #fff; }
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 72px;
+}
+
+.logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.logo img { height: 44px; width: auto; }
+.logo .logo-light { display: none; }
+
+.main-nav { flex: 1; }
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-item { position: relative; }
+/* Invisible bridge so moving the cursor from the link into the dropdown
+   doesn't cross a dead gap that closes the menu. */
+.nav-item.has-dropdown::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 0.65rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: color var(--transition), background var(--transition);
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--color-green-dark);
+  background: var(--color-off-white);
+}
+.chevron { font-size: 0.7rem; transition: transform var(--transition); }
+
+.dropdown {
+  list-style: none;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  background: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-light-gray);
+  min-width: 230px;
+  padding: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: all var(--transition);
+  pointer-events: none;
+}
+
+.nav-item.has-dropdown:hover .dropdown,
+.nav-item.has-dropdown:focus-within .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.nav-item.has-dropdown:hover .chevron { transform: rotate(180deg); }
+
+.dropdown-link {
+  display: block;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  color: var(--color-text);
+  transition: background var(--transition), color var(--transition);
+}
+.dropdown-link:hover {
+  background: var(--color-off-white);
+  color: var(--color-green-dark);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.btn-sm { padding: 0.55rem 1.25rem; font-size: 0.875rem; }
+
+.lang-toggle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text);
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius);
+  white-space: nowrap;
+  transition: color var(--transition), background var(--transition);
+}
+.lang-toggle:hover { background: var(--color-off-white); color: var(--color-green-dark); }
+.site-header.transparent:not(.scrolled) .lang-toggle { color: rgba(255,255,255,0.92); }
+.site-header.transparent:not(.scrolled) .lang-toggle:hover { background: rgba(255,255,255,0.14); color: #fff; }
+
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.mobile-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: all var(--transition);
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 72px 0 0 0;
+  background: var(--color-white);
+  overflow-y: auto;
+  z-index: 99;
+  padding: 1.5rem var(--container-padding) 3rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+.mobile-nav.open { transform: translateX(0); }
+.mobile-nav-list { list-style: none; }
+.mobile-nav-link {
+  display: block;
+  padding: 0.9rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-light);
+}
+.mobile-sub { list-style: none; padding-left: 1rem; }
+.mobile-sub-link {
+  display: block;
+  padding: 0.6rem 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 960px) {
+  .main-nav { display: none; }
+  .mobile-toggle { display: flex; }
+  .mobile-nav { display: block; }
+}
+</style>
+
+<script>
+const toggle = document.getElementById('mobile-toggle');
+const nav = document.getElementById('mobile-nav');
+toggle?.addEventListener('click', () => {
+  const open = nav?.classList.toggle('open');
+  nav?.setAttribute('aria-hidden', String(!open));
+});
+
+// Transparent overlay header → solid on scroll
+const header = document.getElementById('site-header');
+if (header?.classList.contains('transparent')) {
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 24);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+</script>

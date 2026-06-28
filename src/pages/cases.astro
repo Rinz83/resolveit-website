@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { cases } from '../data/cases.js';
+const featured = cases[0];
+const rest = cases.slice(1);
+---
+
+<Layout title="Cases" description="Ontdek hoe Resolve IT organisaties zoals Talpa Studios, PayPlaza, MYbusinessmedia en anderen verder helpt met Salesforce.">
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Cases</span>
+      <h1>Resultaten waar we trots op zijn</h1>
+      <p>Van media tot fintech — ontdek hoe organisaties met Resolve IT het maximale uit Salesforce halen.</p>
+    </div>
+  </div>
+
+  <!-- FEATURED -->
+  <section class="section">
+    <div class="container">
+      <a href={`/cases/${featured.slug}`} class="case-feature reveal">
+        <div class="case-feature-img">
+          <img src={featured.image} alt={featured.client} loading="lazy" />
+          {featured.logo && <span class="case-feature-logo"><img src={featured.logo} alt={featured.client} /></span>}
+        </div>
+        <div class="case-feature-body">
+          <span class="badge">{featured.sector}</span>
+          <h2>{featured.client}</h2>
+          <p class="text-muted">{featured.summary}</p>
+          <div class="case-feature-stats">
+            {featured.results.map(r => (
+              <div><strong>{r.num}</strong><span>{r.label}</span></div>
+            ))}
+          </div>
+          <span class="card-link">Lees de case →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="cases-grid">
+        {rest.map((c, i) => (
+          <a href={`/cases/${c.slug}`} class="case-card reveal" style={`--reveal-delay:${(i % 3) * 0.08}s`}>
+            <div class="case-card-img">
+              <img src={c.image} alt={c.client} loading="lazy" />
+              <span class="case-card-sector">{c.sector}</span>
+            </div>
+            <div class="case-card-body">
+              <h3>{c.client}</h3>
+              <p class="text-muted">{c.summary}</p>
+              <div class="case-tags">{c.tags.map(t => <span class="badge">{t}</span>)}</div>
+              <span class="card-link">Lees de case →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip bg-dark">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="container cta-strip-inner reveal">
+      <div>
+        <h2>Uw organisatie als volgend succesverhaal?</h2>
+        <p>Plan een kennismakingsgesprek en ontdek wat Resolve IT voor u kan doen.</p>
+      </div>
+      <div class="cta-strip-actions">
+        <a href="/contact#afspraak" class="btn btn-primary">Plan een gesprek</a>
+        <a href="/contact" class="btn btn-outline">Stel een vraag</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+/* Featured */
+.case-feature { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0; background: var(--color-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition); }
+.case-feature:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.case-feature-img { position: relative; min-height: 320px; }
+.case-feature-img img { width: 100%; height: 100%; object-fit: cover; }
+.case-feature-logo { position: absolute; bottom: 1rem; left: 1rem; background: #fff; border-radius: 10px; padding: 0.5rem 0.85rem; box-shadow: var(--shadow); }
+.case-feature-logo img { height: 26px; width: auto; }
+.case-feature-body { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+.case-feature-body h2 { margin: 0.75rem 0; }
+.case-feature-stats { display: flex; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
+.case-feature-stats strong { display: block; font-size: 1.5rem; font-weight: 800; color: var(--color-green-dark); }
+.case-feature-stats span { font-size: 0.8rem; color: var(--color-text-muted); }
+@media (max-width: 768px) { .case-feature { grid-template-columns: 1fr; } .case-feature-img { min-height: 220px; } .case-feature-body { padding: 1.75rem; } }
+
+/* Grid */
+.cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 900px) { .cases-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .cases-grid { grid-template-columns: 1fr; } }
+.case-card { display: flex; flex-direction: column; background: var(--color-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition); }
+.case-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.case-card-img { position: relative; aspect-ratio: 16/10; overflow: hidden; }
+.case-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.case-card:hover .case-card-img img { transform: scale(1.06); }
+.case-card-sector { position: absolute; top: 0.85rem; left: 0.85rem; background: rgba(29,35,39,0.78); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 999px; backdrop-filter: blur(4px); }
+.case-card-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+.case-card-body h3 { font-size: 1.2rem; }
+.case-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.card-link { margin-top: auto; padding-top: 0.85rem; color: var(--color-green); font-weight: 600; font-size: 0.9rem; }
+
+.cta-strip { padding: 4.5rem 0; position: relative; overflow: hidden; }
+.cta-glow { position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(109,183,87,0.25), transparent 60%); animation: drift 18s ease-in-out infinite; }
+.cta-strip-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; position: relative; z-index: 1; }
+.cta-strip h2, .cta-strip p { color: #fff; }
+.cta-strip p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; }
+.cta-strip-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+</style>

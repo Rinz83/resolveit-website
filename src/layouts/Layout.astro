@@ -1,0 +1,155 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { getLangFromUrl, translatedPaths } from '../i18n/ui.js';
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  transparentHeader?: boolean;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = 'Resolve IT helpt organisaties het volledige potentieel van Salesforce te benutten. Implementatie, integraties, training en consultancy.',
+  transparentHeader = true,
+  noindex = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://www.resolveit.nl');
+const lang = Astro.url.pathname === '/en' || Astro.url.pathname.startsWith('/en/') ? 'en' : 'nl';
+
+// hreflang alternates: emit NL/EN links only for pages that exist in both
+// languages (the primary language flipped to NL at root, EN under /en/).
+const siteBase = Astro.site ?? 'https://www.resolveit.nl';
+const pn = Astro.url.pathname;
+const nlClean = (getLangFromUrl(pn) === 'en' ? pn.replace(/^\/en/, '') : pn).replace(/\/$/, '') || '/';
+const hasAlternate = translatedPaths.has(nlClean);
+const nlHref = new URL(nlClean, siteBase).href;
+const enHref = new URL(nlClean === '/' ? '/en' : `/en${nlClean}`, siteBase).href;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="generator" content={Astro.generator} />
+
+  <title>{title} | Resolve IT</title>
+  <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  <link rel="canonical" href={canonicalURL} />
+
+  {hasAlternate && (
+    <>
+      <link rel="alternate" hreflang="nl-NL" href={nlHref} />
+      <link rel="alternate" hreflang="en" href={enHref} />
+      <link rel="alternate" hreflang="x-default" href={nlHref} />
+    </>
+  )}
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={`${title} | Resolve IT`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:locale" content="nl_NL" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={`${title} | Resolve IT`} />
+  <meta name="twitter:description" content={description} />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Calendly popup widget (on-page overlay for booking links) -->
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" async is:inline></script>
+</head>
+<body>
+  <Nav transparent={transparentHeader} />
+  <main id="main-content">
+    <slot />
+  </main>
+  <Footer />
+
+  <script>
+    // Calendly: open booking links as an on-page overlay instead of a new tab.
+    document.addEventListener('click', (e) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      const a = t.closest('a[href*="calendly.com"]');
+      if (!a) return;
+      const C = (window as any).Calendly;
+      if (C && typeof C.initPopupWidget === 'function') {
+        e.preventDefault();
+        C.initPopupWidget({ url: (a as HTMLAnchorElement).href });
+      }
+    });
+
+    // Auto-resize embedded Pardot form iframes to their content height
+    // (the form layout template posts its height via postMessage).
+    window.addEventListener('message', (e) => {
+      const data = e.data;
+      const h = data && typeof data === 'object' ? (data.pardotHeight || data.height) : null;
+      if (typeof h !== 'number' || h < 80) return;
+      const target = Math.min(Math.round(h), 1800);
+      document.querySelectorAll('iframe.pardot-form').forEach((f) => {
+        const frame = f as HTMLIFrameElement;
+        if (frame.contentWindow !== e.source) return;
+        const current = parseInt(frame.style.height) || 0;
+        if (Math.abs(target - current) > 4) frame.style.height = target + 'px';
+      });
+    });
+
+    // Scroll-reveal: reveal elements with .reveal as they enter the viewport.
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach((el) => el.classList.add('in'));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      els.forEach((el) => io.observe(el));
+    }
+
+    // Count-up animation for [data-count] elements.
+    const counters = document.querySelectorAll('[data-count]');
+    if (counters.length && !reduce && 'IntersectionObserver' in window) {
+      const cio = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = parseFloat(el.dataset.count);
+          const suffix = el.dataset.suffix || '';
+          const dur = 1400;
+          const start = performance.now();
+          const tick = (now) => {
+            const p = Math.min((now - start) / dur, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(target * eased) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          cio.unobserve(el);
+        });
+      }, { threshold: 0.5 });
+      counters.forEach((el) => cio.observe(el));
+    }
+  </script>
+</body>
+</html>

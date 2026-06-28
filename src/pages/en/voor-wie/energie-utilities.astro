@@ -1,0 +1,50 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SectorPage from '../../../components/SectorPage.astro';
+const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M13 3 5 13h6l-1 8 8-10h-6l1-8z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
+---
+<Layout title="Salesforce for Energy & Utilities — contracts, service & compliance" description="Salesforce for energy and utility companies: contract management, field service, customer portals and compliance reporting in one streamlined environment.">
+  <SectorPage
+    lang="en"
+    eyebrow="Industries · Energy & Utilities"
+    title="Grip on contracts, service and compliance — at large customer volumes"
+    intro="Energy and utility companies juggle complex tariffs, strict regulation and high contact volumes. We bring contract management, field service and customer communication together in Salesforce, so you deliver reliable service at scale and effortlessly meet your reporting obligations."
+    icon={icon}
+    dashboard={{
+      title: 'Contracts & Service Dashboard',
+      kpis: [ { label: 'Active contracts', value: '12,480', trend: '▲ 3%' }, { label: 'SLA met', value: '98.2%', trend: '▲ 1.1%' } ],
+      barLabel: 'Service orders per month',
+      bars: [58, 55, 62, 60, 70, 80],
+      ring: '98%', ringLabel: 'SLA',
+      legend: [ { label: 'New contracts', value: '+420', color: '#6db757' }, { label: 'Renewals', value: '+1.8K', color: '#85b160' }, { label: 'Cancellations', value: '-260', color: '#6c4494' } ],
+    }}
+    painLine="Complex contracts and strict rules, managed in separate systems"
+    painPoints={[
+      'Many contract types, tariffs and renewals that are hard to track manually',
+      'Field service, planning and customer data sit in separate systems',
+      'Reporting obligations take a lot of time without a standardised process',
+      'Customers expect 24/7 self-service you can’t currently offer',
+      'Outages and requests aren’t followed up centrally',
+      'No complete view of the customer across all touchpoints',
+    ]}
+    capabilities={[
+      { icon: '📄', title: 'Contract & tariff management', text: 'Manage all contract types and tariffs centrally, with automatic alerts for renewals.' },
+      { icon: '🔧', title: 'Field service', text: 'Smart scheduling of technicians and service orders around a central customer and connection view.' },
+      { icon: '🌐', title: 'Self-service portals', text: 'Customer portals for meter readings, invoices and requests — 24/7 and without pressure on your service desk.' },
+      { icon: '✅', title: 'Compliance & reporting', text: 'Standardised, automated compliance and reporting processes that save time.' },
+      { icon: '🔗', title: 'Metering & back-office link', text: 'Connect metering, billing and back-office systems for one reliable data source.' },
+      { icon: '📊', title: 'Service & contract dashboards', text: 'Real-time insight into SLAs, contract changes, outages and customer satisfaction.' },
+    ]}
+    metrics={[
+      { num: 'Grip', label: 'on contracts & tariffs' },
+      { num: 'Efficient', label: 'field service' },
+      { num: 'Faster', label: 'compliance reporting' },
+      { num: 'Better', label: 'customer experience' },
+    ]}
+    products={[
+      { label: 'Billing Platform', href: '/en/producten/billing-module', featured: true },
+      { label: 'Datasolver', href: '/en/producten/kvk-integratie' },
+      { label: 'Exact Online connection', href: '/en/producten/exact-online' },
+    ]}
+  />
+</Layout>

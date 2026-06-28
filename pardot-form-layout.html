@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<base href="" >
+		<meta charset="utf-8"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="description" content="%%description%%"/>
+		<title>%%title%%</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	</head>
+	<body>
+	%%content%%
+		<style>
+:root{
+	--green:#6db757;
+	--green-dark:#5a9e46;
+	--text:#2d2e2b;
+	--muted:#6a6c68;
+	--border:#ebece7;
+}
+
+*{ box-sizing:border-box; }
+
+html, body{ overflow-x:hidden; }
+
+body{
+	margin:0;
+	background:transparent;
+	font-family:'Manrope','Segoe UI',system-ui,sans-serif;
+	font-size:16px;
+	font-weight:400;
+	line-height:1.6;
+	color:var(--text);
+	-webkit-font-smoothing:antialiased;
+}
+
+body form.form{
+	padding:0;
+	width:100%;
+}
+
+/* field rows */
+form.form p{
+	margin:0 0 1.25rem 0;
+	line-height:1.4;
+}
+
+/* labels */
+form.form p label{
+	display:block;
+	text-align:left;
+	font-size:0.875rem;
+	font-weight:600;
+	color:var(--text);
+	margin-bottom:0.4rem;
+	padding-bottom:0;
+	background-image:none !important;
+}
+form.form p.required label:after{
+	content:' *';
+	color:var(--green-dark);
+	font-size:0.875rem;
+}
+
+/* text inputs, selects & textareas */
+form.form input.text,
+form.form select,
+form.form textarea.standard{
+	width:100%;
+	border:1.5px solid var(--border);
+	border-radius:12px;
+	background:#fff;
+	padding:0.7rem 1rem;
+	font-family:inherit;
+	font-size:0.95rem;
+	font-weight:400;
+	color:var(--text);
+	outline:none;
+	transition:border-color .2s ease, box-shadow .2s ease;
+}
+form.form textarea.standard{
+	min-height:120px;
+	resize:vertical;
+}
+form.form input.text:focus,
+form.form select:focus,
+form.form textarea.standard:focus{
+	border-color:var(--green);
+	box-shadow:0 0 0 3px rgba(109,183,87,0.15);
+}
+
+/* checkboxes & radios */
+form.form input[type="checkbox"],
+form.form input[type="radio"]{
+	margin-right:0.5rem;
+	accent-color:var(--green);
+}
+
+/* validation errors */
+form.form p.error,
+form.form .error,
+form.form .errors{
+	color:#c0392b;
+	font-size:0.85rem;
+}
+form.form input.error,
+form.form textarea.error,
+form.form select.error{
+	border-color:#c0392b;
+}
+
+/* helper / description text Pardot may inject */
+form.form .description,
+form.form p.description{
+	color:var(--muted);
+	font-size:0.9rem;
+}
+
+/* submit button — matches the site's primary button */
+form.form p.submit{
+	margin:1.25rem 0 0 0;
+}
+body form.form p.submit input{
+	width:100%;
+	background-color:var(--green);
+	color:#fff;
+	border:0;
+	border-radius:50px;
+	padding:0.8rem 1.75rem !important;
+	font-family:inherit;
+	font-size:1rem;
+	font-weight:600;
+	line-height:1;
+	cursor:pointer;
+	transition:background-color .2s ease;
+}
+body form.form p.submit input:hover,
+body form.form p.submit input:focus,
+body form.form p.submit input:active{
+	background-color:var(--green-dark);
+}
+
+/* OPTIONAL: side-by-side first/last name.
+   In Pardot, edit the First name & Last name fields and add the CSS class
+   "pd-half" to each (Field settings -> Advanced -> CSS classes). */
+@media (min-width:480px){
+	form.form p.pd-half{ display:inline-block; width:calc(50% - 0.5rem); vertical-align:top; }
+	form.form p.pd-half:first-of-type{ margin-right:1rem; }
+}
+		</style>
+		<script>
+		/* Reports the form's CONTENT height to the embedding website so the
+		   iframe resizes to fit — no inner scrollbars. Measures the <form>
+		   element (a stable, content-based height) instead of the body, so
+		   resizing the iframe can't feed back and make it grow endlessly. */
+		(function () {
+			var last = 0, raf;
+			function measure() {
+				var el = document.querySelector('form.form') || document.body;
+				return Math.ceil(el.getBoundingClientRect().height) + 24;
+			}
+			function postHeight() {
+				var h = measure();
+				if (h === last) return;            /* only report real changes */
+				last = h;
+				if (window.parent) window.parent.postMessage({ pardotHeight: h }, '*');
+			}
+			function schedule() {
+				if (raf) cancelAnimationFrame(raf);
+				raf = requestAnimationFrame(postHeight);
+			}
+			document.addEventListener('DOMContentLoaded', postHeight);
+			window.addEventListener('load', postHeight);
+			[300, 800, 1500].forEach(function (t) { setTimeout(postHeight, t); });
+			if (window.MutationObserver) {
+				/* watch content changes only (childList) — NOT attributes or
+				   window resize, which re-fire when the iframe is resized. */
+				new MutationObserver(schedule).observe(document.documentElement, {
+					subtree: true, childList: true
+				});
+			}
+		})();
+		</script>
+	</body>
+</html>

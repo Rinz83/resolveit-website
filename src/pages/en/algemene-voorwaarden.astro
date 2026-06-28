@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const documents = [
+  {
+    title: 'Terms & Conditions — Resolve IT',
+    desc: 'The general terms and conditions that apply to the services of Resolve IT.',
+    href: '/docs/Resolve-IT-Algemene-Voorwaarden.pdf',
+  },
+  {
+    title: 'Terms & Conditions — Automate IT B.V.',
+    desc: 'The general terms and conditions that apply to the services of Automate IT B.V.',
+    href: '/docs/Automate-It-Algemene-Voorwaarden.pdf',
+  },
+];
+---
+
+<Layout title="Terms & conditions" description="Download the terms and conditions of Resolve IT and Automate IT B.V.">
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Legal</span>
+      <h1>Terms & conditions</h1>
+      <p>Below you’ll find our terms and conditions as a downloadable document.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <p class="text-muted" style="margin-bottom:2rem;">Our terms and conditions apply to all our quotations, agreements and deliveries. You can review and download them below (PDF). The documents are provided in Dutch.</p>
+      <div class="av-docs">
+        {documents.map(d => (
+          <a href={d.href} target="_blank" rel="noopener" class="av-doc">
+            <span class="av-doc-ico">📄</span>
+            <span class="av-doc-body">
+              <strong>{d.title}</strong>
+              <span class="text-muted">{d.desc}</span>
+            </span>
+            <span class="av-doc-cta">Download PDF →</span>
+          </a>
+        ))}
+      </div>
+      <p class="text-muted" style="margin-top:2rem; font-size:0.9rem;">Questions about our terms? <a href="/en/contact" style="color:var(--color-green-dark); font-weight:600;">Get in touch</a>.</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+.av-docs { display: flex; flex-direction: column; gap: 1rem; }
+.av-doc {
+  display: flex; align-items: center; gap: 1.25rem;
+  background: var(--color-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem; transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.av-doc:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: rgba(109,183,87,0.45); }
+.av-doc-ico { font-size: 2rem; flex-shrink: 0; }
+.av-doc-body { display: flex; flex-direction: column; gap: 0.2rem; flex: 1; }
+.av-doc-body strong { font-size: 1.05rem; color: var(--color-text); }
+.av-doc-body span { font-size: 0.9rem; }
+.av-doc-cta { color: var(--color-green-dark); font-weight: 700; font-size: 0.9rem; white-space: nowrap; flex-shrink: 0; }
+@media (max-width: 560px) { .av-doc { flex-wrap: wrap; } .av-doc-cta { width: 100%; } }
+</style>
+</content>

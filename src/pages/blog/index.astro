@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { cover, photo } from '../../data/blogCovers.js';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .filter(p => !p.slug.startsWith('en/'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const categories = [...new Set(posts.map(p => p.data.category))].sort();
+const fmt = (d) => d.toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+const img = (post) => post.data.image || photo(post.slug);
+---
+
+<Layout title="Blog" description="Inzichten en tips van Resolve IT over Salesforce, integraties, billing en digitale transformatie.">
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Blog</span>
+      <h1>Inzichten & tips</h1>
+      <p>Praktische artikelen over Salesforce, integraties en hoe u het maximale uit uw CRM haalt.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <!-- Category filter -->
+      <div class="blog-filter" role="tablist" aria-label="Filter op categorie">
+        <button class="blog-chip active" data-cat="all">Alle</button>
+        {categories.map(c => <button class="blog-chip" data-cat={c}>{c}</button>)}
+      </div>
+
+      <div class="blog-grid" id="blog-grid">
+        {posts.map(post => (
+          <a href={`/blog/${post.slug}`} class="blog-card card" data-category={post.data.category}>
+            <div class="blog-card-cover">
+              <img src={img(post)} alt={post.data.title} loading="lazy" class="blog-card-cover-bg" />
+              <span class="blog-card-cover-overlay" style={`background:${cover(post.data.category).grad}`}></span>
+              <span class="blog-card-cover-ico">{cover(post.data.category).icon}</span>
+              <span class="blog-card-cover-cat">{post.data.category}</span>
+            </div>
+            <div class="blog-card-body">
+              <h3>{post.data.title}</h3>
+              <p class="text-muted">{post.data.description}</p>
+              <div class="blog-meta">
+                <span>{post.data.author}</span>
+                <span>·</span>
+                <time>{fmt(post.data.pubDate)}</time>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+      <p class="blog-empty" id="blog-empty" hidden>Geen artikelen in deze categorie.</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+.blog-filter { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-bottom: 2.5rem; }
+.blog-chip {
+  background: var(--color-white); border: 1px solid var(--color-light); border-radius: 999px;
+  padding: 0.5rem 1.15rem; font-size: 0.85rem; font-weight: 600; color: var(--color-text);
+  cursor: pointer; transition: all var(--transition); font-family: inherit;
+}
+.blog-chip:hover { border-color: rgba(109,183,87,0.5); color: var(--color-green-dark); }
+.blog-chip.active { background: var(--color-green); border-color: var(--color-green); color: #fff; }
+
+.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+
+.blog-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.blog-card.is-hidden { display: none; }
+.blog-card-cover { aspect-ratio: 16/10; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; overflow: hidden; }
+.blog-card-cover-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.blog-card:hover .blog-card-cover-bg { transform: scale(1.06); }
+.blog-card-cover-overlay { position: absolute; inset: 0; }
+.blog-card-cover-ico { font-size: 2.6rem; position: relative; z-index: 1; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35)); }
+.blog-card-cover-cat { position: relative; z-index: 1; color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; text-shadow: 0 1px 4px rgba(0,0,0,0.35); }
+.blog-card-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+.blog-card-body h3 { font-size: 1.2rem; }
+.blog-meta { margin-top: auto; padding-top: 0.5rem; display: flex; gap: 0.5rem; font-size: 0.82rem; color: var(--color-text-muted); }
+.blog-empty { text-align: center; color: var(--color-text-muted); padding: 2rem 0; }
+</style>
+
+<script>
+  const chips = document.querySelectorAll('.blog-chip');
+  const cards = document.querySelectorAll('.blog-card');
+  const empty = document.getElementById('blog-empty');
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      chips.forEach((c) => c.classList.remove('active'));
+      chip.classList.add('active');
+      const cat = chip.getAttribute('data-cat');
+      let shown = 0;
+      cards.forEach((card) => {
+        const match = cat === 'all' || card.getAttribute('data-category') === cat;
+        card.classList.toggle('is-hidden', !match);
+        if (match) shown++;
+      });
+      if (empty) empty.hidden = shown !== 0;
+    });
+  });
+</script>

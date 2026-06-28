@@ -1,0 +1,256 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { sectors } from '../../data/sectors.js';
+import { cover, photo } from '../../data/blogCovers.js';
+
+const services = [
+  { icon: '/images/Icon-1.svg', title: 'Implementation & Onboarding', text: 'Implement Salesforce so it aligns with your strategic goals and delivers value from day one.', href: '/en/diensten/implementatie' },
+  { icon: '/images/Icon-2.svg', title: 'Audit & Consultancy', text: 'Optimise your existing Salesforce environment and set a roadmap with quick wins and long-term improvements.', href: '/en/diensten/consultancy' },
+  { icon: '/images/Icon-3.svg', title: 'Development & Integrations', text: 'Custom development and connections to tools like Exact Online, SharePoint, Stripe, DocuSign and more.', href: '/en/diensten/development' },
+  { icon: '/images/Icon-4.svg', title: 'Training & Best Practices', text: 'User training and admin certification so your team works with Salesforce independently.', href: '/en/diensten/training' },
+];
+
+const products = [
+  { title: 'Billing Platform', text: 'Invoicing, subscriptions and payments from Salesforce — connected to Stripe, Exact Online and your administration.', badge: 'Managed App', href: '/en/producten/billing-module' },
+  { title: 'Datasolver (CoC integration)', text: 'Automatically retrieve and sync company data from the Chamber of Commerce into Salesforce.', badge: 'Managed App', href: '/en/producten/kvk-integratie' },
+  { title: 'Exact Online', text: 'Seamless connection between Salesforce and Exact Online for real-time financial data.', badge: 'Exact Online App Store', href: '/en/producten/exact-online' },
+  { title: 'SharePoint Integration', text: 'Manage documents from Salesforce with a direct connection to SharePoint.', badge: 'AppExchange & Microsoft AppSource', href: '/en/producten/sharepoint' },
+];
+
+const industryLabels = {
+  'backoffice-services': 'Backoffice Services', 'saas': 'SaaS', 'professional-services': 'Professional Services',
+  'manufacturing': 'Manufacturing', 'recruitment': 'Recruitment', 'energie-utilities': 'Energy & Utilities',
+  'media-communicatie': 'Media & Communications', 'overige-sectoren': 'Other industries',
+};
+---
+
+<Layout title="Harness the Power of Salesforce" description="Resolve IT helps businesses turn Salesforce into an engine for growth — implementation, integrations, training and consultancy." transparentHeader={true}>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-aurora" aria-hidden="true"><span class="ab a1"></span><span class="ab a2"></span></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="hero-pill"><span class="dot"></span> Salesforce Gold Partner · since 2019</span>
+        <h1>Harness the power of<br /><span class="gradient-text">Salesforce</span></h1>
+        <p>Resolve IT helps businesses turn Salesforce into an engine for growth — from implementation to integration, training and consultancy.</p>
+        <div class="hero-actions">
+          <a href="/en/diensten" class="btn btn-primary">Our services</a>
+          <a href="/en/contact" class="btn btn-outline">Ask a question</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat"><span class="hstat-num">300+</span><span class="hstat-label">Projects</span></div>
+          <div class="hstat"><span class="hstat-num">10+</span><span class="hstat-label">Experts</span></div>
+          <div class="hstat"><span class="hstat-num">5★</span><span class="hstat-label">AppExchange</span></div>
+        </div>
+        <div class="hero-partners">
+          <span class="hp-badge">★ Salesforce Gold Consultancy Partner</span>
+          <span class="hp-badge">⬡ Salesforce ISV Partner</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-person">
+          <div class="hero-person-backdrop" aria-hidden="true"></div>
+          <div class="hero-person-ring" aria-hidden="true"></div>
+          <img src="/images/hero-person.png" alt="Happy Resolve IT customer working with Salesforce on a laptop" class="hero-person-img" />
+          <div class="float-badge fb-1">
+            <span class="fb-icon" style="background:rgba(109,183,87,0.18);color:var(--color-green)">✓</span>
+            <div><strong>Salesforce Gold Partner</strong><small>Certified experts</small></div>
+          </div>
+          <div class="float-badge fb-2">
+            <span class="fb-icon" style="background:rgba(108,68,148,0.18);color:#a988d0">↑</span>
+            <div><strong>+45% efficiency</strong><small>average result</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BILLING SPOTLIGHT -->
+  <section class="section bp">
+    <div class="container bp-inner">
+      <div class="reveal">
+        <span class="eyebrow">Featured · Billing Platform</span>
+        <h2>One platform for invoicing, subscriptions &amp; payments</h2>
+        <p class="text-muted">The heart of your order-to-cash in Salesforce. Create and send invoices, manage subscriptions and MRR, and collect payments automatically — seamlessly connected to the tools you already use.</p>
+        <ul class="bp-list">
+          <li><strong>Invoicing</strong><span>Custom PDF invoices, generated and sent automatically</span></li>
+          <li><strong>Subscription management</strong><span>Recurring billing with real-time MRR insight</span></li>
+          <li><strong>Payments</strong><span>Automatic collection via Stripe (card, SEPA, PayPal)</span></li>
+          <li><strong>Receivables</strong><span>Automated reminders &amp; outstanding items</span></li>
+        </ul>
+        <div class="bp-actions">
+          <a href="/en/producten/billing-module" class="btn btn-primary">Discover the Billing Platform</a>
+          <a href="/en/contact#afspraak" class="btn btn-outline-dark">Request a demo</a>
+        </div>
+      </div>
+      <div class="bp-hub reveal">
+        <div class="bp-center"><span>💶</span><span>Billing Platform</span></div>
+        <a href="/en/producten/exact-online" class="bp-node n1"><img class="bp-logo bp-logo-wide" src="/images/logos/exact-online.svg" alt="Exact Online" /></a>
+        <a href="/en/producten/billing-module" class="bp-node n2"><span class="stripe">Stripe</span> Payments</a>
+        <a href="/en/producten/kvk-integratie" class="bp-node n3"><span>🏢</span> Datasolver</a>
+        <a href="/en/producten/sharepoint" class="bp-node n4"><img class="bp-logo" src="/images/logos/sharepoint.svg" alt="SharePoint" /> SharePoint</a>
+        <svg class="bp-lines" viewBox="0 0 320 320" aria-hidden="true"><line x1="160" y1="160" x2="60" y2="60"/><line x1="160" y1="160" x2="260" y2="60"/><line x1="160" y1="160" x2="60" y2="260"/><line x1="160" y1="160" x2="260" y2="260"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal"><span class="eyebrow">Services</span><h2>Everything you need for Salesforce success</h2><p>From implementation to optimisation — we guide you every step of the way.</p></div>
+      <div class="grid-4">
+        {services.map((s, i) => (
+          <a href={s.href} class="card svc reveal" style={`--reveal-delay:${(i % 4) * 0.08}s`}>
+            <div class="svc-ico"><img src={s.icon} alt="" width="80" height="61" loading="lazy" /></div>
+            <h3>{s.title}</h3>
+            <p class="text-muted">{s.text}</p>
+            <span class="card-link">Read more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="section bg-dark prod-sec">
+    <div class="container">
+      <div class="section-header reveal"><span class="eyebrow">Products</span><h2 class="text-white">Smart Salesforce extensions</h2><p style="color:rgba(255,255,255,0.7)">Our own products — ready to use, proven effective.</p></div>
+      <div class="grid-2">
+        {products.map((p, i) => (
+          <a href={p.href} class="prod reveal" style={`--reveal-delay:${(i % 2) * 0.08}s`}>
+            <span class="badge">{p.badge}</span>
+            <h3 class="text-white">{p.title}</h3>
+            <p style="color:rgba(255,255,255,0.7)">{p.text}</p>
+            <span class="card-link">View product →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal"><span class="eyebrow">Industries</span><h2>Industry-specific Salesforce solutions</h2><p>Every sector has its own challenges. We understand yours and deliver solutions that truly work.</p></div>
+      <div class="ind-grid">
+        {sectors.map((s, i) => (
+          <a href={s.href} class="ind-card reveal" style={`--reveal-delay:${(i % 4) * 0.07}s`}>
+            <span class="ind-ico" set:html={s.svg} />
+            <span class="ind-name">{industryLabels[s.slug]}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta bg-dark">
+    <div class="container cta-inner reveal">
+      <div><h2>Ready to unlock the full potential of Salesforce?</h2><p>Get in touch for a no-obligation conversation, or book a meeting directly.</p></div>
+      <div class="cta-actions">
+        <a href="/en/contact#afspraak" class="btn btn-primary">Book a meeting</a>
+        <a href="/en/contact" class="btn btn-outline">Ask a question</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.hero { background: var(--color-dark); color: #fff; padding: 7rem 0; position: relative; overflow: hidden; }
+.hero-aurora { position: absolute; inset: 0; z-index: 0; }
+.hero-aurora .ab { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.5; }
+.hero-aurora .a1 { width: 520px; height: 520px; background: rgba(109,183,87,0.45); top: -160px; left: -120px; animation: drift 18s ease-in-out infinite; }
+.hero-aurora .a2 { width: 460px; height: 460px; background: rgba(108,68,148,0.42); bottom: -180px; right: -80px; animation: drift 22s ease-in-out infinite reverse; }
+.hero-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+.hero-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 0.45rem 1rem; border-radius: var(--radius-pill); font-size: 0.8rem; font-weight: 600; margin-bottom: 1.5rem; }
+.hero-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-green); animation: pulse-ring 2s ease-out infinite; }
+.hero-content h1 { color: #fff; font-size: clamp(2.4rem, 5.5vw, 4rem); margin-bottom: 1.25rem; }
+.hero-content p { color: rgba(255,255,255,0.78); font-size: 1.18rem; margin-bottom: 2rem; max-width: 520px; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.75rem; }
+.hero-stats { display: flex; gap: 2.75rem; }
+.hstat-num { font-size: 2.1rem; font-weight: 800; color: var(--color-green-soft); line-height: 1; display: block; }
+.hstat-label { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+.hero-partners { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.75rem; }
+.hp-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: var(--radius-pill); padding: 0.4rem 0.9rem; font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.9); }
+@media (max-width: 820px) { .hero-inner { grid-template-columns: 1fr; gap: 3.5rem; } .hero { padding: 4.5rem 0 5rem; } }
+
+/* dashboard */
+.hero-person { position: relative; display: flex; align-items: flex-end; justify-content: center; animation: float-y 7s ease-in-out infinite; }
+.hero-person-backdrop { position: absolute; left: 50%; top: 46%; transform: translate(-50%, -50%); width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(109,183,87,0.95), rgba(108,68,148,0.9) 75%); filter: blur(2px); }
+.hero-person-ring { position: absolute; left: 50%; top: 46%; transform: translate(-50%, -50%); width: 420px; height: 420px; border-radius: 50%; border: 1.5px dashed rgba(255,255,255,0.25); animation: spin-slow 40s linear infinite; }
+@keyframes spin-slow { to { transform: translate(-50%, -50%) rotate(360deg); } }
+.hero-person-img { position: relative; z-index: 1; width: 100%; max-width: 440px; height: auto; display: block; filter: drop-shadow(0 28px 40px rgba(0,0,0,0.5)); }
+.float-badge { position: absolute; z-index: 3; display: flex; align-items: center; gap: 0.65rem; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-radius: 14px; padding: 0.7rem 1rem; box-shadow: 0 12px 30px rgba(0,0,0,0.22); }
+.float-badge strong { display: block; font-size: 0.85rem; color: var(--color-text); line-height: 1.2; }
+.float-badge small { font-size: 0.72rem; color: var(--color-text-muted); }
+.fb-icon { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0; }
+.fb-1 { top: 16%; left: -28px; animation: float-y 5.5s ease-in-out infinite; }
+.fb-2 { bottom: 18%; right: -24px; animation: float-y 6.5s ease-in-out infinite 0.6s; }
+@media (max-width: 820px) { .hero-person-backdrop { width: 300px; height: 300px; } .hero-person-ring { width: 350px; height: 350px; } .float-badge { display: none; } }
+
+.dash { background: #fff; border-radius: 18px; box-shadow: 0 30px 70px rgba(0,0,0,0.45); overflow: hidden; animation: float-y 7s ease-in-out infinite; }
+.dash-head { display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1.1rem; background: var(--color-off-white); border-bottom: 1px solid var(--color-light); }
+.dots { display: flex; gap: 6px; } .dots i { width: 10px; height: 10px; border-radius: 50%; } .dots i:nth-child(1){background:#ff5f57}.dots i:nth-child(2){background:#febc2e}.dots i:nth-child(3){background:#28c840}
+.dash-title { font-size: 0.82rem; font-weight: 600; color: var(--color-text); }
+.dash-live { margin-left: auto; display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.72rem; font-weight: 600; color: var(--color-green-dark); }
+.lv { width: 7px; height: 7px; border-radius: 50%; background: var(--color-green); animation: pulse-ring 2s ease-out infinite; }
+.dash-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 1.1rem; }
+.kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+.kpi { background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: 12px; padding: 0.85rem 1rem; display: flex; flex-direction: column; gap: 0.15rem; }
+.kl { font-size: 0.7rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.kv { font-size: 1.5rem; font-weight: 800; color: var(--color-text); line-height: 1.1; }
+.kt { font-size: 0.72rem; font-weight: 700; color: var(--color-green-dark); }
+.bars { display: flex; align-items: flex-end; gap: 0.55rem; height: 90px; }
+.bar { flex: 1; height: var(--h); background: linear-gradient(180deg, #b9e0a8, var(--color-green)); border-radius: 6px 6px 3px 3px; transform-origin: bottom; animation: grow-bar 1s cubic-bezier(0.16,1,0.3,1) backwards; }
+.bar.acc { background: linear-gradient(180deg, #a988d0, var(--color-purple)); }
+.bar:nth-child(1){animation-delay:.1s}.bar:nth-child(2){animation-delay:.2s}.bar:nth-child(3){animation-delay:.3s}.bar:nth-child(4){animation-delay:.4s}.bar:nth-child(5){animation-delay:.5s}.bar:nth-child(6){animation-delay:.6s}
+@keyframes grow-bar { from { transform: scaleY(0); opacity: 0; } to { transform: scaleY(1); opacity: 1; } }
+
+/* billing spotlight */
+.bp { background: radial-gradient(circle at 85% 20%, rgba(109,183,87,0.10), transparent 45%), radial-gradient(circle at 10% 90%, rgba(108,68,148,0.10), transparent 45%), var(--color-off-white); }
+.bp-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 4rem; align-items: center; }
+@media (max-width: 860px) { .bp-inner { grid-template-columns: 1fr; gap: 3rem; } }
+.bp-list { list-style: none; margin: 1.5rem 0 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.bp-list li { position: relative; padding-left: 2rem; display: flex; flex-direction: column; gap: 0.15rem; }
+.bp-list li::before { content: ''; position: absolute; left: 0; top: 2px; width: 20px; height: 20px; border-radius: 50%; background: var(--color-green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/12px no-repeat; }
+.bp-list strong { color: var(--color-text); font-weight: 700; }
+.bp-list span { color: var(--color-text-muted); font-size: 0.92rem; }
+.bp-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.bp-hub { position: relative; width: 320px; height: 320px; margin: 0 auto; }
+.bp-lines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+.bp-lines line { stroke: rgba(109,183,87,0.4); stroke-width: 2; stroke-dasharray: 5 5; animation: bp-dash 18s linear infinite; }
+@keyframes bp-dash { to { stroke-dashoffset: -100; } }
+.bp-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 2; width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, var(--color-green), var(--color-green-dark)); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.3rem; font-weight: 700; font-size: 0.82rem; text-align: center; line-height: 1.2; box-shadow: 0 12px 30px rgba(109,183,87,0.4); }
+.bp-center span:first-child { font-size: 1.8rem; }
+.bp-node { position: absolute; z-index: 2; display: flex; align-items: center; gap: 0.45rem; background: #fff; border: 1px solid var(--color-light); border-radius: 12px; padding: 0.6rem 0.9rem; font-size: 0.82rem; font-weight: 700; color: var(--color-text); box-shadow: var(--shadow); }
+.bp-node span { font-size: 1rem; }
+.bp-logo { height: 20px; width: auto; max-width: 100px; object-fit: contain; display: block; flex-shrink: 0; }
+.bp-logo-wide { height: 17px; }
+.stripe { background: #635bff; color: #fff; font-size: 0.65rem; padding: 0.1rem 0.4rem; border-radius: 4px; }
+.n1 { top: 8px; left: -10px; animation: float-y 6s ease-in-out infinite; } .n2 { top: 8px; right: -10px; animation: float-y 6.5s ease-in-out infinite .3s; } .n3 { bottom: 8px; left: -10px; animation: float-y 6.2s ease-in-out infinite .6s; } .n4 { bottom: 8px; right: -10px; animation: float-y 6.8s ease-in-out infinite .9s; }
+
+.svc { display: flex; flex-direction: column; }
+.svc-ico { height: 64px; display: flex; align-items: center; margin-bottom: 1.25rem; } .svc-ico img { height: 56px; width: auto; }
+.svc h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+.card-link { margin-top: auto; padding-top: 1.25rem; color: var(--color-green); font-weight: 600; font-size: 0.9rem; }
+
+.prod { display: flex; flex-direction: column; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 2rem; transition: transform var(--transition), border-color var(--transition); }
+.prod:hover { transform: translateY(-5px); border-color: rgba(109,183,87,0.4); }
+.prod h3 { margin: 1rem 0 0.5rem; }
+
+.ind-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+@media (max-width: 900px) { .ind-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .ind-grid { grid-template-columns: 1fr; } }
+.ind-card { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; background: var(--color-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg); padding: 1.6rem 1.5rem; color: var(--color-text); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
+.ind-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: rgba(109,183,87,0.4); }
+.ind-ico { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(109,183,87,0.14), rgba(108,68,148,0.12)); color: var(--color-green-dark); }
+.ind-ico :global(svg) { width: 28px; height: 28px; }
+.ind-name { font-weight: 700; font-size: 1rem; }
+
+.cta { padding: 4.5rem 0; }
+.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; }
+.cta h2, .cta p { color: #fff; } .cta p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; }
+.cta-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+</style>

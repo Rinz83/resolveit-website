@@ -1,0 +1,213 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import FormModal from '../../../components/FormModal.astro';
+import { calendlyUrl, pardotForms } from '../../../i18n/ui.js';
+import '../../../styles/product.css';
+
+const features = [
+  { icon: '📁', title: 'Automatic document management', text: 'Folders and files are created automatically and uniformly. Add and manage files yourself — and never search again.' },
+  { icon: '☁️', title: 'Direct SharePoint storage', text: 'Files you upload in Salesforce go automatically to SharePoint. Zero extra data usage in Salesforce, with version control and collaboration.' },
+  { icon: '📦', title: 'Seamless migration', text: 'Existing Salesforce files move automatically to SharePoint, preserving the folder structure — and sharply lower storage costs.' },
+  { icon: '🤝', title: 'Familiar working environment', text: 'Your team simply works in Salesforce; management happens in the background in SharePoint. Changes sync automatically.' },
+  { icon: '🗂️', title: 'Pin folders', text: 'Pin folders to standard and custom Salesforce objects, so documents are always in the right place with the right record.' },
+  { icon: '🔐', title: 'Permissions & roles', text: 'Advanced permission synchronisation and role-based access, spread across multiple SharePoint sites.' },
+];
+
+const steps = [
+  { n: '1', title: 'Install', text: 'After installation the module appears directly in Salesforce — ready to use.' },
+  { n: '2', title: 'Save', text: 'Save documents the way you’re used to. The connection handles the rest in the background.' },
+  { n: '3', title: 'Sync', text: 'Files land automatically in SharePoint, in a folder structure that follows your Salesforce objects.' },
+  { n: '4', title: 'Collaborate', text: 'Open, edit and share from both platforms — changes sync across the whole organisation.' },
+];
+
+const plans = [
+  { name: 'Light', price: '5', sub: 'The basics in order', features: ['Standard folder structure for accounts', 'Standard objects only', 'Create & rename folders', 'View/edit files in SharePoint', 'Word, Excel, PowerPoint, PDF'], popular: false },
+  { name: 'Pro', price: '7', sub: 'For daily collaboration', features: ['Everything in Light', 'Pin folders to objects', 'Link to standard & custom objects', 'Full Office real-time collaboration', 'All file types'], popular: true },
+  { name: 'Enterprise', price: '8', sub: 'For complex organisations', features: ['Everything in Pro', 'Migration service (Salesforce → SharePoint)', 'Multiple SharePoint sites', 'Flow Automation & customisation', 'Permission sync & roles', 'Dedicated account manager'], popular: false },
+];
+
+const faqs = [
+  { q: 'Does the SharePoint connection consume Salesforce storage?', a: 'No. Files are stored in SharePoint, not in Salesforce. That saves considerably on storage costs — while your team keeps working in the familiar Salesforce interface.' },
+  { q: 'Are existing files migrated too?', a: 'With the Enterprise licence, our migration service moves existing Salesforce files automatically to SharePoint, preserving the folder structure. Want this guided? See our <a href="/en/diensten/implementatie">implementation &amp; onboarding</a>.' },
+  { q: 'Does it work with multiple SharePoint sites?', a: 'Yes. The integration supports multidisciplinary teams spread across multiple SharePoint sites and scales with your organisation, including permission and role management.' },
+  { q: 'Which file types are supported?', a: 'In the Light licence the standard Office types (Word, Excel, PowerPoint) and PDF; from the Pro licence all file types are allowed.' },
+  { q: 'Can I link folders to custom objects?', a: 'Yes, from the Pro licence you pin folders to both standard and custom Salesforce objects, so documents are always with the right record. The Light licence works with standard objects.' },
+  { q: 'How secure and compliant is the storage?', a: 'You leverage SharePoint’s own security, version control and permission model. With the Enterprise licence the connection synchronises permissions and role-based access with your Salesforce roles.' },
+  { q: 'How does installation work?', a: 'After installation the module appears directly in Salesforce. Files you upload sync automatically in the background to SharePoint — without users noticing anything.' },
+  { q: 'Can I combine this with other custom integrations?', a: 'Certainly. Our <a href="/en/diensten/development">development &amp; integration</a> consultants connect SharePoint to your broader process if desired, including Flow Automation and customisation.' },
+  { q: 'Is there a demo or trial?', a: 'Yes. <a href="/en/contact">Get in touch</a> for a demo or a free trial of the SharePoint connection.' },
+];
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })),
+});
+---
+
+<Layout title="SharePoint integration for Salesforce" description="Manage documents seamlessly from Salesforce, stored in SharePoint. No extra Salesforce storage, automatic synchronisation and migration.">
+
+  <section class="pp-hero">
+    <div class="pp-aurora" aria-hidden="true"><span></span><span></span></div>
+    <div class="container pp-hero-inner">
+      <div class="pp-hero-copy">
+        <span class="pp-badge"><span class="pp-badge-dot"></span> SalesPoint · Salesforce × SharePoint</span>
+        <h1>Documents in <span class="gradient-text">Salesforce</span>, stored in SharePoint</h1>
+        <p><strong>SalesPoint</strong> connects Salesforce and SharePoint in one seamless integration. <strong>No duplicate storage, no switching back and forth</strong> — your team works in Salesforce, SharePoint does the work in the background.</p>
+        <div class="pp-hero-actions">
+          <a href="#demo" class="btn btn-primary">Request a demo</a>
+          <a href="/en/contact" class="btn btn-outline">Try for free</a>
+        </div>
+        <div class="sp-stores">
+          <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=af6947f7-045b-4d53-b61c-6076f7082235" target="_blank" rel="noopener" class="sp-store">
+            <img src="/images/logos/salesforce.svg" alt="Salesforce AppExchange" />
+            <span><small>Available on</small><strong>Salesforce AppExchange</strong></span>
+          </a>
+          <a href="https://marketplace.microsoft.com/en-us/product/automateit.salespoint" target="_blank" rel="noopener" class="sp-store">
+            <img src="/images/logos/microsoft.svg" alt="Microsoft AppSource" />
+            <span><small>Available on</small><strong>Microsoft AppSource</strong></span>
+          </a>
+        </div>
+      </div>
+      <div class="pp-hero-visual">
+        <div class="sp-flow">
+          <div class="sp-node sp-sf"><span class="sp-ico"><img src="/images/logos/salesforce.svg" alt="Salesforce" /></span><span>Salesforce</span></div>
+          <div class="sp-stream" aria-hidden="true">
+            <span class="sp-file f1">📄</span>
+            <span class="sp-file f2">📊</span>
+            <span class="sp-file f3">📑</span>
+          </div>
+          <div class="sp-node sp-sp">
+            <span class="sp-ico"><img src="/images/logos/sharepoint.svg" alt="SharePoint" /></span><span>SharePoint</span>
+          </div>
+        </div>
+        <div class="sp-folders">
+          <div class="sp-folder"><span>📂</span> Accounts / Resolve IT</div>
+          <div class="sp-folder"><span>📂</span> Quotes 2026</div>
+          <div class="sp-folder"><span>📂</span> Contracts <span class="sp-sync">⟳ synced</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pp-trust">
+    <div class="container pp-trust-grid">
+      <div><strong>0 MB</strong><span>Salesforce storage</span></div>
+      <div><strong>100+</strong><span>companies since 2014</span></div>
+      <div><strong>Auto</strong><span>synchronisation</span></div>
+      <div><strong>Office</strong><span>real-time collaboration</span></div>
+    </div>
+  </section>
+
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Features</span>
+        <h2>The best of Salesforce and SharePoint</h2>
+        <p>“It feels so natural, as if Salesforce built it themselves.”</p>
+      </div>
+      <div class="grid-3">
+        {features.map((f, i) => (
+          <div class="card pp-feature reveal" style={`--reveal-delay:${(i % 3) * 0.08}s`}>
+            <div class="pp-feature-ico">{f.icon}</div>
+            <h3>{f.title}</h3>
+            <p class="text-muted">{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dark pp-how">
+    <div class="pp-how-glow" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="section-header reveal">
+        <span class="eyebrow">How it works</span>
+        <h2 class="text-white">Four steps, no hassle</h2>
+      </div>
+      <div class="pp-steps">
+        {steps.map((s, i) => (
+          <div class="pp-step reveal" style={`--reveal-delay:${i * 0.1}s`}>
+            <div class="pp-step-n">{s.n}</div>
+            <h3 class="text-white">{s.title}</h3>
+            <p style="color:rgba(255,255,255,0.72)">{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Licences</span>
+        <h2>Choose the licence that fits</h2>
+        <p>From basic document management to enterprise migration and role management.</p>
+      </div>
+      <div class="pp-pricing">
+        {plans.map(p => (
+          <div class={`pp-plan reveal ${p.popular ? 'popular' : ''}`}>
+            {p.popular && <span class="pp-plan-flag">Most chosen</span>}
+            <span class="pp-plan-name">{p.name}</span>
+            <div class="pp-plan-price"><span class="cur">€</span>{p.price}<span class="per">per user per mo</span></div>
+            <span class="pp-plan-sub">{p.sub}</span>
+            <ul class="list-check">{p.features.map(f => <li>{f}</li>)}</ul>
+            <a href="#demo" class={`btn ${p.popular ? 'btn-primary' : 'btn-outline-dark'}`}>Choose {p.name}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-off-white">
+    <div class="container" style="max-width:820px;">
+      <div class="section-header reveal"><span class="eyebrow">Frequently asked questions</span><h2>Good to know</h2></div>
+      <div class="pp-faq-list">
+        {faqs.map(f => (
+          <details class="pp-faq reveal"><summary>{f.q}<span class="pp-faq-plus">+</span></summary><p set:html={f.a} /></details>
+        ))}
+      </div>
+    </div>
+    <script type="application/ld+json" set:html={faqJsonLd} is:inline />
+  </section>
+
+  <section class="pp-cta bg-dark">
+    <div class="pp-cta-glow" aria-hidden="true"></div>
+    <div class="container pp-cta-inner reveal">
+      <div><h2>Ready to clear up document chaos?</h2><p>Request a demo or start a free trial.</p></div>
+      <div class="pp-cta-actions">
+        <a href="#demo" class="btn btn-primary">Request a demo</a>
+        <a href="/en/contact" class="btn btn-outline">Ask a question</a>
+      </div>
+    </div>
+  </section>
+
+  <FormModal id="demo" title="Request a demo — SalesPoint" formUrl={pardotForms.demoSharepoint} />
+
+</Layout>
+
+<style>
+.pp-hero-visual { position: relative; }
+.sp-flow { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 2.5rem 1.5rem; }
+.sp-node { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; font-weight: 700; color: #fff; font-size: 0.95rem; }
+.sp-ico { width: 72px; height: 72px; border-radius: 16px; display: flex; align-items: center; justify-content: center; padding: 14px; background: #fff; border: 1px solid rgba(255,255,255,0.16); box-shadow: 0 10px 24px rgba(0,0,0,0.25); animation: float-y 6s ease-in-out infinite; }
+.sp-ico img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.sp-stores { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 1.75rem; }
+.sp-store { display: inline-flex; align-items: center; gap: 0.7rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0.55rem 1rem; text-decoration: none; transition: background var(--transition), border-color var(--transition); }
+.sp-store:hover { background: rgba(255,255,255,0.14); border-color: rgba(109,183,87,0.5); }
+.sp-store img { width: 30px; height: 30px; background: #fff; border-radius: 7px; padding: 4px; object-fit: contain; flex-shrink: 0; }
+.sp-store small { display: block; font-size: 0.68rem; color: rgba(255,255,255,0.6); }
+.sp-store strong { display: block; font-size: 0.9rem; color: #fff; }
+.sp-sp .sp-ico { animation-delay: 0.7s; }
+.sp-stream { position: relative; height: 56px; min-width: 90px; }
+.sp-file { position: absolute; top: 50%; font-size: 1.5rem; transform: translateY(-50%); animation: sp-move 3s linear infinite; }
+.sp-file.f2 { animation-delay: 1s; }
+.sp-file.f3 { animation-delay: 2s; }
+@keyframes sp-move { from { left: 0; opacity: 0; transform: translateY(-50%) scale(0.7); } 15% { opacity: 1; transform: translateY(-50%) scale(1); } 85% { opacity: 1; } to { left: 100%; opacity: 0; transform: translateY(-50%) scale(0.7); } }
+.sp-folders { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.25rem; }
+.sp-folder { display: flex; align-items: center; gap: 0.6rem; background: var(--color-dark-2); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 0.7rem 1rem; color: rgba(255,255,255,0.85); font-size: 0.85rem; font-weight: 500; }
+.sp-folder:nth-child(1) { animation: float-y 6s ease-in-out infinite; }
+.sp-folder:nth-child(3) { animation: float-y 6.5s ease-in-out infinite 0.5s; }
+.sp-sync { margin-left: auto; color: var(--color-green-soft); font-size: 0.75rem; font-weight: 700; }
+</style>
+</content>

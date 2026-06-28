@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectorPage from '../../components/SectorPage.astro';
+const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M3 20V10l5 3V10l5 3V6l5 4v10H3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
+---
+<Layout title="Salesforce voor Manufacturing — orders, productie & service" description="Salesforce voor de maakindustrie: verbind sales, orderverwerking, productieplanning en service. Realtime grip op orders, prognoses, marges en klantrelaties.">
+  <SectorPage
+    eyebrow="Voor wie? · Manufacturing"
+    title="Van offerte tot levering — één keten, geen losse eilanden"
+    intro="In de maakindustrie telt elke dag levertijd en elke euro marge. Wij verbinden sales, orderverwerking, productieplanning en service in Salesforce, zodat u realtime stuurt op orders, prognoses en klanttevredenheid — en sterkere, langdurige klantrelaties bouwt."
+    icon={icon}
+    dashboard={{
+      title: 'Orders & Production Dashboard',
+      kpis: [
+        { label: 'Orderportefeuille', value: '€2,1M', trend: '▲ 11%' },
+        { label: 'On-time delivery', value: '96%', trend: '▲ 2%' },
+      ],
+      barLabel: 'Orders per maand',
+      bars: [52, 60, 57, 66, 73, 84],
+      ring: '96%',
+      ringLabel: 'OTIF',
+      legend: [
+        { label: 'Open orders', value: '142', color: '#6db757' },
+        { label: 'In productie', value: '38', color: '#85b160' },
+        { label: 'Geleverd', value: '310', color: '#6c4494' },
+      ],
+    }}
+    painLine="Sales belooft, maar productie en logistiek zien het pas later"
+    painPoints={[
+      'Orders en prognoses sluiten niet aan op wat productie en planning aankunnen',
+      'Complexe offertes met configuraties en prijzen kosten tijd en gaan mis',
+      'Voorraad- en levertijdinformatie is verspreid over losse systemen',
+      'Service is reactief: zonder centraal klant- en installatiebeeld is het brandjes blussen',
+      'Marges per order worden pas achteraf duidelijk',
+      'Sales-forecasts zijn te onbetrouwbaar om productie op te plannen',
+    ]}
+    capabilities={[
+      { icon: '🧮', title: 'Offertes & configuratie (CPQ)', text: 'Stel complexe offertes en configuraties foutloos samen met de juiste prijzen — sneller de deur uit.' },
+      { icon: '📦', title: 'Orderbeheer', text: 'Orders gekoppeld aan het salesproces, met status en levertijd realtime inzichtelijk.' },
+      { icon: '🔮', title: 'Salesprognoses', text: 'Betrouwbare forecasts waarop productie en inkoop daadwerkelijk kunnen plannen.' },
+      { icon: '🔧', title: 'Field service & onderhoud', text: 'Plan service en onderhoud rond een centraal klant- en installatiebeeld — proactief in plaats van reactief.' },
+      { icon: '🔗', title: 'ERP- & voorraadkoppeling', text: 'Koppel Salesforce aan uw ERP en productiesystemen voor één waarheid over voorraad en orders.' },
+      { icon: '📊', title: 'Marge- & orderdashboards', text: 'Inzicht in orderportefeuille, OTIF, marges en de volledige supply chain.' },
+    ]}
+    metrics={[
+      { num: 'Grip', label: 'op orders & prognoses' },
+      { num: 'Snellere', label: 'offerte-doorlooptijd' },
+      { num: 'Proactieve', label: 'service' },
+      { num: 'Hogere', label: 'leverbetrouwbaarheid' },
+    ]}
+    products={[
+      { label: 'Billing Platform', href: '/producten/billing-module', featured: true },
+      { label: 'Exact Online koppeling', href: '/producten/exact-online' },
+      { label: 'Datasolver', href: '/producten/kvk-integratie' },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ServiceDetail from '../../../components/ServiceDetail.astro';
+---
+<Layout title="Implementation & Onboarding" description="A Salesforce implementation aligned with your strategy and embraced by your team. From analysis to go-live — Resolve IT guides you every step of the way.">
+  <ServiceDetail
+    lang="en"
+    eyebrow="Service · Implementation & Onboarding"
+    title="A Salesforce foundation your organisation can truly build on"
+    intro="Salesforce is an incredibly powerful platform. But you only unlock its full potential when it is set up in line with your strategic goals — and embraced by your whole team. We make sure both happen."
+    heroStats={[{ num: '300+', label: 'projects' }, { num: '24h', label: 'fast starts possible' }, { num: '5★', label: 'AppExchange' }]}
+    image="/images/cases/case-1.jpg"
+    whatTitle="From loose ambition to a working platform"
+    whatText={[
+      'Many implementations stall because technology takes the lead instead of your goals. We flip that around: we start with what you want to achieve and build the solution around it.',
+      'Our consultants translate your processes into a clean, scalable Salesforce environment — delivered in short cycles, so you see value along the way and can adjust course. No big bang, just control.',
+    ]}
+    whatList={[
+      'Configuration aligned with your strategic goals',
+      'Clean data migration from your existing systems',
+      'Adoption secured through training and guidance',
+      'Built to scale, ready for the years ahead',
+    ]}
+    deliverables={[
+      { icon: '🎯', title: 'Strategic design', text: 'A blueprint that translates your goals into concrete functionality and user stories.' },
+      { icon: '🏗️', title: 'Working environment', text: 'A configured, tested Salesforce environment that fits your daily practice.' },
+      { icon: '📦', title: 'Migrated data', text: 'Your existing data cleaned, validated and migrated to Salesforce.' },
+      { icon: '🎓', title: 'Trained team', text: 'People who work confidently with the system from day one.' },
+    ]}
+    steps={[
+      { title: 'Prepare', text: 'We analyse your needs, processes and goals and design the ideal solution — together with the people who will use it.' },
+      { title: 'Design', text: 'We translate the vision into a concrete, actionable plan with detailed designs and user stories.' },
+      { title: 'Build', text: 'We build along the roadmap, in close collaboration with your organisation and with short feedback loops.' },
+      { title: 'Accelerate', text: 'We ensure a smooth transition with training and support, so your team is productive right away.' },
+    ]}
+    why={[
+      { icon: '🤝', title: 'One team with you', text: 'We work side by side with your people. Short lines, fast decisions, no surprises.' },
+      { icon: '🧭', title: 'Strategy first', text: 'We don’t build features for the sake of it, but solutions that serve your goals.' },
+      { icon: '🌱', title: 'Beyond go-live', text: 'We stay involved with support and further development. Your success is our success.' },
+    ]}
+    faqs={[
+      { q: 'How long does an implementation take?', a: 'It depends on scope and complexity. Simple projects can go live very quickly; larger implementations run in short cycles so you see results along the way. In a first conversation we give you a realistic estimate.' },
+      { q: 'Do you migrate our existing data?', a: 'Yes. We clean, validate and migrate your data to Salesforce in a structured way.' },
+      { q: 'How do you ensure our team uses the system?', a: 'Adoption is as important as the technology. We involve users early, train on concrete tasks and guide the rollout.' },
+      { q: 'What do you need from us?', a: 'Mainly involvement: access to the right people and clarity on your goals. We take care of the rest. <a href="/en/contact">Get in touch</a> to get acquainted.' },
+    ]}
+  />
+</Layout>

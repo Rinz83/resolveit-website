@@ -1,0 +1,50 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SectorPage from '../../../components/SectorPage.astro';
+const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M4 9v6l11 4V5L4 9z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M18 8a5 5 0 0 1 0 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>`;
+---
+<Layout title="Salesforce for Media & Communications — advertising, subscribers & content" description="Salesforce for media and communications companies: ad sales, subscriptions, editorial workflows and customer relationships in one environment, with billing and renewals automated.">
+  <SectorPage
+    lang="en"
+    eyebrow="Industries · Media & Communications"
+    title="Advertising, subscribers and content — from one source of truth"
+    intro="Media runs on relationships: advertisers, subscribers and readers. We connect ad sales, subscription management and editorial in Salesforce, with billing and renewals fully automated — so you get more out of every relationship and every euro of recurring revenue."
+    icon={icon}
+    dashboard={{
+      title: 'Ad Sales & Subscriptions',
+      kpis: [ { label: 'Ad revenue', value: '€684K', trend: '▲ 9%' }, { label: 'Active subscribers', value: '24,910', trend: '▲ 4%' } ],
+      barLabel: 'Revenue per month',
+      bars: [50, 57, 54, 65, 69, 83],
+      ring: '89%', ringLabel: 'renewal rate',
+      legend: [ { label: 'Advertising', value: '€142K', color: '#6db757' }, { label: 'Subscriptions', value: '€96K', color: '#85b160' }, { label: 'Events', value: '€31K', color: '#6c4494' } ],
+    }}
+    painLine="Advertisers, subscribers and editorial live in separate worlds"
+    painPoints={[
+      'Ad deals, placements and invoicing sit in separate tools',
+      'Subscribers are fragmented across titles and channels — no complete picture',
+      'Sales and editorial work past each other without a shared customer view',
+      'Subscription renewals and billing take too much manual work',
+      'Hard to steer on recurring revenue, churn and campaign performance',
+      'Cross- and upsell across titles and channels is left on the table',
+    ]}
+    capabilities={[
+      { icon: '📣', title: 'Ad & placement management', text: 'Manage ad deals, placements and packages in Salesforce — from quote to publication.' },
+      { icon: '🔁', title: 'Subscription management', text: 'Recurring billing, renewals and MRR insight via our Billing Platform.' },
+      { icon: '👥', title: 'One customer & subscriber view', text: 'A 360° view of advertisers and subscribers across all titles and channels.' },
+      { icon: '✍️', title: 'Content & editorial workflows', text: 'Streamline collaboration between sales and editorial with shared workflows.' },
+      { icon: '💳', title: 'Billing & collection', text: 'Automatic billing and collection of advertising, subscriptions and events.' },
+      { icon: '📊', title: 'Campaign & revenue dashboards', text: 'Real-time insight into ad revenue, subscribers, churn and campaign performance.' },
+    ]}
+    metrics={[
+      { num: '1 view', label: 'of advertiser & subscriber' },
+      { num: 'Faster', label: 'campaign follow-up' },
+      { num: 'More', label: 'recurring revenue' },
+      { num: 'Higher', label: 'renewal rate' },
+    ]}
+    products={[
+      { label: 'Billing Platform', href: '/en/producten/billing-module', featured: true },
+      { label: 'Exact Online connection', href: '/en/producten/exact-online' },
+      { label: 'Datasolver', href: '/en/producten/kvk-integratie' },
+    ]}
+  />
+</Layout>

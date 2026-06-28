@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectorPage from '../../components/SectorPage.astro';
+const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M7 18a4 4 0 0 1-.5-7.97A5.5 5.5 0 0 1 17 9.5a3.5 3.5 0 0 1 .5 6.96" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12v6m0-6-2 2m2-2 2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+---
+<Layout title="Salesforce voor SaaS — recurring revenue, churn & dashboards" description="Salesforce voor SaaS-bedrijven: van lead tot recurring revenue. Beheer MRR, churn en NRR met live dashboards, automatiseer abonnementen en facturatie via ons Billing Platform.">
+  <SectorPage
+    eyebrow="Voor wie? · SaaS"
+    title="Van trial tot recurring revenue — zonder dat groei vastloopt"
+    intro="SaaS draait op terugkerende omzet, lage churn en slim onboarden. Wij bouwen een Salesforce-omgeving die meeschaalt met uw abonneebestand — met live dashboards op MRR, churn en NRR, en facturatie volledig geautomatiseerd via ons Billing Platform."
+    icon={icon}
+    dashboard={{
+      title: 'SaaS Revenue Dashboard',
+      kpis: [
+        { label: 'MRR', value: '€312K', trend: '▲ 7,4% MoM' },
+        { label: 'Net churn', value: '1,8%', trend: '▼ 0,6%' },
+      ],
+      barLabel: 'MRR-groei per maand',
+      bars: [46, 54, 50, 63, 72, 88],
+      ring: '118%',
+      ringLabel: 'NRR',
+      legend: [
+        { label: 'New MRR', value: '+€21K', color: '#6db757' },
+        { label: 'Expansion', value: '+€9K', color: '#85b160' },
+        { label: 'Churned', value: '-€6K', color: '#6c4494' },
+      ],
+    }}
+    painLine="Uw business groeit sneller dan uw tooling kan bijbenen"
+    painPoints={[
+      'MRR, churn en NRR leeft in spreadsheets — elke board-update is handwerk',
+      'Sales, onboarding en customer success werken in losse tools zonder gedeeld klantbeeld',
+      'Facturatie en verlengingen kosten te veel tijd en lopen niet synchroon met de boekhouding',
+      'Opzeggingen komen als verrassing; vroege churn-signalen blijven onzichtbaar',
+      'Upsell- en expansion-kansen blijven liggen door gebrek aan gebruiksinzicht',
+      'Bij elke groeispurt knelt het proces opnieuw en moet er gepleisterd worden',
+    ]}
+    capabilities={[
+      { icon: '📊', title: 'Live revenue-dashboards', text: 'Realtime inzicht in MRR, ARR, churn, NRR en CAC/LTV — voor uw board, sales en finance, zonder handmatige rapportage.' },
+      { icon: '🔁', title: 'Abonnementen & facturatie', text: 'Volledig geautomatiseerd via ons Billing Platform: terugkerende facturatie, upgrades/downgrades en realtime MRR-opbouw.' },
+      { icon: '💳', title: 'Automatische incasso', text: 'Innen via Stripe (creditcard, SEPA, PayPal) en automatische opvolging van mislukte betalingen om involuntary churn te voorkomen.' },
+      { icon: '❤️', title: 'Customer success & health scores', text: 'Health scores en vroege churn-signalen op basis van gebruik, support en betaalgedrag — proactief in plaats van reactief.' },
+      { icon: '📈', title: 'Expansion & upsell', text: 'Signaleer upsell- en cross-sell-kansen automatisch en stuur playbooks aan voor land-and-expand.' },
+      { icon: '⚙️', title: 'Schaalbare automatisering', text: 'Lead-to-cash processen die werken bij 50 én bij 5.000 klanten — zonder telkens opnieuw te bouwen.' },
+    ]}
+    metrics={[
+      { num: 'Realtime', label: 'MRR, churn & NRR inzicht' },
+      { num: 'Lagere', label: 'churn door vroege signalen' },
+      { num: 'Meer', label: 'expansion-omzet' },
+      { num: 'Schaalbaar', label: 'van 50 naar 5.000 klanten' },
+    ]}
+    products={[
+      { label: 'Billing Platform', href: '/producten/billing-module', featured: true },
+      { label: 'Exact Online koppeling', href: '/producten/exact-online' },
+      { label: 'Development & Integraties', href: '/diensten/development' },
+    ]}
+  />
+</Layout>

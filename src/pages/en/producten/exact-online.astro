@@ -1,0 +1,369 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import FormModal from '../../../components/FormModal.astro';
+import { calendlyUrl, pardotForms } from '../../../i18n/ui.js';
+
+const syncObjects = [
+  { label: 'Accounts', icon: '🏢' },
+  { label: 'Contacts', icon: '👤' },
+  { label: 'Addresses', icon: '📍' },
+  { label: 'Item groups', icon: '🗂️' },
+  { label: 'Cost centres', icon: '🧮' },
+  { label: 'Products', icon: '📦' },
+  { label: 'Orders', icon: '🧾' },
+  { label: 'Invoices', icon: '💶' },
+  { label: 'Payments', icon: '💳' },
+  { label: 'General ledger (GL)', icon: '📊' },
+];
+
+const features = [
+  { icon: '🔄', title: 'Customer data synchronisation', text: 'Keep accounts, contacts and addresses automatically aligned between Salesforce and Exact Online — no more double entry.' },
+  { icon: '🔗', title: 'Link objects', text: 'Link orders, invoices, products and general ledger accounts one-to-one between both systems.' },
+  { icon: '🧩', title: 'Visual drag-and-drop mapping', text: 'Set up connections via a visual interface. Relationships are shown clearly and are adjustable — without technical knowledge.' },
+  { icon: '⏱️', title: 'Real-time & scheduled sync', text: 'Choose per object whether data syncs instantly or on a schedule. Fully configurable.' },
+  { icon: '🛡️', title: 'Secure via OAuth', text: 'Encrypted connections and OAuth authentication. Your data travels safely over secure API connections.' },
+  { icon: '🔍', title: 'Logging & error reporting', text: 'Complete logging of every synchronisation and clear error messages, so troubleshooting is simple.' },
+];
+
+const steps = [
+  { n: '1', title: 'Connect', text: 'Authorise Salesforce and Exact Online via OAuth. No developers needed — live within 24 hours.' },
+  { n: '2', title: 'Map', text: 'Drag fields and objects to each other in the visual mapping interface. You decide exactly what goes where.' },
+  { n: '3', title: 'Schedule', text: 'Set real-time or scheduled synchronisation, per object and per direction (one- or two-way).' },
+  { n: '4', title: 'Monitor', text: 'Track every synchronisation via the log and receive instant error messages when something goes wrong.' },
+];
+
+const faqs = [
+  { q: 'How quickly am I live with the Influx Exact Connector?', a: 'Usually within 24 hours. The connector works without custom development — you authorise both systems and configure the mapping yourself or together with us. Want guidance on setup? See our <a href="/en/diensten/implementatie">implementation &amp; onboarding</a>.' },
+  { q: 'Do I need developers to connect Salesforce and Exact Online?', a: 'No. The visual drag-and-drop interface makes setting up connections possible without programming knowledge. For more complex needs our <a href="/en/diensten/development">development &amp; integration</a> consultants can step in.' },
+  { q: 'Which data can I exchange between Salesforce and Exact Online?', a: 'Among others accounts, contacts, addresses, item groups, cost centres, products, orders, invoices, payments and general ledger accounts — in one or both directions, configurable per object. <a href="/blog/welke-data-salesforce-exact-synchroniseren">More information about the data →</a>' },
+  { q: 'Does the connector work with real-time and scheduled synchronisation?', a: 'Yes. You decide per object whether data syncs instantly (real-time) or on a schedule. This keeps you in control of performance and of when data is updated. <a href="/blog/hoe-vaak-wordt-data-gesynchroniseerd">More on sync frequency →</a>' },
+  { q: 'What are the key features of the connector?', a: 'The visual drag-and-drop mapping, two-way synchronisation, real-time and scheduled sync, logging with error reporting and secure OAuth connection. <a href="/blog/exact-connector-5-features">See the 5 essential features →</a>' },
+  { q: 'Does the connector support e-invoicing via Peppol?', a: 'Yes. The connector supports Peppol-compliant e-invoicing under the EN 16931 standard, including for Belgian B2B customers. You can look up Peppol identification numbers with our <a href="/en/producten/kvk-integratie">Datasolver module</a>. <a href="/blog/e-facturatie-belgie-2026-peppol">More on e-invoicing in 2026 →</a>' },
+  { q: 'How secure is the connection between Salesforce and Exact Online?', a: 'All data travels over encrypted, secure API connections with OAuth authentication. No passwords are stored and you retain full control over the authorisations. <a href="/blog/veilige-gestructureerde-data">More about our security →</a>' },
+  { q: 'What happens if a synchronisation fails?', a: 'Every synchronisation is logged and errors are reported with a clear message, so you can quickly find out what went wrong and adjust precisely.' },
+  { q: 'Can I combine the connector with automatic invoicing?', a: 'Certainly. Many customers combine the Exact connection with our <a href="/en/producten/billing-module">Billing Module</a> to generate invoices automatically from Salesforce and push them to the accounting.' },
+  { q: 'What do I need to get started?', a: 'An active Salesforce account, an active Exact Online account and API access to both systems. <a href="/en/contact">Get in touch</a> for a demo or the terms.' },
+];
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })),
+});
+---
+
+<Layout title="Influx Exact Connector — Salesforce × Exact Online" description="Automate invoicing and synchronisation between Salesforce and Exact Online. Live within 24 hours, no developers. Exchange all data with the Influx Exact Connector.">
+
+  <!-- HERO -->
+  <section class="ex-hero">
+    <div class="ex-aurora" aria-hidden="true"><span></span><span></span></div>
+    <div class="container ex-hero-inner">
+      <div class="ex-hero-copy">
+        <span class="ex-badge"><span class="ex-badge-dot"></span> Influx Exact Connector</span>
+        <h1>Connect <span class="gradient-text">Salesforce</span> with Exact Online</h1>
+        <p>Automate your invoicing and synchronise all data between Salesforce and Exact Online. <strong>Live within 24 hours, no developers.</strong> Fewer errors, less manual work — focus on what really counts.</p>
+        <div class="ex-hero-actions">
+          <a href="#demo" class="btn btn-primary">Request a demo</a>
+          <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-outline">Book a 30-min call</a>
+        </div>
+        <div class="ex-recognition">
+          <div class="ex-award">
+            <span class="ex-award-medal">🏆</span>
+            <div><strong>Exact Golden Luca 2025</strong><small>Award-winning Exact integration</small></div>
+          </div>
+          <a href="https://www.exact.com/nl/app-store/influx-for-salesforce-resolve-it-b-v" target="_blank" rel="noopener" class="ex-award ex-award-link">
+            <img class="ex-award-logo" src="/images/logos/exact-online.svg" alt="Exact Online App Store" />
+            <div><strong>Exact Online App Store</strong><small>View the Influx app →</small></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Animated sync diagram -->
+      <div class="ex-hero-visual">
+        <div class="sync">
+          <div class="sync-node sync-sf">
+            <div class="sync-logo"><img src="/images/logos/salesforce.svg" alt="Salesforce" /></div>
+            <span>Salesforce</span>
+          </div>
+
+          <div class="sync-rail" aria-hidden="true">
+            <span class="pulse p1"></span>
+            <span class="pulse p2"></span>
+            <span class="pulse p3"></span>
+            <span class="pulse p4 rev"></span>
+            <span class="pulse p5 rev"></span>
+          </div>
+
+          <div class="sync-node sync-ex">
+            <div class="sync-logo"><img src="/images/logos/exact-online.svg" alt="Exact Online" /></div>
+            <span>Exact Online</span>
+          </div>
+
+          <div class="sync-chip chip-1">Invoice ✓</div>
+          <div class="sync-chip chip-2">Customer ⇄</div>
+          <div class="sync-chip chip-3">Payment €</div>
+        </div>
+        <p class="sync-caption">Two-way synchronisation · real-time or scheduled</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="ex-trust">
+    <div class="container ex-trust-grid">
+      <div><strong>24 hrs</strong><span>to live</span></div>
+      <div><strong>0</strong><span>developers needed</span></div>
+      <div><strong>10+</strong><span>objects to connect</span></div>
+      <div><strong>€73</strong><span>per month</span></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Features</span>
+        <h2>Everything you need to connect</h2>
+        <p>One connector that fully aligns your sales and finance administration.</p>
+      </div>
+      <div class="grid-3">
+        {features.map((f, i) => (
+          <div class="card ex-feature reveal" style={`--reveal-delay:${(i % 3) * 0.08}s`}>
+            <div class="ex-feature-ico">{f.icon}</div>
+            <h3>{f.title}</h3>
+            <p class="text-muted">{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA OBJECTS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Exchange all your data</span>
+        <h2>From customer to ledger — fully connected</h2>
+        <p>Synchronise the objects that matter to your administration, in one or both directions.</p>
+      </div>
+      <div class="objects-flow reveal">
+        <div class="obj-side obj-sf">Salesforce</div>
+        <div class="obj-list">
+          {syncObjects.map(o => (
+            <div class="obj-chip">
+              <span class="obj-ico">{o.icon}</span>
+              <span>{o.label}</span>
+              <span class="obj-arrows">⇄</span>
+            </div>
+          ))}
+        </div>
+        <div class="obj-side obj-ex">Exact Online</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section bg-dark ex-how">
+    <div class="ex-how-glow" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="section-header reveal">
+        <span class="eyebrow">How it works</span>
+        <h2 class="text-white">Connected in four steps</h2>
+        <p style="color:rgba(255,255,255,0.7)">No complex implementation project — you’re live the same day.</p>
+      </div>
+      <div class="steps">
+        {steps.map((s, i) => (
+          <div class="step reveal" style={`--reveal-delay:${i * 0.1}s`}>
+            <div class="step-n">{s.n}</div>
+            <h3 class="text-white">{s.title}</h3>
+            <p style="color:rgba(255,255,255,0.72)">{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS + PRICING -->
+  <section class="section bg-off-white">
+    <div class="container ex-pricing-grid">
+      <div class="reveal">
+        <span class="eyebrow">Why the Influx Exact Connector?</span>
+        <h2>Save time, prevent errors</h2>
+        <ul class="list-check" style="margin-top:1.5rem;">
+          <li>Send quotes and invoices directly, without retyping</li>
+          <li>Synchronise webshop stock with Exact Online</li>
+          <li>Automatic invoicing from Salesforce</li>
+          <li>Real-time financial insight for sales and finance</li>
+          <li>Peppol e-invoicing (EN 16931) for B2B</li>
+          <li>Less manual entry in both systems</li>
+        </ul>
+      </div>
+      <div class="price-card reveal">
+        <span class="price-tag">Exact Online Module</span>
+        <div class="price-amount"><span class="price-cur">€</span>73<span class="price-per">/month</span></div>
+        <ul class="list-check">
+          <li>Connect unlimited objects</li>
+          <li>Real-time &amp; scheduled synchronisation</li>
+          <li>Visual mapping interface</li>
+          <li>Logging &amp; error reporting</li>
+          <li>OAuth security</li>
+        </ul>
+        <a href="#demo" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1.5rem;">Request a demo</a>
+        <a href="/en/contact" class="price-link">Contact us for terms →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:820px;">
+      <div class="section-header reveal">
+        <span class="eyebrow">Frequently asked questions</span>
+        <h2>Good to know</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map(f => (
+          <details class="faq reveal">
+            <summary>{f.q}<span class="faq-plus" aria-hidden="true">+</span></summary>
+            <p set:html={f.a} />
+          </details>
+        ))}
+      </div>
+    </div>
+    <script type="application/ld+json" set:html={faqJsonLd} is:inline />
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-strip bg-dark">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="container cta-strip-inner reveal">
+      <div>
+        <h2>Ready to connect Salesforce and Exact?</h2>
+        <p>Book a 30-minute demo and discover how fast you’re live.</p>
+      </div>
+      <div class="cta-strip-actions">
+        <a href="#demo" class="btn btn-primary">Request a demo</a>
+        <a href="/en/contact" class="btn btn-outline">Ask a question</a>
+      </div>
+    </div>
+  </section>
+
+  <FormModal id="demo" title="Request a demo — Exact Online" formUrl={pardotForms.demoExact} />
+
+</Layout>
+
+<style>
+/* ===== HERO ===== */
+.ex-hero { background: var(--color-dark); color: var(--color-white); padding: 6rem 0 5rem; position: relative; overflow: hidden; }
+.ex-aurora { position: absolute; inset: 0; z-index: 0; }
+.ex-aurora span { position: absolute; border-radius: 50%; filter: blur(80px); }
+.ex-aurora span:nth-child(1) { width: 480px; height: 480px; background: rgba(109,183,87,0.4); top: -150px; left: -100px; animation: drift 20s ease-in-out infinite; }
+.ex-aurora span:nth-child(2) { width: 420px; height: 420px; background: rgba(108,68,148,0.4); bottom: -160px; right: -80px; animation: drift 24s ease-in-out infinite reverse; }
+.ex-hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 4rem; align-items: center; }
+.ex-hero-copy h1 { color: var(--color-white); font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 1.25rem; }
+.ex-hero-copy p { color: rgba(255,255,255,0.8); font-size: 1.15rem; margin-bottom: 2rem; max-width: 540px; }
+.ex-hero-copy p strong { color: #fff; }
+.ex-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); padding: 0.45rem 1rem; border-radius: var(--radius-pill); font-size: 0.8rem; font-weight: 600; margin-bottom: 1.5rem; }
+.ex-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-green); animation: pulse-ring 2s ease-out infinite; }
+.ex-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.ex-recognition { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+.ex-award { display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 0.7rem 1.1rem; }
+.ex-award-medal { font-size: 1.6rem; }
+.ex-award strong { display: block; font-size: 0.9rem; color: #fff; }
+.ex-award small { font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+.ex-award-link { text-decoration: none; transition: border-color var(--transition), background var(--transition); }
+.ex-award-link:hover { background: rgba(255,255,255,0.1); border-color: rgba(109,183,87,0.5); }
+.ex-award-logo { width: 30px; height: 30px; background: #fff; border-radius: 7px; padding: 4px; object-fit: contain; }
+
+/* ===== Sync diagram ===== */
+.ex-hero-visual { position: relative; }
+.sync { position: relative; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 0; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 2.5rem 1.5rem; }
+.sync-node { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; font-weight: 700; color: #fff; font-size: 0.95rem; }
+.sync-logo { width: 100px; height: 62px; border-radius: 14px; display: flex; align-items: center; justify-content: center; padding: 10px 16px; background: #fff; border: 1px solid rgba(255,255,255,0.16); box-shadow: 0 10px 24px rgba(0,0,0,0.25); animation: float-y 6s ease-in-out infinite; }
+.sync-logo img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.sync-ex .sync-logo { animation-delay: 0.8s; }
+.sync-rail { position: relative; width: 100%; min-width: 90px; height: 3px; background: linear-gradient(90deg, rgba(109,183,87,0.5), rgba(108,68,148,0.5)); border-radius: 3px; }
+.pulse { position: absolute; top: 50%; width: 10px; height: 10px; border-radius: 50%; background: var(--color-green); transform: translateY(-50%); box-shadow: 0 0 10px var(--color-green); animation: flow 2.4s linear infinite; }
+.pulse.p2 { animation-delay: 0.5s; }
+.pulse.p3 { animation-delay: 1s; }
+.pulse.rev { background: #a988d0; box-shadow: 0 0 10px #a988d0; animation: flow-rev 2.4s linear infinite; }
+.pulse.p5 { animation-delay: 1.2s; }
+@keyframes flow { from { left: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } to { left: 100%; opacity: 0; } }
+@keyframes flow-rev { from { left: 100%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } to { left: 0; opacity: 0; } }
+.sync-chip { position: absolute; background: #fff; color: var(--color-text); font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.7rem; border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+.chip-1 { top: -10px; left: 30%; animation: float-y 5s ease-in-out infinite; }
+.chip-2 { bottom: -12px; left: 42%; animation: float-y 6s ease-in-out infinite 0.4s; }
+.chip-3 { top: 20%; right: -10px; animation: float-y 5.5s ease-in-out infinite 0.8s; }
+.sync-caption { text-align: center; margin-top: 1rem; font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+@media (max-width: 820px) {
+  .ex-hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .ex-hero { padding: 4.5rem 0; }
+}
+
+/* ===== TRUST ===== */
+.ex-trust { background: var(--color-dark-2); padding: 1.75rem 0; }
+.ex-trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
+.ex-trust-grid div { display: flex; flex-direction: column; gap: 0.2rem; }
+.ex-trust-grid strong { font-size: 1.8rem; font-weight: 800; color: var(--color-green-soft); }
+.ex-trust-grid span { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+@media (max-width: 560px) { .ex-trust-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
+
+/* ===== FEATURES ===== */
+.ex-feature { display: flex; flex-direction: column; }
+.ex-feature-ico { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; background: linear-gradient(135deg, rgba(109,183,87,0.15), rgba(108,68,148,0.12)); margin-bottom: 1.1rem; }
+.ex-feature h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+/* ===== DATA OBJECTS ===== */
+.objects-flow { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1.5rem; }
+.obj-side { writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; font-weight: 800; letter-spacing: 0.05em; padding: 1rem 0.5rem; border-radius: 12px; font-size: 0.9rem; }
+.obj-sf { background: linear-gradient(180deg, rgba(109,183,87,0.16), rgba(109,183,87,0.06)); color: var(--color-green-dark); }
+.obj-ex { background: linear-gradient(180deg, rgba(108,68,148,0.16), rgba(108,68,148,0.06)); color: var(--color-purple); }
+.obj-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+.obj-chip { display: flex; align-items: center; gap: 0.6rem; background: var(--color-white); border: 1px solid var(--color-light); border-radius: 12px; padding: 0.7rem 1rem; font-weight: 600; font-size: 0.9rem; transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
+.obj-chip:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: rgba(109,183,87,0.4); }
+.obj-ico { font-size: 1.1rem; }
+.obj-arrows { margin-left: auto; color: var(--color-green); font-weight: 700; }
+@media (max-width: 620px) { .obj-list { grid-template-columns: 1fr; } .obj-side { writing-mode: horizontal-tb; transform: none; } .objects-flow { grid-template-columns: 1fr; } }
+
+/* ===== HOW IT WORKS ===== */
+.ex-how { position: relative; overflow: hidden; }
+.ex-how-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 700px; background: radial-gradient(circle, rgba(109,183,87,0.16), transparent 60%); animation: drift 22s ease-in-out infinite; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.step { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 1.75rem; }
+.step-n { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--color-green), var(--color-green-dark)); color: #fff; font-weight: 800; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.step h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+@media (max-width: 820px) { .steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+
+/* ===== PRICING ===== */
+.ex-pricing-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
+@media (max-width: 820px) { .ex-pricing-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+.price-card { background: var(--color-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg); padding: 2.25rem; box-shadow: var(--shadow-lg); position: relative; }
+.price-tag { display: inline-block; background: rgba(109,183,87,0.12); color: var(--color-green-dark); font-weight: 700; font-size: 0.8rem; padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1rem; }
+.price-amount { font-size: 3.2rem; font-weight: 800; color: var(--color-text); line-height: 1; margin-bottom: 1.5rem; }
+.price-cur { font-size: 1.6rem; vertical-align: super; margin-right: 0.1rem; }
+.price-per { font-size: 1rem; font-weight: 500; color: var(--color-text-muted); }
+.price-link { display: block; text-align: center; margin-top: 0.85rem; font-size: 0.85rem; color: var(--color-text-muted); }
+.price-link:hover { color: var(--color-green-dark); }
+
+/* ===== FAQ ===== */
+.faq-list { display: flex; flex-direction: column; gap: 0.85rem; }
+.faq { background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: 14px; padding: 0 1.25rem; }
+.faq summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; list-style: none; padding: 1.1rem 0; font-weight: 600; color: var(--color-text); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq-plus { font-size: 1.4rem; color: var(--color-green); transition: transform var(--transition); flex-shrink: 0; }
+.faq[open] .faq-plus { transform: rotate(45deg); }
+.faq p { padding: 0 0 1.2rem; color: var(--color-text-muted); margin: 0; }
+.faq p a { color: var(--color-green-dark); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+.faq p a:hover { color: var(--color-green); }
+
+/* ===== CTA ===== */
+.cta-strip { padding: 4.5rem 0; position: relative; overflow: hidden; }
+.cta-glow { position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(109,183,87,0.25), transparent 60%); animation: drift 18s ease-in-out infinite; }
+.cta-strip-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; position: relative; z-index: 1; }
+.cta-strip h2, .cta-strip p { color: #fff; }
+.cta-strip p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; }
+.cta-strip-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+</style>
+</content>

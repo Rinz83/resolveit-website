@@ -1,0 +1,50 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SectorPage from '../../../components/SectorPage.astro';
+const icon = `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" stroke="currentColor" stroke-width="1.1"/></svg>`;
+---
+<Layout title="Salesforce for other industries — custom CRM" description="Salesforce is adaptable to any industry. Resolve IT translates your specific processes into a scalable, tailored CRM solution, whatever your sector.">
+  <SectorPage
+    lang="en"
+    eyebrow="Industries · Other industries"
+    title="Don’t see your sector? Then we build it to fit"
+    intro="Salesforce isn’t a standard package but a platform. We translate the processes that make YOUR organisation unique into a scalable solution — whether you’re in healthcare, education, real estate, non-profit or a niche market. One system, fully aligned with how you work."
+    icon={icon}
+    dashboard={{
+      title: 'Your Custom Dashboard',
+      kpis: [ { label: 'Pipeline', value: '€940K', trend: '▲ 12%' }, { label: 'Win rate', value: '41%', trend: '▲ 5%' } ],
+      barLabel: 'Results per month',
+      bars: [48, 55, 53, 62, 70, 85],
+      ring: '100%', ringLabel: 'tailored',
+      legend: [ { label: 'Your process', value: '✓', color: '#6db757' }, { label: 'Your objects', value: '✓', color: '#85b160' }, { label: 'Your KPIs', value: '✓', color: '#6c4494' } ],
+    }}
+    painLine="Off-the-shelf software forces you into processes that don’t fit"
+    painPoints={[
+      'Generic packages cover almost — but not quite — what makes your organisation unique',
+      'Disconnected tools that don’t talk to each other create duplicate work',
+      'Without a central system you lack the overview to steer well',
+      'Many manual steps that should really be automated',
+      'Software that doesn’t grow with your organisation',
+      'Assembling reports takes days instead of seconds',
+    ]}
+    capabilities={[
+      { icon: '🧩', title: 'Custom configuration', text: 'Salesforce fully set up around your specific processes and way of working.' },
+      { icon: '🗂️', title: 'Industry-specific objects', text: 'Custom objects, fields and workflows that mirror your exact reality.' },
+      { icon: '🔗', title: 'Integrations', text: 'Connect your existing systems so everything comes together in one environment.' },
+      { icon: '⚙️', title: 'Process automation', text: 'Automate your unique processes and eliminate repetitive manual work.' },
+      { icon: '📊', title: 'Custom dashboards', text: 'Real-time insight into exactly the KPIs that matter to YOUR organisation.' },
+      { icon: '🚀', title: 'Scalable', text: 'A foundation that grows with your organisation and ambitions.' },
+    ]}
+    metrics={[
+      { num: 'Tailored', label: 'to your industry' },
+      { num: '1 system', label: 'for your whole process' },
+      { num: 'Scalable', label: 'growing with you' },
+      { num: 'Full', label: 'insight & control' },
+    ]}
+    products={[
+      { label: 'Billing Platform', href: '/en/producten/billing-module', featured: true },
+      { label: 'Our products', href: '/en/producten' },
+      { label: 'Development & Integrations', href: '/en/diensten/development' },
+    ]}
+  />
+</Layout>

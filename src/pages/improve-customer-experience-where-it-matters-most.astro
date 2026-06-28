@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { calendlyUrl } from '../i18n/ui.js';
+
+const points = [
+  { icon: '🎯', title: 'Where it matters most', text: 'We focus on the touchpoints that actually move satisfaction, retention and revenue — not vanity metrics.' },
+  { icon: '⚙️', title: 'Salesforce-powered', text: 'A connected 360° customer view across sales, service and billing, so every team works from the same truth.' },
+  { icon: '📈', title: 'Measurable impact', text: 'Practical improvements you can ship fast, with dashboards that prove the difference.' },
+];
+---
+<Layout
+  title="Improve customer experience where it matters most"
+  description="Book a free 30-minute CX consult with Resolve IT. No pitch, just insight into where Salesforce can lift your customer experience."
+>
+  <section class="cx-hero">
+    <div class="cx-aurora" aria-hidden="true"><span></span><span></span></div>
+    <div class="container cx-inner">
+      <span class="pp-badge"><span class="pp-badge-dot"></span> Customer Experience</span>
+      <h1>Improve customer experience <span class="gradient-text">where it matters most</span></h1>
+      <p>Book a 30-minute CX consult. No pitch, just insight — we look at your customer journey and show you where Salesforce can make the biggest difference.</p>
+      <div class="cx-actions">
+        <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary">Book a 30-minute CX consult</a>
+        <a href="/en/contact" class="btn btn-outline">Ask a question</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-3">
+        {points.map((p) => (
+          <div class="card cx-card">
+            <div class="cx-ico">{p.icon}</div>
+            <h3>{p.title}</h3>
+            <p class="text-muted">{p.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cx-cta bg-dark">
+    <div class="container cx-cta-inner">
+      <div>
+        <h2>Ready when you are</h2>
+        <p>Grab a slot that suits you — it's a no-obligation conversation with one of our Salesforce experts.</p>
+      </div>
+      <div class="cx-cta-actions">
+        <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary">Plan your consult</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+.cx-hero { background: var(--color-dark); color: #fff; padding: 6rem 0 4.5rem; position: relative; overflow: hidden; text-align: center; }
+.cx-aurora { position: absolute; inset: 0; z-index: 0; }
+.cx-aurora span { position: absolute; border-radius: 50%; filter: blur(80px); }
+.cx-aurora span:nth-child(1) { width: 460px; height: 460px; background: rgba(109,183,87,0.4); top: -150px; left: 10%; animation: drift 20s ease-in-out infinite; }
+.cx-aurora span:nth-child(2) { width: 400px; height: 400px; background: rgba(108,68,148,0.4); bottom: -150px; right: 10%; animation: drift 24s ease-in-out infinite reverse; }
+.cx-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+.cx-inner h1 { color: #fff; font-size: clamp(2.2rem, 5.5vw, 3.4rem); margin-bottom: 1.25rem; }
+.cx-inner p { color: rgba(255,255,255,0.8); font-size: 1.15rem; margin-bottom: 2rem; }
+.cx-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.cx-card { display: flex; flex-direction: column; }
+.cx-ico { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; background: linear-gradient(135deg, rgba(109,183,87,0.15), rgba(108,68,148,0.12)); margin-bottom: 1rem; }
+.cx-card h3 { font-size: 1.08rem; margin-bottom: 0.4rem; }
+.cx-cta { padding: 4.5rem 0; }
+.cx-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; }
+.cx-cta h2, .cx-cta p { color: #fff; }
+.cx-cta p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; }
+.cx-cta-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+</style>

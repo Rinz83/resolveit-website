@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Pagina niet gevonden" transparentHeader={false}>
+  <section class="not-found">
+    <div class="container">
+      <div class="not-found-inner">
+        <span class="not-found-code">404</span>
+        <h1>Pagina niet gevonden</h1>
+        <p class="text-muted">De pagina die u zoekt bestaat niet of is verplaatst.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;">
+          <a href="/" class="btn btn-primary">Terug naar home</a>
+          <a href="/contact" class="btn btn-outline-dark">Contact opnemen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+.not-found { padding: 8rem 0; text-align: center; }
+.not-found-inner { max-width: 480px; margin: 0 auto; }
+.not-found-code { font-size: 8rem; font-weight: 800; color: var(--color-light-gray); line-height: 1; display: block; margin-bottom: 1rem; }
+.not-found h1 { margin-bottom: 0.75rem; }
+</style>

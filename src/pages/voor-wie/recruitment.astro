@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectorPage from '../../components/SectorPage.astro';
+const icon = `<svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.4"/><path d="M3.5 19.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="17.5" cy="7" r="2.2" stroke="currentColor" stroke-width="1.4"/></svg>`;
+---
+<Layout title="Salesforce voor Recruitment & Staffing — pijplijn, plaatsingen & marge" description="Salesforce voor recruitment- en uitzendbureaus: beheer kandidaten, vacatures en opdrachtgevers in één pijplijn, automatiseer follow-ups en koppel plaatsingen direct aan facturatie.">
+  <SectorPage
+    eyebrow="Voor wie? · Recruitment & Staffing"
+    title="Van eerste match tot gefactureerde plaatsing — in één pijplijn"
+    intro="Recruitment is een snelheidsspel. Wie het eerst belt, wint de kandidaat én de opdracht. Wij brengen kandidaten, vacatures en opdrachtgevers samen in één Salesforce-pijplijn, automatiseren de opvolging en koppelen plaatsingen direct aan facturatie — zodat uw recruiters recruiten in plaats van administreren."
+    icon={icon}
+    dashboard={{
+      title: 'Recruitment Pipeline Dashboard',
+      kpis: [
+        { label: 'Open vacatures', value: '64', trend: '▲ 8' },
+        { label: 'Time-to-hire', value: '19 dgn', trend: '▼ 4 dgn' },
+      ],
+      barLabel: 'Plaatsingen per maand',
+      bars: [45, 52, 49, 61, 68, 82],
+      ring: '74%',
+      ringLabel: 'fill rate',
+      legend: [
+        { label: 'Kandidaten', value: '1.240', color: '#6db757' },
+        { label: 'Interviews', value: '186', color: '#85b160' },
+        { label: 'Plaatsingen', value: '58', color: '#6c4494' },
+      ],
+    }}
+    painLine="Goede kandidaten haken af terwijl uw data in tien tools verspreid zit"
+    painPoints={[
+      'Cv’s, e-mails en notities staan verspreid over inboxen en spreadsheets',
+      'Trage opvolging: kandidaten zijn weg voordat het interview gepland is',
+      'Geen realtime zicht op de pijplijn, fill rate en time-to-hire',
+      'Matching gebeurt op gevoel in plaats van op data',
+      'Plaatsingen worden los van facturatie bijgehouden, met fouten tot gevolg',
+      'Opdrachtgevers en kandidaten zitten in gescheiden systemen',
+    ]}
+    capabilities={[
+      { icon: '👥', title: 'Kandidaat- & vacaturebeheer', text: 'Eén centrale omgeving voor kandidaten, vacatures en opdrachtgevers — met het volledige beeld per contact.' },
+      { icon: '⚡', title: 'Snelle, automatische opvolging', text: 'Geautomatiseerde follow-ups, herinneringen en statusupdates door de hele funnel.' },
+      { icon: '🎯', title: 'Slimme matching', text: 'Match kandidaten op vaardigheden en beschikbaarheid op basis van data, niet op gevoel.' },
+      { icon: '🔗', title: 'Job board- & e-mailkoppeling', text: 'Koppel vacaturesites, e-mail en agenda zodat alles automatisch in Salesforce landt.' },
+      { icon: '🧾', title: 'Plaatsing → facturatie', text: 'Plaatsingen direct gekoppeld aan facturatie via ons Billing Platform — inclusief terugkerende detacheringsfacturen.' },
+      { icon: '📊', title: 'Pijplijn-dashboards', text: 'Realtime inzicht in pijplijn, fill rate, time-to-hire en omzet per recruiter.' },
+    ]}
+    metrics={[
+      { num: 'Sneller', label: 'kandidaten geplaatst' },
+      { num: '1 bron', label: 'voor alle kandidaatdata' },
+      { num: 'Minder', label: 'handmatig opvolgen' },
+      { num: 'Direct', label: 'van plaatsing naar factuur' },
+    ]}
+    products={[
+      { label: 'Billing Platform', href: '/producten/billing-module', featured: true },
+      { label: 'Datasolver', href: '/producten/kvk-integratie' },
+      { label: 'Development & Integraties', href: '/diensten/development' },
+    ]}
+  />
+</Layout>

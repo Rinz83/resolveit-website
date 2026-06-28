@@ -1,0 +1,50 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SectorPage from '../../../components/SectorPage.astro';
+const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M7 18a4 4 0 0 1-.5-7.97A5.5 5.5 0 0 1 17 9.5a3.5 3.5 0 0 1 .5 6.96" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12v6m0-6-2 2m2-2 2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+---
+<Layout title="Salesforce for SaaS — recurring revenue, churn & dashboards" description="Salesforce for SaaS companies: from lead to recurring revenue. Manage MRR, churn and NRR with live dashboards, automate subscriptions and billing via our Billing Platform.">
+  <SectorPage
+    lang="en"
+    eyebrow="Industries · SaaS"
+    title="From trial to recurring revenue — without growth grinding to a halt"
+    intro="SaaS runs on recurring revenue, low churn and smart onboarding. We build a Salesforce environment that scales with your subscriber base — with live dashboards for MRR, churn and NRR, and billing fully automated via our Billing Platform."
+    icon={icon}
+    dashboard={{
+      title: 'SaaS Revenue Dashboard',
+      kpis: [ { label: 'MRR', value: '€312K', trend: '▲ 7.4% MoM' }, { label: 'Net churn', value: '1.8%', trend: '▼ 0.6%' } ],
+      barLabel: 'MRR growth per month',
+      bars: [46, 54, 50, 63, 72, 88],
+      ring: '118%', ringLabel: 'NRR',
+      legend: [ { label: 'New MRR', value: '+€21K', color: '#6db757' }, { label: 'Expansion', value: '+€9K', color: '#85b160' }, { label: 'Churned', value: '-€6K', color: '#6c4494' } ],
+    }}
+    painLine="Your business grows faster than your tooling can keep up"
+    painPoints={[
+      'MRR, churn and NRR live in spreadsheets — every board update is manual work',
+      'Sales, onboarding and customer success work in separate tools without a shared view',
+      'Billing and renewals take too much time and aren’t in sync with accounting',
+      'Cancellations come as a surprise; early churn signals stay invisible',
+      'Upsell and expansion opportunities are missed for lack of usage insight',
+      'Every growth spurt the process strains again and needs patching',
+    ]}
+    capabilities={[
+      { icon: '📊', title: 'Live revenue dashboards', text: 'Real-time insight into MRR, ARR, churn, NRR and CAC/LTV — for your board, sales and finance, without manual reporting.' },
+      { icon: '🔁', title: 'Subscriptions & billing', text: 'Fully automated via our Billing Platform: recurring billing, upgrades/downgrades and real-time MRR build-up.' },
+      { icon: '💳', title: 'Automatic collection', text: 'Collect via Stripe (card, SEPA, PayPal) and follow up on failed payments automatically to prevent churn.' },
+      { icon: '❤️', title: 'Customer success & health scores', text: 'Health scores and early churn signals based on usage, support and payment behaviour — proactive instead of reactive.' },
+      { icon: '📈', title: 'Expansion & upsell', text: 'Surface upsell and cross-sell opportunities automatically and drive land-and-expand playbooks.' },
+      { icon: '⚙️', title: 'Scalable automation', text: 'Lead-to-cash processes that work at 50 and at 5,000 customers — without rebuilding every time.' },
+    ]}
+    metrics={[
+      { num: 'Real-time', label: 'MRR, churn & NRR insight' },
+      { num: 'Lower', label: 'churn through early signals' },
+      { num: 'More', label: 'expansion revenue' },
+      { num: 'Scalable', label: 'from 50 to 5,000 customers' },
+    ]}
+    products={[
+      { label: 'Billing Platform', href: '/en/producten/billing-module', featured: true },
+      { label: 'Exact Online connection', href: '/en/producten/exact-online' },
+      { label: 'Development & Integrations', href: '/en/diensten/development' },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectorPage from '../../components/SectorPage.astro';
+const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M13 3 5 13h6l-1 8 8-10h-6l1-8z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
+---
+<Layout title="Salesforce voor Energie & Utilities — contracten, service & compliance" description="Salesforce voor energie- en nutsbedrijven: contractmanagement, field service, klantportalen en compliance-rapportages in één gestroomlijnde omgeving.">
+  <SectorPage
+    eyebrow="Voor wie? · Energie & Utilities"
+    title="Grip op contracten, service en compliance — bij grote klantvolumes"
+    intro="Energie- en nutsbedrijven jongleren met complexe tarieven, strenge regelgeving en veel klantcontact. Wij brengen contractbeheer, veldservice en klantcommunicatie samen in Salesforce, zodat u betrouwbare service levert aan grote volumes én moeiteloos voldoet aan uw rapportageverplichtingen."
+    icon={icon}
+    dashboard={{
+      title: 'Contracts & Service Dashboard',
+      kpis: [
+        { label: 'Actieve contracten', value: '12.480', trend: '▲ 3%' },
+        { label: 'SLA gehaald', value: '98,2%', trend: '▲ 1,1%' },
+      ],
+      barLabel: 'Serviceorders per maand',
+      bars: [58, 55, 62, 60, 70, 80],
+      ring: '98%',
+      ringLabel: 'SLA',
+      legend: [
+        { label: 'Nieuwe contracten', value: '+420', color: '#6db757' },
+        { label: 'Verlengingen', value: '+1.8K', color: '#85b160' },
+        { label: 'Opzeggingen', value: '-260', color: '#6c4494' },
+      ],
+    }}
+    painLine="Complexe contracten en strenge regels, beheerd in losse systemen"
+    painPoints={[
+      'Veel contractvormen, tarieven en verlengingen die handmatig lastig bij te houden zijn',
+      'Veldservice, planning en klantdata zitten in gescheiden systemen',
+      'Rapportageverplichtingen kosten veel tijd zonder gestandaardiseerd proces',
+      'Klanten verwachten 24/7 selfservice die u nu niet kunt bieden',
+      'Storingen en aanvragen worden niet centraal opgevolgd',
+      'Geen totaalbeeld van de klant over alle contactmomenten heen',
+    ]}
+    capabilities={[
+      { icon: '📄', title: 'Contract- & tariefbeheer', text: 'Beheer alle contractvormen en tarieven centraal, met automatische signalering van verlengingen.' },
+      { icon: '🔧', title: 'Field service', text: 'Slimme planning van monteurs en serviceorders rondom een centraal klant- en aansluitbeeld.' },
+      { icon: '🌐', title: 'Selfservice portalen', text: 'Klantportalen voor meterstanden, facturen en aanvragen — 24/7 en zonder druk op uw servicedesk.' },
+      { icon: '✅', title: 'Compliance & rapportage', text: 'Gestandaardiseerde, geautomatiseerde compliance- en rapportageprocessen die tijd besparen.' },
+      { icon: '🔗', title: 'Meet- & backoffice-koppeling', text: 'Koppel meet-, billing- en backofficesystemen voor één betrouwbare databron.' },
+      { icon: '📊', title: 'Service- & contractdashboards', text: 'Realtime inzicht in SLA’s, contractmutaties, storingen en klanttevredenheid.' },
+    ]}
+    metrics={[
+      { num: 'Grip', label: 'op contracten & tarieven' },
+      { num: 'Efficiënte', label: 'field service' },
+      { num: 'Snellere', label: 'compliance-rapportage' },
+      { num: 'Betere', label: 'klantervaring' },
+    ]}
+    products={[
+      { label: 'Billing Platform', href: '/producten/billing-module', featured: true },
+      { label: 'Datasolver', href: '/producten/kvk-integratie' },
+      { label: 'Exact Online koppeling', href: '/producten/exact-online' },
+    ]}
+  />
+</Layout>

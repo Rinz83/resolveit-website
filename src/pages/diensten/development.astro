@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+---
+<Layout title="Development & Integraties" description="Maatwerk Salesforce-ontwikkeling en integraties met Exact Online, SharePoint, Stripe, DocuSign en meer. Koppel Salesforce aan uw hele landschap.">
+  <ServiceDetail
+    eyebrow="Dienst · Development & Integraties"
+    title="Koppel Salesforce aan uw volledige IT-landschap"
+    intro="Salesforce wordt pas echt krachtig als het samenwerkt met de tools die u al gebruikt. Wij bouwen maatwerk waar standaardfunctionaliteit tekortschiet en koppelen uw systemen aan Salesforce via API — robuust, veilig en vaak binnen enkele weken."
+    heroStats={[{ num: '10+', label: 'kant-en-klare koppelingen' }, { num: 'API', label: 'maatwerk mogelijk' }, { num: 'Weken', label: 'i.p.v. maanden' }]}
+    image="/images/cases/case-6.jpg"
+    whatTitle="Eén bron van waarheid, geen losse eilanden"
+    whatText={[
+      'Versnipperde systemen kosten tijd, geld en vertrouwen: dubbele invoer, data die uiteenloopt en rapportages die niemand vertrouwt. Wij brengen uw systemen samen rond Salesforce als centrale bron van waarheid.',
+      'Of het nu gaat om een bewezen koppeling met Exact Online, SharePoint of Stripe, of om volledig maatwerk voor een uniek proces — we bouwen integraties die schaalbaar en onderhoudbaar zijn, en die meegroeien met uw organisatie.',
+    ]}
+    whatList={[
+      'Kant-en-klare koppelingen met o.a. Exact Online, SharePoint en Stripe',
+      'Maatwerk-ontwikkeling waar standaard tekortschiet',
+      'Robuuste foutafhandeling, logging en monitoring',
+      'Schaalbaar en onderhoudbaar gebouwd',
+    ]}
+    deliverablesTitle="Wat u krijgt"
+    deliverables={[
+      { icon: '🔗', title: 'Werkende koppelingen', text: 'Integraties met uw bestaande systemen, getest en in productie.' },
+      { icon: '🧩', title: 'Maatwerkfunctionaliteit', text: 'Oplossingen op maat waar Salesforce standaard niet volstaat.' },
+      { icon: '🛡️', title: 'Veilige verbindingen', text: 'OAuth-authenticatie en versleutelde dataoverdracht.' },
+      { icon: '📈', title: 'Onderhoudbaarheid', text: 'Een opzet die meegroeit en eenvoudig aan te passen blijft.' },
+    ]}
+    steps={[
+      { title: 'Analyse', text: 'We brengen uw systemen en datastromen in kaart en bepalen de bron van waarheid per datatype.' },
+      { title: 'Ontwerp', text: 'We kiezen de juiste aanpak — directe API, middleware of standaardconnector — en plannen foutafhandeling en security.' },
+      { title: 'Bouw & test', text: 'We bouwen met beproefde patronen en testen met representatieve data vóór de livegang.' },
+      { title: 'Beheer', text: 'Met monitoring en logging houden we de koppeling gezond, en we ontwikkelen door waar nodig.' },
+    ]}
+    why={[
+      { icon: '⚙️', title: 'Bewezen én maatwerk', text: 'We combineren kant-en-klare connectors met maatwerk waar uw proces daarom vraagt.' },
+      { icon: '🏆', title: 'Bekroonde integraties', text: 'Onze Exact-koppeling won de Golden Luca op het hoogste niveau (Level 4).' },
+      { icon: '🌱', title: 'Langetermijnpartner', text: 'We bouwen niet alleen, we blijven beschikbaar voor doorontwikkeling en onderhoud.' },
+    ]}
+    faqs={[
+      { q: 'Met welke systemen koppelen jullie?', a: 'Onder andere Exact Online, SharePoint, OneDrive, Google Drive, Stripe, Aircall, SAP, DocuSign, ChatGPT en Microsoft Teams — en via de API vrijwel elk ander systeem.' },
+      { q: 'Hoe lang duurt een integratie?', a: 'Bewezen koppelingen zijn vaak binnen enkele weken live. Lees onze blog <a href="/blog/vijf-stappen-slimme-salesforce-integraties">vijf stappen naar slimme Salesforce-integraties</a> voor onze werkwijze.' },
+      { q: 'Kant-en-klaar of maatwerk — wat is beter?', a: 'Dat hangt van uw situatie af. Vaak combineren we beide. Meer hierover in <a href="/blog/salesforce-connectors">Salesforce connectors: kant-en-klaar of maatwerk?</a>' },
+      { q: 'Is de koppeling veilig?', a: 'Ja. We werken met OAuth-authenticatie en versleutelde verbindingen, met robuuste foutafhandeling en logging. <a href="/contact">Neem contact op</a> voor de details.' },
+    ]}
+  />
+</Layout>

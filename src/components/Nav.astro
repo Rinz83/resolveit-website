@@ -37,8 +37,9 @@ const navLinks = [
   { label: t('nav.contact'), href: '/contact' },
 ];
 
-const toggleHref = altLangPath(currentPath);
-const toggleLabel = t('lang.label');
+// Language switch shows BOTH languages; the active one is highlighted.
+const nlHref = lang === 'nl' ? currentPath : altLangPath(currentPath);
+const enHref = lang === 'en' ? currentPath : altLangPath(currentPath);
 
 interface Props { transparent?: boolean; }
 const { transparent = false } = Astro.props;
@@ -77,7 +78,11 @@ const { transparent = false } = Astro.props;
     </nav>
 
     <div class="header-actions">
-      <a href={toggleHref} class="lang-toggle" aria-label="Switch language">🌐 {toggleLabel}</a>
+      <div class="lang-switch" role="group" aria-label="Taal / Language">
+        <span class="lang-globe" aria-hidden="true">🌐</span>
+        <a href={nlHref} class={`lang-opt ${lang === 'nl' ? 'active' : ''}`} aria-current={lang === 'nl' ? 'true' : undefined}>NL</a>
+        <a href={enHref} class={`lang-opt ${lang === 'en' ? 'active' : ''}`} aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+      </div>
       <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary btn-sm">{t('nav.afspraak')}</a>
       <button class="mobile-toggle" aria-label="Menu" id="mobile-toggle">
         <span></span><span></span><span></span>
@@ -100,7 +105,13 @@ const { transparent = false } = Astro.props;
         )}
       </li>
     ))}
-    <li><a href={toggleHref} class="mobile-nav-link">🌐 {toggleLabel}</a></li>
+    <li>
+      <div class="lang-switch mobile-lang" role="group" aria-label="Taal / Language">
+        <span class="lang-globe" aria-hidden="true">🌐</span>
+        <a href={nlHref} class={`lang-opt ${lang === 'nl' ? 'active' : ''}`} aria-current={lang === 'nl' ? 'true' : undefined}>NL</a>
+        <a href={enHref} class={`lang-opt ${lang === 'en' ? 'active' : ''}`} aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+      </div>
+    </li>
     <li><a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:1rem;display:inline-flex;">{t('nav.afspraak')}</a></li>
   </ul>
 </div>
@@ -241,18 +252,35 @@ const { transparent = false } = Astro.props;
 
 .btn-sm { padding: 0.55rem 1.25rem; font-size: 0.875rem; }
 
-.lang-toggle {
-  font-size: 0.82rem;
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--radius-pill);
+}
+.lang-globe { font-size: 0.78rem; margin: 0 0.15rem 0 0.3rem; line-height: 1; }
+.lang-opt {
+  font-size: 0.78rem;
   font-weight: 700;
-  color: var(--color-text);
-  padding: 0.4rem 0.6rem;
-  border-radius: var(--radius);
-  white-space: nowrap;
+  color: var(--color-text-muted);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  line-height: 1.2;
   transition: color var(--transition), background var(--transition);
 }
-.lang-toggle:hover { background: var(--color-off-white); color: var(--color-green-dark); }
-.site-header.transparent:not(.scrolled) .lang-toggle { color: rgba(255,255,255,0.92); }
-.site-header.transparent:not(.scrolled) .lang-toggle:hover { background: rgba(255,255,255,0.14); color: #fff; }
+.lang-opt:hover { color: var(--color-green-dark); }
+.lang-opt.active { background: var(--color-green); color: #fff; }
+.lang-opt.active:hover { color: #fff; }
+
+/* Transparent overlay header (homepage, not scrolled) */
+.site-header.transparent:not(.scrolled) .lang-switch { border-color: rgba(255,255,255,0.3); }
+.site-header.transparent:not(.scrolled) .lang-opt { color: rgba(255,255,255,0.8); }
+.site-header.transparent:not(.scrolled) .lang-opt:hover { color: #fff; }
+.site-header.transparent:not(.scrolled) .lang-opt.active { background: var(--color-green); color: #fff; }
+
+.mobile-lang { margin-top: 0.5rem; }
 
 .mobile-toggle {
   display: none;

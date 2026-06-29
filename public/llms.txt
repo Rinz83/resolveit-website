@@ -1,0 +1,25 @@
+# Resolve IT
+
+> Resolve IT is a Salesforce Gold Partner (since 2019), based in the Netherlands, helping organisations get the full value from Salesforce — implementation, integrations, training and consultancy — and building its own products on the Salesforce AppExchange. Contact: contact@resolveit.nl, +31 411 799 828.
+
+## Services
+- [Implementation & Onboarding](https://www.resolveit.nl/diensten/implementatie): Tailored Salesforce implementation aligned to strategic goals.
+- [Audit & Consultancy](https://www.resolveit.nl/diensten/consultancy): Optimise an existing Salesforce org and set a roadmap.
+- [Development & Integrations](https://www.resolveit.nl/diensten/development): Custom development and connectors (Exact Online, SharePoint, Stripe, DocuSign, KvK).
+- [Training & Best Practices](https://www.resolveit.nl/diensten/training): User training and admin certification.
+
+## Products (AppExchange)
+- [Billing Platform](https://www.resolveit.nl/producten/billing-module): Invoicing, subscriptions and payments from Salesforce, connected to Stripe and Exact Online.
+- [Datasolver (KvK integration)](https://www.resolveit.nl/producten/kvk-integratie): Sync Chamber of Commerce company data into Salesforce.
+- [Exact Online connector](https://www.resolveit.nl/producten/exact-online): Real-time financial data between Salesforce and Exact Online.
+- [SharePoint integration](https://www.resolveit.nl/producten/sharepoint): Manage documents from Salesforce via SharePoint.
+
+## Company
+- [About us](https://www.resolveit.nl/over-ons): Who Resolve IT is and how it works.
+- [Industries](https://www.resolveit.nl/voor-wie): Sector-specific Salesforce solutions.
+- [Cases](https://www.resolveit.nl/cases): Customer success stories.
+- [Blog](https://www.resolveit.nl/blog): Articles on Salesforce, integrations and automation.
+- [Contact](https://www.resolveit.nl/contact): Get in touch or book a meeting.
+
+## English
+- [English site](https://www.resolveit.nl/en): Full site in English under /en/.

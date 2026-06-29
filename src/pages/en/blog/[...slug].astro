@@ -16,9 +16,27 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 const enSlug = post.slug.replace(/^en\//, '');
 const fmt = (d) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const SITE = 'https://www.resolveit.nl';
+const postImg = new URL(post.data.image || photo(enSlug), SITE).href;
+const blogJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  image: postImg,
+  datePublished: post.data.pubDate.toISOString(),
+  author: { '@type': 'Organization', name: post.data.author },
+  publisher: { '@id': `${SITE}/#organization` },
+  mainEntityOfPage: `${SITE}/en/blog/${enSlug}`,
+  articleSection: post.data.category,
+  inLanguage: 'en',
+});
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
+<Layout title={post.data.title} description={post.data.description} image={post.data.image || photo(enSlug)} ogType="article">
+  <script type="application/ld+json" set:html={blogJsonLd} is:inline />
+
   <article>
     <div class="post-hero">
       <div class="container">

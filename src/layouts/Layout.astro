@@ -9,17 +9,27 @@ export interface Props {
   description?: string;
   transparentHeader?: boolean;
   noindex?: boolean;
+  image?: string;
+  ogType?: string;
 }
+
+// Default social-share image. TODO: replace with a purpose-built 1200x630
+// branded OG image; this stock photo is a stopgap so cards aren't blank.
+const DEFAULT_OG_IMAGE = '/images/AdobeStock_320848339_v2-1024x683.jpg';
 
 const {
   title,
   description = 'Resolve IT helpt organisaties het volledige potentieel van Salesforce te benutten. Implementatie, integraties, training en consultancy.',
   transparentHeader = true,
   noindex = false,
+  image = DEFAULT_OG_IMAGE,
+  ogType = 'website',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://www.resolveit.nl');
 const lang = Astro.url.pathname === '/en' || Astro.url.pathname.startsWith('/en/') ? 'en' : 'nl';
+const ogImage = new URL(image, Astro.site ?? 'https://www.resolveit.nl').href;
+const ogLocale = lang === 'en' ? 'en_GB' : 'nl_NL';
 
 // hreflang alternates: emit NL/EN links only for pages that exist in both
 // languages (the primary language flipped to NL at root, EN under /en/).
@@ -58,15 +68,46 @@ const cc = lang === 'en'
     </>
   )}
 
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content={ogType} />
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:title" content={`${title} | Resolve IT`} />
   <meta property="og:description" content={description} />
-  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:locale" content={ogLocale} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:alt" content={`${title} | Resolve IT`} />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={`${title} | Resolve IT`} />
   <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Organization + WebSite entity (site-wide) — helps Google's Knowledge
+       Panel and AI engines identify and cite the brand. -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': 'https://www.resolveit.nl/#organization',
+        name: 'Resolve IT',
+        url: 'https://www.resolveit.nl/',
+        logo: 'https://www.resolveit.nl/images/Logo-colored.png',
+        email: 'contact@resolveit.nl',
+        telephone: '+31411799828',
+        description: 'Salesforce Gold Partner: implementation, integrations, training and consultancy.',
+        address: { '@type': 'PostalAddress', addressCountry: 'NL' },
+        sameAs: ['https://www.linkedin.com/company/resolveitnow/'],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://www.resolveit.nl/#website',
+        url: 'https://www.resolveit.nl/',
+        name: 'Resolve IT',
+        publisher: { '@id': 'https://www.resolveit.nl/#organization' },
+        inLanguage: lang === 'en' ? 'en' : 'nl-NL',
+      },
+    ],
+  })} is:inline />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 

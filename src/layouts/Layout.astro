@@ -209,6 +209,27 @@ const cc = lang === 'en'
       }
     });
 
+    // Fire a GA event helper (no-op until consent is granted / gtag exists).
+    const track = (name, params) => {
+      const g = (window as any).gtag;
+      if (typeof g === 'function') g('event', name, params || {});
+    };
+
+    // Pardot form engagement: the form template posts a "form_start" event
+    // when the visitor first focuses a field.
+    window.addEventListener('message', (e) => {
+      const ev = e.data && typeof e.data === 'object' ? (e.data as any).pardotEvent : null;
+      if (ev === 'form_start') track('form_start', { method: 'pardot' });
+    });
+
+    // Calendly: fire a conversion when a booking is completed in the overlay.
+    window.addEventListener('message', (e) => {
+      const d = e.data;
+      if (d && typeof d === 'object' && (d as any).event === 'calendly.event_scheduled') {
+        track('schedule_appointment', { method: 'calendly' });
+      }
+    });
+
     // Auto-resize embedded Pardot form iframes to their content height
     // (the form layout template posts its height via postMessage).
     window.addEventListener('message', (e) => {

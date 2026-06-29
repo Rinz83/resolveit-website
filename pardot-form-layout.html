@@ -175,6 +175,20 @@ body form.form p.submit input:active{
 			document.addEventListener('DOMContentLoaded', postHeight);
 			window.addEventListener('load', postHeight);
 			[300, 800, 1500].forEach(function (t) { setTimeout(postHeight, t); });
+
+			/* Tell the embedding site when the visitor starts filling the form
+			   (first field focus), so it can fire a GA "form_start" event. */
+			var started = false;
+			document.addEventListener('focusin', function (e) {
+				if (started) return;
+				var t = e.target;
+				if (!t || !t.tagName) return;
+				var tag = t.tagName.toLowerCase();
+				if (tag === 'input' || tag === 'select' || tag === 'textarea') {
+					started = true;
+					if (window.parent) window.parent.postMessage({ pardotEvent: 'form_start' }, '*');
+				}
+			}, true);
 			if (window.MutationObserver) {
 				/* watch content changes only (childList) — NOT attributes or
 				   window resize, which re-fire when the iframe is resized. */

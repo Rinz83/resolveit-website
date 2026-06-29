@@ -1,8 +1,8 @@
 ---
 // Confirmation page shown after a Pardot form submits (its redirect target).
-const { message, ctaHref = '/', ctaLabel = 'Back to home' } = Astro.props;
+const { message, ctaHref = '/', ctaLabel = 'Back to home', source = 'form' } = Astro.props;
 ---
-<section class="ty">
+<section class="ty" data-ty-source={source}>
   <div class="ty-aurora" aria-hidden="true"><span></span><span></span></div>
   <div class="container ty-inner">
     <div class="ty-check" aria-hidden="true">
@@ -16,6 +16,19 @@ const { message, ctaHref = '/', ctaLabel = 'Back to home' } = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  // Landing on a thank-you page means a form was submitted — fire the lead
+  // conversion (only sends once consent is granted, via Consent Mode).
+  const el = document.querySelector('.ty[data-ty-source]');
+  const g = (window as any).gtag;
+  if (el && typeof g === 'function') {
+    g('event', 'generate_lead', {
+      method: 'pardot',
+      form_source: (el as HTMLElement).dataset.tySource || 'form',
+    });
+  }
+</script>
 
 <style>
 .ty { background: var(--color-dark); color: #fff; min-height: 70vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 5rem 0; }

@@ -202,6 +202,10 @@ const cc = lang === 'en'
       if (!(t instanceof Element)) return;
       const a = t.closest('a[href*="calendly.com"]');
       if (!a) return;
+      // Track the intent to book (button click) — distinct from the completed
+      // booking (schedule_appointment fired on calendly.event_scheduled).
+      const gg = (window as any).gtag;
+      if (typeof gg === 'function') gg('event', 'begin_appointment', { method: 'calendly' });
       const C = (window as any).Calendly;
       if (C && typeof C.initPopupWidget === 'function') {
         e.preventDefault();

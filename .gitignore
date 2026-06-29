@@ -13,3 +13,7 @@ Thumbs.db
 .vscode/
 
 .vercel
+
+# raw source screenshots dropped in for the manual (copied into public/images/salespoint)
+/salesforce setup/
+/Lightning config/

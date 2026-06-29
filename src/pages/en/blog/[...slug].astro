@@ -34,7 +34,8 @@ const blogJsonLd = JSON.stringify({
 });
 ---
 
-<Layout title={post.data.title} description={post.data.description} image={post.data.image || photo(enSlug)} ogType="article">
+<Layout title={post.data.title} description={post.data.description} image={post.data.image || photo(enSlug)} ogType="article"
+  breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Blog', item: '/en/blog' }, { name: post.data.title, item: `/en/blog/${enSlug}` }]}>
   <script type="application/ld+json" set:html={blogJsonLd} is:inline />
 
   <article>

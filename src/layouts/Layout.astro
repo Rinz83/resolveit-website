@@ -11,11 +11,11 @@ export interface Props {
   noindex?: boolean;
   image?: string;
   ogType?: string;
+  breadcrumbs?: { name: string; item: string }[];
 }
 
-// Default social-share image. TODO: replace with a purpose-built 1200x630
-// branded OG image; this stock photo is a stopgap so cards aren't blank.
-const DEFAULT_OG_IMAGE = '/images/AdobeStock_320848339_v2-1024x683.jpg';
+// Default social-share image: purpose-built 1200x630 branded OG card.
+const DEFAULT_OG_IMAGE = '/images/og-default.png';
 
 const {
   title,
@@ -24,6 +24,7 @@ const {
   noindex = false,
   image = DEFAULT_OG_IMAGE,
   ogType = 'website',
+  breadcrumbs,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://www.resolveit.nl');
@@ -108,6 +109,19 @@ const cc = lang === 'en'
       },
     ],
   })} is:inline />
+
+  {breadcrumbs && breadcrumbs.length > 0 && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((b, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: b.name,
+        item: new URL(b.item, 'https://www.resolveit.nl').href,
+      })),
+    })} is:inline />
+  )}
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 

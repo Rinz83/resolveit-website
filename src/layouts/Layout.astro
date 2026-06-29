@@ -29,6 +29,13 @@ const nlClean = (getLangFromUrl(pn) === 'en' ? pn.replace(/^\/en/, '') : pn).rep
 const hasAlternate = translatedPaths.has(nlClean);
 const nlHref = new URL(nlClean, siteBase).href;
 const enHref = new URL(nlClean === '/' ? '/en' : `/en${nlClean}`, siteBase).href;
+
+// Cookie-consent banner copy (bilingual).
+const cc = lang === 'en'
+  ? { text: 'We use cookies to analyse website traffic and improve your experience.',
+      more: 'Cookie policy', link: '/en/cookiebeleid', accept: 'Accept', decline: 'Decline' }
+  : { text: 'We gebruiken cookies om websiteverkeer te analyseren en onze site te verbeteren.',
+      more: 'Cookiebeleid', link: '/cookiebeleid', accept: 'Accepteren', decline: 'Weigeren' };
 ---
 
 <!DOCTYPE html>
@@ -63,6 +70,32 @@ const enHref = new URL(nlClean === '/' ? '/en' : `/en${nlClean}`, siteBase).href
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+  <!-- Google Analytics 4 (gtag) with Consent Mode v2 — storage stays denied
+       until the visitor accepts the cookie banner (AVG/GDPR compliant). -->
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500,
+    });
+    // Re-apply a stored choice from a previous visit before GA loads.
+    try {
+      if (localStorage.getItem('riy-consent') === 'granted') {
+        gtag('consent', 'update', {
+          ad_storage: 'granted', ad_user_data: 'granted',
+          ad_personalization: 'granted', analytics_storage: 'granted',
+        });
+      }
+    } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-N45J4VLRC2');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N45J4VLRC2" is:inline></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -80,6 +113,87 @@ const enHref = new URL(nlClean === '/' ? '/en' : `/en${nlClean}`, siteBase).href
     <slot />
   </main>
   <Footer />
+
+  <div id="cookie-consent" class="cc-banner" hidden>
+    <p class="cc-text">
+      {cc.text} <a href={cc.link}>{cc.more}</a>
+    </p>
+    <div class="cc-actions">
+      <button type="button" class="cc-btn cc-decline">{cc.decline}</button>
+      <button type="button" class="cc-btn cc-accept">{cc.accept}</button>
+    </div>
+  </div>
+
+  <style>
+    .cc-banner {
+      position: fixed;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 9999;
+      max-width: 640px;
+      margin-inline: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem 1.25rem;
+      padding: 1rem 1.25rem;
+      background: #fff;
+      border: 1px solid var(--color-light, #e6e8ec);
+      border-radius: 14px;
+      box-shadow: var(--shadow-lg, 0 16px 40px rgba(0,0,0,.16));
+    }
+    .cc-text {
+      margin: 0;
+      flex: 1 1 260px;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--color-dark, #1a1d24);
+    }
+    .cc-text a { color: var(--color-primary, #2f9e44); text-decoration: underline; }
+    .cc-actions { display: flex; gap: 0.6rem; flex: 0 0 auto; }
+    .cc-btn {
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      font-family: inherit;
+      border: 1px solid var(--color-light, #e6e8ec);
+    }
+    .cc-decline { background: #fff; color: var(--color-dark, #1a1d24); }
+    .cc-decline:hover { background: var(--color-bg, #f5f6f8); }
+    .cc-accept { background: var(--color-primary, #2f9e44); color: #fff; border-color: var(--color-primary, #2f9e44); }
+    .cc-accept:hover { filter: brightness(1.05); }
+    @media (max-width: 480px) {
+      .cc-actions { width: 100%; }
+      .cc-btn { flex: 1; }
+    }
+  </style>
+
+  <script is:inline>
+    // Cookie consent: show the banner until a choice is stored, then update
+    // Google Consent Mode v2 accordingly.
+    (function () {
+      var banner = document.getElementById('cookie-consent');
+      if (!banner) return;
+      var stored = null;
+      try { stored = localStorage.getItem('riy-consent'); } catch (e) {}
+      if (!stored) banner.hidden = false;
+      function choose(choice) {
+        try { localStorage.setItem('riy-consent', choice); } catch (e) {}
+        var g = choice === 'granted' ? 'granted' : 'denied';
+        if (typeof window.gtag === 'function') {
+          window.gtag('consent', 'update', {
+            ad_storage: g, ad_user_data: g, ad_personalization: g, analytics_storage: g,
+          });
+        }
+        banner.hidden = true;
+      }
+      banner.querySelector('.cc-accept').addEventListener('click', function () { choose('granted'); });
+      banner.querySelector('.cc-decline').addEventListener('click', function () { choose('denied'); });
+    })();
+  </script>
 
   <script>
     // Calendly: open booking links as an on-page overlay instead of a new tab.

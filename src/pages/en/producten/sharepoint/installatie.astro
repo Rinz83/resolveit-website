@@ -1,0 +1,205 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+
+const salesforceSteps = [
+  { t: 'Assign permission sets', d: 'Assign the right Permission Set(s) to your users. At minimum, assign <strong>SharePoint Admin Access</strong> to your own user so you can complete the next steps.', imgs: ['/images/salespoint/image1.png'] },
+  { t: 'Open the SharePoint app', d: 'Go to the <strong>App Launcher</strong> and search for <strong>SharePoint App</strong>. Open it — by default it opens the app’s home page.', imgs: ['/images/salespoint/image2.png'] },
+  { t: 'Start granting access', d: 'On the home page, click the <strong>“Click me”</strong> area on the right. A new tab opens so you can grant access to the SharePoint app.', imgs: ['/images/salespoint/image3.png'] },
+  { t: 'Accept the permission request', d: 'In the new tab, accept the app’s permission request. You’ll then be redirected to the Salesforce login page.', imgs: ['/images/salespoint/image4.png'] },
+  { t: 'Use the right login URL', d: 'By default you’re redirected to <code>login.salesforce.com</code>. If you installed the app in a <strong>Sandbox</strong>, replace it with <code>test.salesforce.com</code>.', imgs: ['/images/salespoint/image5.png'] },
+  { t: 'Log in & confirm', d: 'Log in with your Salesforce org. A <strong>“Connection successful”</strong> message pops up. Close it — you return to the app home page (now showing a different image). Click <strong>Next</strong>.', imgs: ['/images/salespoint/image6.png', '/images/salespoint/image8.png'] },
+  { t: 'Create a new connection', d: 'Choose <strong>Create a new connection</strong> and give the connected SharePoint site a clear, generic name. Click <strong>Next</strong>.', imgs: ['/images/salespoint/image9.png'] },
+  { t: 'Choose the root folder', d: 'Select the <strong>Site ID</strong> — or a folder inside it — as the root folder where dynamic folders will be created (e.g. site “Salesforce Demo”, folder “Test Folder”). Click <strong>Next</strong>.', imgs: ['/images/salespoint/image10.png'] },
+  { t: 'Set profiles, file types & delete rights', d: 'On the final screen, set three things: the <strong>profiles</strong> that may access the app, the <strong>accepted file formats</strong> (e.g. pdf, docx), and the <strong>users</strong> allowed to delete SharePoint files from within Salesforce.', imgs: ['/images/salespoint/image11.png', '/images/salespoint/image12.png'] },
+];
+
+const trustedUrl = [
+  ['API Name', 'A name without spaces or special characters, e.g. companyname_Sharepoint'],
+  ['URL', 'https://yourdomain.sharepoint.com (your own SharePoint domain)'],
+  ['Active', 'Checked'],
+  ['CSP Context', 'All'],
+  ['connect-src (scripts)', 'Checked'],
+  ['font-src (fonts)', 'Checked'],
+  ['frame-src (iframe content)', 'Checked'],
+  ['img-src (images)', 'Checked'],
+  ['media-src (audio & video)', 'Checked'],
+  ['style-src (stylesheets)', 'Checked'],
+];
+
+const lightningParams = [
+  'API name of the field that stores the <strong>SharePoint Folder ID</strong>.',
+  'API name of the field that stores the <strong>Pinned Folder ID</strong>.',
+  'API name of the <strong>Object</strong> the component works for.',
+  '<em>(Optional)</em> API name of the <strong>Parent Object</strong> — only if you want to relate the record to another object in the folder tree.',
+  '<em>(Optional)</em> API name of the field where the SharePoint ID is stored on the <strong>Parent Object</strong>.',
+  'API name of the field that defines the <strong>folder name</strong> on SharePoint (default = Record Name).',
+  '<em>(Optional)</em> A maximum <strong>height</strong> for the Lightning component.',
+  'Select which <strong>SharePoint Site</strong> to connect — the one you created in the Salesforce Setup steps.',
+];
+---
+<Layout title="SalesPoint — Installation guide" description="Step-by-step installation and setup guide for SalesPoint: connect your SharePoint site to Salesforce and add the component to your Lightning pages." noindex={true}>
+
+  <section class="ig-hero">
+    <div class="ig-aurora" aria-hidden="true"><span></span><span></span></div>
+    <div class="container ig-hero-inner">
+      <span class="pp-badge"><span class="pp-badge-dot"></span> SalesPoint · Installation guide</span>
+      <h1>Set up <span class="gradient-text">SalesPoint</span> in Salesforce</h1>
+      <p>Your SharePoint &amp; Salesforce integration is almost ready — just one quick setup to go. This guide walks you through connecting your SharePoint site to your Salesforce org and adding the component to your Lightning pages.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container ig-body">
+
+      <!-- PART 1 -->
+      <div class="ig-part">
+        <span class="ig-part-tag">Part 1</span>
+        <h2>Salesforce setup</h2>
+        <p class="text-muted">Connect your SharePoint site to your Salesforce org.</p>
+      </div>
+
+      <ol class="ig-steps">
+        {salesforceSteps.map((s, i) => (
+          <li class="ig-step">
+            <span class="ig-num">{i + 1}</span>
+            <div class="ig-step-body">
+              <h3>{s.t}</h3>
+              <p set:html={s.d} />
+              {s.imgs && s.imgs.map((src) => (
+                <figure class="ig-shot"><img src={src} alt={s.t} loading="lazy" /></figure>
+              ))}
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <!-- Trusted URL -->
+      <div class="ig-sub">
+        <h3>Trusted URL configuration</h3>
+        <p class="text-muted">Go to <strong>Setup</strong> → search <strong>Trusted URL</strong> → <strong>Trusted URL → New Trusted URL</strong>, then fill in the fields below and click <strong>Save</strong>:</p>
+        <div class="ig-table-wrap">
+          <table class="ig-table">
+            <thead><tr><th>Field</th><th>Value</th></tr></thead>
+            <tbody>
+              {trustedUrl.map(([f, v]) => <tr><td>{f}</td><td>{v}</td></tr>)}
+            </tbody>
+          </table>
+        </div>
+        <p class="ig-tip">💡 Tip: your SharePoint domain is the URL you use to open SharePoint, e.g. <code>https://resolveit.sharepoint.com</code>.</p>
+      </div>
+
+      <!-- PART 2 -->
+      <div class="ig-part">
+        <span class="ig-part-tag">Part 2</span>
+        <h2>Lightning page configuration</h2>
+        <p class="text-muted">Add the SharePoint component to your object pages.</p>
+      </div>
+
+      <div class="ig-note">
+        <strong>How folder matching works:</strong> when you connect an object to SharePoint, it first checks the designated location for a folder whose name matches the record name. If one exists, it’s linked automatically (so no duplicate folders are created); if not, a new folder is created.
+      </div>
+
+      <ol class="ig-steps">
+        <li class="ig-step">
+          <span class="ig-num">1</span>
+          <div class="ig-step-body">
+            <h3>Create two text fields per object</h3>
+            <p>On every object you want to link with SharePoint, create <strong>two text fields</strong>: one to store the <strong>SharePoint Folder ID</strong> and one to store the <strong>Pinned Folder ID</strong>.</p>
+            <figure class="ig-shot"><img src="/images/salespoint/lightning1.png" alt="SharePoint Folder Id custom field" loading="lazy" /></figure>
+          </div>
+        </li>
+        <li class="ig-step">
+          <span class="ig-num">2</span>
+          <div class="ig-step-body">
+            <h3>Add the component to the Lightning page</h3>
+            <p>Open the Lightning App Builder and <strong>drag &amp; drop</strong> the SharePoint component onto any Lightning page.</p>
+            <figure class="ig-shot"><img src="/images/salespoint/lightning2.png" alt="SharePoint component on the Lightning page" loading="lazy" /></figure>
+          </div>
+        </li>
+        <li class="ig-step">
+          <span class="ig-num">3</span>
+          <div class="ig-step-body">
+            <h3>Configure the component</h3>
+            <p>Settings can differ per object. Fill in:</p>
+            <ol class="ig-config">
+              {lightningParams.map((p) => <li set:html={p} />)}
+            </ol>
+            <figure class="ig-shot ig-shot-narrow"><img src="/images/salespoint/lightning3.png" alt="SharePoint component configuration panel" loading="lazy" /></figure>
+            <p class="ig-tip" style="margin-top:1rem;">The <strong>Salesforce Files</strong> checkbox: when enabled, files created as Salesforce Files by (external) users or apps are automatically copied to SharePoint as well.</p>
+          </div>
+        </li>
+        <li class="ig-step">
+          <span class="ig-num">4</span>
+          <div class="ig-step-body"><h3>Save &amp; activate</h3><p>Save and activate the Lightning page. SalesPoint is now live on that object.</p></div>
+        </li>
+      </ol>
+
+      <div class="ig-cta">
+        <h3>Need a hand?</h3>
+        <p class="text-muted">Our consultants are happy to help with the setup or a guided onboarding.</p>
+        <div class="ig-cta-actions">
+          <a href="/en/contact" class="btn btn-primary">Contact support</a>
+          <a href="/en/producten/sharepoint" class="btn btn-outline-dark">Back to SalesPoint</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+.ig-hero { background: var(--color-dark); color: #fff; padding: 5.5rem 0 4rem; position: relative; overflow: hidden; }
+.ig-aurora { position: absolute; inset: 0; z-index: 0; }
+.ig-aurora span { position: absolute; border-radius: 50%; filter: blur(80px); }
+.ig-aurora span:nth-child(1) { width: 440px; height: 440px; background: rgba(3,108,112,0.45); top: -150px; left: -80px; animation: drift 20s ease-in-out infinite; }
+.ig-aurora span:nth-child(2) { width: 380px; height: 380px; background: rgba(109,183,87,0.4); bottom: -150px; right: -60px; animation: drift 24s ease-in-out infinite reverse; }
+.ig-hero-inner { position: relative; z-index: 1; max-width: 760px; }
+.ig-hero-inner h1 { color: #fff; font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; }
+.ig-hero-inner p { color: rgba(255,255,255,0.82); font-size: 1.12rem; }
+
+.ig-body { max-width: 820px; }
+.ig-part { margin: 3rem 0 1.5rem; }
+.ig-part:first-child { margin-top: 0; }
+.ig-part-tag { display: inline-block; background: rgba(109,183,87,0.14); color: var(--color-green-dark); font-weight: 700; font-size: 0.78rem; padding: 0.25rem 0.8rem; border-radius: 999px; margin-bottom: 0.75rem; }
+.ig-part h2 { font-size: 1.6rem; }
+
+.ig-steps { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; padding: 0; }
+.ig-step { display: flex; gap: 1rem; align-items: flex-start; }
+.ig-step-body { flex: 1; min-width: 0; }
+.ig-num { flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--color-green), var(--color-green-dark)); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.ig-step h3 { font-size: 1.08rem; margin-bottom: 0.25rem; }
+.ig-step p { color: var(--color-text-muted); }
+.ig-step code, .ig-config code, .ig-tip code { background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: 5px; padding: 0.1rem 0.4rem; font-size: 0.88em; color: var(--color-text); }
+
+/* Screenshot frame — centered, padded, soft shadow for a uniform look */
+.ig-shot {
+  margin: 1.25rem auto 0;
+  width: fit-content;
+  max-width: 100%;
+  background: #fff;
+  border: 1px solid var(--color-light);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: var(--shadow-lg);
+}
+.ig-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+.ig-shot-narrow { max-width: 360px; }
+
+.ig-sub { margin: 2.5rem 0; padding: 1.75rem; background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg); }
+.ig-sub h3 { margin-bottom: 0.6rem; }
+.ig-table-wrap { overflow-x: auto; margin-top: 1rem; }
+.ig-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.ig-table th, .ig-table td { text-align: left; padding: 0.6rem 0.85rem; border-bottom: 1px solid var(--color-light); vertical-align: top; }
+.ig-table th { color: var(--color-text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.ig-table td:first-child { font-weight: 600; white-space: nowrap; }
+.ig-tip { margin-top: 1rem; font-size: 0.92rem; color: var(--color-text-muted); }
+
+.ig-note { background: rgba(108,68,148,0.06); border-left: 4px solid var(--color-purple); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.1rem 1.35rem; margin-bottom: 1.75rem; font-size: 0.96rem; color: var(--color-text); }
+
+.ig-config { margin: 0.75rem 0 0 1.1rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--color-text-muted); }
+.ig-config li { padding-left: 0.25rem; }
+
+.ig-cta { margin-top: 3rem; padding: 2rem; border: 1px solid var(--color-light); border-radius: var(--radius-lg); text-align: center; }
+.ig-cta h3 { margin-bottom: 0.4rem; }
+.ig-cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.25rem; }
+</style>

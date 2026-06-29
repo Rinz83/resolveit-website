@@ -2,70 +2,72 @@
 import Layout from '../../../layouts/Layout.astro';
 
 const salesforceSteps = [
-  { t: 'Assign permission sets', d: 'Assign the right Permission Set(s) to your users. At minimum, assign <strong>SharePoint Admin Access</strong> to your own user so you can complete the next steps.', imgs: ['/images/salespoint/image1.png'] },
-  { t: 'Open the SharePoint app', d: 'Go to the <strong>App Launcher</strong> and search for <strong>SharePoint App</strong>. Open it — by default it opens the app’s home page.', imgs: ['/images/salespoint/image2.png'] },
-  { t: 'Start granting access', d: 'On the home page, click the <strong>“Click me”</strong> area on the right. A new tab opens so you can grant access to the SharePoint app.', imgs: ['/images/salespoint/image3.png'] },
-  { t: 'Accept the permission request', d: 'In the new tab, accept the app’s permission request. You’ll then be redirected to the Salesforce login page.', imgs: ['/images/salespoint/image4.png'] },
-  { t: 'Use the right login URL', d: 'By default you’re redirected to <code>login.salesforce.com</code>. If you installed the app in a <strong>Sandbox</strong>, replace it with <code>test.salesforce.com</code>.', imgs: ['/images/salespoint/image5.png'] },
-  { t: 'Log in & confirm', d: 'Log in with your Salesforce org. A <strong>“Connection successful”</strong> message pops up. Close it — you return to the app home page (now showing a different image). Click <strong>Next</strong>.', imgs: ['/images/salespoint/image6.png', '/images/salespoint/image8.png'] },
-  { t: 'Create a new connection', d: 'Choose <strong>Create a new connection</strong> and give the connected SharePoint site a clear, generic name. Click <strong>Next</strong>.', imgs: ['/images/salespoint/image9.png'] },
-  { t: 'Choose the root folder', d: 'Select the <strong>Site ID</strong> — or a folder inside it — as the root folder where dynamic folders will be created (e.g. site “Salesforce Demo”, folder “Test Folder”). Click <strong>Next</strong>.', imgs: ['/images/salespoint/image10.png'] },
-  { t: 'Set profiles, file types & delete rights', d: 'On the final screen, set three things: the <strong>profiles</strong> that may access the app, the <strong>accepted file formats</strong> (e.g. pdf, docx), and the <strong>users</strong> allowed to delete SharePoint files from within Salesforce.', imgs: ['/images/salespoint/image11.png', '/images/salespoint/image12.png'] },
+  { t: 'Permission sets toewijzen', d: 'Wijs de juiste Permission Set(s) toe aan uw gebruikers. Wijs minimaal <strong>SharePoint Admin Access</strong> toe aan uw eigen gebruiker, zodat u de volgende stappen kunt uitvoeren.', imgs: ['/images/salespoint/image1.png'] },
+  { t: 'Open de SharePoint-app', d: 'Ga naar de <strong>App Launcher</strong> en zoek op <strong>SharePoint App</strong>. Open de app — standaard opent de homepagina van de app.', imgs: ['/images/salespoint/image2.png'] },
+  { t: 'Start het verlenen van toegang', d: 'Klik op de homepagina op het <strong>“Click me”</strong>-vlak aan de rechterkant. Er opent een nieuw tabblad waarin u toegang verleent aan de SharePoint-app.', imgs: ['/images/salespoint/image3.png'] },
+  { t: 'Accepteer het toestemmingsverzoek', d: 'Accepteer in het nieuwe tabblad het toestemmingsverzoek van de app. U wordt daarna doorgestuurd naar de Salesforce-loginpagina.', imgs: ['/images/salespoint/image4.png'] },
+  { t: 'Gebruik de juiste login-URL', d: 'Standaard wordt u doorgestuurd naar <code>login.salesforce.com</code>. Heeft u de app in een <strong>Sandbox</strong> geïnstalleerd, vervang dit dan door <code>test.salesforce.com</code>.', imgs: ['/images/salespoint/image5.png'] },
+  { t: 'Inloggen & bevestigen', d: 'Log in met uw Salesforce-org. Er verschijnt een <strong>“Connection successful”</strong>-melding. Sluit deze — u keert terug naar de homepagina van de app (nu met een andere afbeelding). Klik op <strong>Next</strong>.', imgs: ['/images/salespoint/image6.png', '/images/salespoint/image8.png'] },
+  { t: 'Maak een nieuwe verbinding', d: 'Kies <strong>Create a new connection</strong> en geef de gekoppelde SharePoint-site een duidelijke, generieke naam. Klik op <strong>Next</strong>.', imgs: ['/images/salespoint/image9.png'] },
+  { t: 'Kies de hoofdmap', d: 'Selecteer de <strong>Site ID</strong> — of een map daarbinnen — als de hoofdmap waar de dynamische mappen worden aangemaakt (bijv. site “Salesforce Demo”, map “Test Folder”). Klik op <strong>Next</strong>.', imgs: ['/images/salespoint/image10.png'] },
+  { t: 'Profielen, bestandstypen & verwijderrechten instellen', d: 'Stel op het laatste scherm drie dingen in: de <strong>profielen</strong> die toegang krijgen tot de app, de <strong>toegestane bestandsformaten</strong> (bijv. pdf, docx) en de <strong>gebruikers</strong> die SharePoint-bestanden vanuit Salesforce mogen verwijderen.', imgs: ['/images/salespoint/image11.png', '/images/salespoint/image12.png'] },
 ];
 
 const trustedUrl = [
-  ['API Name', 'A name without spaces or special characters, e.g. companyname_Sharepoint'],
-  ['URL', 'https://yourdomain.sharepoint.com (your own SharePoint domain)'],
-  ['Active', 'Checked'],
+  ['API Name', 'Een naam zonder spaties of speciale tekens, bijv. bedrijfsnaam_Sharepoint'],
+  ['URL', 'https://uwdomein.sharepoint.com (uw eigen SharePoint-domein)'],
+  ['Active', 'Aangevinkt'],
   ['CSP Context', 'All'],
-  ['connect-src (scripts)', 'Checked'],
-  ['font-src (fonts)', 'Checked'],
-  ['frame-src (iframe content)', 'Checked'],
-  ['img-src (images)', 'Checked'],
-  ['media-src (audio & video)', 'Checked'],
-  ['style-src (stylesheets)', 'Checked'],
+  ['connect-src (scripts)', 'Aangevinkt'],
+  ['font-src (fonts)', 'Aangevinkt'],
+  ['frame-src (iframe-inhoud)', 'Aangevinkt'],
+  ['img-src (afbeeldingen)', 'Aangevinkt'],
+  ['media-src (audio & video)', 'Aangevinkt'],
+  ['style-src (stylesheets)', 'Aangevinkt'],
 ];
 
 const lightningParams = [
-  'API name of the field that stores the <strong>SharePoint Folder ID</strong>.',
-  'API name of the field that stores the <strong>Pinned Folder ID</strong>.',
-  'API name of the <strong>Object</strong> the component works for.',
-  '<em>(Optional)</em> API name of the <strong>Parent Object</strong> — only if you want to relate the record to another object in the folder tree.',
-  '<em>(Optional)</em> API name of the field where the SharePoint ID is stored on the <strong>Parent Object</strong>.',
-  'API name of the field that defines the <strong>folder name</strong> on SharePoint (default = Record Name).',
-  '<em>(Optional)</em> A maximum <strong>height</strong> for the Lightning component.',
-  'Select which <strong>SharePoint Site</strong> to connect — the one you created in the Salesforce Setup steps.',
+  'API-naam van het veld waarin het <strong>SharePoint Folder ID</strong> wordt opgeslagen.',
+  'API-naam van het veld waarin het <strong>Pinned Folder ID</strong> wordt opgeslagen.',
+  'API-naam van het <strong>object</strong> waarvoor de component werkt.',
+  '<em>(Optioneel)</em> API-naam van het <strong>bovenliggende object</strong> — alleen als u de record wilt koppelen aan een ander object in de mappenstructuur.',
+  '<em>(Optioneel)</em> API-naam van het veld waarin het SharePoint ID op het <strong>bovenliggende object</strong> staat.',
+  'API-naam van het veld dat de <strong>mapnaam</strong> op SharePoint bepaalt (standaard = recordnaam).',
+  '<em>(Optioneel)</em> Een maximale <strong>hoogte</strong> voor de Lightning-component.',
+  'Selecteer met welke <strong>SharePoint-site</strong> u verbindt — de site die u in de Salesforce-installatiestappen hebt aangemaakt.',
 ];
 ---
-<Layout title="SalesPoint — Installation guide" description="Step-by-step installation and setup guide for SalesPoint: connect your SharePoint site to Salesforce and add the component to your Lightning pages." noindex={true}>
+<Layout title="SalesPoint — Installatiehandleiding" description="Stapsgewijze installatie- en configuratiehandleiding voor SalesPoint: koppel uw SharePoint-site aan Salesforce en voeg de component toe aan uw Lightning-pagina's." noindex={true}>
 
   <section class="ig-hero">
     <div class="ig-aurora" aria-hidden="true"><span></span><span></span></div>
     <div class="container ig-hero-inner">
-      <span class="pp-badge"><span class="pp-badge-dot"></span> SalesPoint · Installation guide</span>
-      <h1>Set up <span class="gradient-text">SalesPoint</span> in Salesforce</h1>
-      <p>Your SharePoint &amp; Salesforce integration is almost ready — just one quick setup to go. This guide walks you through connecting your SharePoint site to your Salesforce org and adding the component to your Lightning pages.</p>
+      <span class="pp-badge"><span class="pp-badge-dot"></span> SalesPoint · Installatiehandleiding</span>
+      <h1>Stel <span class="gradient-text">SalesPoint</span> in binnen Salesforce</h1>
+      <p>Uw SharePoint- &amp; Salesforce-integratie is bijna klaar — nog één korte installatie te gaan. Deze handleiding leidt u door het koppelen van uw SharePoint-site aan uw Salesforce-org en het toevoegen van de component aan uw Lightning-pagina's.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container ig-body">
 
-      <!-- PART 1 -->
+      <!-- DEEL 1 -->
       <div class="ig-part">
-        <span class="ig-part-tag">Part 1</span>
-        <h2>Salesforce setup</h2>
-        <p class="text-muted">Connect your SharePoint site to your Salesforce org.</p>
+        <span class="ig-part-tag">Deel 1</span>
+        <h2>Salesforce-installatie</h2>
+        <p class="text-muted">Koppel uw SharePoint-site aan uw Salesforce-org.</p>
       </div>
 
       <ol class="ig-steps">
         {salesforceSteps.map((s, i) => (
           <li class="ig-step">
             <span class="ig-num">{i + 1}</span>
-            <div>
+            <div class="ig-step-body">
               <h3>{s.t}</h3>
               <p set:html={s.d} />
-              {s.imgs && s.imgs.map((src) => <img class="ig-shot" src={src} alt={s.t} loading="lazy" />)}
+              {s.imgs && s.imgs.map((src) => (
+                <figure class="ig-shot"><img src={src} alt={s.t} loading="lazy" /></figure>
+              ))}
             </div>
           </li>
         ))}
@@ -73,71 +75,71 @@ const lightningParams = [
 
       <!-- Trusted URL -->
       <div class="ig-sub">
-        <h3>Trusted URL configuration</h3>
-        <p class="text-muted">Go to <strong>Setup</strong> → search <strong>Trusted URL</strong> → <strong>Trusted URL → New Trusted URL</strong>, then fill in the fields below and click <strong>Save</strong>:</p>
+        <h3>Trusted URL-configuratie</h3>
+        <p class="text-muted">Ga naar <strong>Setup</strong> → zoek op <strong>Trusted URL</strong> → <strong>Trusted URL → New Trusted URL</strong>, vul vervolgens de onderstaande velden in en klik op <strong>Save</strong>:</p>
         <div class="ig-table-wrap">
           <table class="ig-table">
-            <thead><tr><th>Field</th><th>Value</th></tr></thead>
+            <thead><tr><th>Veld</th><th>Waarde</th></tr></thead>
             <tbody>
               {trustedUrl.map(([f, v]) => <tr><td>{f}</td><td>{v}</td></tr>)}
             </tbody>
           </table>
         </div>
-        <p class="ig-tip">💡 Tip: your SharePoint domain is the URL you use to open SharePoint, e.g. <code>https://resolveit.sharepoint.com</code>.</p>
+        <p class="ig-tip">💡 Tip: uw SharePoint-domein is de URL waarmee u SharePoint opent, bijv. <code>https://resolveit.sharepoint.com</code>.</p>
       </div>
 
-      <!-- PART 2 -->
+      <!-- DEEL 2 -->
       <div class="ig-part">
-        <span class="ig-part-tag">Part 2</span>
-        <h2>Lightning page configuration</h2>
-        <p class="text-muted">Add the SharePoint component to your object pages.</p>
+        <span class="ig-part-tag">Deel 2</span>
+        <h2>Lightning-pagina configureren</h2>
+        <p class="text-muted">Voeg de SharePoint-component toe aan uw objectpagina's.</p>
       </div>
 
       <div class="ig-note">
-        <strong>How folder matching works:</strong> when you connect an object to SharePoint, it first checks the designated location for a folder whose name matches the record name. If one exists, it’s linked automatically (so no duplicate folders are created); if not, a new folder is created.
+        <strong>Hoe mapkoppeling werkt:</strong> wanneer u een object aan SharePoint koppelt, controleert het eerst of er op de aangewezen locatie al een map bestaat met dezelfde naam als de record. Bestaat die, dan wordt deze automatisch gekoppeld (zodat er geen dubbele mappen ontstaan); zo niet, dan wordt er een nieuwe map aangemaakt.
       </div>
 
       <ol class="ig-steps">
         <li class="ig-step">
           <span class="ig-num">1</span>
-          <div>
-            <h3>Create two text fields per object</h3>
-            <p>On every object you want to link with SharePoint, create <strong>two text fields</strong>: one to store the <strong>SharePoint Folder ID</strong> and one to store the <strong>Pinned Folder ID</strong>.</p>
-            <img class="ig-shot" src="/images/salespoint/lightning1.png" alt="SharePoint Folder Id custom field" loading="lazy" />
+          <div class="ig-step-body">
+            <h3>Maak twee tekstvelden per object</h3>
+            <p>Maak op elk object dat u met SharePoint wilt koppelen <strong>twee tekstvelden</strong> aan: één om het <strong>SharePoint Folder ID</strong> op te slaan en één voor het <strong>Pinned Folder ID</strong>.</p>
+            <figure class="ig-shot"><img src="/images/salespoint/lightning1.png" alt="SharePoint Folder Id-veld in Salesforce" loading="lazy" /></figure>
           </div>
         </li>
         <li class="ig-step">
           <span class="ig-num">2</span>
-          <div>
-            <h3>Add the component to the Lightning page</h3>
-            <p>Open the Lightning App Builder and <strong>drag &amp; drop</strong> the SharePoint component onto any Lightning page.</p>
-            <img class="ig-shot" src="/images/salespoint/lightning2.png" alt="SharePoint component on the Lightning page" loading="lazy" />
+          <div class="ig-step-body">
+            <h3>Voeg de component toe aan de Lightning-pagina</h3>
+            <p>Open de Lightning App Builder en <strong>sleep</strong> de SharePoint-component naar een willekeurige Lightning-pagina.</p>
+            <figure class="ig-shot"><img src="/images/salespoint/lightning2.png" alt="SharePoint-component op de Lightning-pagina" loading="lazy" /></figure>
           </div>
         </li>
         <li class="ig-step">
           <span class="ig-num">3</span>
-          <div>
-            <h3>Configure the component</h3>
-            <p>Settings can differ per object. Fill in:</p>
+          <div class="ig-step-body">
+            <h3>Configureer de component</h3>
+            <p>De instellingen kunnen per object verschillen. Vul in:</p>
             <ol class="ig-config">
               {lightningParams.map((p) => <li set:html={p} />)}
             </ol>
-            <img class="ig-shot" src="/images/salespoint/lightning3.png" alt="SharePoint component configuration panel" loading="lazy" style="max-width:340px;" />
-            <p class="ig-tip" style="margin-top:1rem;">The <strong>Salesforce Files</strong> checkbox: when enabled, files created as Salesforce Files by (external) users or apps are automatically copied to SharePoint as well.</p>
+            <figure class="ig-shot ig-shot-narrow"><img src="/images/salespoint/lightning3.png" alt="Configuratiepaneel van de SharePoint-component" loading="lazy" /></figure>
+            <p class="ig-tip" style="margin-top:1rem;">Het <strong>Salesforce Files</strong>-vinkje: indien aangevinkt worden bestanden die als Salesforce Files worden aangemaakt door (externe) gebruikers of apps automatisch ook naar SharePoint gekopieerd.</p>
           </div>
         </li>
         <li class="ig-step">
           <span class="ig-num">4</span>
-          <div><h3>Save &amp; activate</h3><p>Save and activate the Lightning page. SalesPoint is now live on that object.</p></div>
+          <div class="ig-step-body"><h3>Opslaan &amp; activeren</h3><p>Sla de Lightning-pagina op en activeer deze. SalesPoint is nu actief op dat object.</p></div>
         </li>
       </ol>
 
       <div class="ig-cta">
-        <h3>Need a hand?</h3>
-        <p class="text-muted">Our consultants are happy to help with the setup or a guided onboarding.</p>
+        <h3>Hulp nodig?</h3>
+        <p class="text-muted">Onze consultants helpen u graag met de installatie of een begeleide onboarding.</p>
         <div class="ig-cta-actions">
-          <a href="/en/contact" class="btn btn-primary">Contact support</a>
-          <a href="/en/producten/sharepoint" class="btn btn-outline-dark">Back to SalesPoint</a>
+          <a href="/contact" class="btn btn-primary">Neem contact op</a>
+          <a href="/producten/sharepoint" class="btn btn-outline-dark">Terug naar SalesPoint</a>
         </div>
       </div>
 
@@ -161,13 +163,27 @@ const lightningParams = [
 .ig-part-tag { display: inline-block; background: rgba(109,183,87,0.14); color: var(--color-green-dark); font-weight: 700; font-size: 0.78rem; padding: 0.25rem 0.8rem; border-radius: 999px; margin-bottom: 0.75rem; }
 .ig-part h2 { font-size: 1.6rem; }
 
-.ig-steps { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; counter-reset: none; padding: 0; }
+.ig-steps { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; padding: 0; }
 .ig-step { display: flex; gap: 1rem; align-items: flex-start; }
+.ig-step-body { flex: 1; min-width: 0; }
 .ig-num { flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--color-green), var(--color-green-dark)); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; }
 .ig-step h3 { font-size: 1.08rem; margin-bottom: 0.25rem; }
 .ig-step p { color: var(--color-text-muted); }
 .ig-step code, .ig-config code, .ig-tip code { background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: 5px; padding: 0.1rem 0.4rem; font-size: 0.88em; color: var(--color-text); }
-.ig-shot { margin-top: 0.85rem; max-width: 100%; border: 1px solid var(--color-light); border-radius: 10px; box-shadow: var(--shadow); }
+
+/* Screenshot frame — centered, padded, soft shadow for a uniform look */
+.ig-shot {
+  margin: 1.25rem auto 0;
+  width: fit-content;
+  max-width: 100%;
+  background: #fff;
+  border: 1px solid var(--color-light);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: var(--shadow-lg);
+}
+.ig-shot img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+.ig-shot-narrow { max-width: 360px; }
 
 .ig-sub { margin: 2.5rem 0; padding: 1.75rem; background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg); }
 .ig-sub h3 { margin-bottom: 0.6rem; }

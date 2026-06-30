@@ -127,7 +127,7 @@ const faqJsonLd = JSON.stringify({
         </div>
         <div class="aipb-prompt-preview">
           <div class="aipb-prompt-label">Prompt Template</div>
-          <div class="aipb-prompt-body" set:html={`Can you make a summary of the goods and services <span class="aipb-merge">{!Get_Account.Name}</span> offers? You can also retrieve information from <span class="aipb-merge">{!Get_Account.Website}</span>. The output of the response should be in HTML.`} />
+          <div class="aipb-prompt-body" set:html={`Schrijf een gepersonaliseerde opvolgmail voor <span class="aipb-merge">{!Get_Account.Name}</span> na onze demo van vandaag. Verwijs naar hun grootste uitdaging (<span class="aipb-merge">{!Opportunity.Description}</span>) en sluit af met een concrete vervolgstap. Toon: professioneel maar toegankelijk.`} />
         </div>
       </div>
     </div>
@@ -233,7 +233,7 @@ const faqJsonLd = JSON.stringify({
           <ul class="aipb-price-features">
             <li>✓ Betaal alleen wat u gebruikt</li>
             <li>✓ Volumekorting bij grotere afname</li>
-            <li>✓ Maandelijkse factuur via Salesforce</li>
+            <li>✓ Maandelijkse factuur</li>
           </ul>
         </div>
         <div class="aipb-price-card aipb-price-own reveal" style="--reveal-delay:0.2s">
@@ -246,7 +246,6 @@ const faqJsonLd = JSON.stringify({
           </ul>
         </div>
       </div>
-      <p class="aipb-price-note">Neem contact op met uw accountmanager voor maatwerktarieven en volumekortingen.</p>
     </div>
   </section>
 

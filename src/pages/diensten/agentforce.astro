@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+---
+<Layout
+  title="Agentforce Implementatie — AI-agents voor Salesforce"
+  description="Resolve IT implementeert Salesforce Agentforce: autonome AI-agents die uw sales, service en marketing 24/7 ondersteunen. Gold Partner met bewezen expertise."
+  breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Diensten', item: '/diensten' }, { name: 'Agentforce', item: '/diensten/agentforce' }]}
+>
+  <ServiceDetail
+    eyebrow="Dienst · Agentforce"
+    title="AI-agents die werken terwijl uw team slaapt"
+    intro="Salesforce Agentforce stelt u in staat autonome AI-agents in te zetten voor sales, service, marketing en operations — zonder code, zonder wachttijden, zonder menselijke tussenkomst voor routinetaken. Resolve IT begeleidt u van strategie tot live productie."
+    heroStats={[{ num: 'AI', label: 'Gold Partner' }, { num: '24/7', label: 'agent-beschikbaarheid' }, { num: '300+', label: 'projecten' }]}
+    image="/images/cases/case-3.jpg"
+    whatTitle="Agentforce: meer dan een chatbot"
+    whatText={[
+      'Agentforce is Salesforces platform voor autonome AI-agents die zelfstandig taken uitvoeren: cases afhandelen, leads kwalificeren, offertes opstellen en klanten begeleiden — allemaal op basis van uw eigen bedrijfsdata in Salesforce en Data Cloud.',
+      'Als Salesforce Gold Partner implementeren wij Agentforce op maat voor uw organisatie. We configureren de agents, koppelen uw datbronnen en zorgen dat de AI handelt binnen de grenzen die ú bepaalt.',
+    ]}
+    whatList={[
+      'Autonome agents voor service, sales en marketing',
+      'Gebouwd op uw eigen Salesforce-data — geen black box',
+      'Naadloze escalatie naar een mens wanneer nodig',
+      'Zichtbaar en auditeerbaar: elke actie is traceerbaar',
+    ]}
+    deliverablesTitle="Wat u krijgt"
+    deliverables={[
+      { icon: '🤖', title: 'Agent-ontwerp op maat', text: 'We bepalen samen welke taken Agentforce overneemt en ontwerpen de agents op uw processen.' },
+      { icon: '🔗', title: 'Data-integratie', text: 'Koppeling van Agentforce aan uw Salesforce-data, externe systemen en kennisbank.' },
+      { icon: '🛡️', title: 'Guardrails & governance', text: 'Duidelijke grenzen voor de AI: wat mag de agent zelf beslissen en wanneer escaleert hij?' },
+      { icon: '📊', title: 'Monitoring & optimalisatie', text: 'Dashboard met agent-prestaties, succespercentages en verbeterpunten na livegang.' },
+    ]}
+    steps={[
+      { title: 'Use-case sessie', text: 'We brengen in kaart welke processen het meeste baat hebben bij AI-automatisering en waar de ROI het hoogst ligt.' },
+      { title: 'Agent-configuratie', text: 'We bouwen en testen de agents in uw Salesforce-omgeving, inclusief koppelingen en kennisbank.' },
+      { title: 'Pilot & validatie', text: 'De agents draaien eerst in een gecontroleerde pilot. We meten nauwkeurigheid en passen guardrails aan.' },
+      { title: 'Livegang & adoptie', text: 'Uitrol naar productie met training voor uw team en een monitoringplan voor continue verbetering.' },
+    ]}
+    why={[
+      { icon: '🏅', title: 'Certified Gold Partner', text: 'Resolve IT heeft de Salesforce-certificeringen en partnerervaring om Agentforce verantwoord te implementeren.' },
+      { icon: '🔒', title: 'Veilig en transparant', text: 'We configureren uitsluitend agents die werken op uw eigen data — geen onbeheerde AI die buiten uw controle opereert.' },
+      { icon: '📈', title: 'Aantoonbare ROI', text: 'We meten vooraf de baseline en tonen na livegang hoeveel tijd de agents besparen ten opzichte van handmatig werk.' },
+    ]}
+    faqs={[
+      { q: 'Wat is het verschil tussen Agentforce en Einstein?', a: 'Einstein voegt AI-inzichten toe aan bestaande Salesforce-schermen (voorspellingen, aanbevelingen). Agentforce is een volledig autonoom agent-platform dat zelfstandig taken uitvoert en beslissingen neemt — een stap verder dan copilot.' },
+      { q: 'Hebben we Data Cloud nodig voor Agentforce?', a: 'Data Cloud is niet verplicht, maar sterk aanbevolen. Het geeft de agents toegang tot een uniforme klantdataset, wat de kwaliteit van beslissingen aanzienlijk verbetert.' },
+      { q: 'Is Agentforce geschikt voor ons mkb-bedrijf?', a: 'Ja. Agentforce is schaalbaar en ook voor middelgrote organisaties beschikbaar. De use-cases die het meeste opleveren zijn vaak klantenservice-automatisering en lead-kwalificatie.' },
+      { q: 'Hoe lang duurt een Agentforce-implementatie?', a: 'Een eerste agent is doorgaans binnen 4–8 weken live. Complexere setups met meerdere agents en Data Cloud-integratie vragen 2–4 maanden. <a href="/contact#afspraak">Plan een kennismaking</a> voor een inschatting op maat.' },
+    ]}
+  />
+</Layout>

@@ -11,6 +11,8 @@ const childLabels = {
   '/diensten/consultancy': { nl: 'Audit & Consultancy', en: 'Audit & Consultancy' },
   '/diensten/development': { nl: 'Development & Integraties', en: 'Development & Integrations' },
   '/diensten/training': { nl: 'Training & Best Practices', en: 'Training & Best Practices' },
+  '/diensten/agentforce': { nl: 'Agentforce & AI', en: 'Agentforce & AI' },
+  '/diensten/managed-services': { nl: 'Managed Services', en: 'Managed Services' },
   '/producten/billing-module': { nl: 'Billing Platform', en: 'Billing Platform' },
   '/producten/kvk-integratie': { nl: 'KvK Integratie', en: 'Datasolver (CoC)' },
   '/producten/exact-online': { nl: 'Exact Online', en: 'Exact Online' },
@@ -27,7 +29,7 @@ const childLabels = {
 const cl = (p) => childLabels[p][lang];
 
 const navLinks = [
-  { label: t('nav.diensten'), href: '/diensten', children: ['/diensten/implementatie','/diensten/consultancy','/diensten/development','/diensten/training'] },
+  { label: t('nav.diensten'), href: '/diensten', children: ['/diensten/implementatie','/diensten/consultancy','/diensten/development','/diensten/training','/diensten/agentforce','/diensten/managed-services'] },
   { label: t('nav.producten'), href: '/producten', children: ['/producten/billing-module','/producten/kvk-integratie','/producten/exact-online','/producten/sharepoint'] },
   { label: t('nav.voorwie'), href: '/voor-wie', children: ['/voor-wie/backoffice-services','/voor-wie/saas','/voor-wie/professional-services','/voor-wie/manufacturing','/voor-wie/recruitment','/voor-wie/energie-utilities','/voor-wie/media-communicatie','/voor-wie/overige-sectoren'] },
   { label: t('nav.overons'), href: '/over-ons' },

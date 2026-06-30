@@ -1,0 +1,53 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ServiceDetail from '../../../components/ServiceDetail.astro';
+---
+<Layout
+  title="Managed Services — Salesforce Proactively Managed"
+  description="Resolve IT proactively manages your Salesforce environment: monitoring, release management, user support and continuous optimisation. Flexible SLA, dedicated contact."
+  breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Services', item: '/en/diensten' }, { name: 'Managed Services', item: '/en/diensten/managed-services' }]}
+>
+  <ServiceDetail
+    lang="en"
+    eyebrow="Service · Managed Services"
+    title="Your Salesforce always performing at its best — without you having to think about it"
+    intro="Salesforce evolves three times a year with a major release. Without proactive management, small issues accumulate into major disruptions. Our Managed Services keep your environment fast, secure and up to date — with a dedicated contact who knows your organisation."
+    heroStats={[{ num: '3×/yr', label: 'release management' }, { num: 'Dedicated', label: 'contact person' }, { num: 'SLA', label: 'tailored to you' }]}
+    image="/images/cases/case-2.jpg"
+    whatTitle="Proactive management, not reactive firefighting"
+    whatText={[
+      'Most organisations only notice something is wrong when a user complains or an automation stops. We flip that around: we spot problems before they affect you, manage the impact of Salesforce releases and continuously optimise your environment.',
+      'You get a dedicated team that knows your processes and setup inside out — not an anonymous helpdesk ticket, but a partner who thinks ahead with you.',
+    ]}
+    whatList={[
+      'Proactive monitoring of automations, integrations and data quality',
+      'Release management for every Salesforce update (Spring, Summer, Winter)',
+      'User support and change request management',
+      'Continuous optimisation based on usage data',
+    ]}
+    deliverablesTitle="What you get"
+    deliverables={[
+      { icon: '📡', title: 'Proactive monitoring', text: 'We monitor your automations, integrations and flows and intervene before an error impacts your business process.' },
+      { icon: '🚀', title: 'Release management', text: 'For every Salesforce release we test the impact on your environment and make necessary adjustments.' },
+      { icon: '🙋', title: 'User support', text: 'Your end-users can count on fast help from a dedicated contact who knows the context.' },
+      { icon: '📈', title: 'Quarterly reporting', text: 'Every quarter a report on platform health, changes made and recommendations for the next period.' },
+    ]}
+    steps={[
+      { title: 'Intake & handover', text: 'We take over your environment through a thorough intake: setup, documentation, open issues and wishes.' },
+      { title: 'Set up monitoring', text: 'We configure monitoring tailored to your critical processes and set up alerting and escalation paths.' },
+      { title: 'Manage & support', text: 'Ongoing management, release management and user requests are handled within the agreed SLA.' },
+      { title: 'Quarterly review', text: 'Each quarter we jointly review platform health and set priorities for the coming period.' },
+    ]}
+    why={[
+      { icon: '👤', title: 'Dedicated contact', text: 'No anonymous ticket system. You always work with someone who knows your organisation and Salesforce setup.' },
+      { icon: '🔄', title: 'Release-aware', text: 'Salesforce rolls out a major release three times a year. We ensure your environment moves with it every time, without issues.' },
+      { icon: '⚡', title: 'Flexible SLA', text: 'From light support to fully managed: we tailor the SLA to your organisation\'s size and criticality.' },
+    ]}
+    faqs={[
+      { q: 'What exactly is included in Managed Services?', a: 'That depends on your SLA. Standard includes proactive monitoring, release management, user support and quarterly reporting. Custom arrangements are possible.' },
+      { q: 'Can you take over an environment someone else built?', a: 'Yes. We start with an intake audit to understand the setup and map any technical debt. After that we take over management.' },
+      { q: 'What is the minimum contract duration?', a: 'We typically work with an initial 12-month contract, rolling thereafter. <a href="/en/contact#afspraak">Schedule a call</a> for a tailored quote.' },
+      { q: 'We already have an internal Salesforce admin. Can you work alongside them?', a: 'Absolutely. Many clients combine an internal admin for day-to-day questions with our team for release management, complex issues and backlog tasks.' },
+    ]}
+  />
+</Layout>

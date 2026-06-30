@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+---
+<Layout
+  title="Managed Services — Salesforce proactief beheerd"
+  description="Resolve IT beheert uw Salesforce-omgeving proactief: monitoring, release management, gebruikersondersteuning en continue optimalisatie. Flexibele SLA, vaste contactpersoon."
+  breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Diensten', item: '/diensten' }, { name: 'Managed Services', item: '/diensten/managed-services' }]}
+>
+  <ServiceDetail
+    eyebrow="Dienst · Managed Services"
+    title="Uw Salesforce altijd in topvorm — zonder dat u er naar om hoeft te kijken"
+    intro="Salesforce evolueert drie keer per jaar met een major release. Zonder proactief beheer stapelen kleine problemen zich op tot grote verstoringen. Onze Managed Services zorgen ervoor dat uw omgeving snel, veilig en up-to-date blijft — met een vaste contactpersoon die uw organisatie kent."
+    heroStats={[{ num: '3×/jr', label: 'release management' }, { num: 'Vast', label: 'contactpersoon' }, { num: 'SLA', label: 'op maat' }]}
+    image="/images/cases/case-2.jpg"
+    whatTitle="Proactief beheer, niet reactief brandblussen"
+    whatText={[
+      'De meeste organisaties merken pas dat er iets mis is als een gebruiker klaagt of een automatisering stopt. Wij draaien dat om: wij signaleren problemen voordat ze u raken, beheren de impact van Salesforce-releases en optimaliseren uw omgeving continu.',
+      'U krijgt een vast team dat uw processen en inrichting door en door kent — geen anoniem helpdesk-ticket, maar een partner die meedenkt.',
+    ]}
+    whatList={[
+      'Proactieve monitoring van automatiseringen, integraties en datakwaliteit',
+      'Release management bij elke Salesforce-update (Spring, Summer, Winter)',
+      'Gebruikersondersteuning en beheer van wijzigingsverzoeken',
+      'Continue optimalisatie op basis van gebruiksdata',
+    ]}
+    deliverablesTitle="Wat u krijgt"
+    deliverables={[
+      { icon: '📡', title: 'Proactieve monitoring', text: 'We bewaken uw automatiseringen, integraties en flows en grijpen in vóórdat een fout uw bedrijfsproces raakt.' },
+      { icon: '🚀', title: 'Release management', text: 'Bij elke Salesforce-release testen we de impact op uw omgeving en voeren we noodzakelijke aanpassingen door.' },
+      { icon: '🙋', title: 'Gebruikersondersteuning', text: 'Uw eindgebruikers kunnen rekenen op snelle hulp via een vast aanspreekpunt dat de context kent.' },
+      { icon: '📈', title: 'Kwartaalrapportage', text: 'Elk kwartaal een overzicht van platformgezondheid, uitgevoerde wijzigingen en aanbevelingen voor de volgende periode.' },
+    ]}
+    steps={[
+      { title: 'Intake & overdracht', text: 'We nemen uw omgeving over via een grondige intake: inrichting, documentatie, openstaande issues en wensen.' },
+      { title: 'Monitoring inrichten', text: 'We configureren monitoring op maat voor uw kritieke processen en stellen alerting en escalatiepaden in.' },
+      { title: 'Beheer & support', text: 'Lopend beheer, release management en gebruikersverzoeken worden afgehandeld binnen de afgesproken SLA.' },
+      { title: 'Kwartaalreview', text: 'Elke kwartaal evalueren we samen de platformgezondheid en stellen we prioriteiten bij voor het komende kwartaal.' },
+    ]}
+    why={[
+      { icon: '👤', title: 'Vaste contactpersoon', text: 'Geen anoniem ticketsysteem. U werkt altijd met iemand die uw organisatie en Salesforce-inrichting kent.' },
+      { icon: '🔄', title: 'Release-bewust', text: 'Drie keer per jaar rolt Salesforce een major release uit. Wij zorgen dat uw omgeving elke keer probleemloos meegaat.' },
+      { icon: '⚡', title: 'Flexibele SLA', text: 'Van lichte ondersteuning tot full-managed: we stemmen de SLA af op uw organisatiegrootte en kritikaliteit.' },
+    ]}
+    faqs={[
+      { q: 'Wat valt er precies onder Managed Services?', a: 'Dat hangt af van uw SLA. Standaard omvat het proactieve monitoring, release management, gebruikersondersteuning en een kwartaalrapportage. Maatwerk is mogelijk.' },
+      { q: 'Kunnen jullie ook een omgeving overnemen die iemand anders heeft gebouwd?', a: 'Ja. We starten met een intake-audit om de inrichting te doorgronden en eventuele technische schuld in kaart te brengen. Daarna nemen we het beheer over.' },
+      { q: 'Wat is de minimale contractduur?', a: 'We werken doorgaans met een initieel contract van 12 maanden, daarna doorlopend opzegbaar. <a href="/contact#afspraak">Plan een gesprek</a> voor een offerte op maat.' },
+      { q: 'Wij hebben al een interne Salesforce-admin. Kunnen jullie aanvullend werken?', a: 'Absoluut. Veel klanten combineren een interne admin voor dagelijkse vragen met ons team voor release management, complexere vraagstukken en backlog-taken.' },
+    ]}
+  />
+</Layout>

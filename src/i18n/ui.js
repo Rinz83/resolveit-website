@@ -19,6 +19,7 @@ export const pardotForms = {
 // back to the EN homepage. This keeps navigation unbroken during rollout.
 export const translatedPaths = new Set([
   '/',
+  '/oplossingen',
   '/diensten', '/diensten/implementatie', '/diensten/consultancy',
   '/diensten/development', '/diensten/training',
   '/diensten/agentforce', '/diensten/managed-services',
@@ -86,6 +87,7 @@ export function localize(path, lang) {
 export const ui = {
   nl: {
     'nav.diensten': 'Diensten',
+    'nav.oplossingen': 'Oplossingen',
     'nav.producten': 'Producten',
     'nav.voorwie': 'Voor wie?',
     'nav.overons': 'Over ons',
@@ -104,6 +106,7 @@ export const ui = {
   },
   en: {
     'nav.diensten': 'Services',
+    'nav.oplossingen': 'Solutions',
     'nav.producten': 'Products',
     'nav.voorwie': 'Industries',
     'nav.overons': 'About us',

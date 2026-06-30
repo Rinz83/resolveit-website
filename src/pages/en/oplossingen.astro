@@ -1,0 +1,168 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const challenges = [
+  {
+    icon: '📈',
+    problem: 'My sales process can\'t keep up with our growth',
+    description: 'Spreadsheets, scattered emails and no pipeline visibility? We implement Salesforce Sales Cloud so your commercial process scales — from 5 to 500 deals.',
+    links: [
+      { label: 'Implementation & Onboarding', href: '/en/diensten/implementatie' },
+      { label: 'Audit & Consultancy', href: '/en/diensten/consultancy' },
+    ],
+  },
+  {
+    icon: '🤖',
+    problem: 'I want to deploy AI agents for service or sales',
+    description: 'Agentforce lets autonomous AI agents take over routine tasks: handling cases, qualifying leads, drafting quotes — 24/7, without human intervention.',
+    links: [
+      { label: 'Agentforce & AI', href: '/en/diensten/agentforce' },
+      { label: 'Data Cloud', href: '/en/diensten/data-cloud' },
+    ],
+  },
+  {
+    icon: '🔗',
+    problem: 'My systems don\'t talk to each other',
+    description: 'Exact Online, SharePoint, SAP, ERP — every department works in a different system. We connect your landscape to Salesforce so data synchronises automatically.',
+    links: [
+      { label: 'Development & Integrations', href: '/en/diensten/development' },
+      { label: 'Exact Online connector', href: '/en/producten/exact-online' },
+      { label: 'SharePoint integration', href: '/en/producten/sharepoint' },
+    ],
+  },
+  {
+    icon: '🧾',
+    problem: 'Invoicing and subscriptions take too much time',
+    description: 'Manual invoices, renewals you miss and bookkeeping that\'s never in sync. Our Billing Platform automates the entire invoicing process from within Salesforce.',
+    links: [
+      { label: 'Billing Platform', href: '/en/producten/billing-module' },
+      { label: 'Exact Online connector', href: '/en/producten/exact-online' },
+    ],
+  },
+  {
+    icon: '🔍',
+    problem: 'Our Salesforce isn\'t being used to its full potential',
+    description: 'The system is there, but adoption is lagging or the setup no longer fits. With a free assessment we map quick wins and a roadmap for improvement.',
+    links: [
+      { label: 'Audit & Consultancy', href: '/en/diensten/consultancy' },
+      { label: 'Training & Best Practices', href: '/en/diensten/training' },
+      { label: 'Managed Services', href: '/en/diensten/managed-services' },
+    ],
+  },
+  {
+    icon: '🌐',
+    problem: 'I want to give customers or partners their own portal',
+    description: 'A professional customer or partner portal based on your Salesforce data — in your own brand identity. Customers view cases and invoices; partners register deals.',
+    links: [
+      { label: 'Experience Cloud', href: '/en/diensten/experience-cloud' },
+    ],
+  },
+  {
+    icon: '✉️',
+    problem: 'My marketing is generic and not personalised',
+    description: 'Sending everyone the same newsletter no longer works. Marketing Cloud sends every customer the right message at the right time, based on behaviour and CRM data.',
+    links: [
+      { label: 'Marketing Cloud', href: '/en/diensten/marketing-cloud' },
+      { label: 'Data Cloud', href: '/en/diensten/data-cloud' },
+    ],
+  },
+  {
+    icon: '🧩',
+    problem: 'I don\'t have a complete view of my customer',
+    description: 'Customer data spread across CRM, website, ERP and marketing. Data Cloud brings all sources together into one real-time customer profile — the foundation for AI and personalisation.',
+    links: [
+      { label: 'Data Cloud', href: '/en/diensten/data-cloud' },
+      { label: 'Agentforce & AI', href: '/en/diensten/agentforce' },
+      { label: 'Marketing Cloud', href: '/en/diensten/marketing-cloud' },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Solutions — find your challenge"
+  description="Search by challenge, not by service. From AI agents to invoicing automation and system integrations — Resolve IT solves it from Salesforce."
+  breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Solutions', item: '/en/oplossingen' }]}
+>
+
+  <!-- HERO -->
+  <section class="sol-hero">
+    <div class="sol-aurora" aria-hidden="true"><span></span><span></span></div>
+    <div class="container sol-hero-inner">
+      <span class="pp-badge"><span class="pp-badge-dot"></span> Solutions</span>
+      <h1>What is <span class="gradient-text">your challenge?</span></h1>
+      <p>Recognise your situation and immediately discover which Salesforce solution fits you best. No jargon, no long decision guides — just: this is what we're dealing with, this is the solution.</p>
+    </div>
+  </section>
+
+  <!-- CHALLENGE CARDS -->
+  <section class="section">
+    <div class="container">
+      <div class="challenges-grid">
+        {challenges.map((c, i) => (
+          <div class="challenge-card reveal" style={`--reveal-delay:${(i % 3) * 0.07}s`}>
+            <div class="ch-icon">{c.icon}</div>
+            <h2 class="ch-problem">"{c.problem}"</h2>
+            <p class="ch-desc">{c.description}</p>
+            <div class="ch-links">
+              {c.links.map(l => (
+                <a href={l.href} class="ch-link">{l.label} →</a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sol-cta bg-dark">
+    <div class="sol-cta-glow" aria-hidden="true"></div>
+    <div class="container sol-cta-inner reveal">
+      <div>
+        <h2>Don't see your challenge here?</h2>
+        <p>Every organisation is different. Schedule a no-obligation call and we'll find the solution that fits you best.</p>
+      </div>
+      <div class="sol-cta-actions">
+        <a href="/en/contact#afspraak" class="btn btn-primary">Schedule a call</a>
+        <a href="/en/contact" class="btn btn-outline">Ask a question</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.sol-hero {
+  background: var(--color-dark);
+  color: var(--color-white);
+  padding: 6rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.sol-aurora { position: absolute; inset: 0; z-index: 0; }
+.sol-aurora span { position: absolute; border-radius: 50%; filter: blur(80px); }
+.sol-aurora span:nth-child(1) { width: 480px; height: 480px; background: rgba(109,183,87,0.38); top: -160px; left: -80px; animation: drift 20s ease-in-out infinite; }
+.sol-aurora span:nth-child(2) { width: 420px; height: 420px; background: rgba(108,68,148,0.38); bottom: -160px; right: -60px; animation: drift 24s ease-in-out infinite reverse; }
+.sol-hero-inner { position: relative; z-index: 1; max-width: 720px; margin-inline: auto; }
+.sol-hero-inner .pp-badge { margin-bottom: 1.5rem; display: inline-flex; }
+.sol-hero-inner h1 { color: #fff; font-size: clamp(2.4rem, 5.5vw, 3.8rem); margin-bottom: 1.25rem; }
+.sol-hero-inner p { color: rgba(255,255,255,0.78); font-size: 1.15rem; max-width: 580px; margin-inline: auto; }
+
+.challenges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 1.75rem; }
+.challenge-card { background: var(--color-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg); padding: 2rem; display: flex; flex-direction: column; gap: 0.9rem; transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition); }
+.challenge-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(109,183,87,0.35); }
+.ch-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; background: linear-gradient(135deg, rgba(109,183,87,0.14), rgba(108,68,148,0.1)); flex-shrink: 0; }
+.ch-problem { font-size: 1.08rem; font-weight: 700; color: var(--color-text); line-height: 1.4; font-style: italic; }
+.ch-desc { font-size: 0.93rem; color: var(--color-text-muted); line-height: 1.65; flex: 1; }
+.ch-links { display: flex; flex-direction: column; gap: 0.45rem; margin-top: 0.25rem; padding-top: 1rem; border-top: 1px solid var(--color-light); }
+.ch-link { font-size: 0.875rem; font-weight: 600; color: var(--color-green-dark); text-decoration: none; transition: color var(--transition); }
+.ch-link:hover { color: var(--color-purple); }
+.sol-cta { padding: 4.5rem 0; position: relative; overflow: hidden; }
+.sol-cta-glow { position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(109,183,87,0.22), transparent 60%); animation: drift 18s ease-in-out infinite; }
+.sol-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; position: relative; z-index: 1; }
+.sol-cta h2, .sol-cta p { color: #fff; }
+.sol-cta p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; }
+.sol-cta-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+</style>

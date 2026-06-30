@@ -27,7 +27,7 @@ export const translatedPaths = new Set([
   '/voor-wie', '/voor-wie/backoffice-services', '/voor-wie/saas',
   '/voor-wie/professional-services', '/voor-wie/manufacturing', '/voor-wie/recruitment',
   '/voor-wie/energie-utilities', '/voor-wie/media-communicatie', '/voor-wie/overige-sectoren',
-  '/producten', '/producten/billing-module', '/producten/kvk-integratie',
+  '/producten', '/producten/ai-prompt-builder', '/producten/billing-module', '/producten/kvk-integratie',
   '/producten/exact-online', '/producten/sharepoint', '/producten/sharepoint/installatie',
   '/over-ons', '/jobs',
   '/cases', '/cases/talpa-studios', '/cases/multa-casting', '/cases/mybusinessmedia',

@@ -1,0 +1,359 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { calendlyUrl } from '../../i18n/ui.js';
+import '../../styles/product.css';
+
+const features = [
+  { icon: '🤖', title: 'AI direct in je Flow', text: 'Roep een AI-model aan als invocable action — zonder code, zonder externe middleware. Werkt in Screen Flows, Record-Triggered Flows én Auto-Launched Flows.' },
+  { icon: '📝', title: 'Dynamische Prompt Templates', text: 'Bouw prompt templates die merge fields combineren met vaste instructietekst. Trek live gegevens op uit record-variabelen, GET-requests of andere Salesforce-bronnen.' },
+  { icon: '🔌', title: 'Meerdere AI-modellen', text: 'Kies het model dat bij uw use case past: OpenAI, Anthropic, Google Gemini, Azure Co-Pilot of uw eigen LLM — de connector regelt de rest.' },
+  { icon: '⚡', title: 'Alle Flow-types ondersteund', text: 'Gebruik AI-logica in elk type Salesforce Flow: van gebruikersgestuurde schermen tot volledig geautomatiseerde achtergrondprocessen.' },
+  { icon: '🔄', title: 'Contextrijke responses', text: 'Geef de AI alleen de data die relevant is: accountgegevens, website-inhoud, case-details. Hoe rijker de context, hoe relevanter de output.' },
+  { icon: '💡', title: 'Eigen LLM? Geen callout-kosten', text: 'Koppel uw eigen Large Language Model en betaal alleen de vaste maandelijkse platformfee — geen kosten per aanroep.' },
+];
+
+const steps = [
+  { n: '1', title: 'Modelleer uw Flow', text: 'Bepaal het doel van uw Flow: welke trigger start het proces, welke data-inputs hebt u nodig en wat moet de AI-actie opleveren?' },
+  { n: '2', title: 'Bouw uw Prompt Template', text: 'Combineer vaste instructietekst met dynamische merge fields zoals {Account.Name} of {GET_Response.Website} — direct beschikbaar als Flow-resource.' },
+  { n: '3', title: 'Gebruik de AI-output', text: 'De AI-respons wordt als variabele beschikbaar gesteld in uw Flow. Gebruik hem als input voor de volgende actie, een record-update of een schermcomponent.' },
+  { n: '4', title: 'Maak uw Flow compleet', text: 'Toon de output op een scherm, sla hem op in een veld, stuur een e-mail of geef het door aan de volgende stap — uw Flow, uw logica.' },
+];
+
+const models = [
+  { name: 'OpenAI', icon: '🟢' },
+  { name: 'Anthropic', icon: '🟣' },
+  { name: 'Google Gemini', icon: '🔵' },
+  { name: 'Azure Co-Pilot', icon: '🔷' },
+  { name: 'Eigen LLM', icon: '⚙️' },
+];
+
+const faqs = [
+  { q: 'Heeft onze organisatie technische kennis nodig om dit te gebruiken?', a: 'Nee. De AI Prompt Builder werkt als een gewone invocable action in Salesforce Flow. Wie Flow-ervaring heeft, kan direct aan de slag — Apex- of API-kennis is niet vereist.' },
+  { q: 'Met welke AI-modellen werkt de Prompt Builder?', a: 'De huidige release ondersteunt OpenAI, Anthropic (Claude), Google Gemini en Azure Co-Pilot. Eigen LLM-koppelingen zijn ook mogelijk. Aanvullende modellen worden continu toegevoegd.' },
+  { q: 'Kan ik de output van een AI-actie gebruiken als input voor een volgende stap?', a: 'Ja. De response wordt als Flow-variabele teruggegeven en is direct beschikbaar als resource: voor een screen component, een record-update, een e-mail of een vervolgactie.' },
+  { q: 'Hoe worden mijn data en prompts beveiligd?', a: 'De Prompt Builder werkt als Managed Package binnen uw Salesforce-omgeving. Data verloopt via de beveiligde Salesforce API-laag. Welk AI-model u kiest, bepaalt welk privacy- en dataretentiebeleid van toepassing is.' },
+  { q: 'Wat zijn de kosten?', a: 'Er is een vaste maandelijkse fee van €150 inclusief 1.500 callouts. Extra callouts worden gefactureerd vanaf €0,10 per aanroep, met volumekorting bij grotere afname. Gebruikt u uw eigen LLM, dan zijn er geen kosten per callout. Neem contact op voor maatwerkprijzen.' },
+  { q: 'Hoe installeer ik de Prompt Builder?', a: 'De AI Prompt Builder is een Salesforce Managed Package. Resolve IT verzorgt de installatie, configuratie en een training zodat uw team direct productief is.' },
+];
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })),
+});
+---
+
+<Layout
+  breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Producten', item: '/producten' }, { name: 'AI Prompt Builder', item: '/producten/ai-prompt-builder' }]}
+  title="AI Prompt Builder — AI-modellen direct in uw Salesforce Flow"
+  description="Integreer OpenAI, Anthropic, Gemini of uw eigen LLM rechtstreeks in Salesforce Flows. De AI Prompt Builder maakt AI een native onderdeel van uw automatisering — zonder code."
+>
+  <script type="application/ld+json" set:html={faqJsonLd} />
+
+  <!-- HERO -->
+  <section class="pp-hero">
+    <div class="pp-aurora" aria-hidden="true"><span></span><span></span></div>
+    <div class="container pp-hero-inner">
+      <div class="pp-hero-copy">
+        <span class="pp-badge"><span class="pp-badge-dot"></span> AI Prompt Builder · Managed Package</span>
+        <h1>AI direct in uw <span class="gradient-text">Salesforce Flow</span></h1>
+        <p>Combineer de kracht van grote AI-modellen met uw Salesforce-data — via een eenvoudige invocable action. Geen code, geen externe middleware. Gewoon: uw Flow, uw prompt, uw AI.</p>
+        <div class="pp-hero-actions">
+          <a href="/contact#afspraak" class="btn btn-primary">Plan een demo</a>
+          <a href="/contact" class="btn btn-outline">Stel een vraag</a>
+        </div>
+      </div>
+      <div class="pp-hero-visual">
+        <div class="aipb-flow">
+          <div class="aipb-flow-node aipb-start">
+            <span class="aipb-node-icon">▶</span>
+            <div><strong>Screen Flow</strong><span>Start</span></div>
+          </div>
+          <div class="aipb-connector"></div>
+          <div class="aipb-flow-node">
+            <span class="aipb-node-icon aipb-pink">🔍</span>
+            <div><strong>Get Account</strong><span>Get Records from CRM</span></div>
+          </div>
+          <div class="aipb-connector"></div>
+          <div class="aipb-flow-node aipb-highlight">
+            <span class="aipb-node-icon aipb-green">🤖</span>
+            <div><strong>AI Prompt Builder</strong><span>Apex Action</span></div>
+          </div>
+          <div class="aipb-connector"></div>
+          <div class="aipb-flow-node">
+            <span class="aipb-node-icon aipb-blue">🖥</span>
+            <div><strong>ResponseScreen</strong><span>Screen</span></div>
+          </div>
+          <div class="aipb-connector"></div>
+          <div class="aipb-flow-node">
+            <span class="aipb-node-icon aipb-pink">✏️</span>
+            <div><strong>Update Record</strong><span>Update Records</span></div>
+          </div>
+          <div class="aipb-connector"></div>
+          <div class="aipb-flow-node aipb-end">
+            <span class="aipb-node-icon aipb-red">⏹</span>
+            <div><strong>End</strong></div>
+          </div>
+        </div>
+        <div class="aipb-prompt-preview">
+          <div class="aipb-prompt-label">Prompt Template</div>
+          <div class="aipb-prompt-body" set:html={`Can you make a summary of the goods and services <span class="aipb-merge">{!Account.Name}</span> offers? You can also retrieve information from <span class="aipb-merge">{!Account.Website}</span>. Output in HTML.`} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="pp-trust">
+    <div class="container">
+      <div class="pp-trust-grid">
+        <div><strong>5+</strong><span>ondersteunde AI-modellen</span></div>
+        <div><strong>€0,10</strong><span>per callout (pay-per-use)</span></div>
+        <div><strong>1.500</strong><span>callouts inbegrepen/mnd</span></div>
+        <div><strong>Alle</strong><span>Salesforce Flow-types</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Mogelijkheden</span>
+        <h2>AI als native onderdeel van uw automatisering</h2>
+        <p>De AI Prompt Builder brengt intelligentie naar elke stap van uw Salesforce Flow — zonder dat uw team ook maar één regel code hoeft te schrijven.</p>
+      </div>
+      <div class="grid-3 mt-xl">
+        {features.map((f, i) => (
+          <div class="pp-feature reveal" style={`--reveal-delay:${i * 0.08}s`}>
+            <div class="pp-feature-ico">{f.icon}</div>
+            <h3>{f.title}</h3>
+            <p>{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section bg-dark pp-how">
+    <div class="pp-how-glow" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1">
+      <div class="section-header reveal">
+        <span class="eyebrow" style="color:var(--color-green-soft)">Zo werkt het</span>
+        <h2 style="color:#fff">Van Flow-idee naar AI-automatisering in 4 stappen</h2>
+      </div>
+      <div class="pp-steps mt-xl">
+        {steps.map((s, i) => (
+          <div class="pp-step reveal" style={`--reveal-delay:${i * 0.1}s`}>
+            <div class="pp-step-n">{s.n}</div>
+            <h3>{s.title}</h3>
+            <p style="color:rgba(255,255,255,0.65);font-size:0.92rem">{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELS -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Ondersteunde modellen</span>
+        <h2>Kies het model dat bij uw use case past</h2>
+        <p>De AI Prompt Builder verbindt zich met de toonaangevende AI-platformen. Hebt u een eigen LLM? Dat koppelen we ook.</p>
+      </div>
+      <div class="aipb-models reveal">
+        {models.map(m => (
+          <div class="aipb-model-chip">
+            <span>{m.icon}</span>
+            <span>{m.name}</span>
+          </div>
+        ))}
+        <div class="aipb-model-chip aipb-model-soon">
+          <span>🔜</span>
+          <span>Meer binnenkort</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Prijzen</span>
+        <h2>Transparante, schaalbare prijzen</h2>
+        <p>Start klein en schaal op naarmate uw gebruik groeit. Grote volumes? Neem contact op voor volumekorting.</p>
+      </div>
+      <div class="aipb-pricing mt-xl">
+        <div class="aipb-price-card reveal">
+          <div class="aipb-price-label">Maandelijks abonnement</div>
+          <div class="aipb-price-amount"><span class="aipb-price-currency">€</span>150<span class="aipb-price-period">/mnd</span></div>
+          <ul class="aipb-price-features">
+            <li>✓ 1.500 callouts per maand inbegrepen</li>
+            <li>✓ Toegang tot alle ondersteunde AI-modellen</li>
+            <li>✓ Salesforce Managed Package</li>
+            <li>✓ Updates & beheer inbegrepen</li>
+          </ul>
+        </div>
+        <div class="aipb-price-card reveal" style="--reveal-delay:0.1s">
+          <div class="aipb-price-label">Extra callouts</div>
+          <div class="aipb-price-amount"><span class="aipb-price-currency">€</span>0,10<span class="aipb-price-period">/callout</span></div>
+          <ul class="aipb-price-features">
+            <li>✓ Betaal alleen wat u gebruikt</li>
+            <li>✓ Volumekorting bij grotere afname</li>
+            <li>✓ Maandelijkse factuur via Salesforce</li>
+          </ul>
+        </div>
+        <div class="aipb-price-card aipb-price-own reveal" style="--reveal-delay:0.2s">
+          <div class="aipb-price-label">Eigen LLM</div>
+          <div class="aipb-price-amount aipb-price-free">Geen callout-kosten</div>
+          <ul class="aipb-price-features">
+            <li>✓ Koppel uw eigen Large Language Model</li>
+            <li>✓ Alleen de vaste maandelijkse platformfee</li>
+            <li>✓ Volledige controle over uw data</li>
+          </ul>
+        </div>
+      </div>
+      <p class="aipb-price-note">Neem contact op met uw accountmanager voor maatwerktarieven en volumekortingen.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Veelgestelde vragen</span>
+        <h2>Alles wat u wilt weten over de AI Prompt Builder</h2>
+      </div>
+      <div class="faq-list mt-xl">
+        {faqs.map((f, i) => (
+          <details class="faq-item reveal" style={`--reveal-delay:${i * 0.06}s`}>
+            <summary class="faq-q">{f.q}</summary>
+            <div class="faq-a" set:html={f.a} />
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="pp-cta bg-dark">
+    <div class="pp-cta-glow" aria-hidden="true"></div>
+    <div class="container pp-cta-inner reveal">
+      <div>
+        <h2>Klaar om AI in uw Flows te brengen?</h2>
+        <p>Wij verzorgen de installatie, configuratie en training zodat uw team direct productief is.</p>
+      </div>
+      <div class="pp-hero-actions">
+        <a href="/contact#afspraak" class="btn btn-primary">Plan een demo</a>
+        <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-outline">Maak een afspraak</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+/* FLOW VISUAL */
+.aipb-flow {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 280px;
+  margin: 0 auto;
+}
+.aipb-flow-node {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+}
+.aipb-flow-node.aipb-highlight {
+  background: rgba(109,183,87,0.18);
+  border-color: rgba(109,183,87,0.45);
+  box-shadow: 0 0 16px rgba(109,183,87,0.2);
+}
+.aipb-flow-node.aipb-start, .aipb-flow-node.aipb-end {
+  background: rgba(255,255,255,0.04);
+}
+.aipb-flow-node div { display: flex; flex-direction: column; line-height: 1.3; }
+.aipb-flow-node strong { font-size: 0.82rem; color: #fff; }
+.aipb-flow-node span { font-size: 0.72rem; color: rgba(255,255,255,0.55); }
+.aipb-node-icon { font-size: 1.1rem; width: 28px; text-align: center; flex-shrink: 0; }
+.aipb-node-icon.aipb-pink { color: #e96c9c; }
+.aipb-node-icon.aipb-green { color: #6db757; }
+.aipb-node-icon.aipb-blue { color: #4da8d8; }
+.aipb-node-icon.aipb-red { color: #e05252; }
+.aipb-connector { width: 2px; height: 18px; background: rgba(255,255,255,0.18); margin: 0 auto; }
+
+.aipb-prompt-preview {
+  margin-top: 1rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 10px;
+  padding: 1rem;
+  max-width: 280px;
+  margin-inline: auto;
+}
+.aipb-prompt-label { font-size: 0.72rem; color: var(--color-green-soft); font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.aipb-prompt-body { font-size: 0.8rem; color: rgba(255,255,255,0.75); line-height: 1.6; font-family: monospace; }
+.aipb-merge { color: var(--color-green-soft); background: rgba(109,183,87,0.15); border-radius: 3px; padding: 0 3px; }
+
+/* MODELS */
+.aipb-models { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2.5rem; }
+.aipb-model-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-light);
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.aipb-model-soon { opacity: 0.5; font-style: italic; }
+
+/* PRICING */
+.aipb-pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+@media (max-width: 760px) { .aipb-pricing { grid-template-columns: 1fr; } }
+.aipb-price-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.aipb-price-card.aipb-price-own {
+  border-color: rgba(109,183,87,0.4);
+  background: linear-gradient(135deg, rgba(109,183,87,0.05), rgba(108,68,148,0.04));
+}
+.aipb-price-label { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-muted); }
+.aipb-price-amount { font-size: 2.2rem; font-weight: 800; color: var(--color-text); line-height: 1; }
+.aipb-price-free { font-size: 1.4rem; color: var(--color-green-dark); }
+.aipb-price-currency { font-size: 1.3rem; vertical-align: top; margin-top: 0.35rem; display: inline-block; }
+.aipb-price-period { font-size: 0.9rem; font-weight: 500; color: var(--color-text-muted); margin-left: 0.15rem; }
+.aipb-price-features { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.aipb-price-features li { font-size: 0.88rem; color: var(--color-text-muted); }
+.aipb-price-note { text-align: center; margin-top: 1.5rem; font-size: 0.88rem; color: var(--color-text-muted); }
+
+/* CTA strip */
+.pp-cta { padding: 5rem 0; position: relative; overflow: hidden; }
+.pp-cta-glow { position: absolute; top: 50%; right: 0; transform: translateY(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(109,183,87,0.2), transparent 60%); animation: drift 20s ease-in-out infinite; }
+.pp-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; position: relative; z-index: 1; }
+.pp-cta h2, .pp-cta p { color: #fff; }
+.pp-cta p { color: rgba(255,255,255,0.72); margin-top: 0.5rem; }
+</style>

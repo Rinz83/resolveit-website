@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+---
+<Layout
+  title="Salesforce Data Cloud — één klantprofiel uit al uw databronnen"
+  description="Resolve IT implementeert Salesforce Data Cloud: verbind al uw klantdata tot één realtime profiel. De basis voor AI, Agentforce en gepersonaliseerde ervaringen op schaal."
+  breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Diensten', item: '/diensten' }, { name: 'Data Cloud', item: '/diensten/data-cloud' }]}
+>
+  <ServiceDetail
+    eyebrow="Dienst · Data Cloud"
+    title="Eén waarheid over uw klant — gevoed door al uw systemen"
+    intro="Salesforce Data Cloud brengt klantdata uit CRM, website, e-commerce, ERP en marketingtools samen in één realtime klantprofiel. Het resultaat: betere personalisatie, slimmere AI-agents en betrouwbare beslissingen op basis van actuele data — zonder uw databronnen te vervangen."
+    heroStats={[{ num: 'Realtime', label: 'klantprofiel' }, { num: 'Alle', label: 'databronnen verbonden' }, { num: '300+', label: 'projecten' }]}
+    image="/images/cases/case-6.jpg"
+    whatTitle="Databronnen verbonden, silo\'s verdwenen"
+    whatText={[
+      'Klantdata verspreid over CRM, website, e-mail, ERP en betaalsystemen: elke afdeling heeft een stukje van het plaatje, maar niemand ziet het totaal. Data Cloud lost dit op door alle bronnen realtime samen te brengen in één unified customer profile.',
+      'Voor Agentforce is Data Cloud de brandstof: AI-agents die beslissingen nemen op basis van een compleet, actueel klantprofiel zijn aanzienlijk effectiever dan agents die alleen op CRM-data draaien.',
+    ]}
+    whatList={[
+      'Unified customer profile uit alle verbonden databronnen',
+      'Realtime segmentatie voor marketing en personalisatie',
+      'De data-basis voor Agentforce en Einstein AI',
+      'Identity resolution: één klant herkend over kanalen en systemen',
+    ]}
+    deliverablesTitle="Wat u krijgt"
+    deliverables={[
+      { icon: '🔌', title: 'Databron-connectoren', text: 'Verbinding van uw CRM, website, e-commerce, marketing- en ERP-systemen aan Data Cloud via standaard connectoren of API.' },
+      { icon: '👤', title: 'Unified customer profile', text: 'Eén gecombineerd klantprofiel met identity resolution: dezelfde persoon herkend over kanalen en apparaten heen.' },
+      { icon: '🎯', title: 'Realtime segmentatie', text: 'Dynamische segmenten die automatisch updaten op basis van gedrag, transacties en attributen.' },
+      { icon: '🤖', title: 'AI-ready data-laag', text: 'Een schone, gestructureerde data-laag die Agentforce, Einstein en Marketing Cloud voorziet van betrouwbare input.' },
+    ]}
+    steps={[
+      { title: 'Data-inventarisatie', text: 'We brengen al uw relevante databronnen in kaart: welke systemen bevatten klantdata en hoe betrouwbaar is die data?' },
+      { title: 'Architectuur & modellering', text: 'Opzet van het data model, de identiteitsresolutieregels en de datastromen vanuit elke bron.' },
+      { title: 'Connectoren & ingestie', text: 'Technische inrichting van de databronnen, transformaties en scheduled of realtime data jobs.' },
+      { title: 'Activatie & gebruik', text: 'Segmenten activeren in Marketing Cloud of Agentforce, en rapportages inrichten op datakwaliteit en profilering.' },
+    ]}
+    why={[
+      { icon: '🏗️', title: 'Stevige data-basis', text: 'AI en personalisatie zijn zo goed als hun data. Wij zorgen voor een schone, betrouwbare data-laag voordat we er AI bovenop bouwen.' },
+      { icon: '🔗', title: 'Ecosysteem-kennis', text: 'We kennen de Salesforce-stack: Data Cloud, Agentforce, Marketing Cloud en Sales Cloud werken het best samen. Wij ontwerpen ze als één geheel.' },
+      { icon: '📐', title: 'Governance & privacy', text: 'Data Cloud biedt ingebouwde consent management. Wij richten dit in zodat uw data-activatie AVG-compliant is.' },
+    ]}
+    faqs={[
+      { q: 'Is Data Cloud hetzelfde als een data warehouse?', a: 'Nee. Data Cloud is een Customer Data Platform (CDP) geoptimaliseerd voor klantprofilering en -activatie. Het vervangt geen data warehouse, maar werkt er vaak naast — of bovenop.' },
+      { q: 'Welke bronnen kan Data Cloud verbinden?', a: 'Standaard connectoren voor Salesforce-producten, plus connectoren voor Amazon S3, Google Analytics, MuleSoft, Snowflake en meer. Overige systemen zijn aan te sluiten via API of batch.' },
+      { q: 'Hebben we Data Cloud nodig als we al Sales Cloud en Marketing Cloud hebben?', a: 'Niet verplicht, maar Data Cloud vergroot de waarde van beide aanzienlijk. Het unified profile maakt segmentatie in Marketing Cloud nauwkeuriger en geeft Agentforce een completere context.' },
+      { q: 'Wat kost Data Cloud?', a: 'Data Cloud heeft een eigen licentiemodel op basis van credits (data volume en activatie). <a href="/contact#afspraak">Plan een gesprek</a> voor een schatting op maat voor uw situatie.' },
+    ]}
+  />
+</Layout>

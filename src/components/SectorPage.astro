@@ -18,8 +18,9 @@ export interface Props {
   capabilities: { icon: string; title: string; text: string }[];
   metrics: { num: string; label: string }[];
   products?: { label: string; href: string; featured?: boolean }[];
+  caseHighlights?: { client: string; quote: string; author: string; result: string; href: string }[];
 }
-const { eyebrow, title, intro, icon, dashboard, painLine, painPoints, capabilities, metrics, products = [], lang = 'nl' } = Astro.props;
+const { eyebrow, title, intro, icon, dashboard, painLine, painPoints, capabilities, metrics, products = [], caseHighlights = [], lang = 'nl' } = Astro.props;
 const ringDash = dashboard.ring ? 157 - (157 * parseInt(dashboard.ring)) / 100 : 20;
 const en = lang === 'en';
 const T = {
@@ -35,6 +36,9 @@ const T = {
   relevant: en ? 'Relevant for your sector' : 'Relevant voor uw sector',
   consultancy: en ? 'Audit & Consultancy' : 'Audit & Consultancy',
   alleSectoren: en ? 'All industries' : 'Alle sectoren',
+  casesTitle: en ? 'What clients achieve with us' : 'Wat klanten met ons bereiken',
+  casesEyebrow: en ? 'Cases' : 'Cases',
+  leesCase: en ? 'Read the case →' : 'Lees de case →',
   ctaTitle: en ? 'Recognise these challenges?' : 'Herkent u deze uitdagingen?',
   ctaText: en ? 'Schedule a no-obligation consultancy call — we think along with you, with no strings attached.' : 'Plan een vrijblijvend consultancygesprek — we denken met u mee, zonder verplichtingen.',
   planKort: en ? 'Schedule a call' : 'Plan een gesprek',
@@ -163,6 +167,31 @@ const T = {
   </div>
 </section>
 
+<!-- CASE HIGHLIGHTS -->
+{caseHighlights.length > 0 && (
+  <section class="section bg-off-white sec-cases">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">{T.casesEyebrow}</span>
+        <h2>{T.casesTitle}</h2>
+      </div>
+      <div class="case-hl-grid">
+        {caseHighlights.map((c, i) => (
+          <a href={c.href} class="case-hl-card reveal" style={`--reveal-delay:${i * 0.1}s`}>
+            <div class="case-hl-top">
+              <span class="case-hl-client">{c.client}</span>
+              <span class="case-hl-result">{c.result}</span>
+            </div>
+            <blockquote class="case-hl-quote">"{c.quote}"</blockquote>
+            <cite class="case-hl-author">— {c.author}</cite>
+            <span class="case-hl-cta">{T.leesCase}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
 <!-- CROSS LINKS -->
 <section class="section-sm bg-off-white">
   <div class="container">
@@ -281,4 +310,22 @@ const T = {
 .pp-cta h2, .pp-cta p { color: #fff; }
 .pp-cta p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; }
 .pp-cta-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+
+/* case highlights */
+.sec-cases { }
+.case-hl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.case-hl-card {
+  display: flex; flex-direction: column; gap: 0.75rem;
+  background: var(--color-white); border: 1px solid var(--color-light);
+  border-radius: var(--radius-lg); padding: 1.75rem;
+  text-decoration: none; color: inherit;
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+}
+.case-hl-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: rgba(109,183,87,0.4); }
+.case-hl-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.case-hl-client { font-weight: 700; font-size: 1rem; color: var(--color-text); }
+.case-hl-result { font-size: 0.78rem; font-weight: 700; color: var(--color-green-dark); background: rgba(109,183,87,0.1); border-radius: 999px; padding: 0.2rem 0.7rem; white-space: nowrap; }
+.case-hl-quote { font-size: 0.97rem; color: var(--color-text); line-height: 1.6; font-style: italic; border-left: 3px solid var(--color-green); padding-left: 1rem; margin: 0; }
+.case-hl-author { font-size: 0.82rem; color: var(--color-text-muted); }
+.case-hl-cta { margin-top: auto; font-size: 0.85rem; font-weight: 700; color: var(--color-green-dark); }
 </style>

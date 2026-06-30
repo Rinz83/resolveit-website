@@ -1,0 +1,53 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ServiceDetail from '../../../components/ServiceDetail.astro';
+---
+<Layout
+  title="Salesforce Marketing Cloud — personalised marketing at scale"
+  description="Resolve IT implements Salesforce Marketing Cloud: email, journeys, segmentation and analytics in one platform. More conversion, less manual work, measurable ROI."
+  breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Services', item: '/en/diensten' }, { name: 'Marketing Cloud', item: '/en/diensten/marketing-cloud' }]}
+>
+  <ServiceDetail
+    lang="en"
+    eyebrow="Service · Marketing Cloud"
+    title="Every customer the right message, at the right time, through the right channel"
+    intro="Salesforce Marketing Cloud enables large-scale, personalised communication — from welcome journeys and abandoned-cart emails to complex multi-channel campaigns based on live customer data. Resolve IT implements and optimises Marketing Cloud so you get more from every touchpoint."
+    heroStats={[{ num: 'Multi-', label: 'channel' }, { num: 'Real-', label: 'time segmentation' }, { num: '300+', label: 'projects' }]}
+    image="/images/cases/case-4.jpg"
+    whatTitle="From one-off campaigns to intelligent customer journeys"
+    whatText={[
+      'Marketing teams waste hours on manual exports, static lists and emails that look the same for everyone. Marketing Cloud makes this unnecessary: segments are dynamic, journeys run automatically and every step is measurable.',
+      'We configure Marketing Cloud to connect directly to your Sales Cloud and Service Cloud data — so marketing, sales and service all work from the same customer profile.',
+    ]}
+    whatList={[
+      'Automated journeys based on behaviour and customer data',
+      'Dynamic segmentation without manual list management',
+      'Email, SMS, push and social from one platform',
+      'Real-time reports on opens, clicks, conversion and revenue',
+    ]}
+    deliverablesTitle="What you get"
+    deliverables={[
+      { icon: '✉️', title: 'Journey Builder setup', text: 'Automated customer journeys for onboarding, nurturing, upsell and win-back — tailored to your processes.' },
+      { icon: '🎯', title: 'Segmentation & data extensions', text: 'Dynamic audiences based on CRM data, purchase behaviour and engagement.' },
+      { icon: '📱', title: 'Multi-channel setup', text: 'Email, SMS, mobile push and social advertising from one coordinated environment.' },
+      { icon: '📊', title: 'Analytics & reporting', text: 'Dashboards connecting campaign performance to business outcomes such as revenue and retention.' },
+    ]}
+    steps={[
+      { title: 'Strategy & architecture', text: 'We determine together which journeys and channels take priority and design the data architecture.' },
+      { title: 'Configuration', text: 'Setup of the business unit, sendable data extensions, sender profiles and integration with Sales Cloud.' },
+      { title: 'Build journeys', text: 'We build and test priority journeys including email templates, content blocks and decision splits.' },
+      { title: 'Launch & optimisation', text: 'Go live with monitoring, A/B testing and an optimisation plan for the first 90 days.' },
+    ]}
+    why={[
+      { icon: '🔗', title: 'Seamless with Sales Cloud', text: 'Marketing Cloud works best when fed by Sales Cloud data. We ensure a clean, reliable integration.' },
+      { icon: '📐', title: 'Strategy first', text: 'We start with your customer journey goals, not the tool. Technology follows strategy, not the other way around.' },
+      { icon: '📈', title: 'Measurable results', text: 'We connect campaign performance to real business outcomes and help you prove the ROI of Marketing Cloud.' },
+    ]}
+    faqs={[
+      { q: 'What is the difference between Marketing Cloud and Pardot (Account Engagement)?', a: 'Pardot focuses on B2B lead nurturing and is tightly integrated with Sales Cloud. Marketing Cloud is broader: multi-channel, suitable for B2C and B2B, with more advanced journey capabilities and its own data layer.' },
+      { q: 'Do we also need Sales Cloud for Marketing Cloud?', a: 'Not mandatory, but strongly recommended. Marketing Cloud\'s power lies in leveraging CRM data for personalisation. Without Sales Cloud, you miss that source.' },
+      { q: 'What company sizes is Marketing Cloud suited to?', a: 'Marketing Cloud is primarily aimed at mid-sized to large organisations with serious marketing operations. For smaller B2B organisations, Pardot/Account Engagement is often a better fit.' },
+      { q: 'How long does an implementation take?', a: 'A basic setup with two or three journeys is typically live in 6–10 weeks. Full multi-channel setup takes 3–6 months. <a href="/en/contact#afspraak">Schedule a call</a> for a tailored estimate.' },
+    ]}
+  />
+</Layout>

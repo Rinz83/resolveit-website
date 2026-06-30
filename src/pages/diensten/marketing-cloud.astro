@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+---
+<Layout
+  title="Salesforce Marketing Cloud — gepersonaliseerde marketing op schaal"
+  description="Resolve IT implementeert Salesforce Marketing Cloud: e-mail, journey's, segmentatie en analytics in één platform. Meer conversie, minder handwerk, aantoonbare ROI."
+  breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Diensten', item: '/diensten' }, { name: 'Marketing Cloud', item: '/diensten/marketing-cloud' }]}
+>
+  <ServiceDetail
+    eyebrow="Dienst · Marketing Cloud"
+    title="Elke klant het juiste bericht, op het juiste moment, via het juiste kanaal"
+    intro="Salesforce Marketing Cloud maakt grootschalige, gepersonaliseerde communicatie mogelijk — van welkomstjourney's en abandoned-cart e-mails tot complexe multi-channel campagnes op basis van live klantdata. Resolve IT implementeert en optimaliseert Marketing Cloud zodat u meer haalt uit elk contactmoment."
+    heroStats={[{ num: 'Multi-', label: 'channel' }, { num: 'Real-', label: 'time segmentatie' }, { num: '300+', label: 'projecten' }]}
+    image="/images/cases/case-4.jpg"
+    whatTitle="Van losse campagnes naar een intelligente klantreis"
+    whatText={[
+      'Marketingteams verspillen uren aan handmatige exports, statische lijsten en e-mails die voor iedereen hetzelfde zijn. Marketing Cloud maakt dit overbodig: segmenten zijn dynamisch, journey\'s lopen automatisch en elke stap is meetbaar.',
+      'We configureren Marketing Cloud volledig aansluitend op uw Sales Cloud- en Service Cloud-data — zodat marketing, sales en service vanuit hetzelfde klantprofiel werken.',
+    ]}
+    whatList={[
+      'Geautomatiseerde journey\'s op basis van gedrag en klantdata',
+      'Dynamische segmentatie zonder handmatige lijsten',
+      'E-mail, SMS, push en social vanuit één platform',
+      'Realtime rapportages op opens, clicks, conversie en omzet',
+    ]}
+    deliverablesTitle="Wat u krijgt"
+    deliverables={[
+      { icon: '✉️', title: 'Journey Builder-inrichting', text: 'Geautomatiseerde klantreizen voor onboarding, nurturing, upsell en win-back — afgestemd op uw processen.' },
+      { icon: '🎯', title: 'Segmentatie & data-extensies', text: 'Dynamische doelgroepen op basis van CRM-data, aankoopgedrag en betrokkenheid.' },
+      { icon: '📱', title: 'Multi-channel setup', text: 'E-mail, SMS, mobiele push en social advertising vanuit één gecoördineerde omgeving.' },
+      { icon: '📊', title: 'Analytics & rapportages', text: 'Dashboards die campagneprestaties koppelen aan business-uitkomsten zoals omzet en klantbehoud.' },
+    ]}
+    steps={[
+      { title: 'Strategie & architectuur', text: 'We bepalen samen welke journey\'s en kanalen prioriteit krijgen en ontwerpen de data-architectuur.' },
+      { title: 'Configuratie', text: 'Opzet van de business unit, sendable data extensions, sender profiles en integratie met Sales Cloud.' },
+      { title: 'Journey\'s bouwen', text: 'We bouwen en testen de prioritaire journey\'s inclusief e-mailtemplates, content blocks en decision splits.' },
+      { title: 'Launch & optimalisatie', text: 'Live met monitoring, A/B-testing en een optimalisatieplan voor de eerste 90 dagen.' },
+    ]}
+    why={[
+      { icon: '🔗', title: 'Naadloos met Sales Cloud', text: 'Marketing Cloud werkt het best als het gevoed wordt door Sales Cloud-data. Wij zorgen voor een schone, betrouwbare integratie.' },
+      { icon: '📐', title: 'Strategie eerst', text: 'We starten niet met de tool maar met uw klantreisdoelen. De techniek volgt de strategie, niet andersom.' },
+      { icon: '📈', title: 'Meetbare resultaten', text: 'We koppelen campagneprestaties aan echte business-uitkomsten en helpen u de ROI van Marketing Cloud aan te tonen.' },
+    ]}
+    faqs={[
+      { q: 'Wat is het verschil tussen Marketing Cloud en Pardot (Account Engagement)?', a: 'Pardot is gericht op B2B lead nurturing en is sterk geïntegreerd met Sales Cloud. Marketing Cloud is breder: multi-channel, geschikt voor B2C én B2B, met geavanceerdere journey-functionaliteit en een eigen data-laag.' },
+      { q: 'Hebben we ook Sales Cloud nodig voor Marketing Cloud?', a: 'Niet verplicht, maar sterk aanbevolen. De kracht van Marketing Cloud zit in het benutten van CRM-data voor personalisatie. Zonder Sales Cloud mist u die bron.' },
+      { q: 'Voor welke bedrijfsgroottes is Marketing Cloud geschikt?', a: 'Marketing Cloud is primair gericht op middelgrote tot grote organisaties met serieuze marketingactiviteiten. Voor kleinere B2B-organisaties is <a href="/diensten/implementatie">Pardot/Account Engagement</a> vaak een betere keuze.' },
+      { q: 'Hoe lang duurt een implementatie?', a: 'Een basisopzet met twee à drie journey\'s is doorgaans in 6–10 weken live. Volledige multi-channel inrichting neemt 3–6 maanden. <a href="/contact#afspraak">Plan een gesprek</a> voor een schatting op maat.' },
+    ]}
+  />
+</Layout>

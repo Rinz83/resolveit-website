@@ -22,6 +22,7 @@ export const translatedPaths = new Set([
   '/diensten', '/diensten/implementatie', '/diensten/consultancy',
   '/diensten/development', '/diensten/training',
   '/diensten/agentforce', '/diensten/managed-services',
+  '/diensten/marketing-cloud', '/diensten/experience-cloud', '/diensten/data-cloud',
   '/voor-wie', '/voor-wie/backoffice-services', '/voor-wie/saas',
   '/voor-wie/professional-services', '/voor-wie/manufacturing', '/voor-wie/recruitment',
   '/voor-wie/energie-utilities', '/voor-wie/media-communicatie', '/voor-wie/overige-sectoren',

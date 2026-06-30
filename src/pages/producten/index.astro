@@ -4,23 +4,31 @@ import Layout from '../../layouts/Layout.astro';
 const products = [
   {
     icon: '💳',
-    title: 'Billing Module',
+    title: 'Billing Platform',
     badge: 'Managed App',
     href: '/producten/billing-module',
-    description: 'Facturatie direct vanuit Salesforce — geautomatiseerd, nauwkeurig en naadloos gekoppeld aan uw boekhouding.',
+    description: 'Facturatie direct vanuit Salesforce, geautomatiseerd, nauwkeurig en naadloos gekoppeld aan uw boekhouding.',
     features: ['Automatische factuurcreatie', 'Koppeling met boekhoudpakketten', 'Terugkerende facturatie', 'Rapportages & dashboards'],
   },
   {
+    icon: '🤖',
+    title: 'AI Prompt Builder',
+    badge: 'Managed Package',
+    href: '/producten/ai-prompt-builder',
+    description: 'Integreer OpenAI, Anthropic, Gemini of uw eigen LLM rechtstreeks in Salesforce Flows, zonder code.',
+    features: ['AI direct als invocable action', 'Dynamische prompt templates', 'Meerdere AI-modellen', 'Werkt in alle Flow-types'],
+  },
+  {
     icon: '🏢',
-    title: 'KvK Integratie (Datasolver)',
+    title: 'Datasolver',
     badge: 'Managed App',
     href: '/producten/kvk-integratie',
-    description: 'Automatisch bedrijfsgegevens ophalen en up-to-date houden vanuit de Kamer van Koophandel in Salesforce.',
-    features: ['Automatisch data ophalen', 'Bedrijfsgegevens valideren', 'Contactgegevens synchroniseren', 'Bulk-update mogelijkheden'],
+    description: 'Automatisch bedrijfsgegevens ophalen en valideren vanuit de Kamer van Koophandel, VIES en Peppol in Salesforce.',
+    features: ['KvK-bedrijfsgegevens ophalen', 'VIES BTW-nummers valideren', 'Peppol ID opzoeken', 'Bulk-update mogelijkheden'],
   },
   {
     logo: '/images/logos/exact-online.svg',
-    title: 'Exact Online Integratie',
+    title: 'Influx Exact Connector',
     badge: 'Exact Online App Store',
     href: '/producten/exact-online',
     description: 'Realtime financiële data en bidirectionele synchronisatie tussen Salesforce en Exact Online.',
@@ -37,7 +45,7 @@ const products = [
 ];
 ---
 
-<Layout title="Producten" description="Ontdek Resolve IT's Salesforce-producten: Billing Module, KvK Integratie, Exact Online en SharePoint Integratie.">
+<Layout title="Producten" description="Ontdek Resolve IT's Salesforce-producten: Billing Platform, AI Prompt Builder, Datasolver, Influx Exact Connector en SharePoint Integratie.">
 
   <div class="page-hero">
     <div class="container">
@@ -93,10 +101,11 @@ const products = [
 <style>
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
-@media (max-width: 768px) { .products-grid { grid-template-columns: 1fr; } }
+@media (max-width: 960px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .products-grid { grid-template-columns: 1fr; } }
 
 .product-card { display: flex; flex-direction: column; gap: 1rem; color: var(--color-text); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
 .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(109,183,87,0.4); }

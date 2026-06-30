@@ -4,19 +4,19 @@ import { calendlyUrl } from '../../i18n/ui.js';
 import '../../styles/product.css';
 
 const features = [
-  { icon: '🤖', title: 'AI direct in je Flow', text: 'Roep een AI-model aan als invocable action — zonder code, zonder externe middleware. Werkt in Screen Flows, Record-Triggered Flows én Auto-Launched Flows.' },
+  { icon: '🤖', title: 'AI direct in je Flow', text: 'Roep een AI-model aan als invocable action, zonder code en zonder externe middleware. Werkt in Screen Flows, Record-Triggered Flows én Auto-Launched Flows.' },
   { icon: '📝', title: 'Dynamische Prompt Templates', text: 'Bouw prompt templates die merge fields combineren met vaste instructietekst. Trek live gegevens op uit record-variabelen, GET-requests of andere Salesforce-bronnen.' },
-  { icon: '🔌', title: 'Meerdere AI-modellen', text: 'Kies het model dat bij uw use case past: OpenAI, Anthropic, Google Gemini, Azure Co-Pilot of uw eigen LLM — de connector regelt de rest.' },
+  { icon: '🔌', title: 'Meerdere AI-modellen', text: 'Kies het model dat bij uw use case past: OpenAI, Anthropic, Google Gemini of Azure Co-Pilot. Ook uw eigen LLM koppelen we aan.' },
   { icon: '⚡', title: 'Alle Flow-types ondersteund', text: 'Gebruik AI-logica in elk type Salesforce Flow: van gebruikersgestuurde schermen tot volledig geautomatiseerde achtergrondprocessen.' },
   { icon: '🔄', title: 'Contextrijke responses', text: 'Geef de AI alleen de data die relevant is: accountgegevens, website-inhoud, case-details. Hoe rijker de context, hoe relevanter de output.' },
-  { icon: '💡', title: 'Eigen LLM? Geen callout-kosten', text: 'Koppel uw eigen Large Language Model en betaal alleen de vaste maandelijkse platformfee — geen kosten per aanroep.' },
+  { icon: '💡', title: 'Eigen LLM zonder callout-kosten', text: 'Koppel uw eigen Large Language Model en betaal alleen de vaste maandelijkse platformfee. Geen kosten per aanroep.' },
 ];
 
 const steps = [
   { n: '1', title: 'Modelleer uw Flow', text: 'Bepaal het doel van uw Flow: welke trigger start het proces, welke data-inputs hebt u nodig en wat moet de AI-actie opleveren?' },
-  { n: '2', title: 'Bouw uw Prompt Template', text: 'Combineer vaste instructietekst met dynamische merge fields zoals {Account.Name} of {GET_Response.Website} — direct beschikbaar als Flow-resource.' },
+  { n: '2', title: 'Bouw uw Prompt Template', text: 'Combineer vaste instructietekst met dynamische merge fields zoals {Account.Name} of {GET_Response.Website}. Alles is direct beschikbaar als Flow-resource.' },
   { n: '3', title: 'Gebruik de AI-output', text: 'De AI-respons wordt als variabele beschikbaar gesteld in uw Flow. Gebruik hem als input voor de volgende actie, een record-update of een schermcomponent.' },
-  { n: '4', title: 'Maak uw Flow compleet', text: 'Toon de output op een scherm, sla hem op in een veld, stuur een e-mail of geef het door aan de volgende stap — uw Flow, uw logica.' },
+  { n: '4', title: 'Maak uw Flow compleet', text: 'Toon de output op een scherm, sla hem op in een veld of stuur een e-mail. Uw Flow, uw logica.' },
 ];
 
 const models = [
@@ -28,9 +28,9 @@ const models = [
 ];
 
 const faqs = [
-  { q: 'Heeft onze organisatie technische kennis nodig om dit te gebruiken?', a: 'Nee. De AI Prompt Builder werkt als een gewone invocable action in Salesforce Flow. Wie Flow-ervaring heeft, kan direct aan de slag — Apex- of API-kennis is niet vereist.' },
+  { q: 'Heeft onze organisatie technische kennis nodig om dit te gebruiken?', a: 'Nee. De AI Prompt Builder werkt als een gewone invocable action in Salesforce Flow. Wie Flow-ervaring heeft, kan direct aan de slag. Apex- of API-kennis is niet vereist.' },
   { q: 'Met welke AI-modellen werkt de Prompt Builder?', a: 'De huidige release ondersteunt OpenAI, Anthropic (Claude), Google Gemini en Azure Co-Pilot. Eigen LLM-koppelingen zijn ook mogelijk. Aanvullende modellen worden continu toegevoegd.' },
-  { q: 'Kan ik de output van een AI-actie gebruiken als input voor een volgende stap?', a: 'Ja. De response wordt als Flow-variabele teruggegeven en is direct beschikbaar als resource: voor een screen component, een record-update, een e-mail of een vervolgactie.' },
+  { q: 'Kan ik de output van een AI-actie gebruiken als input voor een volgende stap?', a: 'Ja. De response wordt als Flow-variabele teruggegeven en is direct beschikbaar als resource voor een screen component, een record-update, een e-mail of een vervolgactie.' },
   { q: 'Hoe worden mijn data en prompts beveiligd?', a: 'De Prompt Builder werkt als Managed Package binnen uw Salesforce-omgeving. Data verloopt via de beveiligde Salesforce API-laag. Welk AI-model u kiest, bepaalt welk privacy- en dataretentiebeleid van toepassing is.' },
   { q: 'Wat zijn de kosten?', a: 'Er is een vaste maandelijkse fee van €150 inclusief 1.500 callouts. Extra callouts worden gefactureerd vanaf €0,10 per aanroep, met volumekorting bij grotere afname. Gebruikt u uw eigen LLM, dan zijn er geen kosten per callout. Neem contact op voor maatwerkprijzen.' },
   { q: 'Hoe installeer ik de Prompt Builder?', a: 'De AI Prompt Builder is een Salesforce Managed Package. Resolve IT verzorgt de installatie, configuratie en een training zodat uw team direct productief is.' },
@@ -46,7 +46,7 @@ const faqJsonLd = JSON.stringify({
 <Layout
   breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Producten', item: '/producten' }, { name: 'AI Prompt Builder', item: '/producten/ai-prompt-builder' }]}
   title="AI Prompt Builder — AI-modellen direct in uw Salesforce Flow"
-  description="Integreer OpenAI, Anthropic, Gemini of uw eigen LLM rechtstreeks in Salesforce Flows. De AI Prompt Builder maakt AI een native onderdeel van uw automatisering — zonder code."
+  description="Integreer OpenAI, Anthropic, Gemini of uw eigen LLM rechtstreeks in Salesforce Flows. De AI Prompt Builder maakt AI een native onderdeel van uw automatisering, zonder code."
 >
   <script type="application/ld+json" set:html={faqJsonLd} />
 
@@ -57,7 +57,7 @@ const faqJsonLd = JSON.stringify({
       <div class="pp-hero-copy">
         <span class="pp-badge"><span class="pp-badge-dot"></span> AI Prompt Builder · Managed Package</span>
         <h1>AI direct in uw <span class="gradient-text">Salesforce Flow</span></h1>
-        <p>Combineer de kracht van grote AI-modellen met uw Salesforce-data — via een eenvoudige invocable action. Geen code, geen externe middleware. Gewoon: uw Flow, uw prompt, uw AI.</p>
+        <p>Combineer de kracht van grote AI-modellen met uw Salesforce-data via een eenvoudige invocable action. Geen code, geen externe middleware. Gewoon uw Flow, uw prompt, uw AI.</p>
         <div class="pp-hero-actions">
           <a href="/contact#afspraak" class="btn btn-primary">Plan een demo</a>
           <a href="/contact" class="btn btn-outline">Stel een vraag</a>
@@ -65,39 +65,69 @@ const faqJsonLd = JSON.stringify({
       </div>
       <div class="pp-hero-visual">
         <div class="aipb-flow">
-          <div class="aipb-flow-node aipb-start">
-            <span class="aipb-node-icon">▶</span>
+
+          <!-- Start -->
+          <div class="aipb-flow-node">
+            <div class="aipb-badge" style="background:#2e844a">
+              <svg viewBox="0 0 20 20" fill="white" width="14" height="14"><path d="M4 3.5l13 6.5-13 6.5V3.5z"/></svg>
+            </div>
             <div><strong>Screen Flow</strong><span>Start</span></div>
           </div>
-          <div class="aipb-connector"></div>
+          <div class="aipb-connector"><span class="aipb-plus">+</span></div>
+
+          <!-- Get Account -->
           <div class="aipb-flow-node">
-            <span class="aipb-node-icon aipb-pink">🔍</span>
-            <div><strong>Get Account</strong><span>Get Records from CRM</span></div>
+            <div class="aipb-badge" style="background:#e25c7e">
+              <svg viewBox="0 0 20 20" fill="white" width="14" height="14"><circle cx="9" cy="8" r="4.5" fill="none" stroke="white" stroke-width="2"/><line x1="12.5" y1="12" x2="17" y2="17" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div><strong>Get Account</strong><span>Get Records from Salesforce CRM</span></div>
           </div>
-          <div class="aipb-connector"></div>
+          <div class="aipb-connector"><span class="aipb-plus">+</span></div>
+
+          <!-- AI Prompt Builder — highlighted -->
           <div class="aipb-flow-node aipb-highlight">
-            <span class="aipb-node-icon aipb-green">🤖</span>
+            <div class="aipb-badge" style="background:#00a1e0">
+              <svg viewBox="0 0 20 20" fill="none" width="14" height="14">
+                <circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.8"/>
+                <path d="M10 4c0 0-4 3-4 6s4 6 4 6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M10 4c0 0 4 3 4 6s-4 6-4 6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="3.5" y1="10" x2="16.5" y2="10" stroke="white" stroke-width="1.5"/>
+              </svg>
+            </div>
             <div><strong>AI Prompt Builder</strong><span>Apex Action</span></div>
           </div>
-          <div class="aipb-connector"></div>
+          <div class="aipb-connector"><span class="aipb-plus">+</span></div>
+
+          <!-- ResponseScreen -->
           <div class="aipb-flow-node">
-            <span class="aipb-node-icon aipb-blue">🖥</span>
+            <div class="aipb-badge" style="background:#0070d2">
+              <svg viewBox="0 0 20 20" fill="none" width="14" height="14"><rect x="2" y="3" width="16" height="11" rx="1.5" stroke="white" stroke-width="2"/><line x1="7" y1="17" x2="13" y2="17" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="14" x2="10" y2="17" stroke="white" stroke-width="2"/></svg>
+            </div>
             <div><strong>ResponseScreen</strong><span>Screen</span></div>
           </div>
-          <div class="aipb-connector"></div>
+          <div class="aipb-connector"><span class="aipb-plus">+</span></div>
+
+          <!-- Update Record -->
           <div class="aipb-flow-node">
-            <span class="aipb-node-icon aipb-pink">✏️</span>
+            <div class="aipb-badge" style="background:#e25c7e">
+              <svg viewBox="0 0 20 20" fill="none" width="14" height="14"><path d="M13 3l4 4-9 9H4v-4L13 3z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </div>
             <div><strong>Update Record</strong><span>Update Records</span></div>
           </div>
-          <div class="aipb-connector"></div>
-          <div class="aipb-flow-node aipb-end">
-            <span class="aipb-node-icon aipb-red">⏹</span>
+          <div class="aipb-connector"><span class="aipb-plus">+</span></div>
+
+          <!-- End -->
+          <div class="aipb-flow-node">
+            <div class="aipb-badge" style="background:#c23934">
+              <svg viewBox="0 0 20 20" fill="white" width="14" height="14"><rect x="4" y="4" width="12" height="12" rx="2"/></svg>
+            </div>
             <div><strong>End</strong></div>
           </div>
+
         </div>
         <div class="aipb-prompt-preview">
           <div class="aipb-prompt-label">Prompt Template</div>
-          <div class="aipb-prompt-body" set:html={`Can you make a summary of the goods and services <span class="aipb-merge">{!Account.Name}</span> offers? You can also retrieve information from <span class="aipb-merge">{!Account.Website}</span>. Output in HTML.`} />
+          <div class="aipb-prompt-body" set:html={`Can you make a summary of the goods and services <span class="aipb-merge">{!Get_Account.Name}</span> offers? You can also retrieve information from <span class="aipb-merge">{!Get_Account.Website}</span>. The output of the response should be in HTML.`} />
         </div>
       </div>
     </div>
@@ -121,7 +151,7 @@ const faqJsonLd = JSON.stringify({
       <div class="section-header reveal">
         <span class="eyebrow">Mogelijkheden</span>
         <h2>AI als native onderdeel van uw automatisering</h2>
-        <p>De AI Prompt Builder brengt intelligentie naar elke stap van uw Salesforce Flow — zonder dat uw team ook maar één regel code hoeft te schrijven.</p>
+        <p>De AI Prompt Builder brengt intelligentie naar elke stap van uw Salesforce Flow, zonder dat uw team ook maar één regel code hoeft te schrijven.</p>
       </div>
       <div class="grid-3 mt-xl">
         {features.map((f, i) => (
@@ -161,7 +191,7 @@ const faqJsonLd = JSON.stringify({
       <div class="section-header reveal">
         <span class="eyebrow">Ondersteunde modellen</span>
         <h2>Kies het model dat bij uw use case past</h2>
-        <p>De AI Prompt Builder verbindt zich met de toonaangevende AI-platformen. Hebt u een eigen LLM? Dat koppelen we ook.</p>
+        <p>De AI Prompt Builder verbindt zich met de toonaangevende AI-platformen. Hebt u een eigen LLM? Dat koppelen we ook aan.</p>
       </div>
       <div class="aipb-models reveal">
         {models.map(m => (
@@ -194,7 +224,7 @@ const faqJsonLd = JSON.stringify({
             <li>✓ 1.500 callouts per maand inbegrepen</li>
             <li>✓ Toegang tot alle ondersteunde AI-modellen</li>
             <li>✓ Salesforce Managed Package</li>
-            <li>✓ Updates & beheer inbegrepen</li>
+            <li>✓ Updates en beheer inbegrepen</li>
           </ul>
         </div>
         <div class="aipb-price-card reveal" style="--reveal-delay:0.1s">
@@ -227,11 +257,11 @@ const faqJsonLd = JSON.stringify({
         <span class="eyebrow">Veelgestelde vragen</span>
         <h2>Alles wat u wilt weten over de AI Prompt Builder</h2>
       </div>
-      <div class="faq-list mt-xl">
+      <div class="pp-faq-list mt-xl">
         {faqs.map((f, i) => (
-          <details class="faq-item reveal" style={`--reveal-delay:${i * 0.06}s`}>
-            <summary class="faq-q">{f.q}</summary>
-            <div class="faq-a" set:html={f.a} />
+          <details class="pp-faq reveal" style={`--reveal-delay:${i * 0.06}s`}>
+            <summary>{f.q}<span class="pp-faq-plus">+</span></summary>
+            <p set:html={f.a} />
           </details>
         ))}
       </div>
@@ -261,11 +291,10 @@ const faqJsonLd = JSON.stringify({
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: var(--radius-lg);
-  padding: 1.5rem 1.25rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  max-width: 280px;
+  max-width: 300px;
   margin: 0 auto;
 }
 .aipb-flow-node {
@@ -273,40 +302,66 @@ const faqJsonLd = JSON.stringify({
   align-items: center;
   gap: 0.75rem;
   background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 10px;
-  padding: 0.7rem 1rem;
+  padding: 0.6rem 0.9rem;
 }
 .aipb-flow-node.aipb-highlight {
-  background: rgba(109,183,87,0.18);
-  border-color: rgba(109,183,87,0.45);
-  box-shadow: 0 0 16px rgba(109,183,87,0.2);
+  background: rgba(0,161,224,0.15);
+  border-color: rgba(0,161,224,0.5);
+  box-shadow: 0 0 18px rgba(0,161,224,0.18);
 }
-.aipb-flow-node.aipb-start, .aipb-flow-node.aipb-end {
-  background: rgba(255,255,255,0.04);
+.aipb-flow-node div { display: flex; flex-direction: column; line-height: 1.3; min-width: 0; }
+.aipb-flow-node strong { font-size: 0.82rem; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.aipb-flow-node span { font-size: 0.68rem; color: rgba(255,255,255,0.5); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.aipb-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
-.aipb-flow-node div { display: flex; flex-direction: column; line-height: 1.3; }
-.aipb-flow-node strong { font-size: 0.82rem; color: #fff; }
-.aipb-flow-node span { font-size: 0.72rem; color: rgba(255,255,255,0.55); }
-.aipb-node-icon { font-size: 1.1rem; width: 28px; text-align: center; flex-shrink: 0; }
-.aipb-node-icon.aipb-pink { color: #e96c9c; }
-.aipb-node-icon.aipb-green { color: #6db757; }
-.aipb-node-icon.aipb-blue { color: #4da8d8; }
-.aipb-node-icon.aipb-red { color: #e05252; }
-.aipb-connector { width: 2px; height: 18px; background: rgba(255,255,255,0.18); margin: 0 auto; }
+
+.aipb-connector {
+  width: 2px;
+  height: 16px;
+  background: rgba(255,255,255,0.15);
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aipb-plus {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
 
 .aipb-prompt-preview {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 10px;
-  padding: 1rem;
-  max-width: 280px;
+  padding: 0.9rem 1rem;
+  max-width: 300px;
   margin-inline: auto;
 }
-.aipb-prompt-label { font-size: 0.72rem; color: var(--color-green-soft); font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.5rem; }
-.aipb-prompt-body { font-size: 0.8rem; color: rgba(255,255,255,0.75); line-height: 1.6; font-family: monospace; }
-.aipb-merge { color: var(--color-green-soft); background: rgba(109,183,87,0.15); border-radius: 3px; padding: 0 3px; }
+.aipb-prompt-label { font-size: 0.68rem; color: rgba(255,255,255,0.4); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.45rem; }
+.aipb-prompt-body { font-size: 0.78rem; color: rgba(255,255,255,0.7); line-height: 1.65; font-family: ui-monospace, monospace; }
+.aipb-merge { color: #4da8d8; background: rgba(77,168,216,0.15); border-radius: 3px; padding: 0 3px; }
 
 /* MODELS */
 .aipb-models { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2.5rem; }

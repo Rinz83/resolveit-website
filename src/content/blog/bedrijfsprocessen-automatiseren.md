@@ -6,7 +6,7 @@ author: "Tom Hofland"
 category: "Integraties"
 ---
 
-Procesautomatisering betekent: computers en software bepaalde taken laten uitvoeren in plaats van medewerkers. Repetitief, tijdrovend werk wordt zo sneller en efficiënter gedaan — en uw mensen houden capaciteit over voor werk van hogere waarde.
+Procesautomatisering betekent: computers en software bepaalde taken laten uitvoeren in plaats van medewerkers. Repetitief, tijdrovend werk wordt zo sneller en efficiënter gedaan, en uw mensen houden capaciteit over voor werk van hogere waarde.
 
 ## Een concreet voorbeeld
 
@@ -14,10 +14,10 @@ Facturatie is bij uitstek te automatiseren: de voorbereidingstijd daalt en foute
 
 ## Vier belangrijke voordelen
 
-- **Snelheid en nauwkeurigheid** — minder handmatige taken, dus sneller en met minder fouten.
-- **Lagere kosten** — minder arbeidskosten en minder foutherstel.
-- **Realtime data** — snellere, beter onderbouwde beslissingen.
-- **Tijd terug** — ruimte voor strategische initiatieven.
+- **Snelheid en nauwkeurigheid**: minder handmatige taken, dus sneller en met minder fouten.
+- **Lagere kosten**: minder arbeidskosten en minder foutherstel.
+- **Realtime data**: snellere, beter onderbouwde beslissingen.
+- **Tijd terug**: ruimte voor strategische initiatieven.
 
 ## Waar u op let
 

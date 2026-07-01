@@ -1,6 +1,6 @@
 ---
 title: "Building a sustainable future: how B2B companies can go green"
-description: "From sustainable supply chains to digital transformation and ESG reporting — how B2B organisations are taking the lead in a greener economy."
+description: "From sustainable supply chains to digital transformation and ESG reporting: how B2B organisations are taking the lead in a greener economy."
 pubDate: 2025-09-05
 author: "Rinse van Dorp"
 category: "CRM Strategy"
@@ -10,7 +10,7 @@ Sustainability is high on the agenda of B2B organisations. Those who take the le
 
 ## Sustainable supply chains and circularity
 
-Develop ethical procurement practices, apply a code of conduct for suppliers on environmental matters, and set CO₂ reduction targets for production and transport. Circular models — repairing, reusing and recycling throughout the chain — limit waste and environmental impact.
+Develop ethical procurement practices, apply a code of conduct for suppliers on environmental matters, and set CO₂ reduction targets for production and transport. Circular models (repairing, reusing and recycling throughout the chain) limit waste and environmental impact.
 
 ## Digital transformation
 

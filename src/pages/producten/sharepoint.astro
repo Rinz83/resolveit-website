@@ -5,19 +5,19 @@ import { calendlyUrl, pardotForms } from '../../i18n/ui.js';
 import '../../styles/product.css';
 
 const features = [
-  { icon: '📁', title: 'Automatisch documentbeheer', text: 'Mappen en bestanden worden automatisch en uniform aangemaakt. Zelf bestanden toevoegen en beheren — en nooit meer zoeken.' },
+  { icon: '📁', title: 'Automatisch documentbeheer', text: 'Mappen en bestanden worden automatisch en uniform aangemaakt. Zelf bestanden toevoegen en beheren, en nooit meer zoeken.' },
   { icon: '☁️', title: 'Directe SharePoint-opslag', text: 'Bestanden die u in Salesforce uploadt, gaan automatisch naar SharePoint. Nul extra dataverbruik in Salesforce, mét versiebeheer en samenwerking.' },
-  { icon: '📦', title: 'Naadloze migratie', text: 'Bestaande Salesforce-bestanden verhuizen automatisch naar SharePoint, met behoud van de mappenstructuur — en flink lagere opslagkosten.' },
+  { icon: '📦', title: 'Naadloze migratie', text: 'Bestaande Salesforce-bestanden verhuizen automatisch naar SharePoint, met behoud van de mappenstructuur, en flink lagere opslagkosten.' },
   { icon: '🤝', title: 'Vertrouwde werkomgeving', text: 'Uw team werkt gewoon in Salesforce; het beheer gebeurt op de achtergrond in SharePoint. Wijzigingen synchroniseren automatisch.' },
   { icon: '🗂️', title: 'Mappen koppelen', text: 'Pin mappen aan standaard- en custom Salesforce-objecten, zodat documenten altijd op de juiste plek bij het juiste record staan.' },
   { icon: '🔐', title: 'Rechten & rollen', text: 'Geavanceerde permissie-synchronisatie en rolgebaseerde toegang, verspreid over meerdere SharePoint-sites.' },
 ];
 
 const steps = [
-  { n: '1', title: 'Installeren', text: 'Na installatie verschijnt de module direct in Salesforce — klaar voor gebruik.' },
+  { n: '1', title: 'Installeren', text: 'Na installatie verschijnt de module direct in Salesforce, klaar voor gebruik.' },
   { n: '2', title: 'Opslaan', text: 'Sla documenten op zoals u gewend bent. De koppeling regelt de rest op de achtergrond.' },
   { n: '3', title: 'Synchroniseren', text: 'Bestanden landen automatisch in SharePoint, in een mappenstructuur die uw Salesforce-objecten volgt.' },
-  { n: '4', title: 'Samenwerken', text: 'Open, bewerk en deel vanuit beide platformen — wijzigingen synchroniseren door de hele organisatie.' },
+  { n: '4', title: 'Samenwerken', text: 'Open, bewerk en deel vanuit beide platformen: wijzigingen synchroniseren door de hele organisatie.' },
 ];
 
 const plans = [
@@ -27,13 +27,13 @@ const plans = [
 ];
 
 const faqs = [
-  { q: 'Verbruikt de SharePoint-koppeling Salesforce-opslag?', a: 'Nee. Bestanden worden in SharePoint opgeslagen, niet in Salesforce. Dat scheelt aanzienlijk in opslagkosten — terwijl uw team in de vertrouwde Salesforce-interface blijft werken.' },
+  { q: 'Verbruikt de SharePoint-koppeling Salesforce-opslag?', a: 'Nee. Bestanden worden in SharePoint opgeslagen, niet in Salesforce. Dat scheelt aanzienlijk in opslagkosten, terwijl uw team in de vertrouwde Salesforce-interface blijft werken.' },
   { q: 'Worden bestaande bestanden mee gemigreerd?', a: 'Met de Enterprise-licentie verhuist onze migratieservice bestaande Salesforce-bestanden automatisch naar SharePoint, met behoud van de mappenstructuur. Wilt u dit begeleid laten verlopen? Bekijk onze <a href="/diensten/implementatie">implementatie &amp; onboarding</a>.' },
   { q: 'Werkt het met meerdere SharePoint-sites?', a: 'Ja. De integratie ondersteunt multidisciplinaire teams verspreid over meerdere SharePoint-sites en schaalt mee met uw organisatie, inclusief rechten- en rollenbeheer.' },
   { q: 'Welke bestandstypen worden ondersteund?', a: 'In de Light-licentie de standaard Office-types (Word, Excel, PowerPoint) en PDF; vanaf de Pro-licentie zijn alle bestandstypen toegestaan.' },
   { q: 'Kan ik mappen koppelen aan custom objecten?', a: 'Ja, vanaf de Pro-licentie pint u mappen aan zowel standaard- als custom Salesforce-objecten, zodat documenten altijd bij het juiste record staan. De Light-licentie werkt met standaard objecten.' },
   { q: 'Hoe veilig en compliant is de opslag?', a: 'U benut de beveiliging, versiebeheer en het rechtenmodel van SharePoint zelf. Met de Enterprise-licentie synchroniseert de koppeling permissies en rolgebaseerde toegang met uw Salesforce-rollen.' },
-  { q: 'Hoe werkt de installatie?', a: 'Na installatie verschijnt de module direct in Salesforce. Bestanden die u uploadt, synchroniseren automatisch op de achtergrond naar SharePoint — zonder dat gebruikers iets merken.' },
+  { q: 'Hoe werkt de installatie?', a: 'Na installatie verschijnt de module direct in Salesforce. Bestanden die u uploadt, synchroniseren automatisch op de achtergrond naar SharePoint, zonder dat gebruikers iets merken.' },
   { q: 'Kan ik dit combineren met andere maatwerkkoppelingen?', a: 'Zeker. Onze <a href="/diensten/development">development &amp; integratie</a>-consultants koppelen SharePoint desgewenst aan uw bredere proces, inclusief Flow Automation en maatwerk.' },
   { q: 'Is er een demo of proefperiode?', a: 'Ja. <a href="/contact">Neem contact op</a> voor een demo of een gratis proef van de SharePoint-koppeling.' },
 ];
@@ -53,7 +53,7 @@ const faqJsonLd = JSON.stringify({
       <div class="pp-hero-copy">
         <span class="pp-badge"><span class="pp-badge-dot"></span> SalesPoint · Salesforce × SharePoint</span>
         <h1>Documenten in <span class="gradient-text">Salesforce</span>, opgeslagen in SharePoint</h1>
-        <p><strong>SalesPoint</strong> verbindt Salesforce en SharePoint in één naadloze koppeling. <strong>Geen dubbele opslag, geen geschakel</strong> — uw team werkt in Salesforce, SharePoint doet het werk op de achtergrond.</p>
+        <p><strong>SalesPoint</strong> verbindt Salesforce en SharePoint in één naadloze koppeling. <strong>Geen dubbele opslag, geen geschakel</strong>: uw team werkt in Salesforce, SharePoint doet het werk op de achtergrond.</p>
         <div class="pp-hero-actions">
           <a href="#demo" class="btn btn-primary">Vraag een demo aan</a>
           <a href="/contact" class="btn btn-outline">Gratis proberen</a>
@@ -182,7 +182,7 @@ const faqJsonLd = JSON.stringify({
     </div>
   </section>
 
-  <FormModal id="demo" title="Vraag een demo aan — SalesPoint" formUrl={pardotForms.demoSharepoint} />
+  <FormModal id="demo" title="Vraag een demo aan: SalesPoint" formUrl={pardotForms.demoSharepoint} />
 
 </Layout>
 

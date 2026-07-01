@@ -10,7 +10,7 @@ Succes met Salesforce ontstaat niet vanzelf. Onze aanpak is erop gericht u niet 
 
 ## Een sterk fundament
 
-We werken nauw samen met uw team om te zorgen dat de oplossing perfect aansluit op uw unieke bedrijfsbehoeften. Elke implementatie is maatwerk, gericht op uw specifieke uitdagingen — geen one-size-fits-all.
+We werken nauw samen met uw team om te zorgen dat de oplossing perfect aansluit op uw unieke bedrijfsbehoeften. Elke implementatie is maatwerk, gericht op uw specifieke uitdagingen: geen one-size-fits-all.
 
 ## Flexibel en transparant
 
@@ -22,7 +22,7 @@ Onze ondersteuning stopt niet bij de oplevering. We blijven beschikbaar om workf
 
 ## Innovatie en groei
 
-We blijven creatieve, effectieve oplossingen bieden die groei mogelijk maken in dynamische markten. Onze [cases](/cases) laten zien hoe maatwerk complexe uitdagingen oplost en nieuwe kansen ontsluit — bij organisaties in uiteenlopende sectoren.
+We blijven creatieve, effectieve oplossingen bieden die groei mogelijk maken in dynamische markten. Onze [cases](/cases) laten zien hoe maatwerk complexe uitdagingen oplost en nieuwe kansen ontsluit, bij organisaties in uiteenlopende sectoren.
 
 ## Schaalbaar meegroeien
 

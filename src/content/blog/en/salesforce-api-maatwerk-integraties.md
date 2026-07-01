@@ -10,10 +10,10 @@ Salesforce offers a lot out of the box, but sometimes you need a connection that
 
 ## What the API makes possible
 
-- **Managing records** — retrieving, creating, updating and deleting data, plus managing users and custom objects.
-- **Integration with external applications** — seamless connection between Salesforce and third-party systems.
-- **Process automation** — for example, automatically generating a follow-up task as soon as a new lead comes in.
-- **Custom apps** — your own applications that communicate with Salesforce data for unique requirements.
+- **Managing records**: retrieving, creating, updating and deleting data, plus managing users and custom objects.
+- **Integration with external applications**: seamless connection between Salesforce and third-party systems.
+- **Process automation**: for example, automatically generating a follow-up task as soon as a new lead comes in.
+- **Custom apps**: your own applications that communicate with Salesforce data for unique requirements.
 
 ## Real-time and data management
 

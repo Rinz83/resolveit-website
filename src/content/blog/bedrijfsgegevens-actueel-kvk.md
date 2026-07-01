@@ -27,4 +27,4 @@ De Datasolver-integratie maakt het mogelijk om nieuwe bedrijven op te zoeken, be
 
 ## Correcte data is bedrijfskritisch
 
-Juiste bedrijfsinformatie is van groot belang voor uw bedrijfsvoering — van facturatie tot compliance. [Ontdek Datasolver](/producten/kvk-integratie).
+Juiste bedrijfsinformatie is van groot belang voor uw bedrijfsvoering, van facturatie tot compliance. [Ontdek Datasolver](/producten/kvk-integratie).

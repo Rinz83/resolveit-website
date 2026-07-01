@@ -18,7 +18,7 @@ Hoewel ze verwant zijn, verschillen ze: een connector werkt met vaste, vooraf be
 
 ## Kant-en-klaar of maatwerk?
 
-Voor veelvoorkomende koppelingen — zoals [Exact Online](/producten/exact-online), [SharePoint](/producten/sharepoint) of Stripe — bieden onze kant-en-klare modules snelheid en zekerheid. Voor unieke processen of nichesystemen bouwen we maatwerk dat precies past. Vaak combineren we beide: een bewezen connector als basis, aangevuld met maatwerk.
+Voor veelvoorkomende koppelingen, zoals [Exact Online](/producten/exact-online), [SharePoint](/producten/sharepoint) of Stripe, bieden onze kant-en-klare modules snelheid en zekerheid. Voor unieke processen of nichesystemen bouwen we maatwerk dat precies past. Vaak combineren we beide: een bewezen connector als basis, aangevuld met maatwerk.
 
 ## In het Salesforce-ecosysteem
 

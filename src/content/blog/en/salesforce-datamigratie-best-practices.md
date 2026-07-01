@@ -1,12 +1,12 @@
 ---
 title: "Salesforce data migration: best practices for a smooth transition"
-description: "A migration in three phases — preparation, migration and quality control. The best practices for clean, reliable data in Salesforce."
+description: "A migration in three phases: preparation, migration and quality control. The best practices for clean, reliable data in Salesforce."
 pubDate: 2025-10-14
 author: "Jigar Raval"
 category: "Consultancy"
 ---
 
-A migration is the perfect moment to start with clean data — or to drag old clutter along with you. A good data migration runs in three phases: preparation, migration and quality control.
+A migration is the perfect moment to start with clean data, or to drag old clutter along with you. A good data migration runs in three phases: preparation, migration and quality control.
 
 ## 1. Preparation
 
@@ -14,7 +14,7 @@ Create a formal migration plan with timelines, dependencies and milestones, and 
 
 ## Determine which data should come across
 
-Identify which data needs to be migrated and what the authoritative source is. Not all business data comes from backend systems. Map out per department what is needed — sales (communication from calls and emails), service (cases linked to accounts), marketing (multiple sources) and finance (invoices and revenue recognition).
+Identify which data needs to be migrated and what the authoritative source is. Not all business data comes from backend systems. Map out per department what is needed: sales (communication from calls and emails), service (cases linked to accounts), marketing (multiple sources) and finance (invoices and revenue recognition).
 
 ## Data mapping
 

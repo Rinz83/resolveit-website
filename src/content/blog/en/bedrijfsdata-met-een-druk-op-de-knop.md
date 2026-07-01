@@ -6,17 +6,17 @@ author: "Lisette de Gijsel"
 category: "Datasolver"
 ---
 
-Looking up and retyping company details manually is error-prone and time-consuming. With Datasolver, you bring official company data into Salesforce at the push of a button — and that starts with how you search.
+Looking up and retyping company details manually is error-prone and time-consuming. With Datasolver, you bring official company data into Salesforce at the push of a button, and that starts with how you search.
 
 ## Search the way that suits you
 
 Datasolver offers multiple ways to find a company:
 
-- **Chamber of Commerce number** — for direct, official data from the Trade Register
-- **VAT number** — useful for international trade and financial verification
-- **Trade name** — search by the full or a partial company name
-- **Address** — find a company when you know the location but not the name
-- **Part of an address** — a street or postcode is enough to navigate the results
+- **Chamber of Commerce number**: for direct, official data from the Trade Register
+- **VAT number**: useful for international trade and financial verification
+- **Trade name**: search by the full or a partial company name
+- **Address**: find a company when you know the location but not the name
+- **Part of an address**: a street or postcode is enough to navigate the results
 
 ## The real gain lies in the enrichment
 

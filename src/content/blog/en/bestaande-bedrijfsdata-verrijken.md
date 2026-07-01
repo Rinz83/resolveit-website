@@ -6,7 +6,7 @@ author: "Lisette de Gijsel"
 category: "Datasolver"
 ---
 
-Many organisations build up thousands of accounts over the years. Companies relocate, merge or close down — and so your database grows outdated without you noticing. Because a CRM only adds value when the data is 100% reliable.
+Many organisations build up thousands of accounts over the years. Companies relocate, merge or close down, and so your database grows outdated without you noticing. Because a CRM only adds value when the data is 100% reliable.
 
 ## The risks of outdated data
 

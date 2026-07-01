@@ -14,19 +14,19 @@ The platform integrates with, among others, **Exact Online**, **Unit4 Multivers*
 
 ## One logical flow
 
-The integration works on the basis of standardised synchronisation between Salesforce and your ERP. Customer profiles, invoice data, sales information, general ledger data and payment statuses are synchronised. The result: one logical flow instead of parallel administrations — no duplicate entry and a far smaller risk of errors.
+The integration works on the basis of standardised synchronisation between Salesforce and your ERP. Customer profiles, invoice data, sales information, general ledger data and payment statuses are synchronised. The result: one logical flow instead of parallel administrations, with no duplicate entry and a far smaller risk of errors.
 
 ## Which data is linked?
 
-- **Customer profiles** — so customer data is correct in both systems
-- **Invoice data** — invoices originate in Salesforce and flow through to finance
-- **Sales information** — for a complete picture of customer value
-- **General ledger data** — for correct financial processing
-- **Payment statuses** — so sales and finance see the same position
+- **Customer profiles**: so customer data is correct in both systems
+- **Invoice data**: invoices originate in Salesforce and flow through to finance
+- **Sales information**: for a complete picture of customer value
+- **General ledger data**: for correct financial processing
+- **Payment statuses**: so sales and finance see the same position
 
 ## Insight that was previously fragmented
 
-Because everything is linked, an integrated picture of customer value and financial performance emerges that was previously spread across systems. This improves your forecasting and the reliability of your figures — one source of truth instead of separate islands.
+Because everything is linked, an integrated picture of customer value and financial performance emerges that was previously spread across systems. This improves your forecasting and the reliability of your figures: one source of truth instead of separate islands.
 
 ## Scalable and maintainable
 

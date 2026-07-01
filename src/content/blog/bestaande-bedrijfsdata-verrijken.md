@@ -6,7 +6,7 @@ author: "Lisette de Gijsel"
 category: "Datasolver"
 ---
 
-Veel organisaties bouwen in de loop der jaren duizenden accounts op. Bedrijven verhuizen, fuseren of stoppen — en zo veroudert uw database ongemerkt. Want een CRM voegt pas waarde toe als de data 100% betrouwbaar is.
+Veel organisaties bouwen in de loop der jaren duizenden accounts op. Bedrijven verhuizen, fuseren of stoppen, en zo veroudert uw database ongemerkt. Want een CRM voegt pas waarde toe als de data 100% betrouwbaar is.
 
 ## De risico's van verouderde data
 

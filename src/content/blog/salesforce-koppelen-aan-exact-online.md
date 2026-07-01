@@ -7,13 +7,13 @@ category: "Integraties"
 image: "/images/AdobeStock_-2-1024x683.jpg"
 ---
 
-Sales en finance werken vaak in gescheiden systemen. Het gevolg: dubbele invoer, verouderde data en frustratie aan beide kanten. Een koppeling tussen Salesforce en Exact Online lost dit op — mits goed opgezet.
+Sales en finance werken vaak in gescheiden systemen. Het gevolg: dubbele invoer, verouderde data en frustratie aan beide kanten. Een koppeling tussen Salesforce en Exact Online lost dit op, mits goed opgezet.
 
 ## Waarom koppelen?
 
-- **Geen dubbele invoer** — klant- en factuurgegevens staan automatisch synchroon.
-- **Realtime inzicht** — sales ziet de betaalstatus, finance ziet de pipeline.
-- **Minder fouten** — handmatig overtypen is verleden tijd.
+- **Geen dubbele invoer**: klant- en factuurgegevens staan automatisch synchroon.
+- **Realtime inzicht**: sales ziet de betaalstatus, finance ziet de pipeline.
+- **Minder fouten**: handmatig overtypen is verleden tijd.
 
 ## Aandachtspunten
 

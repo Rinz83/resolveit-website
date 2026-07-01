@@ -22,7 +22,7 @@ The Belgian government wants to reduce administrative burdens and manual process
 
 ## What this means for your organisation
 
-Your accounting software must support Peppol — WinBooks users may have to migrate. Data accuracy (VAT numbers, bank details, references) becomes crucial, and your entire order-to-cash process calls for redesign. That affects sales, finance and administration alike.
+Your accounting software must support Peppol: WinBooks users may have to migrate. Data accuracy (VAT numbers, bank details, references) becomes crucial, and your entire order-to-cash process calls for redesign. That affects sales, finance and administration alike.
 
 ## Compliant with Salesforce and Exact
 

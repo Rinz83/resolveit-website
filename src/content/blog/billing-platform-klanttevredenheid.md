@@ -18,7 +18,7 @@ Consistente facturatiemomenten ondersteunen de financiële planning van uw klant
 
 ## Flexibel betalen
 
-Meerdere betaalmethoden — overboeking, creditcard, automatische incasso en PayPal — bieden gemak. Automatische incasso met toestemming verbetert uw cashflow en verlaagt de drempel voor de klant. Abonnementen kunnen direct worden aangepast (up- of downgraden), met onmiddellijke verrekening.
+Meerdere betaalmethoden (overboeking, creditcard, automatische incasso en PayPal) bieden gemak. Automatische incasso met toestemming verbetert uw cashflow en verlaagt de drempel voor de klant. Abonnementen kunnen direct worden aangepast (up- of downgraden), met onmiddellijke verrekening.
 
 ## Soepele opvolging en correctie
 

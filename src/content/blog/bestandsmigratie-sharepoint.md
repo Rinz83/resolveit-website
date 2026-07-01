@@ -1,6 +1,6 @@
 ---
 title: "Hoe werkt bestandsmigratie naar SharePoint?"
-description: "Jaren aan Salesforce-bestanden meenemen naar SharePoint? Ontdek hoe een gecontroleerde, gefaseerde migratie verloopt — zonder dataverlies of onderbreking."
+description: "Jaren aan Salesforce-bestanden meenemen naar SharePoint? Ontdek hoe een gecontroleerde, gefaseerde migratie verloopt, zonder dataverlies of onderbreking."
 pubDate: 2026-02-17
 author: "Jigar Raval"
 category: "SharePoint"
@@ -14,11 +14,11 @@ Een goede migratie start met inzicht: waar staan de bestanden in Salesforce, aan
 
 ## Een gecontroleerde overdracht
 
-Bestanden worden automatisch naar de juiste mappen in SharePoint verplaatst, terwijl de koppeling in Salesforce behouden blijft — zo houden gebruikers toegang. Relaties met Salesforce-objecten blijven bewaard.
+Bestanden worden automatisch naar de juiste mappen in SharePoint verplaatst, terwijl de koppeling in Salesforce behouden blijft: zo houden gebruikers toegang. Relaties met Salesforce-objecten blijven bewaard.
 
 ## Gefaseerd, niet alles in één keer
 
-De migratie verloopt incrementeel. U test eerst op een kleine set voordat u grotere batches verhuist. Documenten worden verplaatst zonder opnieuw te uploaden of handmatig te hermappen — wat dubbele opslagkosten voorkomt.
+De migratie verloopt incrementeel. U test eerst op een kleine set voordat u grotere batches verhuist. Documenten worden verplaatst zonder opnieuw te uploaden of handmatig te hermappen, wat dubbele opslagkosten voorkomt.
 
 ## Doorwerken tijdens de migratie
 

@@ -6,17 +6,17 @@ author: "Lisette de Gijsel"
 category: "Datasolver"
 ---
 
-Handmatig bedrijfsgegevens opzoeken en overtypen is foutgevoelig en tijdrovend. Met Datasolver haalt u officiële bedrijfsdata met één druk op de knop binnen in Salesforce — en dat begint al bij hoe u zoekt.
+Handmatig bedrijfsgegevens opzoeken en overtypen is foutgevoelig en tijdrovend. Met Datasolver haalt u officiële bedrijfsdata met één druk op de knop binnen in Salesforce, en dat begint al bij hoe u zoekt.
 
 ## Zoeken op de manier die u uitkomt
 
 Datasolver biedt meerdere ingangen om een bedrijf te vinden:
 
-- **KvK-nummer** — voor directe, officiële data uit het Handelsregister
-- **Btw-nummer** — handig voor internationale handel en financiële verificatie
-- **Handelsnaam** — zoek op de volledige of een gedeeltelijke bedrijfsnaam
-- **Adres** — vind een bedrijf wanneer u de locatie wel kent maar de naam niet
-- **Deel van een adres** — een straat of postcode is genoeg om door de resultaten te navigeren
+- **KvK-nummer**: voor directe, officiële data uit het Handelsregister
+- **Btw-nummer**: handig voor internationale handel en financiële verificatie
+- **Handelsnaam**: zoek op de volledige of een gedeeltelijke bedrijfsnaam
+- **Adres**: vind een bedrijf wanneer u de locatie wel kent maar de naam niet
+- **Deel van een adres**: een straat of postcode is genoeg om door de resultaten te navigeren
 
 ## De echte winst zit in de verrijking
 

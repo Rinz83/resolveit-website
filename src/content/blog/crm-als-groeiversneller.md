@@ -18,7 +18,7 @@ Zonder strategische planning wordt uw systeem een lappendeken die lastig te behe
 
 ## Budget dat rendeert
 
-Een strategische roadmap stuurt uw uitgaven naar investeringen die ROI opleveren, in plaats van naar "leuke extra's". Business en IT raken op één lijn, en uw CRM kan sneller reageren op marktveranderingen — een concreet concurrentievoordeel.
+Een strategische roadmap stuurt uw uitgaven naar investeringen die ROI opleveren, in plaats van naar "leuke extra's". Business en IT raken op één lijn, en uw CRM kan sneller reageren op marktveranderingen: een concreet concurrentievoordeel.
 
 ## Voor elke sector
 

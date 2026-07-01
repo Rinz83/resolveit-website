@@ -10,7 +10,7 @@ Success with Salesforce does not happen by itself. Our approach is designed not 
 
 ## A strong foundation
 
-We work closely with your team to ensure the solution fits your unique business needs perfectly. Every implementation is tailor-made, focused on your specific challenges — no one-size-fits-all.
+We work closely with your team to ensure the solution fits your unique business needs perfectly. Every implementation is tailor-made, focused on your specific challenges: no one-size-fits-all.
 
 ## Flexible and transparent
 
@@ -22,7 +22,7 @@ Our support does not stop at delivery. We remain available to optimise workflows
 
 ## Innovation and growth
 
-We continue to offer creative, effective solutions that enable growth in dynamic markets. Our [case studies](/en/cases) show how bespoke work solves complex challenges and unlocks new opportunities — at organisations across a wide range of sectors.
+We continue to offer creative, effective solutions that enable growth in dynamic markets. Our [case studies](/en/cases) show how bespoke work solves complex challenges and unlocks new opportunities, at organisations across a wide range of sectors.
 
 ## Scaling as you grow
 

@@ -14,9 +14,9 @@ Het is het architectuurprincipe dat alle relevante informatie over een klant, de
 
 ## Drie manieren om te koppelen
 
-- **Directe API-integratie** — het snelst, maar vraagt onderhoud.
-- **iPaaS-middleware** — handig bij complexiteit en meerdere systemen.
-- **Standaard AppExchange-connectors** — sneller te implementeren, maar minder flexibel.
+- **Directe API-integratie**: het snelst, maar vraagt onderhoud.
+- **iPaaS-middleware**: handig bij complexiteit en meerdere systemen.
+- **Standaard AppExchange-connectors**: sneller te implementeren, maar minder flexibel.
 
 Veelvoorkomende koppelingen zijn ERP (Exact Online, AFAS, SAP), urenregistratie, betaal- en facturatieplatformen, marketing automation en supportsystemen.
 

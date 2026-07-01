@@ -5,19 +5,19 @@ import { calendlyUrl, pardotForms } from '../../../i18n/ui.js';
 import '../../../styles/product.css';
 
 const features = [
-  { icon: '📁', title: 'Automatic document management', text: 'Folders and files are created automatically and uniformly. Add and manage files yourself — and never search again.' },
+  { icon: '📁', title: 'Automatic document management', text: 'Folders and files are created automatically and uniformly. Add and manage files yourself, and never search again.' },
   { icon: '☁️', title: 'Direct SharePoint storage', text: 'Files you upload in Salesforce go automatically to SharePoint. Zero extra data usage in Salesforce, with version control and collaboration.' },
-  { icon: '📦', title: 'Seamless migration', text: 'Existing Salesforce files move automatically to SharePoint, preserving the folder structure — and sharply lower storage costs.' },
+  { icon: '📦', title: 'Seamless migration', text: 'Existing Salesforce files move automatically to SharePoint, preserving the folder structure, and sharply lower storage costs.' },
   { icon: '🤝', title: 'Familiar working environment', text: 'Your team simply works in Salesforce; management happens in the background in SharePoint. Changes sync automatically.' },
   { icon: '🗂️', title: 'Pin folders', text: 'Pin folders to standard and custom Salesforce objects, so documents are always in the right place with the right record.' },
   { icon: '🔐', title: 'Permissions & roles', text: 'Advanced permission synchronisation and role-based access, spread across multiple SharePoint sites.' },
 ];
 
 const steps = [
-  { n: '1', title: 'Install', text: 'After installation the module appears directly in Salesforce — ready to use.' },
+  { n: '1', title: 'Install', text: 'After installation the module appears directly in Salesforce, ready to use.' },
   { n: '2', title: 'Save', text: 'Save documents the way you’re used to. The connection handles the rest in the background.' },
   { n: '3', title: 'Sync', text: 'Files land automatically in SharePoint, in a folder structure that follows your Salesforce objects.' },
-  { n: '4', title: 'Collaborate', text: 'Open, edit and share from both platforms — changes sync across the whole organisation.' },
+  { n: '4', title: 'Collaborate', text: 'Open, edit and share from both platforms: changes sync across the whole organisation.' },
 ];
 
 const plans = [
@@ -27,13 +27,13 @@ const plans = [
 ];
 
 const faqs = [
-  { q: 'Does the SharePoint connection consume Salesforce storage?', a: 'No. Files are stored in SharePoint, not in Salesforce. That saves considerably on storage costs — while your team keeps working in the familiar Salesforce interface.' },
+  { q: 'Does the SharePoint connection consume Salesforce storage?', a: 'No. Files are stored in SharePoint, not in Salesforce. That saves considerably on storage costs, while your team keeps working in the familiar Salesforce interface.' },
   { q: 'Are existing files migrated too?', a: 'With the Enterprise licence, our migration service moves existing Salesforce files automatically to SharePoint, preserving the folder structure. Want this guided? See our <a href="/en/diensten/implementatie">implementation &amp; onboarding</a>.' },
   { q: 'Does it work with multiple SharePoint sites?', a: 'Yes. The integration supports multidisciplinary teams spread across multiple SharePoint sites and scales with your organisation, including permission and role management.' },
   { q: 'Which file types are supported?', a: 'In the Light licence the standard Office types (Word, Excel, PowerPoint) and PDF; from the Pro licence all file types are allowed.' },
   { q: 'Can I link folders to custom objects?', a: 'Yes, from the Pro licence you pin folders to both standard and custom Salesforce objects, so documents are always with the right record. The Light licence works with standard objects.' },
   { q: 'How secure and compliant is the storage?', a: 'You leverage SharePoint’s own security, version control and permission model. With the Enterprise licence the connection synchronises permissions and role-based access with your Salesforce roles.' },
-  { q: 'How does installation work?', a: 'After installation the module appears directly in Salesforce. Files you upload sync automatically in the background to SharePoint — without users noticing anything.' },
+  { q: 'How does installation work?', a: 'After installation the module appears directly in Salesforce. Files you upload sync automatically in the background to SharePoint, without users noticing anything.' },
   { q: 'Can I combine this with other custom integrations?', a: 'Certainly. Our <a href="/en/diensten/development">development &amp; integration</a> consultants connect SharePoint to your broader process if desired, including Flow Automation and customisation.' },
   { q: 'Is there a demo or trial?', a: 'Yes. <a href="/en/contact">Get in touch</a> for a demo or a free trial of the SharePoint connection.' },
 ];
@@ -53,7 +53,7 @@ const faqJsonLd = JSON.stringify({
       <div class="pp-hero-copy">
         <span class="pp-badge"><span class="pp-badge-dot"></span> SalesPoint · Salesforce × SharePoint</span>
         <h1>Documents in <span class="gradient-text">Salesforce</span>, stored in SharePoint</h1>
-        <p><strong>SalesPoint</strong> connects Salesforce and SharePoint in one seamless integration. <strong>No duplicate storage, no switching back and forth</strong> — your team works in Salesforce, SharePoint does the work in the background.</p>
+        <p><strong>SalesPoint</strong> connects Salesforce and SharePoint in one seamless integration. <strong>No duplicate storage, no switching back and forth</strong>: your team works in Salesforce, SharePoint does the work in the background.</p>
         <div class="pp-hero-actions">
           <a href="#demo" class="btn btn-primary">Request a demo</a>
           <a href="/en/contact" class="btn btn-outline">Try for free</a>
@@ -182,7 +182,7 @@ const faqJsonLd = JSON.stringify({
     </div>
   </section>
 
-  <FormModal id="demo" title="Request a demo — SalesPoint" formUrl={pardotForms.demoSharepoint} />
+  <FormModal id="demo" title="Request a demo: SalesPoint" formUrl={pardotForms.demoSharepoint} />
 
 </Layout>
 

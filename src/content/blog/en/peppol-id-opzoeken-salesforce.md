@@ -6,7 +6,7 @@ author: "Imre Hamelink"
 category: "E-invoicing"
 ---
 
-To send e-invoices via Peppol, you need your customer's Peppol identification number. With Datasolver, you look it up directly from within Salesforce — no switching between systems.
+To send e-invoices via Peppol, you need your customer's Peppol identification number. With Datasolver, you look it up directly from within Salesforce: no switching between systems.
 
 ## What is a Peppol ID?
 
@@ -14,11 +14,11 @@ Peppol is a network and framework for securely and in a standardised way exchang
 
 ## Manual lookups are error-prone
 
-Traditionally, staff have to switch between systems, retype data and verify company matches — at scale, that's time-consuming and error-prone.
+Traditionally, staff have to switch between systems, retype data and verify company matches. At scale, that's time-consuming and error-prone.
 
 ## Directly from within Salesforce
 
-By connecting Salesforce to the Peppol Directory API, you look up the ID without leaving the CRM environment. Existing fields — company name, VAT number, Chamber of Commerce number, address, country — populate the search automatically. Found Peppol IDs are written back to dedicated fields on the account record.
+By connecting Salesforce to the Peppol Directory API, you look up the ID without leaving the CRM environment. Existing fields (company name, VAT number, Chamber of Commerce number, address, country) populate the search automatically. Found Peppol IDs are written back to dedicated fields on the account record.
 
 ## Process automation
 

@@ -27,7 +27,7 @@ const T = {
   planGesprek: en ? 'Plan a consultancy call' : 'Plan een consultancygesprek',
   bekijkCases: en ? 'View cases' : 'Bekijk cases',
   herkenbaar: en ? 'Sound familiar?' : 'Herkenbaar?',
-  herkenbaarIntro: en ? 'We speak with organisations in your sector every day. These are the challenges we hear time and again — and exactly what we are built for.' : 'Wij spreken dagelijks organisaties in uw sector. Dit zijn de uitdagingen die we steeds weer horen — en precies waar wij voor gebouwd hebben.',
+  herkenbaarIntro: en ? 'We speak with organisations in your sector every day. These are the challenges we hear time and again, and exactly what we are built for.' : 'Wij spreken dagelijks organisaties in uw sector. Dit zijn de uitdagingen die we steeds weer horen, en precies waar wij voor gebouwd hebben.',
   aanpak: en ? 'Our approach' : 'Onze aanpak',
   aanpakTitle: en ? 'What we set up for your sector' : 'Wat wij voor uw sector inrichten',
   aanpakIntro: en ? 'Salesforce, tailored to the processes that truly matter to you.' : 'Salesforce, op maat gemaakt voor de processen die er bij u écht toe doen.',
@@ -40,7 +40,7 @@ const T = {
   casesEyebrow: en ? 'Cases' : 'Cases',
   leesCase: en ? 'Read the case →' : 'Lees de case →',
   ctaTitle: en ? 'Recognise these challenges?' : 'Herkent u deze uitdagingen?',
-  ctaText: en ? 'Schedule a no-obligation consultancy call — we think along with you, with no strings attached.' : 'Plan een vrijblijvend consultancygesprek — we denken met u mee, zonder verplichtingen.',
+  ctaText: en ? 'Schedule a no-obligation consultancy call: we think along with you, with no strings attached.' : 'Plan een vrijblijvend consultancygesprek: we denken met u mee, zonder verplichtingen.',
   planKort: en ? 'Schedule a call' : 'Plan een gesprek',
   stelVraag: en ? 'Ask a question' : 'Stel een vraag',
   contact: en ? '/en/contact' : '/contact',
@@ -183,7 +183,7 @@ const T = {
               <span class="case-hl-result">{c.result}</span>
             </div>
             <blockquote class="case-hl-quote">"{c.quote}"</blockquote>
-            <cite class="case-hl-author">— {c.author}</cite>
+            <cite class="case-hl-author">{c.author}</cite>
             <span class="case-hl-cta">{T.leesCase}</span>
           </a>
         ))}

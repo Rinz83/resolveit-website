@@ -18,7 +18,7 @@ Without strategic planning, your system becomes a patchwork that is difficult to
 
 ## Budget that pays off
 
-A strategic roadmap directs your spending towards investments that deliver ROI, rather than towards "nice-to-haves". Business and IT come into alignment, and your CRM can respond more quickly to market changes — a concrete competitive advantage.
+A strategic roadmap directs your spending towards investments that deliver ROI, rather than towards "nice-to-haves". Business and IT come into alignment, and your CRM can respond more quickly to market changes: a concrete competitive advantage.
 
 ## For every sector
 

@@ -6,7 +6,7 @@ author: "Jigar Raval"
 category: "Exact Online"
 ---
 
-Een veelgestelde vraag bij integraties: hoe actueel is mijn data eigenlijk? Het antwoord bepaalt u zelf — per object, afgestemd op uw proces.
+Een veelgestelde vraag bij integraties: hoe actueel is mijn data eigenlijk? Het antwoord bepaalt u zelf, per object, afgestemd op uw proces.
 
 ## Realtime synchronisatie
 
@@ -14,7 +14,7 @@ Bij realtime sync worden gegevens direct bijgewerkt zodra er iets verandert in S
 
 ## Geplande synchronisatie
 
-Bij geplande sync wordt data op vaste intervallen verwerkt — bijvoorbeeld elk uur of dagelijks. Dat is handig voor het batchgewijs verwerken van grote datavolumes, voor een handmatige controle vóórdat data naar de boekhouding gaat, en voor een voorspelbare systeembelasting.
+Bij geplande sync wordt data op vaste intervallen verwerkt, bijvoorbeeld elk uur of dagelijks. Dat is handig voor het batchgewijs verwerken van grote datavolumes, voor een handmatige controle vóórdat data naar de boekhouding gaat, en voor een voorspelbare systeembelasting.
 
 ## Mix beide naar behoefte
 
@@ -26,4 +26,4 @@ Ingebouwde logging zorgt voor directe foutmeldingen, zodat eventuele problemen e
 
 ## Uw proces is leidend
 
-Het uitgangspunt: úw organisatie bepaalt de synchronisatiestrategie op basis van uw unieke processen — niet andersom. [Bekijk de Exact Online-koppeling](/producten/exact-online).
+Het uitgangspunt: úw organisatie bepaalt de synchronisatiestrategie op basis van uw unieke processen, niet andersom. [Bekijk de Exact Online-koppeling](/producten/exact-online).

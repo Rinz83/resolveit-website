@@ -10,15 +10,15 @@ De software is belangrijk, maar uw implementatiepartner bepaalt grotendeels het 
 
 ## Wat een CRM-partner voor u doet
 
-- **Systeemkeuze** — helpt bepalen welk CRM aansluit op uw behoeften en strategische doelen.
-- **Implementatie** — begeleidt de volledige uitrol en zorgt dat het systeem correct wordt ingericht.
-- **Training** — leidt uw medewerkers op voor maximale adoptie.
-- **Strategisch sparren** — denkt mee over uw CRM-strategie en het draagvlak onder medewerkers.
-- **Onderhoud** — houdt uw systeem actueel met de nieuwste versies en ontwikkelingen.
+- **Systeemkeuze**: helpt bepalen welk CRM aansluit op uw behoeften en strategische doelen.
+- **Implementatie**: begeleidt de volledige uitrol en zorgt dat het systeem correct wordt ingericht.
+- **Training**: leidt uw medewerkers op voor maximale adoptie.
+- **Strategisch sparren**: denkt mee over uw CRM-strategie en het draagvlak onder medewerkers.
+- **Onderhoud**: houdt uw systeem actueel met de nieuwste versies en ontwikkelingen.
 
 ## Waar u op let
 
-Een goede partner heeft actuele kennis van CRM-systemen en kan u helpen uw doelen te bereiken. Vraag naar bewezen resultaat: ervaren partners delen graag succesvolle voorbeelden van eerdere klanten. En onthoud dat CRM-succes vraagt om samenwerking — medewerkers moeten efficiënter samenwerken met heldere afspraken over het gebruik.
+Een goede partner heeft actuele kennis van CRM-systemen en kan u helpen uw doelen te bereiken. Vraag naar bewezen resultaat: ervaren partners delen graag succesvolle voorbeelden van eerdere klanten. En onthoud dat CRM-succes vraagt om samenwerking: medewerkers moeten efficiënter samenwerken met heldere afspraken over het gebruik.
 
 ## Het resultaat
 

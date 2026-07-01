@@ -27,4 +27,4 @@ The Datasolver integration makes it possible to look up new companies, enrich ex
 
 ## Correct data is business-critical
 
-Accurate company information is hugely important for your operations — from invoicing to compliance. [Discover Datasolver](/en/producten/kvk-integratie).
+Accurate company information is hugely important for your operations, from invoicing to compliance. [Discover Datasolver](/en/producten/kvk-integratie).

@@ -5,11 +5,11 @@ import { calendlyUrl, pardotForms } from '../../i18n/ui.js';
 import '../../styles/product.css';
 
 const features = [
-  { icon: '🏢', title: 'KvK-verrijking', text: 'Zoek op KvK-nummer, handelsnaam of (deel van) adres en verrijk records met handelsnamen, SBI-codes, adressen en vestigingsdetails — met één klik.' },
+  { icon: '🏢', title: 'KvK-verrijking', text: 'Zoek op KvK-nummer, handelsnaam of (deel van) adres en verrijk records met handelsnamen, SBI-codes, adressen en vestigingsdetails, met één klik.' },
   { icon: '✅', title: 'VIES btw-validatie', text: 'Valideer EU-btw-nummers direct vanuit het Salesforce-record. Borg dat uw facturen voldoen aan de wettelijke eisen voor Europese klanten.' },
   { icon: '🔗', title: 'Peppol Directory', text: 'Zoek Peppol-identificatienummers zonder Salesforce te verlaten. Klaar voor de verplichte e-facturatie die er in heel Europa aankomt.' },
   { icon: '🔄', title: 'Automatische periodieke checks', text: 'De tool controleert eerder verrijkte bedrijven automatisch. Wijzigingen in het register verschijnen overzichtelijk in een rapport.' },
-  { icon: '🧩', title: 'Modulair inzetbaar', text: 'KvK-integratie, VIES btw-checker en Peppol Directory zijn ook los van elkaar te gebruiken — precies wat u nodig heeft.' },
+  { icon: '🧩', title: 'Modulair inzetbaar', text: 'KvK-integratie, VIES btw-checker en Peppol Directory zijn ook los van elkaar te gebruiken: precies wat u nodig heeft.' },
   { icon: '🎯', title: 'Schone, actuele data', text: 'Geen vervuilde database meer. Bedrijfsgegevens blijven automatisch up-to-date, zodat u bouwt op betrouwbare informatie.' },
 ];
 
@@ -17,11 +17,11 @@ const dataFields = ['KvK-nummer', 'Btw-nummer', 'Vestigingsnummer', 'Rechtsvorm'
 
 const faqs = [
   { q: 'Waarop kan ik zoeken in de KvK-integratie?', a: 'Op KvK-nummer, btw-nummer, handelsnaam, adres of een deel van het adres. U bladert door de resultaten uit het Handelsregister en maakt of werkt een Salesforce-record bij met één klik.' },
-  { q: 'Welke bedrijfsgegevens worden opgehaald?', a: 'Onder andere KvK-nummer, btw-nummer, vestigingsnummer, rechtsvorm, hoofd- en nevenvestiging, aantal medewerkers, handelsnamen, adressen en SBI-codes — automatisch in de juiste velden.' },
+  { q: 'Welke bedrijfsgegevens worden opgehaald?', a: 'Onder andere KvK-nummer, btw-nummer, vestigingsnummer, rechtsvorm, hoofd- en nevenvestiging, aantal medewerkers, handelsnamen, adressen en SBI-codes, automatisch in de juiste velden.' },
   { q: 'Hoe werken de automatische periodieke checks?', a: 'De tool controleert automatisch eerder beoordeelde bedrijven. Zijn er wijzigingen in het Handelsregister, dan worden die overzichtelijk in een rapport getoond, zodat uw database actueel blijft zonder handwerk.' },
-  { q: 'Kan ik de onderdelen los van elkaar gebruiken?', a: 'Ja. De KvK-integratie, de VIES btw-checker en de Peppol Directory zijn elk afzonderlijk inzetbaar — u kiest wat bij uw proces past.' },
+  { q: 'Kan ik de onderdelen los van elkaar gebruiken?', a: 'Ja. De KvK-integratie, de VIES btw-checker en de Peppol Directory zijn elk afzonderlijk inzetbaar: u kiest wat bij uw proces past.' },
   { q: 'Hoe valideer ik btw-nummers van Europese klanten?', a: 'Via de ingebouwde VIES-validatie controleert u EU-btw-nummers direct vanuit het Salesforce-record. Zo borgt u dat uw facturen voldoen aan de wettelijke eisen voor B2B in Europa.' },
-  { q: 'Waarom is Peppol belangrijk voor e-facturatie?', a: 'E-facturatie via Peppol wordt in heel Europa verplicht — al van kracht in België, vanaf september 2026 in Frankrijk en EU-breed richting 2030. Combineer dit met onze <a href="/producten/exact-online">Influx Exact Connector</a> voor Peppol-conforme facturatie volgens EN 16931.' },
+  { q: 'Waarom is Peppol belangrijk voor e-facturatie?', a: 'E-facturatie via Peppol wordt in heel Europa verplicht: al van kracht in België, vanaf september 2026 in Frankrijk, en EU-breed richting 2030. Combineer dit met onze <a href="/producten/exact-online">Influx Exact Connector</a> voor Peppol-conforme facturatie volgens EN 16931.' },
   { q: 'Zorgt schone data ook voor betere facturatie?', a: 'Zeker. Correcte bedrijfs- en btw-gegevens vormen de basis voor foutloze facturen. Veel klanten combineren Datasolver daarom met onze <a href="/producten/billing-module">Billing Module</a>.' },
   { q: 'Helpt het bij het opschonen van een vervuilde database?', a: 'Ja. Bestaande accounts worden verrijkt met actuele gegevens en periodiek gecontroleerd. Voor een grondige aanpak kijken onze <a href="/diensten/consultancy">consultancy</a>-experts graag met u mee.' },
   { q: 'Is er een demo of proefperiode?', a: 'Ja. <a href="/contact">Neem contact op</a> voor een demo of een vrijblijvende proefperiode van de Datasolver-module.' },
@@ -34,7 +34,7 @@ const faqJsonLd = JSON.stringify({
 });
 ---
 
-<Layout breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Producten', item: '/producten' }, { name: 'Datasolver', item: '/producten/kvk-integratie' }]} title="Datasolver / KvK-integratie — Verrijk uw Salesforce-data" description="Automatiseer de verrijking van uw bedrijfsdata in Salesforce: KvK-gegevens, VIES btw-validatie en Peppol Directory. Altijd actuele, betrouwbare data.">
+<Layout breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Producten', item: '/producten' }, { name: 'Datasolver', item: '/producten/kvk-integratie' }]} title="Datasolver / KvK-integratie: verrijk uw Salesforce-data" description="Automatiseer de verrijking van uw bedrijfsdata in Salesforce: KvK-gegevens, VIES btw-validatie en Peppol Directory. Altijd actuele, betrouwbare data.">
 
   <section class="pp-hero">
     <div class="pp-aurora" aria-hidden="true"><span></span><span></span></div>
@@ -42,7 +42,7 @@ const faqJsonLd = JSON.stringify({
       <div class="pp-hero-copy">
         <span class="pp-badge"><span class="pp-badge-dot"></span> Datasolver · Integratie</span>
         <h1>Verrijk uw <span class="gradient-text">bedrijfsdata</span> automatisch</h1>
-        <p>Haal KvK-gegevens op, valideer btw-nummers en vind Peppol-ID's — <strong>zonder Salesforce te verlaten.</strong> Altijd actuele, schone data om op te bouwen.</p>
+        <p>Haal KvK-gegevens op, valideer btw-nummers en vind Peppol-ID's, <strong>zonder Salesforce te verlaten.</strong> Altijd actuele, schone data om op te bouwen.</p>
         <div class="pp-hero-actions">
           <a href="#demo" class="btn btn-primary">Vraag een demo aan</a>
           <a href="/contact" class="btn btn-outline">Gratis proberen</a>
@@ -89,7 +89,7 @@ const faqJsonLd = JSON.stringify({
       <div class="section-header reveal">
         <span class="eyebrow">Functionaliteiten</span>
         <h2>Drie krachtige tools, één module</h2>
-        <p>Verrijken, valideren en e-facturatie-proof maken — allemaal binnen Salesforce.</p>
+        <p>Verrijken, valideren en e-facturatie-proof maken: allemaal binnen Salesforce.</p>
       </div>
       <div class="grid-3">
         {features.map((f, i) => (
@@ -169,7 +169,7 @@ const faqJsonLd = JSON.stringify({
     </div>
   </section>
 
-  <FormModal id="demo" title="Vraag een demo aan — Datasolver" formUrl={pardotForms.demoKvk} />
+  <FormModal id="demo" title="Vraag een demo aan: Datasolver" formUrl={pardotForms.demoKvk} />
 
 </Layout>
 

@@ -10,11 +10,11 @@ Wie internationaal zakendoet, kent het probleem: een Duitse klant verwacht een D
 
 ## Automatisch de juiste taal
 
-Het systeem bepaalt de taal van een factuur op basis van de klantinstellingen, landgegevens en soms zelfs informatie uit het gebruikersprofiel. Verkoopt u aan klanten in Nederland, Duitsland, België en Scandinavië, dan ontvangt elke klant zijn communicatie automatisch in zijn eigen, vertrouwde taal — zonder dat iemand dat handmatig hoeft in te stellen.
+Het systeem bepaalt de taal van een factuur op basis van de klantinstellingen, landgegevens en soms zelfs informatie uit het gebruikersprofiel. Verkoopt u aan klanten in Nederland, Duitsland, België en Scandinavië, dan ontvangt elke klant zijn communicatie automatisch in zijn eigen, vertrouwde taal, zonder dat iemand dat handmatig hoeft in te stellen.
 
 ## Meer dan alleen tekst
 
-Taalherkenning gaat verder dan het vertalen van woorden. Ook btw-regels en landspecifieke instellingen worden automatisch toegepast. Daardoor voldoet niet alleen de tekst, maar het hele facturatieproces aan de lokale eisen — een belangrijk verschil als u compliant wilt blijven in meerdere landen.
+Taalherkenning gaat verder dan het vertalen van woorden. Ook btw-regels en landspecifieke instellingen worden automatisch toegepast. Daardoor voldoet niet alleen de tekst, maar het hele facturatieproces aan de lokale eisen: een belangrijk verschil als u compliant wilt blijven in meerdere landen.
 
 ## Geen handmatige controle meer
 

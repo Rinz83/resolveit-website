@@ -18,7 +18,7 @@ Well-defined processes streamline the work and reduce errors. They ensure consis
 
 ## 3. Technological support
 
-A CRM system is the central gathering point for customer data. It automates tasks, analyses performance and ensures that staff have the right information at the right moment — which improves the customer experience and effectiveness.
+A CRM system is the central gathering point for customer data. It automates tasks, analyses performance and ensures that staff have the right information at the right moment, which improves the customer experience and effectiveness.
 
 ## In balance
 

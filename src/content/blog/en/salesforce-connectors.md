@@ -18,7 +18,7 @@ While they are related, they differ: a connector works with fixed, predetermined
 
 ## Off-the-shelf or custom?
 
-For common integrations — such as [Exact Online](/en/producten/exact-online), [SharePoint](/en/producten/sharepoint) or Stripe — our off-the-shelf modules offer speed and certainty. For unique processes or niche systems, we build custom solutions that fit precisely. We often combine both: a proven connector as the foundation, supplemented with custom work.
+For common integrations, such as [Exact Online](/en/producten/exact-online), [SharePoint](/en/producten/sharepoint) or Stripe, our off-the-shelf modules offer speed and certainty. For unique processes or niche systems, we build custom solutions that fit precisely. We often combine both: a proven connector as the foundation, supplemented with custom work.
 
 ## Within the Salesforce ecosystem
 

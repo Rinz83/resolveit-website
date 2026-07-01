@@ -18,7 +18,7 @@ Goed gedefinieerde processen stroomlijnen de werkzaamheden en verminderen fouten
 
 ## 3. Technologische ondersteuning
 
-Een CRM-systeem is het centrale verzamelpunt voor klantdata. Het automatiseert taken, analyseert prestaties en zorgt dat medewerkers op het juiste moment over de juiste informatie beschikken — wat de klantervaring en effectiviteit verbetert.
+Een CRM-systeem is het centrale verzamelpunt voor klantdata. Het automatiseert taken, analyseert prestaties en zorgt dat medewerkers op het juiste moment over de juiste informatie beschikken, wat de klantervaring en effectiviteit verbetert.
 
 ## In balans
 

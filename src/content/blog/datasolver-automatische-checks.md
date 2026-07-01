@@ -6,7 +6,7 @@ author: "Imre Hamelink"
 category: "Datasolver"
 ---
 
-Bedrijven verhuizen, fuseren, wijzigen hun naam of stoppen. Uw database handmatig controleren is een ondoenlijke klus — en wordt alleen maar groter naarmate uw Salesforce-omgeving groeit. Datasolver lost dit op met automatische periodieke checks.
+Bedrijven verhuizen, fuseren, wijzigen hun naam of stoppen. Uw database handmatig controleren is een ondoenlijke klus, en wordt alleen maar groter naarmate uw Salesforce-omgeving groeit. Datasolver lost dit op met automatische periodieke checks.
 
 ## Continue monitoring
 
@@ -28,7 +28,7 @@ Belangrijk: u bepaalt wat er gebeurt. De beheerder bekijkt de gesignaleerde wijz
 
 ## Minder werk, betere beslissingen
 
-Met automatische checks hoeft de Salesforce-beheerder geen grootschalige opschoonacties meer in te plannen. Tegelijk weet u zeker dat uw analyses en rapportages de huidige marktsituatie weerspiegelen — wat leidt tot betere beslissingen.
+Met automatische checks hoeft de Salesforce-beheerder geen grootschalige opschoonacties meer in te plannen. Tegelijk weet u zeker dat uw analyses en rapportages de huidige marktsituatie weerspiegelen, wat leidt tot betere beslissingen.
 
 ## Behoud de waarde van uw CRM
 

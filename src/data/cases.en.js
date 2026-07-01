@@ -19,7 +19,7 @@ export const cases = [
       'Opportunity follow-up was inconsistent because information was fragmented',
       'New employees needed weeks to find their way across separate systems',
     ],
-    approachIntro: 'Together with Talpa Studios, we first mapped the entire commercial process. We listened to sales, management and operations to understand where time was being lost. We then built one central Salesforce environment that supports that process instead of limiting it — delivered pragmatically in short cycles.',
+    approachIntro: 'Together with Talpa Studios, we first mapped the entire commercial process. We listened to sales, management and operations to understand where time was being lost. We then built one central Salesforce environment that supports that process instead of limiting it: delivered pragmatically in short cycles.',
     approachPhases: [
       { title: 'Analysis & design', text: 'In close collaboration with the commercial team, we mapped the pipeline stages, roles and reporting needs and translated them into a clear, scalable design.' },
       { title: 'Configuration', text: 'We standardised the opportunity stages, automated status updates and built dashboards for real-time steering on revenue and forecast.' },
@@ -35,7 +35,7 @@ export const cases = [
     ],
     resultsNarrative: 'Because all commercial data now comes together in one place, reporting is a matter of opening a dashboard instead of collecting data. The team keeps a grip on the pipeline, management steers on current figures and new employees are productive within days instead of weeks.',
     quote: { text: 'We finally have a grip on our commercial pipeline, with an overview for the whole team.', author: 'Commercial team, Talpa Studios' },
-    lookingAhead: 'With a solid foundation in place, Talpa Studios is looking at further automation and deeper integrations between commerce and production — a base that grows with their international ambitions.',
+    lookingAhead: 'With a solid foundation in place, Talpa Studios is looking at further automation and deeper integrations between commerce and production: a base that grows with their international ambitions.',
     stack: ['Sales Cloud', 'Dashboards & Reports', 'Custom integrations'],
   },
   {
@@ -46,7 +46,7 @@ export const cases = [
     sector: 'Professional Services',
     tags: ['Implementation', 'Custom'],
     summary: 'Custom Salesforce for casting and talent management, from selection to communication.',
-    about: 'MULTA Casting brings talent and productions together. For commercials, films and TV programmes they select from large numbers of candidates. The work revolves around speed, overview and clear communication — often under tight client deadlines.',
+    about: 'MULTA Casting brings talent and productions together. For commercials, films and TV programmes they select from large numbers of candidates. The work revolves around speed, overview and clear communication, often under tight client deadlines.',
     openingQuote: { text: 'Every production started again with chaos in folders and inboxes. Now we have calm and overview.', author: 'Founder, MULTA Casting' },
     challengeIntro: 'The casting and selection process ran via separate lists, folders and email. With every new production the overview started from scratch, and finding earlier candidates took unnecessary time.',
     challengePoints: [
@@ -70,7 +70,7 @@ export const cases = [
       { num: 'Less', label: 'manual communication' },
     ],
     resultsNarrative: 'Because candidates, roles and communication come together in one environment, MULTA Casting can switch faster and present a fitting selection to clients sooner. Earlier casts can be found with a few clicks, giving new journeys a flying start.',
-    quote: { text: 'Our casting workflow now sits tightly in one system — that saves us an enormous amount of time.', author: 'Team MULTA Casting' },
+    quote: { text: 'Our casting workflow now sits tightly in one system: that saves us an enormous amount of time.', author: 'Team MULTA Casting' },
     lookingAhead: 'MULTA Casting is now exploring how to further personalise and automate candidate communication, building on the foundation that is now in place.',
     stack: ['Custom objects', 'Automation', 'Communication workflows'],
   },
@@ -127,7 +127,7 @@ export const cases = [
       'Users got stuck in an illogical setup',
       'Unclear which automations were still active and useful',
     ],
-    approachIntro: 'We started with a thorough audit of the existing environment and, on that basis, made a concrete plan to simplify and improve — focused on what truly adds value.',
+    approachIntro: 'We started with a thorough audit of the existing environment and, on that basis, made a concrete plan to simplify and improve, focused on what truly adds value.',
     approachPhases: [
       { title: 'Audit', text: 'We mapped the full setup, processes and automations and identified bottlenecks and quick wins.' },
       { title: 'Clean-up', text: 'Redundant processes and fields were removed or merged, restoring calm and overview.' },
@@ -143,7 +143,7 @@ export const cases = [
     ],
     resultsNarrative: 'By reducing complexity to what truly adds value, Salesforce is once again a tool instead of an obstacle. The team works faster, the figures add up and management steers on data it trusts again.',
     quote: { text: 'Resolve IT brought calm and structure back into our Salesforce landscape.', author: 'Team MarketResponse' },
-    lookingAhead: 'On the cleaned-up foundation, MarketResponse is now building further with new automations — this time considered and structured.',
+    lookingAhead: 'On the cleaned-up foundation, MarketResponse is now building further with new automations: this time considered and structured.',
     stack: ['Salesforce Audit', 'Process optimisation', 'Dashboards & Reports'],
   },
   {
@@ -163,7 +163,7 @@ export const cases = [
       'No shared way of working, so data was entered inconsistently',
       'A need for ownership and independence within the team',
     ],
-    approachIntro: 'Instead of a one-off training, we chose guidance that fits Solvid Ondernemen’s daily practice — focused on real tasks, not on isolated features.',
+    approachIntro: 'Instead of a one-off training, we chose guidance that fits Solvid Ondernemen’s daily practice, focused on real tasks, not on isolated features.',
     approachPhases: [
       { title: 'Baseline', text: 'We mapped how the team worked and where the biggest opportunities lay to become more efficient.' },
       { title: 'Process-focused training', text: 'Training tailored to concrete daily tasks, not to isolated functionality.' },
@@ -199,7 +199,7 @@ export const cases = [
       'Follow-up of service and logistics tasks was hard to monitor',
       'No complete overview across the chain for steering',
     ],
-    approachIntro: 'We built one integrated Salesforce environment in which all departments collaborate and processes flow automatically into each other — from sale to delivery and support.',
+    approachIntro: 'We built one integrated Salesforce environment in which all departments collaborate and processes flow automatically into each other: from sale to delivery and support.',
     approachPhases: [
       { title: 'Process integration', text: 'Sales, service, logistics and back office were brought together in one environment with a shared customer view.' },
       { title: 'Automation', text: 'Handovers between departments were automated, so tasks automatically land in the right place.' },

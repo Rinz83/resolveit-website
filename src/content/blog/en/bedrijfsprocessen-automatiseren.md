@@ -6,7 +6,7 @@ author: "Tom Hofland"
 category: "Integrations"
 ---
 
-Process automation means letting computers and software carry out certain tasks instead of staff members. Repetitive, time-consuming work is done faster and more efficiently this way — and your people are left with capacity for higher-value work.
+Process automation means letting computers and software carry out certain tasks instead of staff members. Repetitive, time-consuming work is done faster and more efficiently this way, and your people are left with capacity for higher-value work.
 
 ## A concrete example
 
@@ -14,10 +14,10 @@ Invoicing is a prime candidate for automation: preparation time drops and errors
 
 ## Four key benefits
 
-- **Speed and accuracy** — fewer manual tasks, so faster and with fewer errors.
-- **Lower costs** — less labour cost and less error correction.
-- **Real-time data** — faster, better-informed decisions.
-- **Time back** — room for strategic initiatives.
+- **Speed and accuracy**: fewer manual tasks, so faster and with fewer errors.
+- **Lower costs**: less labour cost and less error correction.
+- **Real-time data**: faster, better-informed decisions.
+- **Time back**: room for strategic initiatives.
 
 ## What to look out for
 

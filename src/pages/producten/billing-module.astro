@@ -5,17 +5,17 @@ import { calendlyUrl, pardotForms } from '../../i18n/ui.js';
 import '../../styles/product.css';
 
 const features = [
-  { icon: '🧾', title: 'Automatische facturen', text: 'Genereer facturen als PDF op basis van producttype, taal en locatie — direct vanuit Salesforce, in uw eigen huisstijl.' },
+  { icon: '🧾', title: 'Automatische facturen', text: 'Genereer facturen als PDF op basis van producttype, taal en locatie, direct vanuit Salesforce, in uw eigen huisstijl.' },
   { icon: '🔁', title: 'Abonnementen & MRR', text: 'Verkoop abonnementen vanuit Opportunities met maandelijkse, kwartaal- of jaarintervallen. Realtime inzicht in uw Monthly Recurring Revenue.' },
-  { icon: '💳', title: 'Automatische incasso', text: 'Onze Payment Collection App koppelt Salesforce aan Stripe. Beheer creditcards, automatische incasso en PayPal — en incasseer automatisch.' },
+  { icon: '💳', title: 'Automatische incasso', text: 'Onze Payment Collection App koppelt Salesforce aan Stripe. Beheer creditcards, automatische incasso en PayPal, en incasseer automatisch.' },
   { icon: '⏰', title: 'Geautomatiseerde herinneringen', text: 'Betalingsherinneringen worden automatisch verstuurd op de juiste momenten. Minder handwerk, snellere betaling.' },
-  { icon: '📅', title: 'Omzettoerekening', text: 'Wijs facturen toe aan een specifieke maand met start- en einddatums op factuurregels — voor zuivere revenue recognition.' },
+  { icon: '📅', title: 'Omzettoerekening', text: 'Wijs facturen toe aan een specifieke maand met start- en einddatums op factuurregels, voor zuivere revenue recognition.' },
   { icon: '📊', title: 'Rapportages & dashboards', text: 'Inzicht in betaalintenties, abonnementen zonder betaalmethode en de prestaties van uw volledige facturatieproces.' },
 ];
 
 const steps = [
   { n: '1', title: 'Deal gesloten', text: 'Bij een closed-won opportunity wordt het abonnement automatisch geactiveerd.' },
-  { n: '2', title: 'Factuur gegenereerd', text: 'De juiste factuur wordt aangemaakt — in concept of direct actief, in de juiste taal en template.' },
+  { n: '2', title: 'Factuur gegenereerd', text: 'De juiste factuur wordt aangemaakt: in concept of direct actief, in de juiste taal en template.' },
   { n: '3', title: 'Automatisch geïncasseerd', text: 'Via Stripe wordt het bedrag geïnd op de voorkeursmethode van de klant.' },
   { n: '4', title: 'Opgevolgd & gerapporteerd', text: 'Herinneringen gaan automatisch uit en alle cijfers verschijnen live op uw dashboards.' },
 ];
@@ -34,9 +34,9 @@ const quotes = [
 
 const faqs = [
   { q: 'Met welke boekhoudpakketten koppelt de Billing Module?', a: 'Onder andere Exact Online, Unit4 Multivers en Microsoft Dynamics. De Pro-licentie biedt volledige ERP-integratie. Voor Exact Online gebruikt u onze dedicated <a href="/producten/exact-online">Influx Exact Connector</a>. <a href="/blog/billing-platform-koppelen-aan-je-erp">Lees meer over ERP-koppelingen →</a>' },
-  { q: 'Kan ik abonnementen met verschillende intervallen verkopen?', a: 'Ja — maandelijks, per kwartaal en jaarlijks, met automatische facturatie per interval en dynamische prijsaanpassing bij up- of downgrades. Het abonnementsbeheer activeert facturen automatisch zodra een deal op closed-won staat.' },
+  { q: 'Kan ik abonnementen met verschillende intervallen verkopen?', a: 'Ja: maandelijks, per kwartaal en jaarlijks, met automatische facturatie per interval en dynamische prijsaanpassing bij up- of downgrades. Het abonnementsbeheer activeert facturen automatisch zodra een deal op closed-won staat.' },
   { q: 'Hoe werkt de automatische incasso?', a: 'Via onze Payment Collection App, die Salesforce met Stripe verbindt. Betaalmethoden (creditcard, automatische incasso, PayPal) worden veilig in Salesforce beheerd en automatisch geïncasseerd op de voorkeursmethode van de klant. <a href="/blog/automatische-incasso-met-stripe">Lees meer over automatische incasso →</a>' },
-  { q: 'Wat is uitgestelde omzet (deferred revenue) en wordt dat ondersteund?', a: 'Uitgestelde omzet verdeelt de opbrengst van bijvoorbeeld een jaarcontract over de juiste maanden. Met start- en einddatums op factuurregels wordt omzet zuiver toegerekend — beschikbaar in de Pro-licentie.' },
+  { q: 'Wat is uitgestelde omzet (deferred revenue) en wordt dat ondersteund?', a: 'Uitgestelde omzet verdeelt de opbrengst van bijvoorbeeld een jaarcontract over de juiste maanden. Met start- en einddatums op factuurregels wordt omzet zuiver toegerekend, beschikbaar in de Pro-licentie.' },
   { q: 'Hoe helpt de module bij debiteurenbeheer?', a: 'Betalingsherinneringen worden automatisch verstuurd op de door u ingestelde momenten, met een overzicht van openstaande bedragen gekoppeld aan kredietlimieten. Zo verkort u uw debiteurentermijn zonder handmatig na te bellen. <a href="/blog/geautomatiseerde-betalingsherinneringen">Lees meer over geautomatiseerde herinneringen →</a>' },
   { q: 'Krijg ik inzicht in mijn MRR en facturatie?', a: 'Ja. Rapporten en dashboards geven realtime inzicht in Monthly Recurring Revenue, betaalintenties, abonnementen zonder actieve betaalmethode en de prestaties van uw volledige facturatieproces. <a href="/blog/rapportages-en-dashboards-billing-platform">Lees meer over rapportages →</a>' },
   { q: 'Kan ik facturen in meerdere talen en huisstijlen genereren?', a: 'Zeker. Facturen worden als PDF gegenereerd op basis van producttype, taal en locatie, met aanpasbare templates per administratie. <a href="/blog/facturen-in-de-juiste-taal">Lees meer over taalherkenning →</a>' },
@@ -51,15 +51,15 @@ const faqJsonLd = JSON.stringify({
 });
 ---
 
-<Layout breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Producten', item: '/producten' }, { name: 'Billing Platform', item: '/producten/billing-module' }]} title="Billing Platform — Facturatie, abonnementen & betalingen in Salesforce" description="Het complete Billing Platform voor Salesforce: facturatie, abonnementsbeheer, MRR-inzicht, debiteurenbeheer en automatische incasso via Stripe — gekoppeld aan Exact Online en Datasolver.">
+<Layout breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Producten', item: '/producten' }, { name: 'Billing Platform', item: '/producten/billing-module' }]} title="Billing Platform: facturatie, abonnementen & betalingen in Salesforce" description="Het complete Billing Platform voor Salesforce: facturatie, abonnementsbeheer, MRR-inzicht, debiteurenbeheer en automatische incasso via Stripe, gekoppeld aan Exact Online en Datasolver.">
 
   <section class="pp-hero">
     <div class="pp-aurora" aria-hidden="true"><span></span><span></span></div>
     <div class="container pp-hero-inner">
       <div class="pp-hero-copy">
         <span class="pp-badge"><span class="pp-badge-dot"></span> Billing Platform · Salesforce-native</span>
-        <h1>Facturatie, abonnementen &amp; <span class="gradient-text">betalingen</span> — in Salesforce</h1>
-        <p>Het complete platform voor uw order-to-cash. Maak en verstuur facturen, beheer abonnementen en MRR, en incasseer automatisch. <strong>Gekoppeld aan Stripe, Exact Online en Datasolver</strong> — foutloos en volledig geautomatiseerd.</p>
+        <h1>Facturatie, abonnementen &amp; <span class="gradient-text">betalingen</span>, in Salesforce</h1>
+        <p>Het complete platform voor uw order-to-cash. Maak en verstuur facturen, beheer abonnementen en MRR, en incasseer automatisch. <strong>Gekoppeld aan Stripe, Exact Online en Datasolver</strong>: foutloos en volledig geautomatiseerd.</p>
         <div class="pp-hero-actions">
           <a href="#demo" class="btn btn-primary">Vraag een demo aan</a>
           <a href="/contact" class="btn btn-outline">Gratis proberen</a>
@@ -72,7 +72,7 @@ const faqJsonLd = JSON.stringify({
             <span class="bm-inv-status">Betaald ✓</span>
           </div>
           <div class="bm-inv-rows">
-            <div class="bm-row"><span>Salesforce licentie — jaarlijks</span><span>€ 4.800</span></div>
+            <div class="bm-row"><span>Salesforce licentie, jaarlijks</span><span>€ 4.800</span></div>
             <div class="bm-row"><span>Influx Exact Connector</span><span>€ 876</span></div>
             <div class="bm-row"><span>Support &amp; onderhoud</span><span>€ 1.200</span></div>
           </div>
@@ -115,7 +115,7 @@ const faqJsonLd = JSON.stringify({
         <a href="/producten/billing-module" class="bm-eco-card">
           <span class="bm-eco-ico"><span class="bm-stripe-lg">Stripe</span></span>
           <h3>Stripe-betalingen</h3>
-          <p class="text-muted">Automatische incasso via creditcard, SEPA en PayPal — veilig beheerd vanuit Salesforce.</p>
+          <p class="text-muted">Automatische incasso via creditcard, SEPA en PayPal, veilig beheerd vanuit Salesforce.</p>
           <span class="card-link">Onderdeel van Pro →</span>
         </a>
         <a href="/producten/kvk-integratie" class="bm-eco-card">
@@ -133,7 +133,7 @@ const faqJsonLd = JSON.stringify({
       <div class="section-header reveal">
         <span class="eyebrow">Functionaliteiten</span>
         <h2>Uw complete facturatie-engine in Salesforce</h2>
-        <p>Van eerste factuur tot terugkerende omzet — alles op één plek, automatisch.</p>
+        <p>Van eerste factuur tot terugkerende omzet: alles op één plek, automatisch.</p>
       </div>
       <div class="grid-3">
         {features.map((f, i) => (
@@ -152,7 +152,7 @@ const faqJsonLd = JSON.stringify({
     <div class="container" style="position:relative;z-index:1;">
       <div class="section-header reveal">
         <span class="eyebrow">Zo werkt het</span>
-        <h2 class="text-white">Van deal tot betaling — automatisch</h2>
+        <h2 class="text-white">Van deal tot betaling, automatisch</h2>
       </div>
       <div class="pp-steps">
         {steps.map((s, i) => (
@@ -171,7 +171,7 @@ const faqJsonLd = JSON.stringify({
       <div class="section-header reveal">
         <span class="eyebrow">Prijzen</span>
         <h2>Kies het plan dat bij u past</h2>
-        <p>Begin klein en groei mee — upgraden kan altijd.</p>
+        <p>Begin klein en groei mee: upgraden kan altijd.</p>
       </div>
       <div class="pp-pricing">
         {plans.map(p => (
@@ -233,7 +233,7 @@ const faqJsonLd = JSON.stringify({
     </div>
   </section>
 
-  <FormModal id="demo" title="Vraag een demo aan — Billing Platform" formUrl={pardotForms.demoBilling} />
+  <FormModal id="demo" title="Vraag een demo aan: Billing Platform" formUrl={pardotForms.demoBilling} />
 
 </Layout>
 

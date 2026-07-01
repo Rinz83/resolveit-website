@@ -45,7 +45,7 @@ const others = cases.filter((x) => x.slug !== c.slug).slice(0, 3);
         {c.openingQuote && (
           <blockquote class="cs-quote cs-quote-open">
             <p>“{c.openingQuote.text}”</p>
-            <cite>— {c.openingQuote.author}</cite>
+            <cite>{c.openingQuote.author}</cite>
           </blockquote>
         )}
 
@@ -69,7 +69,7 @@ const others = cases.filter((x) => x.slug !== c.slug).slice(0, 3);
         {c.midQuote && (
           <blockquote class="cs-quote">
             <p>“{c.midQuote.text}”</p>
-            <cite>— {c.midQuote.author}</cite>
+            <cite>{c.midQuote.author}</cite>
           </blockquote>
         )}
 
@@ -79,7 +79,7 @@ const others = cases.filter((x) => x.slug !== c.slug).slice(0, 3);
 
         <blockquote class="cs-quote cs-quote-accent">
           <p>“{c.quote.text}”</p>
-          <cite>— {c.quote.author}</cite>
+          <cite>{c.quote.author}</cite>
         </blockquote>
 
         {c.lookingAhead && (

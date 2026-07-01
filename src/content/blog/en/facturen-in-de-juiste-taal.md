@@ -10,11 +10,11 @@ Anyone doing business internationally knows the problem: a German customer expec
 
 ## Automatically the right language
 
-The system determines the language of an invoice based on the customer settings, country data and sometimes even information from the user profile. If you sell to customers in the Netherlands, Germany, Belgium and Scandinavia, each customer automatically receives their communication in their own, familiar language — without anyone having to set it manually.
+The system determines the language of an invoice based on the customer settings, country data and sometimes even information from the user profile. If you sell to customers in the Netherlands, Germany, Belgium and Scandinavia, each customer automatically receives their communication in their own, familiar language, without anyone having to set it manually.
 
 ## More than just text
 
-Language detection goes further than translating words. VAT rules and country-specific settings are applied automatically as well. As a result, not only the text but the entire invoicing process complies with local requirements — an important difference if you want to remain compliant in multiple countries.
+Language detection goes further than translating words. VAT rules and country-specific settings are applied automatically as well. As a result, not only the text but the entire invoicing process complies with local requirements: an important difference if you want to remain compliant in multiple countries.
 
 ## No more manual checking
 

@@ -1,6 +1,6 @@
 ---
 title: "5 essentiële features van de Influx Exact Connector"
-description: "Wat maakt de koppeling tussen Salesforce en Exact Online zo krachtig? Deze vijf features maken het verschil — van automatische klantsync tot uitgebreide logging."
+description: "Wat maakt de koppeling tussen Salesforce en Exact Online zo krachtig? Deze vijf features maken het verschil: van automatische klantsync tot uitgebreide logging."
 pubDate: 2026-03-04
 author: "Yatish Salihan"
 category: "Exact Online"
@@ -14,15 +14,15 @@ De connector wisselt klantgegevens automatisch uit tussen Salesforce en Exact On
 
 ## 2. Slim koppelen van bedrijfsobjecten
 
-Orders en facturen worden direct tussen beide systemen omgezet, en producten en prijslijsten blijven identiek. Daarnaast is de betaalstatus in beide platformen zichtbaar, zodat sales precies weet of een factuur al betaald is — zonder finance te hoeven bellen.
+Orders en facturen worden direct tussen beide systemen omgezet, en producten en prijslijsten blijven identiek. Daarnaast is de betaalstatus in beide platformen zichtbaar, zodat sales precies weet of een factuur al betaald is, zonder finance te hoeven bellen.
 
 ## 3. Visuele mapping-interface
 
-Het instellen van koppelingen gebeurt via een visueel dashboard waarin u velden aan elkaar verbindt. Ook niet-technische gebruikers kunnen de datakoppelingen configureren en aanpassen aan hun eigen, unieke bedrijfsprocessen — zonder programmeerkennis.
+Het instellen van koppelingen gebeurt via een visueel dashboard waarin u velden aan elkaar verbindt. Ook niet-technische gebruikers kunnen de datakoppelingen configureren en aanpassen aan hun eigen, unieke bedrijfsprocessen, zonder programmeerkennis.
 
 ## 4. Automatische én geplande synchronisatie
 
-U kiest tussen realtime en geplande synchronisatie, per object. Dat elimineert handmatige importprocessen en houdt uw sales- en finance-teams continu op één lijn. Urgente data direct, grotere stromen volgens schema — u bepaalt de balans.
+U kiest tussen realtime en geplande synchronisatie, per object. Dat elimineert handmatige importprocessen en houdt uw sales- en finance-teams continu op één lijn. Urgente data direct, grotere stromen volgens schema: u bepaalt de balans.
 
 ## 5. Uitgebreide logging en foutmeldingen
 

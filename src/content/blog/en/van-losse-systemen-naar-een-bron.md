@@ -14,9 +14,9 @@ It is the architectural principle that all relevant information about a customer
 
 ## Three ways to connect
 
-- **Direct API integration** — the fastest, but requires maintenance.
-- **iPaaS middleware** — handy when there is complexity and multiple systems.
-- **Standard AppExchange connectors** — quicker to implement, but less flexible.
+- **Direct API integration**: the fastest, but requires maintenance.
+- **iPaaS middleware**: handy when there is complexity and multiple systems.
+- **Standard AppExchange connectors**: quicker to implement, but less flexible.
 
 Common integrations include ERP (Exact Online, AFAS, SAP), time tracking, payment and invoicing platforms, marketing automation and support systems.
 

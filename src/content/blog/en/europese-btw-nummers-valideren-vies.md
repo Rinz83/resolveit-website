@@ -22,7 +22,7 @@ An incorrect or expired VAT number can lead to a retroactive assessment of 21% V
 
 ## Why in Salesforce, and not on the VIES website
 
-The standalone VIES website works, but forces you to switch between browser tabs — which interrupts the sales process. By integrating VIES into Salesforce, that manual work disappears and validation is embedded in your daily process. The benefits:
+The standalone VIES website works, but forces you to switch between browser tabs, which interrupts the sales process. By integrating VIES into Salesforce, that manual work disappears and validation is embedded in your daily process. The benefits:
 
 - **Automatic completion** of company details based on the VAT number, which prevents typing errors;
 - **Duplicate prevention**, as the system flags when the same VAT number is entered more than once;

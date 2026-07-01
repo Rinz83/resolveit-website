@@ -6,7 +6,7 @@ author: "Imre Hamelink"
 category: "E-facturatie"
 ---
 
-Om e-facturen via Peppol te versturen, heeft u het Peppol-identificatienummer van uw klant nodig. Met Datasolver zoekt u dat direct vanuit Salesforce op — geen geschakel tussen systemen.
+Om e-facturen via Peppol te versturen, heeft u het Peppol-identificatienummer van uw klant nodig. Met Datasolver zoekt u dat direct vanuit Salesforce op: geen geschakel tussen systemen.
 
 ## Wat is een Peppol-ID?
 
@@ -14,11 +14,11 @@ Peppol is een netwerk en raamwerk voor het veilig en gestandaardiseerd uitwissel
 
 ## Handmatig opzoeken is foutgevoelig
 
-Traditioneel moeten medewerkers tussen systemen schakelen, gegevens overtypen en bedrijfsmatches verifiëren — bij grote aantallen is dat tijdrovend en foutgevoelig.
+Traditioneel moeten medewerkers tussen systemen schakelen, gegevens overtypen en bedrijfsmatches verifiëren. Bij grote aantallen is dat tijdrovend en foutgevoelig.
 
 ## Direct vanuit Salesforce
 
-Door Salesforce te koppelen aan de Peppol Directory API zoekt u op zonder de CRM-omgeving te verlaten. Bestaande velden — bedrijfsnaam, btw-nummer, KvK-nummer, adres, land — vullen de zoekopdracht automatisch. Gevonden Peppol-ID's worden teruggeschreven naar speciale velden op het accountrecord.
+Door Salesforce te koppelen aan de Peppol Directory API zoekt u op zonder de CRM-omgeving te verlaten. Bestaande velden (bedrijfsnaam, btw-nummer, KvK-nummer, adres, land) vullen de zoekopdracht automatisch. Gevonden Peppol-ID's worden teruggeschreven naar speciale velden op het accountrecord.
 
 ## Procesautomatisering
 

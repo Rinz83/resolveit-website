@@ -3,13 +3,13 @@ import Layout from '../../../layouts/Layout.astro';
 
 const salesforceSteps = [
   { t: 'Permission sets toewijzen', d: 'Wijs de juiste Permission Set(s) toe aan uw gebruikers. Wijs minimaal <strong>SharePoint Admin Access</strong> toe aan uw eigen gebruiker, zodat u de volgende stappen kunt uitvoeren.', imgs: ['/images/salespoint/image1.png'] },
-  { t: 'Open de SharePoint-app', d: 'Ga naar de <strong>App Launcher</strong> en zoek op <strong>SharePoint App</strong>. Open de app — standaard opent de homepagina van de app.', imgs: ['/images/salespoint/image2.png'] },
+  { t: 'Open de SharePoint-app', d: 'Ga naar de <strong>App Launcher</strong> en zoek op <strong>SharePoint App</strong>. Open de app: standaard opent de homepagina van de app.', imgs: ['/images/salespoint/image2.png'] },
   { t: 'Start het verlenen van toegang', d: 'Klik op de homepagina op het <strong>“Click me”</strong>-vlak aan de rechterkant. Er opent een nieuw tabblad waarin u toegang verleent aan de SharePoint-app.', imgs: ['/images/salespoint/image3.png'] },
   { t: 'Accepteer het toestemmingsverzoek', d: 'Accepteer in het nieuwe tabblad het toestemmingsverzoek van de app. U wordt daarna doorgestuurd naar de Salesforce-loginpagina.', imgs: ['/images/salespoint/image4.png'] },
   { t: 'Gebruik de juiste login-URL', d: 'Standaard wordt u doorgestuurd naar <code>login.salesforce.com</code>. Heeft u de app in een <strong>Sandbox</strong> geïnstalleerd, vervang dit dan door <code>test.salesforce.com</code>.', imgs: ['/images/salespoint/image5.png'] },
-  { t: 'Inloggen & bevestigen', d: 'Log in met uw Salesforce-org. Er verschijnt een <strong>“Connection successful”</strong>-melding. Sluit deze — u keert terug naar de homepagina van de app (nu met een andere afbeelding). Klik op <strong>Next</strong>.', imgs: ['/images/salespoint/image6.png', '/images/salespoint/image8.png'] },
+  { t: 'Inloggen & bevestigen', d: 'Log in met uw Salesforce-org. Er verschijnt een <strong>“Connection successful”</strong>-melding. Sluit deze: u keert terug naar de homepagina van de app (nu met een andere afbeelding). Klik op <strong>Next</strong>.', imgs: ['/images/salespoint/image6.png', '/images/salespoint/image8.png'] },
   { t: 'Maak een nieuwe verbinding', d: 'Kies <strong>Create a new connection</strong> en geef de gekoppelde SharePoint-site een duidelijke, generieke naam. Klik op <strong>Next</strong>.', imgs: ['/images/salespoint/image9.png'] },
-  { t: 'Kies de hoofdmap', d: 'Selecteer de <strong>Site ID</strong> — of een map daarbinnen — als de hoofdmap waar de dynamische mappen worden aangemaakt (bijv. site “Salesforce Demo”, map “Test Folder”). Klik op <strong>Next</strong>.', imgs: ['/images/salespoint/image10.png'] },
+  { t: 'Kies de hoofdmap', d: 'Selecteer de <strong>Site ID</strong> (of een map daarbinnen) als de hoofdmap waar de dynamische mappen worden aangemaakt (bijv. site “Salesforce Demo”, map “Test Folder”). Klik op <strong>Next</strong>.', imgs: ['/images/salespoint/image10.png'] },
   { t: 'Profielen, bestandstypen & verwijderrechten instellen', d: 'Stel op het laatste scherm drie dingen in: de <strong>profielen</strong> die toegang krijgen tot de app, de <strong>toegestane bestandsformaten</strong> (bijv. pdf, docx) en de <strong>gebruikers</strong> die SharePoint-bestanden vanuit Salesforce mogen verwijderen.', imgs: ['/images/salespoint/image11.png', '/images/salespoint/image12.png'] },
 ];
 
@@ -30,21 +30,21 @@ const lightningParams = [
   'API-naam van het veld waarin het <strong>SharePoint Folder ID</strong> wordt opgeslagen.',
   'API-naam van het veld waarin het <strong>Pinned Folder ID</strong> wordt opgeslagen.',
   'API-naam van het <strong>object</strong> waarvoor de component werkt.',
-  '<em>(Optioneel)</em> API-naam van het <strong>bovenliggende object</strong> — alleen als u de record wilt koppelen aan een ander object in de mappenstructuur.',
+  '<em>(Optioneel)</em> API-naam van het <strong>bovenliggende object</strong>, alleen als u de record wilt koppelen aan een ander object in de mappenstructuur.',
   '<em>(Optioneel)</em> API-naam van het veld waarin het SharePoint ID op het <strong>bovenliggende object</strong> staat.',
   'API-naam van het veld dat de <strong>mapnaam</strong> op SharePoint bepaalt (standaard = recordnaam).',
   '<em>(Optioneel)</em> Een maximale <strong>hoogte</strong> voor de Lightning-component.',
-  'Selecteer met welke <strong>SharePoint-site</strong> u verbindt — de site die u in de Salesforce-installatiestappen hebt aangemaakt.',
+  'Selecteer met welke <strong>SharePoint-site</strong> u verbindt: de site die u in de Salesforce-installatiestappen hebt aangemaakt.',
 ];
 ---
-<Layout title="SalesPoint — Installatiehandleiding" description="Stapsgewijze installatie- en configuratiehandleiding voor SalesPoint: koppel uw SharePoint-site aan Salesforce en voeg de component toe aan uw Lightning-pagina's." noindex={true}>
+<Layout title="SalesPoint: Installatiehandleiding" description="Stapsgewijze installatie- en configuratiehandleiding voor SalesPoint: koppel uw SharePoint-site aan Salesforce en voeg de component toe aan uw Lightning-pagina's." noindex={true}>
 
   <section class="ig-hero">
     <div class="ig-aurora" aria-hidden="true"><span></span><span></span></div>
     <div class="container ig-hero-inner">
       <span class="pp-badge"><span class="pp-badge-dot"></span> SalesPoint · Installatiehandleiding</span>
       <h1>Stel <span class="gradient-text">SalesPoint</span> in binnen Salesforce</h1>
-      <p>Uw SharePoint- &amp; Salesforce-integratie is bijna klaar — nog één korte installatie te gaan. Deze handleiding leidt u door het koppelen van uw SharePoint-site aan uw Salesforce-org en het toevoegen van de component aan uw Lightning-pagina's.</p>
+      <p>Uw SharePoint- &amp; Salesforce-integratie is bijna klaar, nog één korte installatie te gaan. Deze handleiding leidt u door het koppelen van uw SharePoint-site aan uw Salesforce-org en het toevoegen van de component aan uw Lightning-pagina's.</p>
     </div>
   </section>
 

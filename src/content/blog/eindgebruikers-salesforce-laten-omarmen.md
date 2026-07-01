@@ -1,6 +1,6 @@
 ---
 title: "Zo laat u eindgebruikers Salesforce omarmen"
-description: "De beste implementatie faalt zonder adoptie. Praktische tips — van voorbeeldgedrag van het management tot key users — om uw team Salesforce echt te laten gebruiken."
+description: "De beste implementatie faalt zonder adoptie. Praktische tips (van voorbeeldgedrag van het management tot key users) om uw team Salesforce echt te laten gebruiken."
 pubDate: 2025-11-11
 author: "Lisette de Gijsel"
 category: "Consultancy"

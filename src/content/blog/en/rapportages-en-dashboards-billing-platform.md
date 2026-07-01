@@ -6,7 +6,7 @@ author: "Tom Hofland"
 category: "Billing Platform"
 ---
 
-Figures only become valuable when you can act on them at the right moment. That's why the Billing Platform ships with real-time reports and dashboards as standard — directly in Salesforce, in the same system your team works in every day. No exports to spreadsheets, no versions that diverge.
+Figures only become valuable when you can act on them at the right moment. That's why the Billing Platform ships with real-time reports and dashboards as standard, directly in Salesforce, in the same system your team works in every day. No exports to spreadsheets, no versions that diverge.
 
 ## Real-time insight, no exports
 
@@ -22,7 +22,7 @@ You see immediately which accounts have outstanding payments and can assess paym
 
 ## Contracts and subscription cycles
 
-The system keeps track of expiring contracts and subscription cycles. This means you can proactively manage renewals instead of discovering after the fact that a contract has lapsed — a direct opportunity to retain revenue.
+The system keeps track of expiring contracts and subscription cycles. This means you can proactively manage renewals instead of discovering after the fact that a contract has lapsed: a direct opportunity to retain revenue.
 
 ## Context for better decisions
 

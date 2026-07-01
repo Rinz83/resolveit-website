@@ -1,6 +1,6 @@
 ---
 title: "What Can You Expect from Our Salesforce Audit?"
-description: "An audit reveals where your Salesforce environment can do better — from security and data quality to unused functionality. Here's what it delivers."
+description: "An audit reveals where your Salesforce environment can do better, from security and data quality to unused functionality. Here's what it delivers."
 pubDate: 2025-10-28
 author: "Tom Hofland"
 category: "Consultancy"
@@ -10,10 +10,10 @@ Is your Salesforce environment not performing the way you'd hoped? An audit clea
 
 ## What We Examine
 
-- **Security & compliance** — user permissions, profiles, sharing settings and adherence to privacy legislation such as the GDPR.
-- **Data quality** — we analyse your data and detect inconsistencies, duplicates and missing information.
-- **Workflows** — we map out your processes, find bottlenecks and identify manual tasks that could be automated.
-- **Functional usage** — we highlight Salesforce capabilities you are not yet fully taking advantage of.
+- **Security & compliance**: user permissions, profiles, sharing settings and adherence to privacy legislation such as the GDPR.
+- **Data quality**: we analyse your data and detect inconsistencies, duplicates and missing information.
+- **Workflows**: we map out your processes, find bottlenecks and identify manual tasks that could be automated.
+- **Functional usage**: we highlight Salesforce capabilities you are not yet fully taking advantage of.
 
 ## What You Get
 

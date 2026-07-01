@@ -1,6 +1,6 @@
 ---
 title: "How does file migration to SharePoint work?"
-description: "Bringing years of Salesforce files over to SharePoint? Discover how a controlled, phased migration unfolds — without data loss or disruption."
+description: "Bringing years of Salesforce files over to SharePoint? Discover how a controlled, phased migration unfolds, without data loss or disruption."
 pubDate: 2026-02-17
 author: "Jigar Raval"
 category: "SharePoint"
@@ -14,11 +14,11 @@ A good migration starts with insight: where are the files in Salesforce, which o
 
 ## A controlled handover
 
-Files are moved automatically to the right folders in SharePoint, while the link in Salesforce is preserved — so users keep their access. Relationships with Salesforce objects are retained.
+Files are moved automatically to the right folders in SharePoint, while the link in Salesforce is preserved, so users keep their access. Relationships with Salesforce objects are retained.
 
 ## Phased, not all at once
 
-The migration runs incrementally. You first test on a small set before moving larger batches. Documents are moved without re-uploading or manually re-mapping — which avoids duplicate storage costs.
+The migration runs incrementally. You first test on a small set before moving larger batches. Documents are moved without re-uploading or manually re-mapping, which avoids duplicate storage costs.
 
 ## Keep working during the migration
 

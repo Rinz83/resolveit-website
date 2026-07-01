@@ -5,17 +5,17 @@ import { calendlyUrl, pardotForms } from '../../../i18n/ui.js';
 import '../../../styles/product.css';
 
 const features = [
-  { icon: '🧾', title: 'Automatic invoices', text: 'Generate PDF invoices based on product type, language and location — straight from Salesforce, in your own house style.' },
+  { icon: '🧾', title: 'Automatic invoices', text: 'Generate PDF invoices based on product type, language and location, straight from Salesforce, in your own house style.' },
   { icon: '🔁', title: 'Subscriptions & MRR', text: 'Sell subscriptions from Opportunities with monthly, quarterly or annual intervals. Real-time insight into your Monthly Recurring Revenue.' },
-  { icon: '💳', title: 'Automatic collection', text: 'Our Payment Collection App connects Salesforce to Stripe. Manage credit cards, direct debit and PayPal — and collect automatically.' },
+  { icon: '💳', title: 'Automatic collection', text: 'Our Payment Collection App connects Salesforce to Stripe. Manage credit cards, direct debit and PayPal, and collect automatically.' },
   { icon: '⏰', title: 'Automated reminders', text: 'Payment reminders are sent automatically at the right moments. Less manual work, faster payment.' },
-  { icon: '📅', title: 'Revenue allocation', text: 'Assign invoices to a specific month with start and end dates on invoice lines — for clean revenue recognition.' },
+  { icon: '📅', title: 'Revenue allocation', text: 'Assign invoices to a specific month with start and end dates on invoice lines, for clean revenue recognition.' },
   { icon: '📊', title: 'Reports & dashboards', text: 'Insight into payment intents, subscriptions without a payment method and the performance of your entire billing process.' },
 ];
 
 const steps = [
   { n: '1', title: 'Deal closed', text: 'When an opportunity reaches closed-won, the subscription is activated automatically.' },
-  { n: '2', title: 'Invoice generated', text: 'The correct invoice is created — as draft or directly active, in the right language and template.' },
+  { n: '2', title: 'Invoice generated', text: 'The correct invoice is created: as draft or directly active, in the right language and template.' },
   { n: '3', title: 'Collected automatically', text: 'Via Stripe, the amount is charged to the customer’s preferred payment method.' },
   { n: '4', title: 'Followed up & reported', text: 'Reminders go out automatically and all figures appear live on your dashboards.' },
 ];
@@ -34,9 +34,9 @@ const quotes = [
 
 const faqs = [
   { q: 'Which accounting packages does the Billing Module connect to?', a: 'Among others Exact Online, Unit4 Multivers and Microsoft Dynamics. The Pro licence offers full ERP integration. For Exact Online you use our dedicated <a href="/en/producten/exact-online">Influx Exact Connector</a>. <a href="/blog/billing-platform-koppelen-aan-je-erp">Read more about ERP connections →</a>' },
-  { q: 'Can I sell subscriptions with different intervals?', a: 'Yes — monthly, quarterly and annually, with automatic billing per interval and dynamic price adjustment on up- or downgrades. Subscription management activates invoices automatically as soon as a deal reaches closed-won.' },
+  { q: 'Can I sell subscriptions with different intervals?', a: 'Yes: monthly, quarterly and annually, with automatic billing per interval and dynamic price adjustment on up- or downgrades. Subscription management activates invoices automatically as soon as a deal reaches closed-won.' },
   { q: 'How does automatic collection work?', a: 'Through our Payment Collection App, which connects Salesforce to Stripe. Payment methods (credit card, direct debit, PayPal) are managed securely in Salesforce and collected automatically on the customer’s preferred method. <a href="/blog/automatische-incasso-met-stripe">Read more about automatic collection →</a>' },
-  { q: 'What is deferred revenue and is it supported?', a: 'Deferred revenue spreads the proceeds of, say, an annual contract across the correct months. With start and end dates on invoice lines, revenue is allocated cleanly — available in the Pro licence.' },
+  { q: 'What is deferred revenue and is it supported?', a: 'Deferred revenue spreads the proceeds of, say, an annual contract across the correct months. With start and end dates on invoice lines, revenue is allocated cleanly, available in the Pro licence.' },
   { q: 'How does the module help with accounts receivable?', a: 'Payment reminders are sent automatically at the moments you set, with an overview of outstanding amounts linked to credit limits. This shortens your receivables term without manual chasing. <a href="/blog/geautomatiseerde-betalingsherinneringen">Read more about automated reminders →</a>' },
   { q: 'Do I get insight into my MRR and billing?', a: 'Yes. Reports and dashboards give real-time insight into Monthly Recurring Revenue, payment intents, subscriptions without an active payment method and the performance of your entire billing process. <a href="/blog/rapportages-en-dashboards-billing-platform">Read more about reporting →</a>' },
   { q: 'Can I generate invoices in multiple languages and house styles?', a: 'Certainly. Invoices are generated as PDF based on product type, language and location, with customisable templates per administration. <a href="/blog/facturen-in-de-juiste-taal">Read more about language recognition →</a>' },
@@ -51,15 +51,15 @@ const faqJsonLd = JSON.stringify({
 });
 ---
 
-<Layout breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Products', item: '/en/producten' }, { name: 'Billing Platform', item: '/en/producten/billing-module' }]} title="Billing Platform — Invoicing, subscriptions & payments in Salesforce" description="The complete Billing Platform for Salesforce: invoicing, subscription management, MRR insight, accounts receivable and automatic collection via Stripe — connected to Exact Online and Datasolver.">
+<Layout breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Products', item: '/en/producten' }, { name: 'Billing Platform', item: '/en/producten/billing-module' }]} title="Billing Platform: invoicing, subscriptions & payments in Salesforce" description="The complete Billing Platform for Salesforce: invoicing, subscription management, MRR insight, accounts receivable and automatic collection via Stripe, connected to Exact Online and Datasolver.">
 
   <section class="pp-hero">
     <div class="pp-aurora" aria-hidden="true"><span></span><span></span></div>
     <div class="container pp-hero-inner">
       <div class="pp-hero-copy">
         <span class="pp-badge"><span class="pp-badge-dot"></span> Billing Platform · Salesforce-native</span>
-        <h1>Invoicing, subscriptions &amp; <span class="gradient-text">payments</span> — in Salesforce</h1>
-        <p>The complete platform for your order-to-cash. Create and send invoices, manage subscriptions and MRR, and collect automatically. <strong>Connected to Stripe, Exact Online and Datasolver</strong> — error-free and fully automated.</p>
+        <h1>Invoicing, subscriptions &amp; <span class="gradient-text">payments</span>, in Salesforce</h1>
+        <p>The complete platform for your order-to-cash. Create and send invoices, manage subscriptions and MRR, and collect automatically. <strong>Connected to Stripe, Exact Online and Datasolver</strong>: error-free and fully automated.</p>
         <div class="pp-hero-actions">
           <a href="#demo" class="btn btn-primary">Request a demo</a>
           <a href="/en/contact" class="btn btn-outline">Try for free</a>
@@ -72,7 +72,7 @@ const faqJsonLd = JSON.stringify({
             <span class="bm-inv-status">Paid ✓</span>
           </div>
           <div class="bm-inv-rows">
-            <div class="bm-row"><span>Salesforce licence — annual</span><span>€ 4,800</span></div>
+            <div class="bm-row"><span>Salesforce licence, annual</span><span>€ 4,800</span></div>
             <div class="bm-row"><span>Influx Exact Connector</span><span>€ 876</span></div>
             <div class="bm-row"><span>Support &amp; maintenance</span><span>€ 1,200</span></div>
           </div>
@@ -115,7 +115,7 @@ const faqJsonLd = JSON.stringify({
         <a href="/en/producten/billing-module" class="bm-eco-card">
           <span class="bm-eco-ico"><span class="bm-stripe-lg">Stripe</span></span>
           <h3>Stripe payments</h3>
-          <p class="text-muted">Automatic collection via credit card, SEPA and PayPal — managed securely from Salesforce.</p>
+          <p class="text-muted">Automatic collection via credit card, SEPA and PayPal, managed securely from Salesforce.</p>
           <span class="card-link">Part of Pro →</span>
         </a>
         <a href="/en/producten/kvk-integratie" class="bm-eco-card">
@@ -133,7 +133,7 @@ const faqJsonLd = JSON.stringify({
       <div class="section-header reveal">
         <span class="eyebrow">Features</span>
         <h2>Your complete billing engine in Salesforce</h2>
-        <p>From first invoice to recurring revenue — everything in one place, automatically.</p>
+        <p>From first invoice to recurring revenue: everything in one place, automatically.</p>
       </div>
       <div class="grid-3">
         {features.map((f, i) => (
@@ -152,7 +152,7 @@ const faqJsonLd = JSON.stringify({
     <div class="container" style="position:relative;z-index:1;">
       <div class="section-header reveal">
         <span class="eyebrow">How it works</span>
-        <h2 class="text-white">From deal to payment — automatically</h2>
+        <h2 class="text-white">From deal to payment, automatically</h2>
       </div>
       <div class="pp-steps">
         {steps.map((s, i) => (
@@ -171,7 +171,7 @@ const faqJsonLd = JSON.stringify({
       <div class="section-header reveal">
         <span class="eyebrow">Pricing</span>
         <h2>Choose the plan that fits you</h2>
-        <p>Start small and grow along — you can always upgrade.</p>
+        <p>Start small and grow along: you can always upgrade.</p>
       </div>
       <div class="pp-pricing">
         {plans.map(p => (
@@ -233,7 +233,7 @@ const faqJsonLd = JSON.stringify({
     </div>
   </section>
 
-  <FormModal id="demo" title="Request a demo — Billing Platform" formUrl={pardotForms.demoBilling} />
+  <FormModal id="demo" title="Request a demo: Billing Platform" formUrl={pardotForms.demoBilling} />
 
 </Layout>
 

@@ -22,7 +22,7 @@ Een onjuist of verlopen btw-nummer kan leiden tot een naheffing van 21% btw met 
 
 ## Waarom in Salesforce, en niet op de VIES-website
 
-De losse VIES-website werkt, maar dwingt u te schakelen tussen browsertabbladen — wat het salesproces onderbreekt. Door VIES in Salesforce te integreren, vervalt dat handwerk en zit validatie ingebed in uw dagelijkse proces. De voordelen:
+De losse VIES-website werkt, maar dwingt u te schakelen tussen browsertabbladen, wat het salesproces onderbreekt. Door VIES in Salesforce te integreren, vervalt dat handwerk en zit validatie ingebed in uw dagelijkse proces. De voordelen:
 
 - **Automatisch invullen** van bedrijfsgegevens op basis van het btw-nummer, wat typefouten voorkomt;
 - **Duplicaatpreventie** doordat het systeem signaleert als hetzelfde btw-nummer meermaals wordt ingevoerd;

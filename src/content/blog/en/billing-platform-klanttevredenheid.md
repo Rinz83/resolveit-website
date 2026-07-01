@@ -18,7 +18,7 @@ Consistent invoicing moments support your customer's financial planning. With dr
 
 ## Flexible payment
 
-Multiple payment methods — bank transfer, credit card, automatic direct debit and PayPal — offer convenience. Automatic direct debit with consent improves your cash flow and lowers the barrier for the customer. Subscriptions can be adjusted instantly (up- or downgrading), with immediate settlement.
+Multiple payment methods (bank transfer, credit card, automatic direct debit and PayPal) offer convenience. Automatic direct debit with consent improves your cash flow and lowers the barrier for the customer. Subscriptions can be adjusted instantly (up- or downgrading), with immediate settlement.
 
 ## Smooth follow-up and correction
 

@@ -31,4 +31,4 @@ Gebruikerstraining is geen sluitstuk maar een investering. Goed getrainde gebrui
 
 ## Klaar om te starten?
 
-Wilt u sparren over uw Salesforce-implementatie? [Neem contact op](/contact) — we denken graag met u mee.
+Wilt u sparren over uw Salesforce-implementatie? [Neem contact op](/contact): we denken graag met u mee.

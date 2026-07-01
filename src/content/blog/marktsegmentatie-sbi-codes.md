@@ -10,7 +10,7 @@ Hoe specifiek kunt u op dit moment uw ideale klant definiëren in Salesforce? Vo
 
 ## Verrijking uit de officiële bron
 
-De integratie haalt actuele SBI-codes en handelsnamen rechtstreeks uit het Handelsregister. Die gegevens worden automatisch in gerelateerde lijsten in Salesforce geplaatst — geen handmatige invoer.
+De integratie haalt actuele SBI-codes en handelsnamen rechtstreeks uit het Handelsregister. Die gegevens worden automatisch in gerelateerde lijsten in Salesforce geplaatst: geen handmatige invoer.
 
 ## Direct bruikbaar in rapportages
 
@@ -18,7 +18,7 @@ Doordat de data gestructureerd binnenkomt, is ze direct te gebruiken in standaar
 
 ## Schone, complete profielen
 
-Meerdere handelsnamen onder één account voorkomen verwarring en dubbele records. De KvK-classificatie vormt de gezaghebbende basis om uw bedrijfsdata te ordenen — ook bij complexe organisatiestructuren blijft uw CRM schoon.
+Meerdere handelsnamen onder één account voorkomen verwarring en dubbele records. De KvK-classificatie vormt de gezaghebbende basis om uw bedrijfsdata te ordenen; ook bij complexe organisatiestructuren blijft uw CRM schoon.
 
 ## Scherper richten, beter verkopen
 

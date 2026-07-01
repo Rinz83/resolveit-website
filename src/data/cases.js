@@ -19,7 +19,7 @@ export const cases = [
       'Opvolging van kansen verliep inconsistent doordat informatie versnipperd was',
       'Nieuwe medewerkers hadden weken nodig om hun weg te vinden in losse systemen',
     ],
-    approachIntro: 'Samen met Talpa Studios brachten we eerst het volledige commerciële proces in kaart. We luisterden naar sales, management en operations om te begrijpen waar tijd verloren ging. Vervolgens bouwden we één centrale Salesforce-omgeving die dat proces ondersteunt in plaats van beperkt — pragmatisch opgeleverd in korte cycli.',
+    approachIntro: 'Samen met Talpa Studios brachten we eerst het volledige commerciële proces in kaart. We luisterden naar sales, management en operations om te begrijpen waar tijd verloren ging. Vervolgens bouwden we één centrale Salesforce-omgeving die dat proces ondersteunt in plaats van beperkt: pragmatisch opgeleverd in korte cycli.',
     approachPhases: [
       { title: 'Analyse & ontwerp', text: 'In nauwe samenwerking met het commerciële team brachten we de pijplijnfases, rollen en rapportagebehoeften in kaart en vertaalden die naar een helder, schaalbaar ontwerp.' },
       { title: 'Inrichting', text: 'We standaardiseerden de opportunity-stages, automatiseerden statusupdates en bouwden dashboards voor realtime sturing op omzet en forecast.' },
@@ -35,7 +35,7 @@ export const cases = [
     ],
     resultsNarrative: 'Doordat alle commerciële data nu op één plek samenkomt, is rapporteren een kwestie van een dashboard openen in plaats van data verzamelen. Het team houdt grip op de pijplijn, het management stuurt op actuele cijfers en nieuwe medewerkers zijn binnen dagen in plaats van weken productief.',
     quote: { text: 'We hebben eindelijk grip op onze commerciële pijplijn, met overzicht voor het hele team.', author: 'Commercieel team, Talpa Studios' },
-    lookingAhead: 'Met een stevig fundament op zijn plaats kijkt Talpa Studios naar verdere automatisering en diepere integraties tussen commercie en productie — een basis die meegroeit met hun internationale ambities.',
+    lookingAhead: 'Met een stevig fundament op zijn plaats kijkt Talpa Studios naar verdere automatisering en diepere integraties tussen commercie en productie: een basis die meegroeit met hun internationale ambities.',
     stack: ['Sales Cloud', 'Dashboards & Reports', 'Maatwerk integraties'],
   },
   {
@@ -46,7 +46,7 @@ export const cases = [
     sector: 'Professional Services',
     tags: ['Implementatie', 'Maatwerk'],
     summary: 'Maatwerk Salesforce voor casting en talentmanagement, van selectie tot communicatie.',
-    about: 'MULTA Casting brengt talent en producties samen. Voor commercials, films en tv-programma’s selecteren ze uit grote aantallen kandidaten. Het werk draait om snelheid, overzicht en heldere communicatie — vaak onder strakke deadlines van opdrachtgevers.',
+    about: 'MULTA Casting brengt talent en producties samen. Voor commercials, films en tv-programma’s selecteren ze uit grote aantallen kandidaten. Het werk draait om snelheid, overzicht en heldere communicatie, vaak onder strakke deadlines van opdrachtgevers.',
     openingQuote: { text: 'Elke productie begon weer met chaos in mappen en mailboxen. Nu hebben we rust en overzicht.', author: 'Oprichter, MULTA Casting' },
     challengeIntro: 'Het casting- en selectieproces verliep via losse lijsten, mappen en e-mail. Bij elke nieuwe productie begon het overzicht weer van voren af aan, en kostte het terugvinden van eerdere kandidaten onnodig veel tijd.',
     challengePoints: [
@@ -70,7 +70,7 @@ export const cases = [
       { num: 'Minder', label: 'handmatige communicatie' },
     ],
     resultsNarrative: 'Doordat kandidaten, rollen en communicatie in één omgeving samenkomen, kan MULTA Casting sneller schakelen en eerder een passende selectie aan opdrachtgevers presenteren. Eerdere casts zijn met een paar klikken terug te vinden, wat nieuwe trajecten een vliegende start geeft.',
-    quote: { text: 'Onze casting-workflow zit nu strak in één systeem — dat scheelt ons enorm veel tijd.', author: 'Team MULTA Casting' },
+    quote: { text: 'Onze casting-workflow zit nu strak in één systeem: dat scheelt ons enorm veel tijd.', author: 'Team MULTA Casting' },
     lookingAhead: 'MULTA Casting onderzoekt nu hoe ze de kandidaatcommunicatie verder kunnen personaliseren en automatiseren, voortbouwend op het fundament dat er nu staat.',
     stack: ['Maatwerk objecten', 'Automatisering', 'Communicatie-workflows'],
   },
@@ -127,7 +127,7 @@ export const cases = [
       'Gebruikers liepen vast in een onlogische inrichting',
       'Onduidelijk welke automatiseringen nog actief en nuttig waren',
     ],
-    approachIntro: 'We startten met een grondige audit van de bestaande omgeving en maakten op basis daarvan een concreet plan om te vereenvoudigen en te verbeteren — met focus op wat echt waarde toevoegt.',
+    approachIntro: 'We startten met een grondige audit van de bestaande omgeving en maakten op basis daarvan een concreet plan om te vereenvoudigen en te verbeteren, met focus op wat echt waarde toevoegt.',
     approachPhases: [
       { title: 'Audit', text: 'We brachten de volledige inrichting, processen en automatiseringen in kaart en identificeerden knelpunten en quick wins.' },
       { title: 'Opschonen', text: 'Overbodige processen en velden werden verwijderd of samengevoegd, wat rust en overzicht teruggaf.' },
@@ -143,7 +143,7 @@ export const cases = [
     ],
     resultsNarrative: 'Door de complexiteit terug te brengen tot wat echt waarde toevoegt, is Salesforce weer een hulpmiddel in plaats van een obstakel. Het team werkt sneller, de cijfers kloppen en het management stuurt weer op data dat het vertrouwt.',
     quote: { text: 'Resolve IT bracht rust en structuur terug in ons Salesforce-landschap.', author: 'Team MarketResponse' },
-    lookingAhead: 'Op het opgeschoonde fundament bouwt MarketResponse nu verder met nieuwe automatiseringen — dit keer doordacht en gestructureerd.',
+    lookingAhead: 'Op het opgeschoonde fundament bouwt MarketResponse nu verder met nieuwe automatiseringen: dit keer doordacht en gestructureerd.',
     stack: ['Salesforce Audit', 'Procesoptimalisatie', 'Dashboards & Reports'],
   },
   {
@@ -163,7 +163,7 @@ export const cases = [
       'Geen gedeelde werkwijze, waardoor data inconsistent werd ingevoerd',
       'Behoefte aan eigenaarschap en zelfstandigheid binnen het team',
     ],
-    approachIntro: 'In plaats van een eenmalige training kozen we voor begeleiding die aansluit op de dagelijkse praktijk van Solvid Ondernemen — gericht op échte taken, niet op losse functies.',
+    approachIntro: 'In plaats van een eenmalige training kozen we voor begeleiding die aansluit op de dagelijkse praktijk van Solvid Ondernemen, gericht op échte taken, niet op losse functies.',
     approachPhases: [
       { title: 'Nulmeting', text: 'We brachten in kaart hoe het team werkte en waar de grootste kansen lagen om efficiënter te worden.' },
       { title: 'Procesgerichte training', text: 'Trainingen afgestemd op concrete dagelijkse taken, niet op losse functionaliteit.' },
@@ -199,7 +199,7 @@ export const cases = [
       'Opvolging van service- en logistieke taken was lastig te bewaken',
       'Geen totaaloverzicht over de keten heen voor sturing',
     ],
-    approachIntro: 'We bouwden één geïntegreerde Salesforce-omgeving waarin alle afdelingen samenwerken en processen automatisch in elkaar overlopen — van verkoop tot levering en support.',
+    approachIntro: 'We bouwden één geïntegreerde Salesforce-omgeving waarin alle afdelingen samenwerken en processen automatisch in elkaar overlopen: van verkoop tot levering en support.',
     approachPhases: [
       { title: 'Procesintegratie', text: 'Sales, service, logistiek en backoffice werden samengebracht in één omgeving met een gedeeld klantbeeld.' },
       { title: 'Automatisering', text: 'Overdrachten tussen afdelingen werden geautomatiseerd, zodat taken automatisch op de juiste plek belanden.' },

@@ -6,31 +6,31 @@ author: "Yatish Salihan"
 category: "Exact Online"
 ---
 
-The Influx Exact Connector connects far more than just invoices. Below you'll read exactly which data is kept in sync between Salesforce and Exact Online — and why that matters.
+The Influx Exact Connector connects far more than just invoices. Below you'll read exactly which data is kept in sync between Salesforce and Exact Online, and why that matters.
 
 ## Customer and Relationship Data
 
-- **Accounts** — changes in Salesforce are applied directly in Exact Online, so your billing details are always correct.
-- **Contacts & addresses** — multiple contact persons and different delivery and billing addresses stay synchronised, which prevents logistical errors.
+- **Accounts**: changes in Salesforce are applied directly in Exact Online, so your billing details are always correct.
+- **Contacts & addresses**: multiple contact persons and different delivery and billing addresses stay synchronised, which prevents logistical errors.
 
 ## Products and Categorisation
 
-- **Products** — names, descriptions and pricing information remain identical across both systems.
-- **Item groups** — sales categorisation is automated, ensuring accurate financial reporting.
+- **Products**: names, descriptions and pricing information remain identical across both systems.
+- **Item groups**: sales categorisation is automated, ensuring accurate financial reporting.
 
 ## The Financial Flow
 
-- **Orders** — sales orders go straight from Salesforce to Exact Online for processing.
-- **Invoices** — generate and send invoices automatically, with a status that is updated in real time in both systems.
+- **Orders**: sales orders go straight from Salesforce to Exact Online for processing.
+- **Invoices**: generate and send invoices automatically, with a status that is updated in real time in both systems.
 
 ## Accounting Details
 
-- **Payment status** — account managers can see directly in Salesforce whether an invoice has been paid.
-- **General ledger accounts & cost centres** — revenue allocation happens automatically, for detailed financial insight.
+- **Payment status**: account managers can see directly in Salesforce whether an invoice has been paid.
+- **General ledger accounts & cost centres**: revenue allocation happens automatically, for detailed financial insight.
 
 ## Beyond the Standard
 
-The connector supports all Exact Online tables, allowing customisation to go beyond the standard objects. In addition, invoices can be sent via the **Peppol** e-invoicing standard — mandatory in Belgium from 1 April 2026 and therefore an important step towards European compliance.
+The connector supports all Exact Online tables, allowing customisation to go beyond the standard objects. In addition, invoices can be sent via the **Peppol** e-invoicing standard, mandatory in Belgium from 1 April 2026 and therefore an important step towards European compliance.
 
 ## In One or Both Directions
 

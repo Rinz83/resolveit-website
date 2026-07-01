@@ -1,12 +1,12 @@
 ---
 title: "Salesforce datamigratie: best practices voor een soepele overgang"
-description: "Een migratie in drie fasen — voorbereiding, migratie en kwaliteitscontrole. De best practices voor schone, betrouwbare data in Salesforce."
+description: "Een migratie in drie fasen: voorbereiding, migratie en kwaliteitscontrole. De best practices voor schone, betrouwbare data in Salesforce."
 pubDate: 2025-10-14
 author: "Jigar Raval"
 category: "Consultancy"
 ---
 
-Een migratie is hét moment om met schone data te beginnen — of om oude rommel mee te nemen. Een goede datamigratie verloopt in drie fasen: voorbereiding, migratie en kwaliteitscontrole.
+Een migratie is hét moment om met schone data te beginnen, of om oude rommel mee te nemen. Een goede datamigratie verloopt in drie fasen: voorbereiding, migratie en kwaliteitscontrole.
 
 ## 1. Voorbereiding
 
@@ -14,7 +14,7 @@ Maak een formeel migratieplan met tijdlijnen, afhankelijkheden en mijlpalen, en 
 
 ## Bepaal welke data mee moet
 
-Identificeer welke data gemigreerd moet worden en wat de gezaghebbende bron is. Niet alle bedrijfsdata komt uit backendsystemen. Breng per afdeling in kaart wat nodig is — sales (communicatie uit calls en e-mails), service (cases gekoppeld aan accounts), marketing (meerdere bronnen) en finance (facturen en revenue recognition).
+Identificeer welke data gemigreerd moet worden en wat de gezaghebbende bron is. Niet alle bedrijfsdata komt uit backendsystemen. Breng per afdeling in kaart wat nodig is: sales (communicatie uit calls en e-mails), service (cases gekoppeld aan accounts), marketing (meerdere bronnen) en finance (facturen en revenue recognition).
 
 ## Data mapping
 

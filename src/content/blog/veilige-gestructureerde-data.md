@@ -10,7 +10,7 @@ Documentbeheer draait niet alleen om opslag, maar ook om veiligheid en structuur
 
 ## Rechten lopen automatisch mee
 
-De toegangsrechten uit Salesforce worden afgedwongen in SharePoint: een gebruiker ziet alleen de documenten die horen bij de accounts waartoe hij toegang heeft. U beheert beveiliging één keer in Salesforce; die geldt automatisch voor de gekoppelde SharePoint-documenten — geen aparte configuratie.
+De toegangsrechten uit Salesforce worden afgedwongen in SharePoint: een gebruiker ziet alleen de documenten die horen bij de accounts waartoe hij toegang heeft. U beheert beveiliging één keer in Salesforce; die geldt automatisch voor de gekoppelde SharePoint-documenten, geen aparte configuratie.
 
 ## Metadata voor vindbaarheid
 

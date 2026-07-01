@@ -3,13 +3,13 @@ import Layout from '../../../../layouts/Layout.astro';
 
 const salesforceSteps = [
   { t: 'Assign permission sets', d: 'Assign the right Permission Set(s) to your users. At minimum, assign <strong>SharePoint Admin Access</strong> to your own user so you can complete the next steps.', imgs: ['/images/salespoint/image1.png'] },
-  { t: 'Open the SharePoint app', d: 'Go to the <strong>App Launcher</strong> and search for <strong>SharePoint App</strong>. Open it — by default it opens the app’s home page.', imgs: ['/images/salespoint/image2.png'] },
+  { t: 'Open the SharePoint app', d: 'Go to the <strong>App Launcher</strong> and search for <strong>SharePoint App</strong>. Open it: by default it opens the app’s home page.', imgs: ['/images/salespoint/image2.png'] },
   { t: 'Start granting access', d: 'On the home page, click the <strong>“Click me”</strong> area on the right. A new tab opens so you can grant access to the SharePoint app.', imgs: ['/images/salespoint/image3.png'] },
   { t: 'Accept the permission request', d: 'In the new tab, accept the app’s permission request. You’ll then be redirected to the Salesforce login page.', imgs: ['/images/salespoint/image4.png'] },
   { t: 'Use the right login URL', d: 'By default you’re redirected to <code>login.salesforce.com</code>. If you installed the app in a <strong>Sandbox</strong>, replace it with <code>test.salesforce.com</code>.', imgs: ['/images/salespoint/image5.png'] },
-  { t: 'Log in & confirm', d: 'Log in with your Salesforce org. A <strong>“Connection successful”</strong> message pops up. Close it — you return to the app home page (now showing a different image). Click <strong>Next</strong>.', imgs: ['/images/salespoint/image6.png', '/images/salespoint/image8.png'] },
+  { t: 'Log in & confirm', d: 'Log in with your Salesforce org. A <strong>“Connection successful”</strong> message pops up. Close it: you return to the app home page (now showing a different image). Click <strong>Next</strong>.', imgs: ['/images/salespoint/image6.png', '/images/salespoint/image8.png'] },
   { t: 'Create a new connection', d: 'Choose <strong>Create a new connection</strong> and give the connected SharePoint site a clear, generic name. Click <strong>Next</strong>.', imgs: ['/images/salespoint/image9.png'] },
-  { t: 'Choose the root folder', d: 'Select the <strong>Site ID</strong> — or a folder inside it — as the root folder where dynamic folders will be created (e.g. site “Salesforce Demo”, folder “Test Folder”). Click <strong>Next</strong>.', imgs: ['/images/salespoint/image10.png'] },
+  { t: 'Choose the root folder', d: 'Select the <strong>Site ID</strong> (or a folder inside it) as the root folder where dynamic folders will be created (e.g. site “Salesforce Demo”, folder “Test Folder”). Click <strong>Next</strong>.', imgs: ['/images/salespoint/image10.png'] },
   { t: 'Set profiles, file types & delete rights', d: 'On the final screen, set three things: the <strong>profiles</strong> that may access the app, the <strong>accepted file formats</strong> (e.g. pdf, docx), and the <strong>users</strong> allowed to delete SharePoint files from within Salesforce.', imgs: ['/images/salespoint/image11.png', '/images/salespoint/image12.png'] },
 ];
 
@@ -30,21 +30,21 @@ const lightningParams = [
   'API name of the field that stores the <strong>SharePoint Folder ID</strong>.',
   'API name of the field that stores the <strong>Pinned Folder ID</strong>.',
   'API name of the <strong>Object</strong> the component works for.',
-  '<em>(Optional)</em> API name of the <strong>Parent Object</strong> — only if you want to relate the record to another object in the folder tree.',
+  '<em>(Optional)</em> API name of the <strong>Parent Object</strong>, only if you want to relate the record to another object in the folder tree.',
   '<em>(Optional)</em> API name of the field where the SharePoint ID is stored on the <strong>Parent Object</strong>.',
   'API name of the field that defines the <strong>folder name</strong> on SharePoint (default = Record Name).',
   '<em>(Optional)</em> A maximum <strong>height</strong> for the Lightning component.',
-  'Select which <strong>SharePoint Site</strong> to connect — the one you created in the Salesforce Setup steps.',
+  'Select which <strong>SharePoint Site</strong> to connect: the one you created in the Salesforce Setup steps.',
 ];
 ---
-<Layout title="SalesPoint — Installation guide" description="Step-by-step installation and setup guide for SalesPoint: connect your SharePoint site to Salesforce and add the component to your Lightning pages." noindex={true}>
+<Layout title="SalesPoint: Installation guide" description="Step-by-step installation and setup guide for SalesPoint: connect your SharePoint site to Salesforce and add the component to your Lightning pages." noindex={true}>
 
   <section class="ig-hero">
     <div class="ig-aurora" aria-hidden="true"><span></span><span></span></div>
     <div class="container ig-hero-inner">
       <span class="pp-badge"><span class="pp-badge-dot"></span> SalesPoint · Installation guide</span>
       <h1>Set up <span class="gradient-text">SalesPoint</span> in Salesforce</h1>
-      <p>Your SharePoint &amp; Salesforce integration is almost ready — just one quick setup to go. This guide walks you through connecting your SharePoint site to your Salesforce org and adding the component to your Lightning pages.</p>
+      <p>Your SharePoint &amp; Salesforce integration is almost ready, just one quick setup to go. This guide walks you through connecting your SharePoint site to your Salesforce org and adding the component to your Lightning pages.</p>
     </div>
   </section>
 

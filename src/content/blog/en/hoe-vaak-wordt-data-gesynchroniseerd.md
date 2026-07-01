@@ -6,7 +6,7 @@ author: "Jigar Raval"
 category: "Exact Online"
 ---
 
-A frequently asked question with integrations: how up to date is my data, really? The answer is yours to decide — per object, tailored to your process.
+A frequently asked question with integrations: how up to date is my data, really? The answer is yours to decide: per object, tailored to your process.
 
 ## Real-time synchronisation
 
@@ -14,7 +14,7 @@ With real-time sync, data is updated immediately as soon as something changes in
 
 ## Scheduled synchronisation
 
-With scheduled sync, data is processed at fixed intervals — for example every hour or daily. This is useful for batch-processing large data volumes, for a manual check before data goes to the bookkeeping, and for a predictable system load.
+With scheduled sync, data is processed at fixed intervals, for example every hour or daily. This is useful for batch-processing large data volumes, for a manual check before data goes to the bookkeeping, and for a predictable system load.
 
 ## Mix both as needed
 
@@ -26,4 +26,4 @@ Built-in logging provides immediate error reporting, so any problems are easy to
 
 ## Your process leads
 
-The starting point: your organisation determines the synchronisation strategy based on your unique processes — not the other way around. [View the Exact Online integration](/en/producten/exact-online).
+The starting point: your organisation determines the synchronisation strategy based on your unique processes, not the other way around. [View the Exact Online integration](/en/producten/exact-online).

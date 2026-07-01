@@ -6,7 +6,7 @@ author: "Tom Hofland"
 category: "Billing Platform"
 ---
 
-Cijfers zijn pas waardevol als u er op het juiste moment op kunt sturen. Het Billing Platform levert daarom standaard realtime rapportages en dashboards mee — direct in Salesforce, in hetzelfde systeem waarin uw team dagelijks werkt. Geen exports naar spreadsheets, geen versies die uiteenlopen.
+Cijfers zijn pas waardevol als u er op het juiste moment op kunt sturen. Het Billing Platform levert daarom standaard realtime rapportages en dashboards mee: direct in Salesforce, in hetzelfde systeem waarin uw team dagelijks werkt. Geen exports naar spreadsheets, geen versies die uiteenlopen.
 
 ## Realtime inzicht, geen exports
 
@@ -22,7 +22,7 @@ U ziet direct welke accounts openstaande betalingen hebben en kunt betaalrisico'
 
 ## Contracten en abonnementscycli
 
-Het systeem houdt aflopende contracten en abonnementscycli bij. Daardoor kunt u proactief sturen op verlengingen in plaats van achteraf te ontdekken dat een contract is verlopen — een directe kans om omzet te behouden.
+Het systeem houdt aflopende contracten en abonnementscycli bij. Daardoor kunt u proactief sturen op verlengingen in plaats van achteraf te ontdekken dat een contract is verlopen: een directe kans om omzet te behouden.
 
 ## Context voor betere beslissingen
 

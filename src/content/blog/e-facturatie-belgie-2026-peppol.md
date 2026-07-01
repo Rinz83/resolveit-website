@@ -22,7 +22,7 @@ De Belgische overheid wil administratieve lasten en handmatige verwerking vermin
 
 ## Wat dit voor uw organisatie betekent
 
-Uw boekhoudsoftware moet Peppol ondersteunen — WinBooks-gebruikers moeten mogelijk migreren. Data-accuratesse (btw-nummers, bankgegevens, referenties) wordt cruciaal, en uw volledige order-to-cash-proces vraagt om herinrichting. Dat raakt sales, finance én administratie.
+Uw boekhoudsoftware moet Peppol ondersteunen: WinBooks-gebruikers moeten mogelijk migreren. Data-accuratesse (btw-nummers, bankgegevens, referenties) wordt cruciaal, en uw volledige order-to-cash-proces vraagt om herinrichting. Dat raakt sales, finance én administratie.
 
 ## Compliant met Salesforce en Exact
 

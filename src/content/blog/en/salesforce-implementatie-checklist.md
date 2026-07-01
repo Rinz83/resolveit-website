@@ -31,4 +31,4 @@ User training is not an afterthought but an investment. Well-trained users get m
 
 ## Ready to get started?
 
-Would you like to talk through your Salesforce implementation? [Get in touch](/en/contact) — we are happy to think along with you.
+Would you like to talk through your Salesforce implementation? [Get in touch](/en/contact): we are happy to think along with you.

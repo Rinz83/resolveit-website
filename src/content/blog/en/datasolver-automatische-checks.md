@@ -6,7 +6,7 @@ author: "Imre Hamelink"
 category: "Datasolver"
 ---
 
-Companies relocate, merge, change their name or cease trading. Checking your database by hand is an impossible task — and it only grows larger as your Salesforce environment expands. Datasolver solves this with automatic periodic checks.
+Companies relocate, merge, change their name or cease trading. Checking your database by hand is an impossible task, and it only grows larger as your Salesforce environment expands. Datasolver solves this with automatic periodic checks.
 
 ## Continuous monitoring
 
@@ -28,7 +28,7 @@ Importantly: you decide what happens. The administrator reviews the flagged chan
 
 ## Less work, better decisions
 
-With automatic checks, the Salesforce administrator no longer has to schedule large-scale clean-up exercises. At the same time, you can be sure that your analyses and reports reflect the current market situation — which leads to better decisions.
+With automatic checks, the Salesforce administrator no longer has to schedule large-scale clean-up exercises. At the same time, you can be sure that your analyses and reports reflect the current market situation, which leads to better decisions.
 
 ## Preserve the value of your CRM
 

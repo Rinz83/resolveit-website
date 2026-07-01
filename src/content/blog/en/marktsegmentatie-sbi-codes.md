@@ -10,7 +10,7 @@ How specifically can you currently define your ideal customer in Salesforce? For
 
 ## Enrichment from the official source
 
-The integration pulls up-to-date SBI codes and trade names directly from the Trade Register. That data is placed automatically into related lists in Salesforce — no manual entry.
+The integration pulls up-to-date SBI codes and trade names directly from the Trade Register. That data is placed automatically into related lists in Salesforce, with no manual entry.
 
 ## Immediately usable in reports
 
@@ -18,7 +18,7 @@ Because the data comes in structured, it can be used straight away in standard S
 
 ## Clean, complete profiles
 
-Multiple trade names under a single account prevent confusion and duplicate records. The KvK classification forms the authoritative basis for organising your company data — even with complex organisational structures, your CRM stays clean.
+Multiple trade names under a single account prevent confusion and duplicate records. The KvK classification forms the authoritative basis for organising your company data: even with complex organisational structures, your CRM stays clean.
 
 ## Target more sharply, sell better
 

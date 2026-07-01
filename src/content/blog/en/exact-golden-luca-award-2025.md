@@ -6,7 +6,7 @@ author: "Rinse van Dorp"
 category: "Exact Online"
 ---
 
-We are proud to share it: our Exact integration has been awarded the **Golden Luca 2025** at **Level 4** — the highest level of expertise.
+We are proud to share it: our Exact integration has been awarded the **Golden Luca 2025** at **Level 4**: the highest level of expertise.
 
 ## What is the Golden Luca?
 

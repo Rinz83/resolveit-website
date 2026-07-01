@@ -6,11 +6,11 @@ author: "Jigar Raval"
 category: "SharePoint"
 ---
 
-Document management is not just about storage — it is also about security and structure. Our SharePoint connector handles both automatically, with no duplicate work.
+Document management is not just about storage: it is also about security and structure. Our SharePoint connector handles both automatically, with no duplicate work.
 
 ## Permissions Carry Over Automatically
 
-The access permissions from Salesforce are enforced in SharePoint: a user only sees the documents that belong to the accounts they have access to. You manage security just once in Salesforce; it automatically applies to the linked SharePoint documents — no separate configuration required.
+The access permissions from Salesforce are enforced in SharePoint: a user only sees the documents that belong to the accounts they have access to. You manage security just once in Salesforce; it automatically applies to the linked SharePoint documents, with no separate configuration required.
 
 ## Metadata for Findability
 

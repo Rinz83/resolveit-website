@@ -7,13 +7,13 @@ category: "Integrations"
 image: "/images/AdobeStock_-2-1024x683.jpg"
 ---
 
-Sales and finance often work in separate systems. The result: duplicate data entry, outdated data and frustration on both sides. A connection between Salesforce and Exact Online solves this — provided it is set up properly.
+Sales and finance often work in separate systems. The result: duplicate data entry, outdated data and frustration on both sides. A connection between Salesforce and Exact Online solves this, provided it is set up properly.
 
 ## Why connect?
 
-- **No duplicate data entry** — customer and invoice details stay automatically in sync.
-- **Real-time insight** — sales sees the payment status, finance sees the pipeline.
-- **Fewer errors** — manual retyping is a thing of the past.
+- **No duplicate data entry**: customer and invoice details stay automatically in sync.
+- **Real-time insight**: sales sees the payment status, finance sees the pipeline.
+- **Fewer errors**: manual retyping is a thing of the past.
 
 ## Points to keep in mind
 

@@ -1,6 +1,6 @@
 ---
 title: "How to get end users to embrace Salesforce"
-description: "The best implementation fails without adoption. Practical tips — from leading by example at management level to key users — to get your team really using Salesforce."
+description: "The best implementation fails without adoption. Practical tips, from leading by example at management level to key users, to get your team really using Salesforce."
 pubDate: 2025-11-11
 author: "Lisette de Gijsel"
 category: "Consultancy"

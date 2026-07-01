@@ -1,6 +1,6 @@
 ---
 title: "Bouwen aan een duurzame toekomst: hoe B2B-bedrijven kunnen verduurzamen"
-description: "Van duurzame supply chains tot digitale transformatie en ESG-rapportage — hoe B2B-organisaties het voortouw nemen in een groenere economie."
+description: "Van duurzame supply chains tot digitale transformatie en ESG-rapportage: hoe B2B-organisaties het voortouw nemen in een groenere economie."
 pubDate: 2025-09-05
 author: "Rinse van Dorp"
 category: "CRM Strategie"
@@ -10,7 +10,7 @@ Duurzaamheid staat hoog op de agenda van B2B-organisaties. Wie nu het voortouw n
 
 ## Duurzame supply chains en circulariteit
 
-Ontwikkel ethische inkooppraktijken, hanteer een gedragscode voor leveranciers op milieugebied en stel CO₂-reductiedoelen voor productie en transport. Circulaire modellen — repareren, hergebruiken en recyclen door de hele keten — beperken afval en milieu-impact.
+Ontwikkel ethische inkooppraktijken, hanteer een gedragscode voor leveranciers op milieugebied en stel CO₂-reductiedoelen voor productie en transport. Circulaire modellen (repareren, hergebruiken en recyclen door de hele keten) beperken afval en milieu-impact.
 
 ## Digitale transformatie
 

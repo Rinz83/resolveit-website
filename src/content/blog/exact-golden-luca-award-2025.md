@@ -6,7 +6,7 @@ author: "Rinse van Dorp"
 category: "Exact Online"
 ---
 
-We zijn er trots op: onze Exact-integratie is bekroond met de **Golden Luca 2025** op **Level 4** — het hoogste niveau van expertise.
+We zijn er trots op: onze Exact-integratie is bekroond met de **Golden Luca 2025** op **Level 4**, het hoogste niveau van expertise.
 
 ## Wat is de Golden Luca?
 

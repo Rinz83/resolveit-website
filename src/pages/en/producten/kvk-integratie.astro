@@ -5,11 +5,11 @@ import { calendlyUrl, pardotForms } from '../../../i18n/ui.js';
 import '../../../styles/product.css';
 
 const features = [
-  { icon: '🏢', title: 'Company enrichment', text: 'Search by registration number, trade name or (part of an) address and enrich records with trade names, industry codes, addresses and branch details — in one click.' },
+  { icon: '🏢', title: 'Company enrichment', text: 'Search by registration number, trade name or (part of an) address and enrich records with trade names, industry codes, addresses and branch details, in one click.' },
   { icon: '✅', title: 'VIES VAT validation', text: 'Validate EU VAT numbers straight from the Salesforce record. Ensure your invoices meet the legal requirements for European customers.' },
   { icon: '🔗', title: 'Peppol Directory', text: 'Look up Peppol identification numbers without leaving Salesforce. Ready for the mandatory e-invoicing coming across Europe.' },
   { icon: '🔄', title: 'Automatic periodic checks', text: 'The tool checks previously enriched companies automatically. Changes in the register appear clearly in a report.' },
-  { icon: '🧩', title: 'Modular by design', text: 'Company enrichment, VIES VAT checker and Peppol Directory can also be used independently — exactly what you need.' },
+  { icon: '🧩', title: 'Modular by design', text: 'Company enrichment, VIES VAT checker and Peppol Directory can also be used independently: exactly what you need.' },
   { icon: '🎯', title: 'Clean, current data', text: 'No more polluted database. Company data stays automatically up to date, so you build on reliable information.' },
 ];
 
@@ -17,11 +17,11 @@ const dataFields = ['Registration no.', 'VAT number', 'Branch number', 'Legal fo
 
 const faqs = [
   { q: 'What can I search on in the company enrichment?', a: 'By registration number, VAT number, trade name, address or part of the address. You browse the results from the business register and create or update a Salesforce record in one click.' },
-  { q: 'Which company data is retrieved?', a: 'Among others registration number, VAT number, branch number, legal form, head and secondary office, number of employees, trade names, addresses and industry codes — automatically in the correct fields.' },
+  { q: 'Which company data is retrieved?', a: 'Among others registration number, VAT number, branch number, legal form, head and secondary office, number of employees, trade names, addresses and industry codes, automatically in the correct fields.' },
   { q: 'How do the automatic periodic checks work?', a: 'The tool automatically checks previously assessed companies. If there are changes in the business register, these are shown clearly in a report, so your database stays current without manual work.' },
-  { q: 'Can I use the components independently?', a: 'Yes. The company enrichment, the VIES VAT checker and the Peppol Directory can each be used separately — you choose what fits your process.' },
+  { q: 'Can I use the components independently?', a: 'Yes. The company enrichment, the VIES VAT checker and the Peppol Directory can each be used separately: you choose what fits your process.' },
   { q: 'How do I validate VAT numbers of European customers?', a: 'Via the built-in VIES validation you check EU VAT numbers straight from the Salesforce record. This ensures your invoices meet the legal requirements for B2B in Europe.' },
-  { q: 'Why is Peppol important for e-invoicing?', a: 'E-invoicing via Peppol is becoming mandatory across Europe — already in force in Belgium, from September 2026 in France and EU-wide towards 2030. Combine this with our <a href="/en/producten/exact-online">Influx Exact Connector</a> for Peppol-compliant invoicing under EN 16931.' },
+  { q: 'Why is Peppol important for e-invoicing?', a: 'E-invoicing via Peppol is becoming mandatory across Europe: already in force in Belgium, from September 2026 in France, and EU-wide towards 2030. Combine this with our <a href="/en/producten/exact-online">Influx Exact Connector</a> for Peppol-compliant invoicing under EN 16931.' },
   { q: 'Does clean data also lead to better invoicing?', a: 'Certainly. Correct company and VAT data form the basis for error-free invoices. Many customers therefore combine Datasolver with our <a href="/en/producten/billing-module">Billing Module</a>.' },
   { q: 'Does it help clean up a polluted database?', a: 'Yes. Existing accounts are enriched with current data and checked periodically. For a thorough approach, our <a href="/en/diensten/consultancy">consultancy</a> experts are happy to help.' },
   { q: 'Is there a demo or trial?', a: 'Yes. <a href="/en/contact">Get in touch</a> for a demo or a no-obligation trial of the Datasolver module.' },
@@ -34,7 +34,7 @@ const faqJsonLd = JSON.stringify({
 });
 ---
 
-<Layout breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Products', item: '/en/producten' }, { name: 'Datasolver', item: '/en/producten/kvk-integratie' }]} title="Datasolver / Company integration — Enrich your Salesforce data" description="Automate the enrichment of your company data in Salesforce: business register data, VIES VAT validation and Peppol Directory. Always current, reliable data.">
+<Layout breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Products', item: '/en/producten' }, { name: 'Datasolver', item: '/en/producten/kvk-integratie' }]} title="Datasolver / Company integration: enrich your Salesforce data" description="Automate the enrichment of your company data in Salesforce: business register data, VIES VAT validation and Peppol Directory. Always current, reliable data.">
 
   <section class="pp-hero">
     <div class="pp-aurora" aria-hidden="true"><span></span><span></span></div>
@@ -42,7 +42,7 @@ const faqJsonLd = JSON.stringify({
       <div class="pp-hero-copy">
         <span class="pp-badge"><span class="pp-badge-dot"></span> Datasolver · Integration</span>
         <h1>Enrich your <span class="gradient-text">company data</span> automatically</h1>
-        <p>Retrieve business register data, validate VAT numbers and find Peppol IDs — <strong>without leaving Salesforce.</strong> Always current, clean data to build on.</p>
+        <p>Retrieve business register data, validate VAT numbers and find Peppol IDs, <strong>without leaving Salesforce.</strong> Always current, clean data to build on.</p>
         <div class="pp-hero-actions">
           <a href="#demo" class="btn btn-primary">Request a demo</a>
           <a href="/en/contact" class="btn btn-outline">Try for free</a>
@@ -89,7 +89,7 @@ const faqJsonLd = JSON.stringify({
       <div class="section-header reveal">
         <span class="eyebrow">Features</span>
         <h2>Three powerful tools, one module</h2>
-        <p>Enrich, validate and make e-invoicing-proof — all within Salesforce.</p>
+        <p>Enrich, validate and make e-invoicing-proof: all within Salesforce.</p>
       </div>
       <div class="grid-3">
         {features.map((f, i) => (
@@ -169,7 +169,7 @@ const faqJsonLd = JSON.stringify({
     </div>
   </section>
 
-  <FormModal id="demo" title="Request a demo — Datasolver" formUrl={pardotForms.demoKvk} />
+  <FormModal id="demo" title="Request a demo: Datasolver" formUrl={pardotForms.demoKvk} />
 
 </Layout>
 

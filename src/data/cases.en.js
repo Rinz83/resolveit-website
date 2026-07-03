@@ -3,6 +3,42 @@
 
 export const cases = [
   {
+    slug: 'zyfer',
+    client: 'Zyfer',
+    logo: null,
+    image: '/images/cases/case-zyfer.svg',
+    sector: 'Recruitment',
+    tags: ['Integration', 'Influx Exact Connector', 'Recruitment'],
+    summary: 'Sales and purchase invoices synchronised automatically from Salesforce to Exact Online, with Peppol e-invoicing and AI-assisted recruitment.',
+    about: 'Zyfer is a recruitment agency that brings organisations and talent together. Placements, margins and invoicing follow each other at a fast pace. Salesforce is the commercial heart of the organisation; Exact Online runs the financial administration. Those two worlds had to connect seamlessly.',
+    openingQuote: { text: 'Invoices that used to be retyped by hand now flow straight into Exact. We no longer give them a second thought.', author: 'Team Zyfer' },
+    challengeIntro: 'The commercial side of Zyfer already ran on Salesforce, but invoicing lived in Exact Online. Every sales invoice and every purchase invoice from contracted professionals had to be re-entered manually. That cost time, introduced errors and left finance without a current picture.',
+    challengePoints: [
+      'Sales invoices were transferred manually from Salesforce to Exact Online',
+      'Purchase invoices from contracted professionals required the same double entry',
+      'Invoice number sequences had to be kept consistent across both systems',
+      'The upcoming Peppol e-invoicing mandate called for a future-proof setup',
+    ],
+    approachIntro: 'With our Influx Exact Connector we connected Salesforce directly to Exact Online, covering both the sales and the purchase side. Around it, we configured the invoicing flows, number sequences and Peppol e-invoicing, step by step and in close consultation with the Zyfer team.',
+    approachPhases: [
+      { title: 'Sales invoices', text: 'Invoices created in Salesforce synchronise automatically to Exact Online, including customer details and invoice lines.' },
+      { title: 'Purchase invoices', text: 'The purchase side was connected as well, so invoices from contracted professionals follow the same automated route.' },
+      { title: 'Peppol & number sequences', text: 'We set up Peppol e-invoicing and made sure invoice number sequences stay correct automatically, ready for the European e-invoicing mandate.' },
+      { title: 'Smarter recruiting', text: 'With AI-driven CV parsing and Datasolver company data, we also strengthened the recruitment process itself, directly in Salesforce.' },
+    ],
+    midQuote: { text: 'Short lines and fast switching: changes are often live within the same week.', author: 'Team Zyfer' },
+    resultsIntro: 'Zyfer now invoices entirely from Salesforce, while Exact Online stays synchronised automatically. Finance works with current figures and the team keeps its hands free for recruitment.',
+    results: [
+      { num: '2 directions', label: 'sales and purchasing synchronised' },
+      { num: 'Peppol', label: 'ready for e-invoicing' },
+      { num: 'Less', label: 'manual work and entry errors' },
+    ],
+    resultsNarrative: 'Retyping invoices is a thing of the past: sales and purchase invoices flow automatically into Exact Online, with correct number sequences and a Peppol setup that is ready for the future. Combined with AI-assisted CV processing and enriched company data, Zyfer gets more out of Salesforce than invoicing alone.',
+    quote: { text: 'The connection between Salesforce and Exact runs silently in the background. Exactly as it should.', author: 'Team Zyfer' },
+    lookingAhead: 'With the invoicing flows in place, Zyfer is building further on a data-driven recruitment process, with AI and automation as permanent building blocks.',
+    stack: ['Influx Exact Connector', 'Peppol e-invoicing', 'Datasolver', 'AI CV parsing'],
+  },
+  {
     slug: 'talpa-studios',
     client: 'Talpa Studios',
     logo: '/images/clients/talpa.png',

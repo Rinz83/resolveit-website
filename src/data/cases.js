@@ -3,6 +3,42 @@
 
 export const cases = [
   {
+    slug: 'zyfer',
+    client: 'Zyfer',
+    logo: null,
+    image: '/images/cases/case-zyfer.svg',
+    sector: 'Recruitment',
+    tags: ['Integratie', 'Influx Exact Connector', 'Recruitment'],
+    summary: 'Verkoop- en inkoopfacturen automatisch van Salesforce naar Exact Online, met Peppol e-facturatie en AI-ondersteund recruitment.',
+    about: 'Zyfer is een recruitmentbureau dat organisaties en talent bij elkaar brengt. Plaatsingen, marge en facturatie volgen elkaar in hoog tempo op. Salesforce vormt het commerciële hart van de organisatie; Exact Online de financiële administratie. Die twee werelden moesten naadloos op elkaar aansluiten.',
+    openingQuote: { text: 'Facturen die vroeger handmatig werden overgetypt, lopen nu vanzelf door naar Exact. Daar kijken we niet meer naar om.', author: 'Team Zyfer' },
+    challengeIntro: 'De commerciële kant van Zyfer draaide al op Salesforce, maar de facturatie leefde in Exact Online. Elke verkoopfactuur en elke inkoopfactuur van ingehuurde professionals moest handmatig worden overgenomen. Dat kostte tijd, introduceerde fouten en gaf finance geen actueel beeld.',
+    challengePoints: [
+      'Verkoopfacturen werden handmatig overgezet van Salesforce naar Exact Online',
+      'Inkoopfacturen van ingehuurde professionals vroegen om dezelfde dubbele invoer',
+      'Factuurnummerreeksen moesten in beide systemen kloppend worden gehouden',
+      'De aankomende Peppol-verplichting voor e-facturatie vroeg om een toekomstvaste inrichting',
+    ],
+    approachIntro: 'Met onze Influx Exact Connector koppelden we Salesforce rechtstreeks aan Exact Online, voor zowel de verkoop- als de inkoopkant. Daaromheen richtten we de facturatiestromen, nummerreeksen en Peppol e-facturatie in, stap voor stap en in nauw overleg met het team van Zyfer.',
+    approachPhases: [
+      { title: 'Verkoopfacturen', text: 'Facturen die in Salesforce ontstaan, synchroniseren automatisch naar Exact Online, inclusief klantgegevens en factuurregels.' },
+      { title: 'Inkoopfacturen', text: 'Ook de inkoopkant werd aangesloten, zodat facturen van ingehuurde professionals dezelfde geautomatiseerde route volgen.' },
+      { title: 'Peppol & nummerreeksen', text: 'We richtten Peppol e-facturatie in en zorgden dat factuurnummerreeksen automatisch kloppen, klaar voor de Europese e-facturatieverplichting.' },
+      { title: 'Slimmer werven', text: 'Met AI-gedreven cv-parsing en Datasolver-bedrijfsdata versterkten we daarnaast het recruitmentproces zelf, rechtstreeks in Salesforce.' },
+    ],
+    midQuote: { text: 'Korte lijnen en snel schakelen: aanpassingen zijn vaak dezelfde week nog live.', author: 'Team Zyfer' },
+    resultsIntro: 'Zyfer factureert nu volledig vanuit Salesforce, terwijl Exact Online automatisch synchroon blijft. Finance werkt met actuele cijfers en het team houdt de handen vrij voor recruitment.',
+    results: [
+      { num: '2 richtingen', label: 'verkoop én inkoop gesynchroniseerd' },
+      { num: 'Peppol', label: 'klaar voor e-facturatie' },
+      { num: 'Minder', label: 'handwerk en invoerfouten' },
+    ],
+    resultsNarrative: 'Het overtypen van facturen is verleden tijd: verkoop- en inkoopfacturen lopen automatisch door naar Exact Online, met kloppende nummerreeksen en een Peppol-inrichting die klaar is voor de toekomst. Gecombineerd met AI-ondersteunde cv-verwerking en verrijkte bedrijfsdata haalt Zyfer meer uit Salesforce dan alleen facturatie.',
+    quote: { text: 'De koppeling tussen Salesforce en Exact draait geruisloos op de achtergrond. Precies zoals het hoort.', author: 'Team Zyfer' },
+    lookingAhead: 'Met de facturatiestromen op orde bouwt Zyfer verder aan een datagedreven recruitmentproces, met AI en automatisering als vaste bouwstenen.',
+    stack: ['Influx Exact Connector', 'Peppol e-facturatie', 'Datasolver', 'AI cv-parsing'],
+  },
+  {
     slug: 'talpa-studios',
     client: 'Talpa Studios',
     logo: '/images/clients/talpa.png',

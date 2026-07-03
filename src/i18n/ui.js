@@ -30,7 +30,7 @@ export const translatedPaths = new Set([
   '/producten', '/producten/ai-prompt-builder', '/producten/billing-module', '/producten/kvk-integratie', '/producten/signflow',
   '/producten/exact-online', '/producten/sharepoint', '/producten/sharepoint/installatie',
   '/over-ons', '/jobs',
-  '/cases', '/cases/talpa-studios', '/cases/multa-casting', '/cases/mybusinessmedia',
+  '/cases', '/cases/zyfer', '/cases/talpa-studios', '/cases/multa-casting', '/cases/mybusinessmedia',
   '/cases/marketresponse', '/cases/solvid-ondernemen', '/cases/payplaza',
   '/algemene-voorwaarden', '/privacybeleid', '/cookiebeleid',
   '/blog',

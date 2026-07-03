@@ -1,0 +1,201 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FormModal from '../../components/FormModal.astro';
+import { calendlyUrl, pardotForms } from '../../i18n/ui.js';
+import '../../styles/product.css';
+
+const features = [
+  { icon: '✍️', title: 'Digitaal ondertekenen vanuit Salesforce', text: 'Verstuur contracten, offertes en facturen ter ondertekening zonder Salesforce te verlaten. Geen losse e-signing tool, geen exports, geen dubbele administratie.' },
+  { icon: '🧭', title: 'Wizard in 4 stappen', text: 'Configureer het document, voeg ondertekenaars toe, plaats de handtekeningvelden en verstuur. De ingebouwde wizard leidt elke gebruiker foutloos door het proces.' },
+  { icon: '🤖', title: 'Genereer documenten met AI', text: 'Nog geen document? Beschrijf wat u nodig heeft en laat AI het document opstellen. Of upload een bestaande PDF, of kies een bestand dat al aan het record hangt.' },
+  { icon: '🎯', title: 'Velden slepen op de PDF', text: 'Plaats handtekening-, initialen- en datumvelden met een klik op de juiste plek in het document, per ondertekenaar. U bepaalt exact wie waar tekent.' },
+  { icon: '🔢', title: 'Ondertekenvolgorde en observers', text: 'Meerdere ondertekenaars per partij, in de volgorde die u kiest. Voeg observers toe die meekijken en een kopie ontvangen zonder zelf te hoeven tekenen.' },
+  { icon: '📎', title: 'Getekend document automatisch terug op het record', text: 'Zodra alle partijen getekend hebben, wordt de definitieve PDF automatisch gegenereerd en aan het Salesforce-record gekoppeld. Volledig aantoonbaar, altijd terug te vinden.' },
+];
+
+const steps = [
+  { n: '1', title: 'Configureer document', text: 'Kies: genereer met AI, upload een PDF of gebruik een bestand van het record. Uw eigen partij wordt automatisch ingevuld vanaf de recordpagina.' },
+  { n: '2', title: 'Voeg ondertekenaars toe', text: 'Per partij voegt u ondertekenaars en observers toe, inclusief e-mail, functie en ondertekenvolgorde. Een visuele preview toont de volgorde.' },
+  { n: '3', title: 'Plaats handtekeningvelden', text: 'Klik op de PDF om handtekening-, initialen- en datumvelden te plaatsen, gekoppeld aan de juiste ondertekenaar.' },
+  { n: '4', title: 'Controleer en verstuur', text: 'Kies een e-mailtemplate voor de uitnodiging en verstuur. Elke ondertekenaar krijgt een beveiligde, persoonlijke link. Inloggen in Salesforce is niet nodig.' },
+];
+
+const faqs = [
+  { q: 'Moeten ondertekenaars een Salesforce-account hebben?', a: 'Nee. Elke ondertekenaar ontvangt per e-mail een beveiligde, tijdelijk geldige link naar een eigen ondertekenpagina. Daar tekenen ze het document in de browser, op elk apparaat, zonder in te loggen.' },
+  { q: 'Op welke pagina\'s kan ik SignFlow gebruiken?', a: 'Overal. De component werkt op elke recordpagina (Opportunity, Account, Contact of een custom object) en op de Home- en App-pagina\'s. Op een recordpagina wordt uw eigen partij automatisch vooringevuld vanaf het record.' },
+  { q: 'Hoe kom ik aan het document dat getekend moet worden?', a: 'Op drie manieren: laat AI het document genereren op basis van uw omschrijving, upload een bestaande PDF, of kies een bestand dat al in de Files van het record staat.' },
+  { q: 'Kan ik meerdere ondertekenaars en een volgorde instellen?', a: 'Ja. Per partij voegt u zoveel ondertekenaars toe als nodig, elk met een eigen volgnummer. Partij 1 tekent altijd eerst; ondertekenaars met hetzelfde volgnummer tekenen gelijktijdig. Observers ontvangen een kopie zodra alles getekend is.' },
+  { q: 'Kan ik de uitnodigingsmail aanpassen?', a: 'Volledig. SignFlow gebruikt Salesforce Email Templates: elke template die u in de map "Document Signing Templates" plaatst, verschijnt automatisch in de keuzelijst. Zo bepaalt uw team zelf de toon en inhoud, zonder configuratiewijzigingen.' },
+  { q: 'Wat gebeurt er nadat iedereen getekend heeft?', a: 'Het systeem genereert automatisch de definitieve, getekende PDF en koppelt deze aan het Salesforce-record. Observers krijgen een notificatie. U hoeft niets handmatig te archiveren.' },
+  { q: 'Is SignFlow een koppeling met een externe e-signing dienst?', a: 'Nee, SignFlow is volledig native gebouwd in Salesforce. Uw documenten en ondertekenproces blijven binnen uw eigen Salesforce-omgeving, zonder aparte licenties voor een externe signing-tool.' },
+  { q: 'Is er een demo beschikbaar?', a: 'Ja. <a href="/contact">Neem contact op</a> voor een persoonlijke demo van SignFlow in uw eigen Salesforce-omgeving.' },
+];
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })),
+});
+---
+
+<Layout breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Producten', item: '/producten' }, { name: 'SignFlow', item: '/producten/signflow' }]} title="SignFlow: digitaal documenten ondertekenen vanuit Salesforce" description="Verstuur contracten en offertes ter digitale ondertekening, rechtstreeks vanuit Salesforce. Native component, AI-documentgeneratie, ondertekenvolgorde en automatische archivering.">
+
+  <section class="pp-hero">
+    <div class="pp-aurora" aria-hidden="true"><span></span><span></span></div>
+    <div class="container pp-hero-inner">
+      <div class="pp-hero-copy">
+        <span class="pp-badge"><span class="pp-badge-dot"></span> SignFlow · Native Salesforce e-signing</span>
+        <h1>Laat documenten <span class="gradient-text">digitaal ondertekenen</span> vanuit Salesforce</h1>
+        <p>Contract klaar? Verstuur het ter ondertekening <strong>zonder Salesforce te verlaten.</strong> Geen externe signing-tool, geen exports: van document tot getekende PDF op het record, in vier stappen.</p>
+        <div class="pp-hero-actions">
+          <a href="#demo" class="btn btn-primary">Vraag een demo aan</a>
+          <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-outline">Plan een gesprek</a>
+        </div>
+      </div>
+      <div class="pp-hero-visual">
+        <div class="sf-card">
+          <div class="sf-steps">
+            <span class="sf-step done">✓</span><i></i>
+            <span class="sf-step done">✓</span><i></i>
+            <span class="sf-step done">✓</span><i></i>
+            <span class="sf-step active">4</span>
+          </div>
+          <div class="sf-doc">
+            <span class="sf-doc-ico">📄</span>
+            <div><strong>Contract_2026-0142.pdf</strong><small>Klaar om te versturen</small></div>
+            <span class="sf-check">✓</span>
+          </div>
+          <div class="sf-signers">
+            <div class="sf-signer"><span class="sf-avatar">JG</span><div><b>Jane Grey</b><small>Partij 1 · Tekent als 1e</small></div><span class="sf-sig">✍️</span></div>
+            <div class="sf-signer"><span class="sf-avatar">EF</span><div><b>Edna Frank</b><small>Partij 2 · Tekent als 2e</small></div><span class="sf-sig">✍️</span></div>
+          </div>
+          <div class="sf-send">Verstuur ter ondertekening →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pp-trust">
+    <div class="container pp-trust-grid">
+      <div><strong>100% native</strong><span>in Salesforce</span></div>
+      <div><strong>Geen login</strong><span>voor ondertekenaars</span></div>
+      <div><strong>AI</strong><span>documentgeneratie</span></div>
+      <div><strong>Auto</strong><span>archivering op record</span></div>
+    </div>
+  </section>
+
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Functionaliteiten</span>
+        <h2>Alles voor digitale ondertekening, op één plek</h2>
+        <p>Van documentcreatie tot getekende PDF, volledig binnen uw Salesforce-omgeving.</p>
+      </div>
+      <div class="grid-3">
+        {features.map((f, i) => (
+          <div class="card pp-feature reveal" style={`--reveal-delay:${(i % 3) * 0.08}s`}>
+            <div class="pp-feature-ico">{f.icon}</div>
+            <h3>{f.title}</h3>
+            <p class="text-muted">{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Hoe het werkt</span>
+        <h2>Van document naar handtekening in 4 stappen</h2>
+        <p>Een ingebouwde wizard begeleidt de gebruiker van begin tot eind.</p>
+      </div>
+      <div class="sf-stepgrid">
+        {steps.map((s, i) => (
+          <div class="card sf-stepcard reveal" style={`--reveal-delay:${i * 0.08}s`}>
+            <span class="sf-stepnum">{s.n}</span>
+            <h3>{s.title}</h3>
+            <p class="text-muted">{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-off-white">
+    <div class="container sf-why-wrap">
+      <div class="reveal">
+        <span class="eyebrow">Waarom SignFlow?</span>
+        <h2>Stop met mailen, printen en wachten</h2>
+        <ul class="list-check" style="margin-top:1.5rem;">
+          <li>Sneller getekende deals: versturen kost minuten, niet dagen</li>
+          <li>Geen aparte e-signing licenties of losse tools meer nodig</li>
+          <li>Uw eigen partij wordt automatisch ingevuld vanaf het record</li>
+          <li>Volledig inzicht: status en getekende documenten op het record</li>
+          <li>Werkt op elk object, ook custom objects en de Home-pagina</li>
+        </ul>
+      </div>
+      <div class="card sf-flexcard reveal">
+        <h3>Overal inzetbaar in Salesforce</h3>
+        <p class="text-muted">Plaats de SignFlow-component op elke recordpagina (Opportunity, Account, Contact of een custom object) of op de Home- en App-pagina's. Eén component dekt alle ondertekenscenario's: vanuit een deal, een account of een losstaand documentproces.</p>
+        <a href="#demo" class="btn btn-primary" style="margin-top:1rem;">Vraag een demo aan</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:820px;">
+      <div class="section-header reveal"><span class="eyebrow">Veelgestelde vragen</span><h2>Goed om te weten</h2></div>
+      <div class="pp-faq-list">
+        {faqs.map(f => (
+          <details class="pp-faq reveal"><summary>{f.q}<span class="pp-faq-plus">+</span></summary><p set:html={f.a} /></details>
+        ))}
+      </div>
+    </div>
+    <script type="application/ld+json" set:html={faqJsonLd} is:inline />
+  </section>
+
+  <section class="pp-cta bg-dark">
+    <div class="pp-cta-glow" aria-hidden="true"></div>
+    <div class="container pp-cta-inner reveal">
+      <div><h2>Klaar om sneller deals te sluiten?</h2><p>Vraag een demo aan en zie SignFlow werken in uw eigen Salesforce-omgeving.</p></div>
+      <div class="pp-cta-actions">
+        <a href="#demo" class="btn btn-primary">Vraag een demo aan</a>
+        <a href="/contact" class="btn btn-outline">Stel een vraag</a>
+      </div>
+    </div>
+  </section>
+
+  <FormModal id="demo" title="Vraag een demo aan: SignFlow" formUrl={pardotForms.contact} />
+
+</Layout>
+
+<style>
+.pp-hero-visual { position: relative; }
+.sf-card { background: #fff; border-radius: var(--radius-lg); box-shadow: 0 30px 70px rgba(0,0,0,0.45); padding: 1.5rem; animation: float-y 7s ease-in-out infinite; }
+.sf-steps { display: flex; align-items: center; gap: 0.35rem; margin-bottom: 1.25rem; }
+.sf-steps i { flex: 1; height: 2px; background: var(--color-green); }
+.sf-step { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; }
+.sf-step.done { background: var(--color-green); color: #fff; }
+.sf-step.active { background: #fff; color: var(--color-green-dark); border: 2px solid var(--color-green); }
+.sf-doc { display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1rem; background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: 10px; margin-bottom: 1rem; }
+.sf-doc strong { display: block; color: var(--color-text); font-size: 0.9rem; }
+.sf-doc small { color: var(--color-text-muted); font-size: 0.76rem; }
+.sf-check { margin-left: auto; width: 24px; height: 24px; border-radius: 50%; background: var(--color-green); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; }
+.sf-signers { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.1rem; }
+.sf-signer { display: flex; align-items: center; gap: 0.7rem; border-bottom: 1px dashed var(--color-light); padding-bottom: 0.55rem; }
+.sf-avatar { width: 32px; height: 32px; border-radius: 50%; background: rgba(109,183,87,0.16); color: var(--color-green-dark); font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.sf-signer b { display: block; color: var(--color-text); font-size: 0.86rem; }
+.sf-signer small { color: var(--color-text-muted); font-size: 0.74rem; }
+.sf-sig { margin-left: auto; }
+.sf-send { text-align: center; background: var(--color-green); color: #fff; font-weight: 600; font-size: 0.9rem; border-radius: 10px; padding: 0.7rem; }
+.sf-stepgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+@media (max-width: 960px) { .sf-stepgrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .sf-stepgrid { grid-template-columns: 1fr; } }
+.sf-stepcard { position: relative; padding-top: 2.5rem; }
+.sf-stepnum { position: absolute; top: -0.9rem; left: 1.25rem; width: 40px; height: 40px; border-radius: 12px; background: var(--color-green); color: #fff; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); }
+.sf-stepcard h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+.sf-why-wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
+@media (max-width: 820px) { .sf-why-wrap { grid-template-columns: 1fr; gap: 2.5rem; } }
+.sf-flexcard h3 { margin-bottom: 0.6rem; }
+</style>

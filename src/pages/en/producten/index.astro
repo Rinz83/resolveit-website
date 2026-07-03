@@ -45,7 +45,7 @@ const products = [
   {
     logo: '/images/logos/salespoint.svg',
     title: 'SalesPoint',
-    badge: 'AppExchange',
+    badge: 'AppExchange & AppSource',
     href: '/en/producten/sharepoint',
     description: 'Manage documents and files directly from Salesforce with a seamless connection to SharePoint.',
     features: ['Document management from Salesforce', 'Automatic saving', 'Version history', 'Teams integration'],
@@ -116,7 +116,8 @@ const products = [
 
 .product-card { display: flex; flex-direction: column; gap: 1rem; color: var(--color-text); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
 .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(109,183,87,0.4); }
-.product-header { display: flex; align-items: center; justify-content: space-between; }
+.product-header { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+.product-header .badge { white-space: nowrap; font-size: 0.7rem; padding: 0.3rem 0.7rem; flex-shrink: 0; }
 .product-icon { font-size: 2rem; display: flex; align-items: center; min-height: 44px; }
 .product-icon img { height: 34px; width: auto; max-width: 160px; object-fit: contain; display: block; }
 .product-card h2 { font-size: 1.4rem; }

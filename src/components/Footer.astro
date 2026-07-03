@@ -33,6 +33,11 @@ const en = lang === 'en';
         <li><a href={L('/diensten/consultancy')}>{en ? 'Audit & Consultancy' : 'Audit & Consultancy'}</a></li>
         <li><a href={L('/diensten/development')}>{en ? 'Development & Integrations' : 'Development & Integraties'}</a></li>
         <li><a href={L('/diensten/training')}>{en ? 'Training & Best Practices' : 'Training & Best Practices'}</a></li>
+        <li><a href={L('/diensten/agentforce')}>Agentforce & AI</a></li>
+        <li><a href={L('/diensten/managed-services')}>Managed Services</a></li>
+        <li><a href={L('/diensten/marketing-cloud')}>Marketing Cloud</a></li>
+        <li><a href={L('/diensten/experience-cloud')}>Experience Cloud</a></li>
+        <li><a href={L('/diensten/data-cloud')}>Data Cloud</a></li>
       </ul>
     </div>
 
@@ -40,10 +45,11 @@ const en = lang === 'en';
       <h4>{t('nav.producten')}</h4>
       <ul>
         <li><a href={L('/producten/billing-module')}>Billing Platform</a></li>
-        <li><a href={L('/producten/kvk-integratie')}>{en ? 'Datasolver (CoC)' : 'KvK Integratie'}</a></li>
-        <li><a href={L('/producten/exact-online')}>Influx Exact Connector</a></li>
+        <li><a href={L('/producten/ai-prompt-builder')}>AI Prompt Builder</a></li>
+        <li><a href={L('/producten/kvk-integratie')}>Datasolver</a></li>
         <li><a href={L('/producten/signflow')}>SignFlow</a></li>
-        <li><a href={L('/producten/sharepoint')}>SalesPoint</a></li>
+        <li><a href={L('/producten/exact-online')}>Influx Exact Connector</a></li>
+        <li><a href={L('/producten/sharepoint')}>SharePoint Connector</a></li>
       </ul>
     </div>
 
@@ -57,12 +63,14 @@ const en = lang === 'en';
         <li><a href={L('/voor-wie/recruitment')}>Recruitment</a></li>
         <li><a href={L('/voor-wie/energie-utilities')}>{en ? 'Energy & Utilities' : 'Energie & Utilities'}</a></li>
         <li><a href={L('/voor-wie/media-communicatie')}>{en ? 'Media & Communications' : 'Media & Communicatie'}</a></li>
+        <li><a href={L('/voor-wie/overige-sectoren')}>{en ? 'Other industries' : 'Overige sectoren'}</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>{t('footer.bedrijf')}</h4>
       <ul>
+        <li><a href={L('/oplossingen')}>{t('nav.oplossingen')}</a></li>
         <li><a href={L('/over-ons')}>{t('nav.overons')}</a></li>
         <li><a href={L('/cases')}>{t('nav.cases')}</a></li>
         <li><a href={L('/jobs')}>{t('nav.vacatures')}</a></li>

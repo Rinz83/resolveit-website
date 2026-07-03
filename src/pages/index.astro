@@ -14,7 +14,7 @@ const products = [
   { logo: '/images/logos/datasolver.svg', title: 'Datasolver', text: 'Bedrijfsgegevens ophalen via de Kamer van Koophandel, BTW-nummers valideren via VIES en Peppol ID\'s opzoeken, rechtstreeks in Salesforce.', badge: 'AppExchange', href: '/producten/kvk-integratie' },
   { logo: '/images/logos/signflow.svg', title: 'SignFlow', text: 'Laat contracten en offertes digitaal ondertekenen, rechtstreeks vanuit Salesforce, zonder externe signing-tool.', badge: 'Managed App', href: '/producten/signflow' },
   { logo: '/images/logos/influx-exact-connector.svg', title: 'Influx Exact Connector', text: 'Naadloze koppeling tussen Salesforce en Exact Online voor realtime financiële data en aansturing.', badge: 'Exact Online App Store', href: '/producten/exact-online' },
-  { logo: '/images/logos/salespoint.svg', title: 'SalesPoint', text: 'Documenten en bestanden beheren vanuit Salesforce met een directe koppeling naar SharePoint.', badge: 'AppExchange', href: '/producten/sharepoint' },
+  { logo: '/images/logos/salespoint.svg', title: 'SalesPoint', text: 'Documenten en bestanden beheren vanuit Salesforce met een directe koppeling naar SharePoint.', badge: 'AppExchange & AppSource', href: '/producten/sharepoint' },
 ];
 
 import { sectors } from '../data/sectors.js';
@@ -202,7 +202,7 @@ const row2 = clients.slice(mid);
         </div>
         <a href="/producten/exact-online" class="bp-node bp-n1"><img class="bp-logo bp-logo-wide" src="/images/logos/exact-online.svg" alt="Exact Online" /></a>
         <a href="/producten/billing-module" class="bp-node bp-n2"><span class="bp-stripe">Stripe</span> Betalingen</a>
-        <a href="/producten/kvk-integratie" class="bp-node bp-n3"><span>🏢</span> Datasolver</a>
+        <a href="/producten/kvk-integratie" class="bp-node bp-n3"><img class="bp-logo bp-logo-wide" src="/images/logos/datasolver.svg" alt="Datasolver" /></a>
         <a href="/producten/sharepoint" class="bp-node bp-n4"><img class="bp-logo" src="/images/logos/sharepoint.svg" alt="SharePoint" /> SharePoint</a>
         <svg class="bp-lines" viewBox="0 0 320 320" aria-hidden="true">
           <line x1="160" y1="160" x2="60" y2="60"/><line x1="160" y1="160" x2="260" y2="60"/>
@@ -224,10 +224,7 @@ const row2 = clients.slice(mid);
       <div class="grid-2">
         {products.map((p, i) => (
           <a href={p.href} class="product-card-dark reveal" style={`--reveal-delay:${i * 0.08}s`}>
-            <div class="product-card-top">
-              {p.logo && <span class="product-logo-chip"><img src={p.logo} alt={p.title} loading="lazy" /></span>}
-              <span class="badge">{p.badge}</span>
-            </div>
+            <div class="product-card-top"><span class="badge">{p.badge}</span></div>
             <h3 class="text-white">{p.title}</h3>
             <p style="color:rgba(255,255,255,0.7)">{p.text}</p>
             <span class="card-link">Bekijk product →</span>
@@ -698,9 +695,7 @@ const row2 = clients.slice(mid);
   background: rgba(255,255,255,0.07);
   border-color: rgba(109,183,87,0.4);
 }
-.product-card-dark .product-card-top { margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
-.product-logo-chip { background: #fff; border-radius: 10px; padding: 0.35rem 0.7rem; display: inline-flex; align-items: center; }
-.product-logo-chip img { height: 26px; width: auto; max-width: 130px; display: block; }
+.product-card-dark .product-card-top { margin-bottom: 1rem; }
 .product-card-dark h3 { margin-bottom: 0.5rem; }
 
 /* ============ SECTORS ============ */

@@ -9,12 +9,12 @@ const services = [
 ];
 
 const products = [
-  { title: 'Billing Platform', text: 'Facturatie, abonnementen en betalingen vanuit Salesforce, gekoppeld aan Stripe, Exact Online en uw administratie.', badge: 'Managed App', href: '/producten/billing-module' },
-  { title: 'AI Prompt Builder', text: 'Integreer OpenAI, Anthropic, Gemini of uw eigen LLM rechtstreeks in Salesforce Flows, zonder code.', badge: 'Managed App', href: '/producten/ai-prompt-builder' },
-  { title: 'Datasolver', text: 'Bedrijfsgegevens ophalen via de Kamer van Koophandel, BTW-nummers valideren via VIES en Peppol ID\'s opzoeken, rechtstreeks in Salesforce.', badge: 'AppExchange', href: '/producten/kvk-integratie' },
-  { title: 'SignFlow', text: 'Laat contracten en offertes digitaal ondertekenen, rechtstreeks vanuit Salesforce, zonder externe signing-tool.', badge: 'Managed App', href: '/producten/signflow' },
-  { title: 'Influx Exact Connector', text: 'Naadloze koppeling tussen Salesforce en Exact Online voor realtime financiële data en aansturing.', badge: 'Exact Online App Store', href: '/producten/exact-online' },
-  { title: 'SalesPoint', text: 'Documenten en bestanden beheren vanuit Salesforce met een directe koppeling naar SharePoint.', badge: 'AppExchange & Microsoft AppSource', href: '/producten/sharepoint' },
+  { logo: '/images/logos/billing-platform.svg', title: 'Billing Platform', text: 'Facturatie, abonnementen en betalingen vanuit Salesforce, gekoppeld aan Stripe, Exact Online en uw administratie.', badge: 'Managed App', href: '/producten/billing-module' },
+  { logo: '/images/logos/ai-prompt-builder.svg', title: 'AI Prompt Builder', text: 'Integreer OpenAI, Anthropic, Gemini of uw eigen LLM rechtstreeks in Salesforce Flows, zonder code.', badge: 'Managed App', href: '/producten/ai-prompt-builder' },
+  { logo: '/images/logos/datasolver.svg', title: 'Datasolver', text: 'Bedrijfsgegevens ophalen via de Kamer van Koophandel, BTW-nummers valideren via VIES en Peppol ID\'s opzoeken, rechtstreeks in Salesforce.', badge: 'AppExchange', href: '/producten/kvk-integratie' },
+  { logo: '/images/logos/signflow.svg', title: 'SignFlow', text: 'Laat contracten en offertes digitaal ondertekenen, rechtstreeks vanuit Salesforce, zonder externe signing-tool.', badge: 'Managed App', href: '/producten/signflow' },
+  { logo: '/images/logos/influx-exact-connector.svg', title: 'Influx Exact Connector', text: 'Naadloze koppeling tussen Salesforce en Exact Online voor realtime financiële data en aansturing.', badge: 'Exact Online App Store', href: '/producten/exact-online' },
+  { logo: '/images/logos/salespoint.svg', title: 'SalesPoint', text: 'Documenten en bestanden beheren vanuit Salesforce met een directe koppeling naar SharePoint.', badge: 'AppExchange & Microsoft AppSource', href: '/producten/sharepoint' },
 ];
 
 import { sectors } from '../data/sectors.js';
@@ -224,7 +224,10 @@ const row2 = clients.slice(mid);
       <div class="grid-2">
         {products.map((p, i) => (
           <a href={p.href} class="product-card-dark reveal" style={`--reveal-delay:${i * 0.08}s`}>
-            <div class="product-card-top"><span class="badge">{p.badge}</span></div>
+            <div class="product-card-top">
+              {p.logo && <span class="product-logo-chip"><img src={p.logo} alt={p.title} loading="lazy" /></span>}
+              <span class="badge">{p.badge}</span>
+            </div>
             <h3 class="text-white">{p.title}</h3>
             <p style="color:rgba(255,255,255,0.7)">{p.text}</p>
             <span class="card-link">Bekijk product →</span>
@@ -695,7 +698,9 @@ const row2 = clients.slice(mid);
   background: rgba(255,255,255,0.07);
   border-color: rgba(109,183,87,0.4);
 }
-.product-card-dark .product-card-top { margin-bottom: 1rem; }
+.product-card-dark .product-card-top { margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+.product-logo-chip { background: #fff; border-radius: 10px; padding: 0.35rem 0.7rem; display: inline-flex; align-items: center; }
+.product-logo-chip img { height: 26px; width: auto; max-width: 130px; display: block; }
 .product-card-dark h3 { margin-bottom: 0.5rem; }
 
 /* ============ SECTORS ============ */

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 48" role="img" aria-label="Influx Exact Connector">
+  <defs>
+    <linearGradient id="iec-g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6DB757"/>
+      <stop offset="1" stop-color="#3E8E41"/>
+    </linearGradient>
+  </defs>
+  <!-- Mark: two rings connected by bidirectional sync arrows -->
+  <g fill="none" stroke-linecap="round">
+    <circle cx="13" cy="24" r="9" stroke="url(#iec-g)" stroke-width="4.5"/>
+    <circle cx="39" cy="24" r="9" stroke="#1E2B23" stroke-opacity="0.75" stroke-width="4.5"/>
+    <path d="M20 19.5h11l-3-3M32 28.5H21l3 3" stroke="#3E8E41" stroke-width="2.4" stroke-linejoin="round"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="56" y="32" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#1E2B23">Influx<tspan fill="#3E8E41"> Exact Connector</tspan></text>
+</svg>

@@ -3,6 +3,42 @@
 
 export const cases = [
   {
+    slug: 'gkazas',
+    client: 'Gkazas',
+    logo: null,
+    image: '/images/cases/case-gkazas.svg',
+    sector: 'Retail & Food',
+    tags: ['Backoffice-automatisering', 'Exact Online', 'Facturatie'],
+    summary: 'De volledige backoffice geautomatiseerd: van opportunity tot verstuurde factuur, betalingen en voorraadbeheer, in één Salesforce-omgeving.',
+    about: 'Gkazas is een gerenommeerd olijfoliemerk in Nederland. De olijfolie vindt zijn weg naar consumenten, horeca en grote retailers. Achter dat groeiende merk zat een backoffice die het tempo moest bijhouden: orders, facturen, betalingen en voorraad, verspreid over losse systemen en Excel.',
+    openingQuote: { text: 'Wat eerst dagen handwerk per maand kostte, gebeurt nu automatisch op de achtergrond. We zijn met het merk bezig, niet met administratie.', author: 'Team Gkazas' },
+    challengeIntro: 'De commerciële groei van Gkazas liep harder dan de administratie aankon. Orders werden handmatig omgezet naar facturen, facturen handmatig opgesteld en verstuurd, en de boekhouding en voorraad werden in aparte systemen en Excel bijgehouden. Elke stap was een overdracht, en elke overdracht een kans op fouten.',
+    challengePoints: [
+      'Orders en facturen werden handmatig overgezet tussen systemen en Excel',
+      'Factuur-PDF\'s werden stuk voor stuk opgesteld en per mail verstuurd',
+      'De betaalstatus was alleen zichtbaar in de boekhouding, niet in Salesforce',
+      'Voorraad- en batchbeheer stonden los van het verkoopproces',
+    ],
+    approachIntro: 'We bouwden het volledige backoffice-proces na in Salesforce en automatiseerden elke schakel: van gewonnen opportunity tot betaalde factuur en bijgewerkte voorraad. Exact Online bleef de financiële administratie; Salesforce werd de plek waar het hele proces samenkomt.',
+    approachPhases: [
+      { title: 'Van opportunity naar factuur', text: 'Gewonnen opportunities worden automatisch omgezet naar facturen, inclusief factuurregels, prijsafspraken en kortingen per klanttype.' },
+      { title: 'PDF-facturen en verzending', text: 'Facturen worden automatisch als opgemaakte PDF gegenereerd en rechtstreeks vanuit Salesforce naar de klant gemaild, ook in bulk, met automatische betalingsherinneringen als opvolging.' },
+      { title: 'Synchronisatie met Exact Online', text: 'Facturen stromen automatisch door naar Exact Online, en betaalinformatie komt terug naar Salesforce. Zo ziet het team direct welke facturen openstaan of betaald zijn.' },
+      { title: 'Voorraad- en batchbeheer', text: 'Voorraadniveaus en batches worden bijgehouden in hetzelfde proces, zodat verkoop, levering en voorraad altijd op elkaar aansluiten.' },
+    ],
+    midQuote: { text: 'Elke sprint werd er iets zichtbaar opgeleverd. Zo zagen we het proces stap voor stap dichtklikken.', author: 'Team Gkazas' },
+    resultsIntro: 'De backoffice van Gkazas draait nu volledig geautomatiseerd in Salesforce, van order tot betaling en voorraad, terwijl Exact Online automatisch synchroon blijft.',
+    results: [
+      { num: '100%', label: 'geautomatiseerd facturatieproces' },
+      { num: '1 omgeving', label: 'voor orders, facturen, betalingen en voorraad' },
+      { num: 'Realtime', label: 'zicht op betaalstatus en voorraad' },
+    ],
+    resultsNarrative: 'Het overtypen tussen systemen en Excel is volledig verdwenen. Een gewonnen deal wordt automatisch een factuur, de PDF gaat vanzelf naar de klant, de boekhouding loopt synchroon mee en openstaande betalingen zijn direct zichtbaar, inclusief automatische herinneringen. Ook de facturatie richting grote retailketens loopt via hetzelfde geautomatiseerde proces.',
+    quote: { text: 'Van losse systemen en Excel naar één proces dat vanzelf loopt. Dat is precies wat we nodig hadden.', author: 'Team Gkazas' },
+    lookingAhead: 'Met een volledig geautomatiseerde backoffice als fundament bouwt Gkazas verder aan groei: nieuwe productlijnen, nieuwe kanalen en verdere verfijning van het orderproces, zonder dat de administratie een rem wordt.',
+    stack: ['Sales Cloud', 'Flow-automatisering', 'PDF-generatie', 'Exact Online-koppeling', 'Voorraad- & batchbeheer'],
+  },
+  {
     slug: 'zyfer',
     client: 'Zyfer',
     logo: null,

@@ -3,6 +3,42 @@
 
 export const cases = [
   {
+    slug: 'gkazas',
+    client: 'Gkazas',
+    logo: null,
+    image: '/images/cases/case-gkazas.svg',
+    sector: 'Retail & Food',
+    tags: ['Back-office automation', 'Exact Online', 'Invoicing'],
+    summary: 'The entire back office automated: from opportunity to delivered invoice, payments and stock management, in one Salesforce environment.',
+    about: 'Gkazas is a renowned olive oil brand in the Netherlands. Its olive oil finds its way to consumers, hospitality and major retailers. Behind that growing brand sat a back office that had to keep up the pace: orders, invoices, payments and stock, spread across separate systems and Excel.',
+    openingQuote: { text: 'What used to cost days of manual work per month now happens automatically in the background. We work on the brand, not on administration.', author: 'Team Gkazas' },
+    challengeIntro: 'Gkazas\' commercial growth was outpacing its administration. Orders were converted to invoices by hand, invoices were drafted and emailed one by one, and accounting and stock were kept in separate systems and Excel. Every step was a handover, and every handover a chance for errors.',
+    challengePoints: [
+      'Orders and invoices were transferred manually between systems and Excel',
+      'Invoice PDFs were drafted and emailed one at a time',
+      'Payment status was only visible in the accounting system, not in Salesforce',
+      'Stock and batch management sat apart from the sales process',
+    ],
+    approachIntro: 'We rebuilt the entire back-office process in Salesforce and automated every link in the chain: from won opportunity to paid invoice and updated stock. Exact Online remained the financial administration; Salesforce became the place where the whole process comes together.',
+    approachPhases: [
+      { title: 'From opportunity to invoice', text: 'Won opportunities are converted to invoices automatically, including invoice lines, pricing agreements and discounts per customer type.' },
+      { title: 'PDF invoices and delivery', text: 'Invoices are generated automatically as formatted PDFs and emailed to the customer straight from Salesforce, in bulk too, with automatic payment reminders as follow-up.' },
+      { title: 'Synchronisation with Exact Online', text: 'Invoices flow automatically into Exact Online, and payment information comes back into Salesforce. The team sees immediately which invoices are outstanding or paid.' },
+      { title: 'Stock and batch management', text: 'Stock levels and batches are tracked within the same process, so sales, delivery and stock always stay aligned.' },
+    ],
+    midQuote: { text: 'Every sprint delivered something visible. We watched the process click into place step by step.', author: 'Team Gkazas' },
+    resultsIntro: 'Gkazas\' back office now runs fully automated in Salesforce, from order to payment and stock, while Exact Online stays synchronised automatically.',
+    results: [
+      { num: '100%', label: 'automated invoicing process' },
+      { num: '1 environment', label: 'for orders, invoices, payments and stock' },
+      { num: 'Real-time', label: 'view of payment status and stock' },
+    ],
+    resultsNarrative: 'Retyping between systems and Excel has disappeared completely. A won deal automatically becomes an invoice, the PDF goes out to the customer by itself, the accounting stays in sync and outstanding payments are immediately visible, including automatic reminders. Invoicing towards major retail chains runs through the same automated process.',
+    quote: { text: 'From separate systems and Excel to one process that runs by itself. Exactly what we needed.', author: 'Team Gkazas' },
+    lookingAhead: 'With a fully automated back office as its foundation, Gkazas keeps building for growth: new product lines, new channels and further refinement of the order process, without administration becoming a brake.',
+    stack: ['Sales Cloud', 'Flow automation', 'PDF generation', 'Exact Online integration', 'Stock & batch management'],
+  },
+  {
     slug: 'zyfer',
     client: 'Zyfer',
     logo: null,

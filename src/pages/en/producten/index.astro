@@ -3,12 +3,20 @@ import Layout from '../../../layouts/Layout.astro';
 
 const products = [
   {
-    icon: '💳',
-    title: 'Billing Module',
+    logo: '/images/logos/billing-platform.svg',
+    title: 'Billing Platform',
     badge: 'Managed App',
     href: '/en/producten/billing-module',
     description: 'Invoicing straight from Salesforce: automated, accurate and seamlessly connected to your accounting.',
     features: ['Automatic invoice creation', 'Connection to accounting packages', 'Recurring billing', 'Reports & dashboards'],
+  },
+  {
+    logo: '/images/logos/ai-prompt-builder.svg',
+    title: 'AI Prompt Builder',
+    badge: 'Managed App',
+    href: '/en/producten/ai-prompt-builder',
+    description: 'Integrate OpenAI, Anthropic, Gemini or your own LLM directly into Salesforce Flows, without code.',
+    features: ['AI as an invocable action', 'Dynamic prompt templates', 'Multiple AI models', 'Works in all Flow types'],
   },
   {
     logo: '/images/logos/datasolver.svg',
@@ -27,16 +35,16 @@ const products = [
     features: ['Signing without a Salesforce login', 'AI document generation or your own PDF', 'Signing order and observers', 'Signed document automatically on the record'],
   },
   {
-    logo: '/images/logos/exact-online.svg',
-    title: 'Exact Online integration',
+    logo: '/images/logos/influx-exact-connector.svg',
+    title: 'Influx Exact Connector',
     badge: 'Exact Online App Store',
     href: '/en/producten/exact-online',
     description: 'Real-time financial data and two-way synchronisation between Salesforce and Exact Online.',
     features: ['Real-time synchronisation', 'Invoices & payments', 'Customer data link', 'Financial dashboard'],
   },
   {
-    logo: '/images/logos/sharepoint.svg',
-    title: 'SharePoint integration',
+    logo: '/images/logos/salespoint.svg',
+    title: 'SalesPoint',
     badge: 'AppExchange & Microsoft AppSource',
     href: '/en/producten/sharepoint',
     description: 'Manage documents and files directly from Salesforce with a seamless connection to SharePoint.',
@@ -45,7 +53,7 @@ const products = [
 ];
 ---
 
-<Layout title="Products" description="Discover Resolve IT's Salesforce products: Billing Module, Company integration, Exact Online and SharePoint integration.">
+<Layout title="Products" description="Discover Resolve IT's Salesforce products: Billing Module, Company integration, Exact Online and SalesPoint.">
 
   <div class="page-hero">
     <div class="container">

@@ -81,7 +81,7 @@ const row2 = clients.slice(mid);
     <div class="container hero-inner">
       <div class="hero-content">
         <span class="hero-pill"><span class="dot"></span> Salesforce Gold Partner · since 2019</span>
-        <h1>Harness the power of<br /><span class="gradient-text">Salesforce</span></h1>
+        <h1>Harness the<br />power of<br /><span class="gradient-text">Salesforce</span></h1>
         <p>Resolve IT helps businesses turn Salesforce into an engine for growth, from implementation to integration, training and consultancy.</p>
         <div class="hero-actions">
           <a href="/en/producten" class="btn btn-primary">Our products</a>
@@ -93,8 +93,8 @@ const row2 = clients.slice(mid);
           <div class="hstat"><span class="hstat-num">5★</span><span class="hstat-label">AppExchange</span></div>
         </div>
         <div class="hero-partners">
-          <span class="hp-badge">★ Salesforce Gold Consultancy Partner</span>
-          <span class="hp-badge">⬡ Salesforce ISV Partner</span>
+          <span class="hp-badge"><span class="hp-icon hp-gold">★</span> Salesforce Gold Consultancy Partner</span>
+          <span class="hp-badge"><span class="hp-icon hp-blue">⬡</span> Salesforce ISV Partner</span>
         </div>
       </div>
 
@@ -403,6 +403,9 @@ const row2 = clients.slice(mid);
   border-radius: var(--radius-pill); padding: 0.4rem 0.9rem;
   font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.9);
 }
+.hp-icon { font-style: normal; }
+.hp-gold { color: #f5c518; }
+.hp-blue { color: #00a1e0; }
 
 /* hero visual */
 .hero-visual { position: relative; }

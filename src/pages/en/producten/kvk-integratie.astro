@@ -9,8 +9,14 @@ const features = [
   { icon: '✅', title: 'VIES VAT validation', text: 'Validate EU VAT numbers straight from the Salesforce record. Ensure your invoices meet the legal requirements for European customers.' },
   { icon: '🔗', title: 'Peppol Directory', text: 'Look up Peppol identification numbers without leaving Salesforce. Ready for the mandatory e-invoicing coming across Europe.' },
   { icon: '🔄', title: 'Automatic periodic checks', text: 'The tool checks previously enriched companies automatically. Changes in the register appear clearly in a report.' },
-  { icon: '🧩', title: 'Modular by design', text: 'Company enrichment, VIES VAT checker and Peppol Directory can also be used independently: exactly what you need.' },
+  { icon: '🧩', title: 'Three flexible licences', text: 'Start with register enrichment and grow into VAT validation and Peppol. Three tiers, per user per month: exactly what you need.' },
   { icon: '🎯', title: 'Clean, current data', text: 'No more polluted database. Company data stays automatically up to date, so you build on reliable information.' },
+];
+
+const plans = [
+  { name: 'Basic', price: '20', sub: 'Clean register data', features: ['Search the business register (CoC)', 'Enrich existing records', 'Automatic periodic checks'], popular: false },
+  { name: 'Professional', price: '25', sub: 'Including VAT validation', features: ['Everything in Basic', 'EU VAT validation (VIES)', 'Create records from VAT numbers'], popular: true },
+  { name: 'Premium', price: '30', sub: 'Ready for e-invoicing', features: ['Everything in Professional', 'Peppol Directory integration'], popular: false },
 ];
 
 const dataFields = ['Registration no.', 'VAT number', 'Branch number', 'Legal form', 'Head office', 'Number of employees', 'Trade names', 'Addresses', 'Industry codes', 'Peppol ID'];
@@ -19,7 +25,7 @@ const faqs = [
   { q: 'What can I search on in the company enrichment?', a: 'By registration number, VAT number, trade name, address or part of the address. You browse the results from the business register and create or update a Salesforce record in one click.' },
   { q: 'Which company data is retrieved?', a: 'Among others registration number, VAT number, branch number, legal form, head and secondary office, number of employees, trade names, addresses and industry codes, automatically in the correct fields.' },
   { q: 'How do the automatic periodic checks work?', a: 'The tool automatically checks previously assessed companies. If there are changes in the business register, these are shown clearly in a report, so your database stays current without manual work.' },
-  { q: 'Can I use the components independently?', a: 'Yes. The company enrichment, the VIES VAT checker and the Peppol Directory can each be used separately: you choose what fits your process.' },
+  { q: 'Which licence tiers are available?', a: 'Three tiers, per user per month. Basic (€20): search the business register, enrich records and periodic checks. Professional (€25): everything in Basic plus EU VAT validation (VIES) and creating records from VAT numbers. Premium (€30): everything in Professional plus the Peppol Directory integration.' },
   { q: 'How do I validate VAT numbers of European customers?', a: 'Via the built-in VIES validation you check EU VAT numbers straight from the Salesforce record. This ensures your invoices meet the legal requirements for B2B in Europe.' },
   { q: 'Why is Peppol important for e-invoicing?', a: 'E-invoicing via Peppol is becoming mandatory across Europe: already in force in Belgium, from September 2026 in France, and EU-wide towards 2030. Combine this with our <a href="/en/producten/exact-online">Influx Exact Connector</a> for Peppol-compliant invoicing under EN 16931.' },
   { q: 'Does clean data also lead to better invoicing?', a: 'Certainly. Correct company and VAT data form the basis for error-free invoices. Many customers therefore combine Datasolver with our <a href="/en/producten/billing-module">Billing Module</a>.' },
@@ -117,31 +123,23 @@ const faqJsonLd = JSON.stringify({
   </section>
 
   <section class="section bg-off-white">
-    <div class="container ds-price-wrap">
-      <div class="reveal">
-        <span class="eyebrow">Why Datasolver?</span>
-        <h2>Stop retyping data by hand</h2>
-        <ul class="list-check" style="margin-top:1.5rem;">
-          <li>New customers created and enriched in seconds</li>
-          <li>Existing accounts kept current automatically</li>
-          <li>Legally correct invoices through VAT validation</li>
-          <li>Ready for mandatory Peppol e-invoicing</li>
-          <li>Fewer errors, a cleaner database</li>
-        </ul>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Licences</span>
+        <h2>Pick the licence that fits</h2>
+        <p>From register enrichment to full e-invoicing readiness, you only pay for what you use.</p>
       </div>
-      <div class="pp-plan popular reveal" style="max-width:360px;">
-        <span class="pp-plan-flag">Most popular choice</span>
-        <span class="pp-plan-name">Premium</span>
-        <div class="pp-plan-price"><span class="cur">€</span>95<span class="per">/mo</span></div>
-        <span class="pp-plan-sub">All-in-one company data</span>
-        <ul class="list-check">
-          <li>Look up new companies</li>
-          <li>Enrich existing companies</li>
-          <li>Automatic periodic checks</li>
-          <li>VIES VAT validation</li>
-          <li>Peppol Directory</li>
-        </ul>
-        <a href="#demo" class="btn btn-primary">Request a demo</a>
+      <div class="pp-pricing">
+        {plans.map(p => (
+          <div class={`pp-plan reveal ${p.popular ? 'popular' : ''}`}>
+            {p.popular && <span class="pp-plan-flag">Most chosen</span>}
+            <span class="pp-plan-name">{p.name}</span>
+            <div class="pp-plan-price"><span class="cur">€</span>{p.price}<span class="per">per user /mo</span></div>
+            <span class="pp-plan-sub">{p.sub}</span>
+            <ul class="list-check">{p.features.map(f => <li>{f}</li>)}</ul>
+            <a href="#demo" class={`btn ${p.popular ? 'btn-primary' : 'btn-outline-dark'}`}>Choose {p.name}</a>
+          </div>
+        ))}
       </div>
     </div>
   </section>

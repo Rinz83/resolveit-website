@@ -9,8 +9,14 @@ const features = [
   { icon: '✅', title: 'VIES btw-validatie', text: 'Valideer EU-btw-nummers direct vanuit het Salesforce-record. Borg dat uw facturen voldoen aan de wettelijke eisen voor Europese klanten.' },
   { icon: '🔗', title: 'Peppol Directory', text: 'Zoek Peppol-identificatienummers zonder Salesforce te verlaten. Klaar voor de verplichte e-facturatie die er in heel Europa aankomt.' },
   { icon: '🔄', title: 'Automatische periodieke checks', text: 'De tool controleert eerder verrijkte bedrijven automatisch. Wijzigingen in het register verschijnen overzichtelijk in een rapport.' },
-  { icon: '🧩', title: 'Modulair inzetbaar', text: 'KvK-integratie, VIES btw-checker en Peppol Directory zijn ook los van elkaar te gebruiken: precies wat u nodig heeft.' },
+  { icon: '🧩', title: 'Drie flexibele licenties', text: 'Start met KvK-verrijking en groei door naar btw-validatie en Peppol. Drie tiers, per gebruiker per maand: precies wat u nodig heeft.' },
   { icon: '🎯', title: 'Schone, actuele data', text: 'Geen vervuilde database meer. Bedrijfsgegevens blijven automatisch up-to-date, zodat u bouwt op betrouwbare informatie.' },
+];
+
+const plans = [
+  { name: 'Basis', price: '20', sub: 'Schone KvK-data', features: ['Zoeken in het Handelsregister (KvK)', 'Bestaande records verrijken', 'Automatische periodieke checks'], popular: false },
+  { name: 'Professional', price: '25', sub: 'Inclusief btw-validatie', features: ['Alles uit Basis', 'EU btw-validatie (VIES)', 'Records aanmaken vanuit btw-nummers'], popular: true },
+  { name: 'Premium', price: '30', sub: 'Klaar voor e-facturatie', features: ['Alles uit Professional', 'Peppol Directory-integratie'], popular: false },
 ];
 
 const dataFields = ['KvK-nummer', 'Btw-nummer', 'Vestigingsnummer', 'Rechtsvorm', 'Hoofdvestiging', 'Aantal medewerkers', 'Handelsnamen', 'Adressen', 'SBI-codes', 'Peppol-ID'];
@@ -19,7 +25,7 @@ const faqs = [
   { q: 'Waarop kan ik zoeken in de KvK-integratie?', a: 'Op KvK-nummer, btw-nummer, handelsnaam, adres of een deel van het adres. U bladert door de resultaten uit het Handelsregister en maakt of werkt een Salesforce-record bij met één klik.' },
   { q: 'Welke bedrijfsgegevens worden opgehaald?', a: 'Onder andere KvK-nummer, btw-nummer, vestigingsnummer, rechtsvorm, hoofd- en nevenvestiging, aantal medewerkers, handelsnamen, adressen en SBI-codes, automatisch in de juiste velden.' },
   { q: 'Hoe werken de automatische periodieke checks?', a: 'De tool controleert automatisch eerder beoordeelde bedrijven. Zijn er wijzigingen in het Handelsregister, dan worden die overzichtelijk in een rapport getoond, zodat uw database actueel blijft zonder handwerk.' },
-  { q: 'Kan ik de onderdelen los van elkaar gebruiken?', a: 'Ja. De KvK-integratie, de VIES btw-checker en de Peppol Directory zijn elk afzonderlijk inzetbaar: u kiest wat bij uw proces past.' },
+  { q: 'Welke licentievormen zijn er?', a: 'Drie tiers, per gebruiker per maand. Basis (€20): zoeken in het Handelsregister, records verrijken en periodieke checks. Professional (€25): alles uit Basis plus EU btw-validatie (VIES) en records aanmaken vanuit btw-nummers. Premium (€30): alles uit Professional plus de Peppol Directory-integratie.' },
   { q: 'Hoe valideer ik btw-nummers van Europese klanten?', a: 'Via de ingebouwde VIES-validatie controleert u EU-btw-nummers direct vanuit het Salesforce-record. Zo borgt u dat uw facturen voldoen aan de wettelijke eisen voor B2B in Europa.' },
   { q: 'Waarom is Peppol belangrijk voor e-facturatie?', a: 'E-facturatie via Peppol wordt in heel Europa verplicht: al van kracht in België, vanaf september 2026 in Frankrijk, en EU-breed richting 2030. Combineer dit met onze <a href="/producten/exact-online">Influx Exact Connector</a> voor Peppol-conforme facturatie volgens EN 16931.' },
   { q: 'Zorgt schone data ook voor betere facturatie?', a: 'Zeker. Correcte bedrijfs- en btw-gegevens vormen de basis voor foutloze facturen. Veel klanten combineren Datasolver daarom met onze <a href="/producten/billing-module">Billing Module</a>.' },
@@ -117,31 +123,23 @@ const faqJsonLd = JSON.stringify({
   </section>
 
   <section class="section bg-off-white">
-    <div class="container ds-price-wrap">
-      <div class="reveal">
-        <span class="eyebrow">Waarom Datasolver?</span>
-        <h2>Stop met handmatig data overtypen</h2>
-        <ul class="list-check" style="margin-top:1.5rem;">
-          <li>Nieuwe klanten in seconden aangemaakt en verrijkt</li>
-          <li>Bestaande accounts automatisch actueel gehouden</li>
-          <li>Wettelijk correcte facturen door btw-validatie</li>
-          <li>Klaar voor verplichte Peppol e-facturatie</li>
-          <li>Minder fouten, schonere database</li>
-        </ul>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Licenties</span>
+        <h2>Kies de licentie die past</h2>
+        <p>Van KvK-verrijking tot volledige e-facturatie-readiness, u betaalt alleen voor wat u gebruikt.</p>
       </div>
-      <div class="pp-plan popular reveal" style="max-width:360px;">
-        <span class="pp-plan-flag">Populairste keuze</span>
-        <span class="pp-plan-name">Premium</span>
-        <div class="pp-plan-price"><span class="cur">€</span>95<span class="per">/mnd</span></div>
-        <span class="pp-plan-sub">Alles-in-één bedrijfsdata</span>
-        <ul class="list-check">
-          <li>Nieuwe bedrijven opzoeken</li>
-          <li>Bestaande bedrijven verrijken</li>
-          <li>Automatische periodieke checks</li>
-          <li>VIES btw-validatie</li>
-          <li>Peppol Directory</li>
-        </ul>
-        <a href="#demo" class="btn btn-primary">Vraag een demo aan</a>
+      <div class="pp-pricing">
+        {plans.map(p => (
+          <div class={`pp-plan reveal ${p.popular ? 'popular' : ''}`}>
+            {p.popular && <span class="pp-plan-flag">Meest gekozen</span>}
+            <span class="pp-plan-name">{p.name}</span>
+            <div class="pp-plan-price"><span class="cur">€</span>{p.price}<span class="per">p/gebruiker p/mnd</span></div>
+            <span class="pp-plan-sub">{p.sub}</span>
+            <ul class="list-check">{p.features.map(f => <li>{f}</li>)}</ul>
+            <a href="#demo" class={`btn ${p.popular ? 'btn-primary' : 'btn-outline-dark'}`}>Kies {p.name}</a>
+          </div>
+        ))}
       </div>
     </div>
   </section>

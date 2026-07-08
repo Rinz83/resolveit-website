@@ -427,8 +427,8 @@ const faqJsonLd = JSON.stringify({
 .faq-plus { font-size: 1.4rem; color: var(--color-green); transition: transform var(--transition); flex-shrink: 0; }
 .faq[open] .faq-plus { transform: rotate(45deg); }
 .faq p { padding: 0 0 1.2rem; color: var(--color-text-muted); margin: 0; }
-.faq p a { color: var(--color-green-dark); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
-.faq p a:hover { color: var(--color-green); }
+.faq p :global(a) { color: var(--color-green-dark); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; font-weight: 700; }
+.faq p :global(a:hover) { color: var(--color-green); }
 
 /* ===== CTA ===== */
 .cta-strip { padding: 4.5rem 0; position: relative; overflow: hidden; }

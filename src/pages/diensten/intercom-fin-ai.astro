@@ -1,5 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import FormModal from '../../components/FormModal.astro';
+import { calendlyUrl, pardotForms } from '../../i18n/ui.js';
 import '../../styles/product.css';
 
 const pillars = [
@@ -47,7 +49,7 @@ const faqs = [
   { q: 'Kunnen jullie Intercom koppelen aan Salesforce?', a: 'Ja. Als Salesforce-partner koppelen wij Intercom aan uw Salesforce-omgeving, zodat supportgesprekken, klantdata en cases in beide systemen samenkomen. Bekijk ook onze <a href="/diensten/development">development &amp; integraties</a>.' },
   { q: 'Wat valt er onder de managed services voor Fin?', a: 'Doorlopend beheer van uw Intercom-omgeving: monitoring van de antwoordkwaliteit, optimalisatie van de kennisbank en workflows, maandelijkse rapportage en een vast aanspreekpunt. De exacte invulling stemmen we af op uw organisatie.' },
   { q: 'Spreekt Fin ook Nederlands?', a: 'Ja. Fin werkt meertalig en beantwoordt vragen onder andere in het Nederlands en Engels, op basis van dezelfde kennisbank.' },
-  { q: 'Wij gebruiken Intercom al. Kunnen jullie onze bestaande omgeving overnemen?', a: 'Zeker. We starten met een audit van uw huidige inrichting en resolutiepercentages, en nemen daarna het beheer en de optimalisatie over. <a href="/contact#afspraak">Plan een gesprek</a> voor de mogelijkheden.' },
+  { q: 'Wij gebruiken Intercom al. Kunnen jullie onze bestaande omgeving overnemen?', a: 'Zeker. We starten met een audit van uw huidige inrichting en resolutiepercentages, en nemen daarna het beheer en de optimalisatie over. <a href="#ask">Stel een vraag</a> voor de mogelijkheden.' },
 ];
 
 const faqJsonLd = JSON.stringify({
@@ -75,8 +77,8 @@ const faqJsonLd = JSON.stringify({
         <h1>AI-klantenservice met <span class="gradient-text">Fin</span> van Intercom</h1>
         <p>Fin beantwoordt klantvragen automatisch, dag en nacht, in uw tone of voice. Als <strong>Intercom Gold Partner</strong> implementeren wij Fin voor nieuwe klanten én houden we uw omgeving met managed services doorlopend in topvorm.</p>
         <div class="pp-hero-actions">
-          <a href="/contact#afspraak" class="btn btn-primary">Plan een gesprek</a>
-          <a href="/contact" class="btn btn-outline">Stel een vraag</a>
+          <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary">Plan een gesprek</a>
+          <a href="#ask" class="btn btn-outline">Stel een vraag</a>
         </div>
         <div class="fin-hero-logos">
           <div class="fin-logo-chip"><img src="/images/logos/intercom.svg" alt="Intercom" /><span>Intercom</span></div>
@@ -221,11 +223,13 @@ const faqJsonLd = JSON.stringify({
         <p>Plan een vrijblijvend gesprek. We laten zien wat Fin voor uw supportafdeling kan betekenen.</p>
       </div>
       <div class="pp-cta-actions">
-        <a href="/contact#afspraak" class="btn btn-primary">Plan een gesprek</a>
-        <a href="/contact" class="btn btn-outline">Stel een vraag</a>
+        <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary">Plan een gesprek</a>
+        <a href="#ask" class="btn btn-outline">Stel een vraag</a>
       </div>
     </div>
   </section>
+
+  <FormModal id="ask" title="Stel een vraag" formUrl={pardotForms.askIntercom} />
 
 </Layout>
 

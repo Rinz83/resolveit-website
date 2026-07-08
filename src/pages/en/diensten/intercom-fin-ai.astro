@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import FormModal from '../../../components/FormModal.astro';
+import { calendlyUrl, pardotForms } from '../../../i18n/ui.js';
 import '../../../styles/product.css';
 
 const pillars = [
@@ -47,7 +49,7 @@ const faqs = [
   { q: 'Can you connect Intercom to Salesforce?', a: 'Yes. As a Salesforce partner we connect Intercom to your Salesforce environment, so support conversations, customer data and cases come together in both systems. Also see our <a href="/en/diensten/development">development &amp; integrations</a>.' },
   { q: 'What is included in the managed services for Fin?', a: 'Ongoing management of your Intercom environment: monitoring of answer quality, optimisation of the knowledge base and workflows, monthly reporting and a dedicated contact. We tailor the exact scope to your organisation.' },
   { q: 'Does Fin speak Dutch?', a: 'Yes. Fin works in multiple languages and answers questions in Dutch and English, among others, based on the same knowledge base.' },
-  { q: 'We already use Intercom. Can you take over our existing environment?', a: 'Certainly. We start with an audit of your current setup and resolution rates, and then take over management and optimisation. <a href="/en/contact#afspraak">Schedule a call</a> to explore the options.' },
+  { q: 'We already use Intercom. Can you take over our existing environment?', a: 'Certainly. We start with an audit of your current setup and resolution rates, and then take over management and optimisation. <a href="#ask">Ask a question</a> to explore the options.' },
 ];
 
 const faqJsonLd = JSON.stringify({
@@ -75,8 +77,8 @@ const faqJsonLd = JSON.stringify({
         <h1>AI customer service with <span class="gradient-text">Fin</span> by Intercom</h1>
         <p>Fin answers customer questions automatically, day and night, in your tone of voice. As an <strong>Intercom Gold Partner</strong> we implement Fin for new customers and keep your environment in top shape with managed services.</p>
         <div class="pp-hero-actions">
-          <a href="/en/contact#afspraak" class="btn btn-primary">Schedule a call</a>
-          <a href="/en/contact" class="btn btn-outline">Ask a question</a>
+          <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary">Schedule a call</a>
+          <a href="#ask" class="btn btn-outline">Ask a question</a>
         </div>
         <div class="fin-hero-logos">
           <div class="fin-logo-chip"><img src="/images/logos/intercom.svg" alt="Intercom" /><span>Intercom</span></div>
@@ -221,11 +223,13 @@ const faqJsonLd = JSON.stringify({
         <p>Schedule a no-obligation call. We will show you what Fin can do for your support department.</p>
       </div>
       <div class="pp-cta-actions">
-        <a href="/en/contact#afspraak" class="btn btn-primary">Schedule a call</a>
-        <a href="/en/contact" class="btn btn-outline">Ask a question</a>
+        <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary">Schedule a call</a>
+        <a href="#ask" class="btn btn-outline">Ask a question</a>
       </div>
     </div>
   </section>
+
+  <FormModal id="ask" title="Ask a question" formUrl={pardotForms.askIntercom} />
 
 </Layout>
 

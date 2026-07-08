@@ -12,6 +12,7 @@ export interface Props {
   whatList?: string[];
   steps: { title: string; text: string }[];
   stepsTitle?: string;
+  stepsHeading?: string;
   deliverables: { icon: string; title: string; text: string }[];
   deliverablesTitle?: string;
   why: { icon: string; title: string; text: string }[];
@@ -20,7 +21,7 @@ export interface Props {
 const {
   eyebrow, title, intro, heroStats = [], image,
   whatTitle, whatText, whatList = [],
-  steps, stepsTitle,
+  steps, stepsTitle, stepsHeading,
   deliverables, deliverablesTitle,
   why, faqs = [],
   lang = 'nl',
@@ -32,7 +33,7 @@ const T = {
   bekijkCases: en ? 'View cases' : 'Bekijk cases',
   watWeDoen: en ? 'What we do' : 'Wat we doen',
   aanpak: stepsTitle || (en ? 'Our approach' : 'Onze aanpak'),
-  zoPakken: en ? 'How we get it done' : 'Zo pakken we het aan',
+  zoPakken: stepsHeading || (en ? 'How we get it done' : 'Zo pakken we het aan'),
   deliverables: deliverablesTitle || (en ? 'What you get' : 'Wat u krijgt'),
   waarom: en ? 'Why Resolve IT' : 'Waarom Resolve IT',
   waaromTitle: en ? 'The partner that gets the job done' : 'De partner die de klus klaart',

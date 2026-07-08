@@ -13,6 +13,7 @@ const childLabels = {
   '/diensten/training': { nl: 'Training & Best Practices', en: 'Training & Best Practices' },
   '/diensten/agentforce': { nl: 'Agentforce & AI', en: 'Agentforce & AI' },
   '/diensten/managed-services': { nl: 'Managed Services', en: 'Managed Services' },
+  '/diensten/intercom-fin-ai': { nl: 'Intercom Fin AI', en: 'Intercom Fin AI' },
   '/producten/ai-prompt-builder': { nl: 'AI Prompt Builder', en: 'AI Prompt Builder' },
   '/producten/billing-module': { nl: 'Billing Platform', en: 'Billing Platform' },
   '/producten/kvk-integratie': { nl: 'Datasolver', en: 'Datasolver' },
@@ -31,7 +32,7 @@ const childLabels = {
 const cl = (p) => childLabels[p][lang];
 
 const navLinks = [
-  { label: t('nav.diensten'), href: '/diensten', children: ['/diensten/implementatie','/diensten/consultancy','/diensten/development','/diensten/training','/diensten/agentforce','/diensten/managed-services'] },
+  { label: t('nav.diensten'), href: '/diensten', children: ['/diensten/implementatie','/diensten/consultancy','/diensten/development','/diensten/training','/diensten/agentforce','/diensten/managed-services','/diensten/intercom-fin-ai'] },
   { label: t('nav.oplossingen'), href: '/oplossingen' },
   { label: t('nav.producten'), href: '/producten', children: ['/producten/ai-prompt-builder','/producten/billing-module','/producten/kvk-integratie','/producten/signflow','/producten/exact-online','/producten/sharepoint'] },
   { label: t('nav.voorwie'), href: '/voor-wie', children: ['/voor-wie/backoffice-services','/voor-wie/saas','/voor-wie/professional-services','/voor-wie/manufacturing','/voor-wie/recruitment','/voor-wie/energie-utilities','/voor-wie/media-communicatie','/voor-wie/overige-sectoren'] },

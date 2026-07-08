@@ -1,0 +1,272 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/product.css';
+
+const pillars = [
+  {
+    icon: '🚀',
+    title: 'Implementatie',
+    text: 'Wij zetten Intercom en Fin AI van de grond af op voor nieuwe klanten: van inrichting van de inbox en helpcenter tot het trainen van Fin op uw kennisbank en tone of voice.',
+    points: [
+      'Inrichting van Intercom: inbox, helpcenter en workflows',
+      'Fin AI trainen op uw kennisbank en processen',
+      'Integraties met uw CRM en interne systemen',
+      'Livegang met begeleiding van uw supportteam',
+    ],
+  },
+  {
+    icon: '🛡️',
+    title: 'Managed Services',
+    text: 'Na livegang blijft optimalisatie nodig: Fin wordt beter naarmate de kennisbank en instellingen scherper worden. Wij beheren, monitoren en verbeteren uw omgeving doorlopend.',
+    points: [
+      'Doorlopende optimalisatie van Fin-resolutiepercentages',
+      'Beheer van kennisbank, workflows en instellingen',
+      'Maandelijkse rapportage met verbetervoorstellen',
+      'Vast aanspreekpunt dat uw omgeving kent',
+    ],
+  },
+];
+
+const steps = [
+  { title: 'Intake & AI-audit', text: 'We brengen uw supportprocessen, vraagvolume en kennisbank in kaart en bepalen waar Fin de meeste impact maakt.' },
+  { title: 'Inrichting & integraties', text: 'We richten Intercom in, koppelen uw systemen en trainen Fin op uw content, tone of voice en escalatiepaden.' },
+  { title: 'Livegang & validatie', text: 'Gecontroleerde livegang: we valideren de antwoordkwaliteit van Fin en stellen bij waar nodig, samen met uw team.' },
+  { title: 'Beheer & optimalisatie', text: 'Met managed services blijven we monitoren, rapporteren en verbeteren, zodat het resolutiepercentage blijft stijgen.' },
+];
+
+const why = [
+  { icon: '🥇', title: 'Intercom Gold Partner', text: 'Als Gold Partner hebben we een directe lijn met Intercom, vroege toegang tot nieuwe features en bewezen implementatie-ervaring.' },
+  { icon: '🤖', title: 'AI-expertise in de praktijk', text: 'Wij bouwen dagelijks AI-oplossingen, van Agentforce tot eigen AI-producten. Die ervaring nemen we mee in elke Fin-implementatie.' },
+  { icon: '🔗', title: 'Sterk in integraties', text: 'Fin wordt pas echt krachtig met de juiste data. Wij koppelen Intercom aan Salesforce en uw andere systemen, robuust en onderhoudbaar.' },
+];
+
+const faqs = [
+  { q: 'Wat is Fin AI van Intercom?', a: 'Fin is de AI-agent van Intercom voor klantenservice. Fin beantwoordt klantvragen automatisch op basis van uw kennisbank en supportcontent, in de tone of voice van uw organisatie, en draagt complexe gevallen naadloos over aan uw team.' },
+  { q: 'Wat betekent het dat Resolve IT Gold Partner is?', a: 'De Gold Partner-status is een erkenning van Intercom voor partners met bewezen implementaties en gecertificeerde kennis. Voor u betekent het een directe lijn met Intercom, snellere ondersteuning en een partner die het platform door en door kent.' },
+  { q: 'Hoe snel kan Fin live staan?', a: 'Dat hangt af van de kwaliteit van uw kennisbank en het aantal integraties. Een eerste werkende inrichting staat er doorgaans binnen enkele weken. Daarna verbetert het resolutiepercentage stap voor stap door training en optimalisatie.' },
+  { q: 'Kunnen jullie Intercom koppelen aan Salesforce?', a: 'Ja. Als Salesforce-partner koppelen wij Intercom aan uw Salesforce-omgeving, zodat supportgesprekken, klantdata en cases in beide systemen samenkomen. Bekijk ook onze <a href="/diensten/development">development &amp; integraties</a>.' },
+  { q: 'Wat valt er onder de managed services voor Fin?', a: 'Doorlopend beheer van uw Intercom-omgeving: monitoring van de antwoordkwaliteit, optimalisatie van de kennisbank en workflows, maandelijkse rapportage en een vast aanspreekpunt. De exacte invulling stemmen we af op uw organisatie.' },
+  { q: 'Spreekt Fin ook Nederlands?', a: 'Ja. Fin werkt meertalig en beantwoordt vragen onder andere in het Nederlands en Engels, op basis van dezelfde kennisbank.' },
+  { q: 'Wij gebruiken Intercom al. Kunnen jullie onze bestaande omgeving overnemen?', a: 'Zeker. We starten met een audit van uw huidige inrichting en resolutiepercentages, en nemen daarna het beheer en de optimalisatie over. <a href="/contact#afspraak">Plan een gesprek</a> voor de mogelijkheden.' },
+];
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })),
+});
+---
+
+<Layout
+  title="Intercom Fin AI: implementatie & managed services"
+  description="Resolve IT is Intercom Gold Partner. Wij implementeren Intercom en Fin AI voor nieuwe klanten en bieden managed services voor doorlopend beheer en optimalisatie."
+  breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Diensten', item: '/diensten' }, { name: 'Intercom Fin AI', item: '/diensten/intercom-fin-ai' }]}
+>
+
+  <!-- HERO -->
+  <section class="pp-hero fin-hero">
+    <div class="pp-aurora" aria-hidden="true"><span></span><span></span></div>
+    <div class="container pp-hero-inner">
+      <div class="pp-hero-copy">
+        <div class="fin-badges">
+          <span class="pp-badge"><span class="pp-badge-dot"></span> Dienst · Intercom Fin AI</span>
+          <span class="pp-badge fin-gold-badge">🥇 Intercom Gold Partner</span>
+        </div>
+        <h1>AI-klantenservice met <span class="gradient-text">Fin</span> van Intercom</h1>
+        <p>Fin beantwoordt klantvragen automatisch, dag en nacht, in uw tone of voice. Als <strong>Intercom Gold Partner</strong> implementeren wij Fin voor nieuwe klanten én houden we uw omgeving met managed services doorlopend in topvorm.</p>
+        <div class="pp-hero-actions">
+          <a href="/contact#afspraak" class="btn btn-primary">Plan een gesprek</a>
+          <a href="/contact" class="btn btn-outline">Stel een vraag</a>
+        </div>
+        <div class="fin-hero-logos">
+          <div class="fin-logo-chip"><img src="/images/logos/intercom.svg" alt="Intercom" /><span>Intercom</span></div>
+          <div class="fin-logo-chip fin-logo-chip-fin"><img src="/images/logos/fin-ai.svg" alt="Fin AI" /></div>
+        </div>
+      </div>
+      <div class="pp-hero-visual">
+        <div class="fin-chat">
+          <div class="fin-chat-head">
+            <img src="/images/logos/intercom.svg" alt="Intercom" class="fin-chat-ico" />
+            <div><strong>Fin</strong><small>AI Agent · online</small></div>
+            <span class="fin-chat-status">● Live</span>
+          </div>
+          <div class="fin-msg fin-msg-user">Kan ik mijn abonnement upgraden voor volgende maand?</div>
+          <div class="fin-msg fin-msg-ai">Zeker! Uw upgrade gaat in per de eerstvolgende factuurperiode. Zal ik dit alvast voor u klaarzetten?</div>
+          <div class="fin-msg fin-msg-user">Ja graag!</div>
+          <div class="fin-resolved">✓ Automatisch opgelost door Fin</div>
+        </div>
+        <div class="fin-gold-float">🥇 <div><strong>Gold Partner</strong><small>Intercom</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="pp-trust">
+    <div class="container pp-trust-grid">
+      <div><strong>Gold</strong><span>Intercom Partner</span></div>
+      <div><strong>24/7</strong><span>AI-klantenservice</span></div>
+      <div><strong>2-in-1</strong><span>implementatie & beheer</span></div>
+      <div><strong>Vast</strong><span>aanspreekpunt</span></div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Eén partner voor alles</span>
+        <h2>Van eerste implementatie tot doorlopend beheer</h2>
+        <p>Of u nu start met Intercom en Fin, of uw bestaande omgeving naar een hoger niveau wilt tillen: wij combineren beide diensten onder één dak.</p>
+      </div>
+      <div class="fin-pillars">
+        {pillars.map((p, i) => (
+          <div class="card fin-pillar reveal" style={`--reveal-delay:${i * 0.1}s`}>
+            <div class="pp-feature-ico">{p.icon}</div>
+            <h3>{p.title}</h3>
+            <p class="text-muted">{p.text}</p>
+            <ul class="list-check">
+              {p.points.map(pt => <li>{pt}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WAT IS FIN -->
+  <section class="section">
+    <div class="container fin-what">
+      <div class="reveal">
+        <span class="eyebrow">Wat is Fin?</span>
+        <h2>De AI-agent die uw supportteam ontlast</h2>
+        <p class="text-muted">Fin is de AI-agent van Intercom. Fin leest uw kennisbank, helpartikelen en eerdere gesprekken en beantwoordt daarmee klantvragen direct en accuraat, in meerdere talen. Vragen die menselijke aandacht nodig hebben, draagt Fin met volledige context over aan uw team.</p>
+        <p class="text-muted">Het resultaat: kortere wachttijden voor klanten, minder repeterende tickets voor uw team en een supportafdeling die meegroeit zonder extra headcount.</p>
+        <ul class="list-check" style="margin-top:1.25rem;">
+          <li>Beantwoordt vragen automatisch op basis van uw eigen content</li>
+          <li>Escaleert naadloos naar uw team wanneer dat nodig is</li>
+          <li>Meertalig, waaronder Nederlands en Engels</li>
+          <li>Wordt beter met elke optimalisatieronde</li>
+        </ul>
+      </div>
+      <div class="fin-stats-card reveal">
+        <img src="/images/logos/fin-ai.svg" alt="Fin AI" class="fin-stats-logo" />
+        <div class="fin-stat"><strong>Direct antwoord</strong><span>geen wachtrij voor veelgestelde vragen</span></div>
+        <div class="fin-stat"><strong>Volledige context</strong><span>bij overdracht aan uw supportteam</span></div>
+        <div class="fin-stat"><strong>Uw tone of voice</strong><span>getraind op uw kennisbank en stijl</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AANPAK -->
+  <section class="section bg-dark pp-how">
+    <div class="pp-how-glow" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="section-header reveal">
+        <span class="eyebrow">Onze aanpak</span>
+        <h2 class="text-white">Zo brengen we Fin naar uw klanten</h2>
+      </div>
+      <div class="pp-steps">
+        {steps.map((s, i) => (
+          <div class="pp-step reveal" style={`--reveal-delay:${i * 0.1}s`}>
+            <div class="pp-step-n">{i + 1}</div>
+            <h3 class="text-white">{s.title}</h3>
+            <p style="color:rgba(255,255,255,0.72)">{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Waarom Resolve IT</span>
+        <h2>Gold Partner met bewezen AI-ervaring</h2>
+      </div>
+      <div class="grid-3">
+        {why.map((w, i) => (
+          <div class="card pp-feature reveal" style={`--reveal-delay:${(i % 3) * 0.08}s`}>
+            <div class="pp-feature-ico">{w.icon}</div>
+            <h3>{w.title}</h3>
+            <p class="text-muted">{w.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:820px;">
+      <div class="section-header reveal">
+        <span class="eyebrow">Veelgestelde vragen</span>
+        <h2>Goed om te weten</h2>
+      </div>
+      <div class="pp-faq-list">
+        {faqs.map(f => (
+          <details class="pp-faq reveal"><summary>{f.q}<span class="pp-faq-plus">+</span></summary><p set:html={f.a} /></details>
+        ))}
+      </div>
+    </div>
+    <script type="application/ld+json" set:html={faqJsonLd} is:inline />
+  </section>
+
+  <!-- CTA -->
+  <section class="pp-cta bg-dark">
+    <div class="pp-cta-glow" aria-hidden="true"></div>
+    <div class="container pp-cta-inner reveal">
+      <div>
+        <h2>Klaar voor AI-klantenservice die werkt?</h2>
+        <p>Plan een vrijblijvend gesprek. We laten zien wat Fin voor uw supportafdeling kan betekenen.</p>
+      </div>
+      <div class="pp-cta-actions">
+        <a href="/contact#afspraak" class="btn btn-primary">Plan een gesprek</a>
+        <a href="/contact" class="btn btn-outline">Stel een vraag</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+/* Hero */
+.fin-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
+.fin-badges .pp-badge { margin-bottom: 0; }
+.fin-gold-badge { border-color: rgba(240,185,60,0.55); background: rgba(240,185,60,0.14); color: #fff; }
+.fin-hero-logos { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 2rem; }
+.fin-logo-chip { display: inline-flex; align-items: center; gap: 0.6rem; background: #fff; border-radius: 14px; padding: 0.6rem 1.1rem; font-weight: 700; color: var(--color-text); font-size: 0.9rem; box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+.fin-logo-chip img { height: 26px; width: auto; }
+.fin-logo-chip-fin img { height: 34px; }
+
+/* Chat visual */
+.pp-hero-visual { position: relative; }
+.fin-chat { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
+.fin-chat-head { display: flex; align-items: center; gap: 0.7rem; padding-bottom: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.fin-chat-ico { width: 36px; height: 36px; border-radius: 9px; }
+.fin-chat-head strong { display: block; color: #fff; font-size: 0.95rem; }
+.fin-chat-head small { color: rgba(255,255,255,0.55); font-size: 0.75rem; }
+.fin-chat-status { margin-left: auto; color: var(--color-green-soft); font-size: 0.75rem; font-weight: 700; }
+.fin-msg { border-radius: 14px; padding: 0.7rem 1rem; font-size: 0.88rem; line-height: 1.45; max-width: 88%; }
+.fin-msg-user { background: rgba(255,255,255,0.1); color: #fff; align-self: flex-end; }
+.fin-msg-ai { background: #fff; color: var(--color-text); align-self: flex-start; }
+.fin-resolved { align-self: flex-end; margin-top: 0.3rem; background: rgba(109,183,87,0.16); border: 1px solid rgba(109,183,87,0.4); color: var(--color-green-soft); font-size: 0.78rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 999px; }
+.fin-gold-float { position: absolute; bottom: -16px; left: -14px; background: #fff; border-radius: 14px; padding: 0.65rem 1rem; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 0.55rem; font-size: 1.4rem; }
+.fin-gold-float strong { display: block; font-size: 0.88rem; color: var(--color-text); }
+.fin-gold-float small { font-size: 0.72rem; color: var(--color-text-muted); }
+
+/* Pillars */
+.fin-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+@media (max-width: 820px) { .fin-pillars { grid-template-columns: 1fr; } }
+.fin-pillar h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.fin-pillar .text-muted { margin-bottom: 1.1rem; }
+
+/* Wat is Fin */
+.fin-what { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
+@media (max-width: 860px) { .fin-what { grid-template-columns: 1fr; gap: 2.5rem; } }
+.fin-what .text-muted { margin-top: 0.85rem; }
+.fin-stats-card { background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg); padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+.fin-stats-logo { height: 52px; width: auto; align-self: flex-start; }
+.fin-stat strong { display: block; font-size: 1.05rem; color: var(--color-text); }
+.fin-stat span { font-size: 0.88rem; color: var(--color-text-muted); }
+</style>

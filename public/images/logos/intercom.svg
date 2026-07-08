@@ -1,0 +1,10 @@
+<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Intercom">
+  <rect x="1" y="1" width="46" height="46" rx="12" fill="#0A0A0A" />
+  <g stroke="#FFFFFF" stroke-width="4" stroke-linecap="round">
+    <line x1="12" y1="15" x2="12" y2="27" />
+    <line x1="20" y1="12" x2="20" y2="31" />
+    <line x1="28" y1="12" x2="28" y2="31" />
+    <line x1="36" y1="15" x2="36" y2="27" />
+  </g>
+  <path d="M12 33.5 Q24 39 36 33.5" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none" />
+</svg>

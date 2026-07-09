@@ -19,6 +19,7 @@ const childLabels = {
   '/producten/kvk-integratie': { nl: 'Datasolver', en: 'Datasolver' },
   '/producten/signflow': { nl: 'SignFlow', en: 'SignFlow' },
   '/producten/exact-online': { nl: 'Influx Exact Connector', en: 'Influx Exact Connector' },
+  '/producten/business-central': { nl: 'Influx Business Central Connector', en: 'Influx Business Central Connector' },
   '/producten/sharepoint': { nl: 'SharePoint Connector', en: 'SharePoint Connector' },
   '/voor-wie/backoffice-services': { nl: 'Backoffice Services', en: 'Backoffice Services' },
   '/voor-wie/saas': { nl: 'SaaS', en: 'SaaS' },
@@ -34,7 +35,7 @@ const cl = (p) => childLabels[p][lang];
 const navLinks = [
   { label: t('nav.diensten'), href: '/diensten', children: ['/diensten/implementatie','/diensten/consultancy','/diensten/development','/diensten/training','/diensten/agentforce','/diensten/managed-services','/diensten/intercom-fin-ai'] },
   { label: t('nav.oplossingen'), href: '/oplossingen' },
-  { label: t('nav.producten'), href: '/producten', children: ['/producten/ai-prompt-builder','/producten/billing-module','/producten/kvk-integratie','/producten/signflow','/producten/exact-online','/producten/sharepoint'] },
+  { label: t('nav.producten'), href: '/producten', children: ['/producten/ai-prompt-builder','/producten/billing-module','/producten/kvk-integratie','/producten/signflow','/producten/exact-online','/producten/business-central','/producten/sharepoint'] },
   { label: t('nav.voorwie'), href: '/voor-wie', children: ['/voor-wie/backoffice-services','/voor-wie/saas','/voor-wie/professional-services','/voor-wie/manufacturing','/voor-wie/recruitment','/voor-wie/energie-utilities','/voor-wie/media-communicatie','/voor-wie/overige-sectoren'] },
   { label: t('nav.overons'), href: '/over-ons' },
   { label: t('nav.cases'), href: '/cases' },

@@ -13,6 +13,7 @@ export const pardotForms = {
   demoKvk: 'https://go.resolveit.nl/l/981612/2025-01-14/dhtj46',
   demoBilling: 'https://go.resolveit.nl/l/981612/2024-11-28/dhk2ft',
   askIntercom: 'https://go.resolveit.nl/l/981612/2025-01-14/dhtj5h',
+  askBusinessCentral: 'https://go.resolveit.nl/l/981612/2026-07-09/dkskm9',
 };
 
 // Paths that have an English version. The language toggle only switches to the

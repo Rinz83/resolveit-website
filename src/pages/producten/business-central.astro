@@ -234,12 +234,13 @@ const faqJsonLd = JSON.stringify({
       </div>
       <div class="cta-strip-actions">
         <a href="#demo" class="btn btn-primary">Vraag een demo aan</a>
-        <a href="/contact" class="btn btn-outline">Stel een vraag</a>
+        <a href="#ask" class="btn btn-outline">Stel een vraag</a>
       </div>
     </div>
   </section>
 
   <FormModal id="demo" title="Vraag een demo aan: Business Central Connector" formUrl={pardotForms.contact} />
+  <FormModal id="ask" title="Stel een vraag" formUrl={pardotForms.askBusinessCentral} />
 
 </Layout>
 

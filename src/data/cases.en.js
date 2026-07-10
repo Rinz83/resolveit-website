@@ -112,7 +112,7 @@ export const cases = [
   {
     slug: 'gkazas',
     client: 'Gkazas',
-    logo: null,
+    logo: '/images/clients/gkazas.svg',
     image: '/images/cases/case-banner.svg',
     sector: 'Retail & Food',
     tags: ['Back-office automation', 'Exact Online', 'Invoicing'],

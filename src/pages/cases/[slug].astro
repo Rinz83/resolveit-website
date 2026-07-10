@@ -77,10 +77,12 @@ const others = cases.filter((x) => x.slug !== c.slug).slice(0, 3);
         <p class="text-muted">{c.resultsIntro}</p>
         <p class="text-muted">{c.resultsNarrative}</p>
 
-        <blockquote class="cs-quote cs-quote-accent">
-          <p>“{c.quote.text}”</p>
-          <cite>{c.quote.author}</cite>
-        </blockquote>
+        {c.quote && (
+          <blockquote class="cs-quote cs-quote-accent">
+            <p>“{c.quote.text}”</p>
+            <cite>{c.quote.author}</cite>
+          </blockquote>
+        )}
 
         {c.lookingAhead && (
           <>

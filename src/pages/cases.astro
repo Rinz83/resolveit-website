@@ -21,7 +21,9 @@ const rest = cases.slice(1);
       <a href={`/cases/${featured.slug}`} class="case-feature reveal">
         <div class="case-feature-img">
           <img src={featured.image} alt={featured.client} loading="lazy" />
-          {featured.logo && <span class="case-feature-logo"><img src={featured.logo} alt={featured.client} /></span>}
+          <span class="case-mark case-mark-lg">
+            {featured.logo ? <img src={featured.logo} alt={`${featured.client} logo`} /> : featured.client}
+          </span>
         </div>
         <div class="case-feature-body">
           <span class="badge">{featured.sector}</span>
@@ -47,7 +49,9 @@ const rest = cases.slice(1);
             <div class="case-card-img">
               <img src={c.image} alt={c.client} loading="lazy" />
               <span class="case-card-sector">{c.sector}</span>
-              {c.logo && <span class="case-card-logo"><img src={c.logo} alt={`${c.client} logo`} loading="lazy" /></span>}
+              <span class="case-mark">
+                {c.logo ? <img src={c.logo} alt={`${c.client} logo`} loading="lazy" /> : c.client}
+              </span>
             </div>
             <div class="case-card-body">
               <h3>{c.client}</h3>
@@ -83,8 +87,18 @@ const rest = cases.slice(1);
 .case-feature:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 .case-feature-img { position: relative; min-height: 320px; }
 .case-feature-img img { width: 100%; height: 100%; object-fit: cover; }
-.case-feature-logo { position: absolute; bottom: 1rem; left: 1rem; background: #fff; border-radius: 10px; padding: 0.5rem 0.85rem; box-shadow: var(--shadow); }
-.case-feature-logo img { height: 26px; width: auto; }
+/* Centered client mark on banners */
+.case-mark {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  background: #fff; border-radius: 20px; padding: 1.1rem 1.6rem;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.35);
+  display: flex; align-items: center; justify-content: center;
+  max-width: 75%;
+  font-weight: 800; font-size: 1.05rem; color: var(--color-text); text-align: center;
+}
+.case-mark img { height: 44px; width: auto; max-width: 170px; object-fit: contain; display: block; }
+.case-mark-lg { border-radius: 24px; padding: 1.4rem 2rem; }
+.case-mark-lg img { height: 56px; max-width: 220px; }
 .case-feature-body { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
 .case-feature-body h2 { margin: 0.75rem 0; }
 .case-feature-stats { display: flex; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
@@ -101,9 +115,7 @@ const rest = cases.slice(1);
 .case-card-img { position: relative; aspect-ratio: 16/10; overflow: hidden; }
 .case-card-img > img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
 .case-card:hover .case-card-img > img { transform: scale(1.06); }
-.case-card-sector { position: absolute; top: 0.85rem; left: 0.85rem; background: rgba(29,35,39,0.78); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 999px; backdrop-filter: blur(4px); }
-.case-card-logo { position: absolute; bottom: 0.85rem; left: 0.85rem; background: #fff; border-radius: 10px; padding: 0.4rem 0.7rem; box-shadow: var(--shadow); display: flex; align-items: center; }
-.case-card-logo img { height: 22px; width: auto; max-width: 110px; object-fit: contain; display: block; }
+.case-card-sector { position: absolute; top: 0.85rem; left: 0.85rem; background: rgba(29,35,39,0.78); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 999px; backdrop-filter: blur(4px); z-index: 1; }
 .case-card-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
 .case-card-body h3 { font-size: 1.2rem; }
 .case-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }

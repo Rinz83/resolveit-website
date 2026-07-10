@@ -1,31 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="MarketResponse x Resolve IT">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="MarketResponse · Resolve IT case">
   <defs>
-    <linearGradient id="mr-bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1E2B23"/>
-      <stop offset="1" stop-color="#264A3A"/>
+    <linearGradient id="cs-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1D2723"/>
+      <stop offset="1" stop-color="#243430"/>
     </linearGradient>
-    <linearGradient id="mr-acc" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="cs-acc" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#6DB757"/>
       <stop offset="1" stop-color="#3E8E41"/>
     </linearGradient>
   </defs>
-  <rect width="800" height="500" fill="url(#mr-bg)"/>
-  <circle cx="710" cy="70" r="170" fill="#6DB757" opacity="0.08"/>
-  <circle cx="90" cy="450" r="140" fill="#6DB757" opacity="0.08"/>
-  <!-- Tangle to clean line -->
-  <g fill="none" stroke-linecap="round">
-    <path d="M110 250c30-50 50 40 80-10s45 45 70 5" stroke="#ffffff" stroke-width="7" opacity="0.35"/>
-    <path d="M260 245c40 0 60 0 100 0" stroke="url(#mr-acc)" stroke-width="9"/>
-    <path d="M340 245h30l-12-12M370 245l-12 12" stroke="url(#mr-acc)" stroke-width="9"/>
+  <rect width="800" height="500" fill="url(#cs-bg)"/>
+  <circle cx="680" cy="60" r="220" fill="#6DB757" opacity="0.07"/>
+  <circle cx="120" cy="460" r="190" fill="#6C4494" opacity="0.09"/>
+  <circle cx="400" cy="250" r="150" fill="none" stroke="#ffffff" opacity="0.05" stroke-width="1.5"/>
+  <circle cx="400" cy="250" r="205" fill="none" stroke="#ffffff" opacity="0.035" stroke-width="1.5"/>
+  <rect x="330" y="180" width="140" height="140" rx="32" fill="#ffffff" opacity="0.97"/>
+  <g transform="translate(352,202)">
+    <rect x="24" y="54" width="11" height="20" rx="3" fill="url(#cs-acc)" opacity="0.55"/>
+    <rect x="42" y="42" width="11" height="32" rx="3" fill="url(#cs-acc)" opacity="0.75"/>
+    <rect x="60" y="28" width="11" height="46" rx="3" fill="url(#cs-acc)"/>
+    <path d="M24 40 L46 28 L58 32 L74 18" fill="none" stroke="url(#cs-acc)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M66 18 h8 v8" fill="none" stroke="url(#cs-acc)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
-  <text x="205" y="365" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600" fill="#ffffff" opacity="0.85">Van doolhof naar logica</text>
-  <!-- Magnifier over dashboard -->
-  <g>
-    <rect x="450" y="150" width="240" height="180" rx="18" fill="#ffffff" opacity="0.96"/>
-    <path d="M478 296v-56M525 296v-86M572 296v-40M619 296v-70" stroke="url(#mr-acc)" stroke-width="22" stroke-linecap="round"/>
-    <circle cx="640" cy="185" r="34" fill="none" stroke="#1E2B23" stroke-width="9" opacity="0.7"/>
-    <path d="M663 208l22 22" stroke="#1E2B23" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
-    <text x="570" y="365" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600" fill="#ffffff" opacity="0.85">Audit &amp; betrouwbare cijfers</text>
-  </g>
-  <text x="400" y="440" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">MarketResponse · Rust en structuur in Salesforce</text>
+  <rect x="368" y="352" width="64" height="6" rx="3" fill="url(#cs-acc)"/>
 </svg>

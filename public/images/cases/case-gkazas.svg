@@ -1,45 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Gkazas x Resolve IT">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Gkazas · Resolve IT case">
   <defs>
-    <linearGradient id="gk-bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1E2B23"/>
-      <stop offset="1" stop-color="#3A4A2E"/>
+    <linearGradient id="cs-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1D2723"/>
+      <stop offset="1" stop-color="#243430"/>
     </linearGradient>
-    <linearGradient id="gk-acc" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="cs-acc" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#6DB757"/>
       <stop offset="1" stop-color="#3E8E41"/>
     </linearGradient>
   </defs>
-  <rect width="800" height="500" fill="url(#gk-bg)"/>
-  <circle cx="720" cy="80" r="170" fill="#6DB757" opacity="0.09"/>
-  <circle cx="60" cy="440" r="150" fill="#6DB757" opacity="0.09"/>
-  <!-- Olive branch -->
-  <g stroke="#6DB757" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.9">
-    <path d="M120 120c80-40 180-40 260 0"/>
-    <path d="M180 104c0-22 14-34 30-38M250 92c4-20 20-30 36-30M320 96c10-18 28-24 44-20"/>
+  <rect width="800" height="500" fill="url(#cs-bg)"/>
+  <circle cx="680" cy="60" r="220" fill="#6DB757" opacity="0.07"/>
+  <circle cx="120" cy="460" r="190" fill="#6C4494" opacity="0.09"/>
+  <circle cx="400" cy="250" r="150" fill="none" stroke="#ffffff" opacity="0.05" stroke-width="1.5"/>
+  <circle cx="400" cy="250" r="205" fill="none" stroke="#ffffff" opacity="0.035" stroke-width="1.5"/>
+  <rect x="330" y="180" width="140" height="140" rx="32" fill="#ffffff" opacity="0.97"/>
+  <g transform="translate(352,202)" stroke="url(#cs-acc)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 40 h48 l-5 28 a7 7 0 0 1 -7 6 h-24 a7 7 0 0 1 -7 -6 z"/>
+    <path d="M36 40 c0 -16 24 -16 24 0"/>
+    <path d="M40 52 v12 M56 52 v12"/>
   </g>
-  <g fill="url(#gk-acc)">
-    <ellipse cx="168" cy="120" rx="17" ry="22" transform="rotate(-18 168 120)"/>
-    <ellipse cx="240" cy="106" rx="17" ry="22" transform="rotate(-8 240 106)"/>
-    <ellipse cx="312" cy="104" rx="17" ry="22" transform="rotate(6 312 104)"/>
-  </g>
-  <!-- Automated flow: opportunity -> invoice -> Exact -> payment -->
-  <g>
-    <rect x="110" y="220" width="130" height="110" rx="14" fill="#ffffff" opacity="0.96"/>
-    <path d="M132 250h86M132 272h86M132 294h50" stroke="#3E8E41" stroke-width="7" stroke-linecap="round" opacity="0.8"/>
-    <text x="175" y="365" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="600" fill="#ffffff" opacity="0.85">Opportunity</text>
-
-    <path d="M255 275h60l-14-14M315 275l-14 14" stroke="url(#gk-acc)" stroke-width="8" stroke-linecap="round" fill="none"/>
-
-    <rect x="335" y="220" width="130" height="110" rx="14" fill="#ffffff" opacity="0.96"/>
-    <text x="400" y="268" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#1E2B23">PDF</text>
-    <path d="M357 292h86M357 310h60" stroke="#1E2B23" stroke-width="6" stroke-linecap="round" opacity="0.3"/>
-    <text x="400" y="365" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="600" fill="#ffffff" opacity="0.85">Factuur</text>
-
-    <path d="M480 275h60l-14-14M540 275l-14 14" stroke="url(#gk-acc)" stroke-width="8" stroke-linecap="round" fill="none"/>
-
-    <rect x="560" y="220" width="130" height="110" rx="14" fill="#ffffff" opacity="0.96"/>
-    <text x="625" y="282" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#3E8E41">€ ✓</text>
-    <text x="625" y="365" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="600" fill="#ffffff" opacity="0.85">Exact Online</text>
-  </g>
-  <text x="400" y="445" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">Gkazas · Geautomatiseerde backoffice</text>
+  <rect x="368" y="352" width="64" height="6" rx="3" fill="url(#cs-acc)"/>
 </svg>

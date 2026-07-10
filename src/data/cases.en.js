@@ -150,7 +150,7 @@ export const cases = [
   {
     slug: 'zyfer',
     client: 'Zyfer',
-    logo: null,
+    logo: '/images/clients/zyfer.png',
     image: '/images/cases/case-zyfer.svg',
     sector: 'Recruitment',
     tags: ['Integration', 'Influx Exact Connector', 'Recruitment'],

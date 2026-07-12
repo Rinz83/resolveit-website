@@ -286,6 +286,7 @@ export const cases = [
       { num: 'Multiple FTEs', label: 'saved through automation' },
     ],
     resultsNarrative: 'All administrations, processes and payment flows come together in one system, finally providing a single, unambiguous picture of what happens across the entire organisation. What started as a technical optimisation has grown into a strategic foundation: with control over information, a clear overview of all entities and room for scalable growth.',
+    quote: { text: 'I finally have a complete overview of all financial flows.', author: 'Theo van der Steen · COO, MarketResponse' },
     lookingAhead: 'On this strategic foundation, MarketResponse keeps building: with control over information, overview across all entities and room for scalable growth.',
     stack: ['Sales Cloud', 'Service Cloud', 'Process automation', 'Exact Online integration', 'Chamber of Commerce integration (Datasolver)', 'Stripe integration', 'Monday integration', 'SharePoint Connector', 'Power BI integration', 'AI Prompt Builder'],
   },

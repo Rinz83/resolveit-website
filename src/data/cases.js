@@ -286,6 +286,7 @@ export const cases = [
       { num: 'Meerdere FTE\'s', label: 'bespaard door automatisering' },
     ],
     resultsNarrative: 'Alle administraties, processen en betaalstromen komen samen in één systeem, waardoor er eindelijk een eenduidig beeld is van wat er in de hele organisatie gebeurt. Wat begon als een technische optimalisatie is uitgegroeid tot een strategisch fundament: met controle over informatie, een duidelijk overzicht van alle entiteiten en ruimte voor schaalbare groei.',
+    quote: { text: 'Eindelijk heb ik een compleet overzicht van alle financiële stromen.', author: 'Theo van der Steen · COO, MarketResponse' },
     lookingAhead: 'Op dit strategische fundament bouwt MarketResponse verder: met controle over informatie, overzicht over alle entiteiten en ruimte voor schaalbare groei.',
     stack: ['Sales Cloud', 'Service Cloud', 'Procesautomatisering', 'Exact Online-integratie', 'KvK-integratie (Datasolver)', 'Stripe-integratie', 'Monday-integratie', 'SharePoint Connector', 'Power BI-integratie', 'AI Prompt Builder'],
   },

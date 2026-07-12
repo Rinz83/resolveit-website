@@ -18,7 +18,7 @@ export interface Props {
   capabilities: { icon: string; title: string; text: string }[];
   metrics: { num: string; label: string }[];
   products?: { label: string; href: string; featured?: boolean }[];
-  caseHighlights?: { client: string; quote: string; author: string; result: string; href: string }[];
+  caseHighlights?: { client: string; quote?: string; author?: string; result: string; href: string }[];
 }
 const { eyebrow, title, intro, icon, dashboard, painLine, painPoints, capabilities, metrics, products = [], caseHighlights = [], lang = 'nl' } = Astro.props;
 const ringDash = dashboard.ring ? 157 - (157 * parseInt(dashboard.ring)) / 100 : 20;
@@ -182,8 +182,8 @@ const T = {
               <span class="case-hl-client">{c.client}</span>
               <span class="case-hl-result">{c.result}</span>
             </div>
-            <blockquote class="case-hl-quote">"{c.quote}"</blockquote>
-            <cite class="case-hl-author">{c.author}</cite>
+            {c.quote && <blockquote class="case-hl-quote">"{c.quote}"</blockquote>}
+            {c.author && <cite class="case-hl-author">{c.author}</cite>}
             <span class="case-hl-cta">{T.leesCase}</span>
           </a>
         ))}

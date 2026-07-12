@@ -28,8 +28,8 @@ const plans = [
 
 const quotes = [
   { t: 'I finally have a complete overview of all financial flows.', n: 'Theo van der Steen', r: 'COO, Underlined' },
-  { t: 'A clean system for managing subscriptions and capturing MRR.', n: 'Michael Charnley', r: 'Manager, ParkBee' },
-  { t: 'Creating invoices has never been this easy.', n: 'Marcel Geurtse', r: 'Controller, MYbusinessmedia' },
+  { t: 'A clean system for managing subscriptions and capturing MRR.', n: 'Michael Charnley', r: 'Manager, ParkBee', caseSlug: 'parkbee' },
+  { t: 'Creating invoices has never been this easy.', n: 'Marcel Geurtse', r: 'Controller, MYbusinessmedia', caseSlug: 'mybusinessmedia' },
 ];
 
 const faqs = [
@@ -210,6 +210,7 @@ const faqJsonLd = JSON.stringify({
               <span class="pp-quote-av">{q.n.split(' ').map(w => w[0]).slice(0,2).join('')}</span>
               <div><strong>{q.n}</strong><small>{q.r}</small></div>
             </div>
+            {q.caseSlug && <a href={`/en/cases/${q.caseSlug}`} class="pp-quote-case">View the case →</a>}
           </div>
         ))}
       </div>

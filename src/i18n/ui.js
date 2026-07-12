@@ -35,7 +35,7 @@ export const translatedPaths = new Set([
   '/producten/exact-online', '/producten/business-central', '/producten/sharepoint', '/producten/sharepoint/installatie',
   '/over-ons', '/jobs',
   '/cases', '/cases/gospooky', '/cases/opple-lighting', '/cases/gkazas', '/cases/zyfer', '/cases/talpa-studios', '/cases/multa-casting', '/cases/mybusinessmedia',
-  '/cases/marketresponse', '/cases/solvid-ondernemen', '/cases/payplaza', '/cases/staff-capital', '/cases/werken-in-de-regio',
+  '/cases/marketresponse', '/cases/solvid-ondernemen', '/cases/payplaza', '/cases/staff-capital', '/cases/werken-in-de-regio', '/cases/follo-agency',
   '/algemene-voorwaarden', '/privacybeleid', '/cookiebeleid',
   '/blog',
   '/blog/automatische-incasso-met-stripe', '/blog/bedrijfsdata-met-een-druk-op-de-knop',

@@ -90,15 +90,14 @@ const rest = cases.slice(1);
 /* Centered client mark on banners */
 .case-mark {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  background: #fff; border-radius: 20px; padding: 1.1rem 1.6rem;
+  background: #fff; border-radius: 20px; box-sizing: border-box; padding: 0.9rem 1.2rem;
   box-shadow: 0 14px 34px rgba(0,0,0,0.35);
   display: flex; align-items: center; justify-content: center;
-  max-width: 75%;
-  font-weight: 800; font-size: 1.05rem; color: var(--color-text); text-align: center;
+  width: 160px; height: 72px; max-width: 75%;
+  font-weight: 800; font-size: 0.92rem; color: var(--color-text); text-align: center;
 }
-.case-mark img { height: 44px; width: auto; max-width: 170px; object-fit: contain; display: block; }
-.case-mark-lg { border-radius: 24px; padding: 1.4rem 2rem; }
-.case-mark-lg img { height: 56px; max-width: 220px; }
+.case-mark img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
+.case-mark-lg { width: 220px; height: 92px; border-radius: 24px; padding: 1.1rem 1.6rem; }
 .case-feature-body { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
 .case-feature-body h2 { margin: 0.75rem 0; }
 .case-feature-stats { display: flex; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }

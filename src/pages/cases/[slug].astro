@@ -100,11 +100,14 @@ const others = cases.filter((x) => x.slug !== c.slug).slice(0, 3);
           <dl>
             <dt>Klant</dt><dd>{c.client}</dd>
             <dt>Sector</dt><dd>{c.sector}</dd>
-            <dt>Focus</dt><dd>{c.tags.join(', ')}</dd>
           </dl>
           <div class="cs-stack">
-            <span class="cs-stack-label">Ingezet</span>
-            <div class="cs-stack-tags">{c.stack.map((s) => <span class="badge">{s}</span>)}</div>
+            <span class="cs-stack-label">Focus</span>
+            <div class="cs-focus-tags">{c.tags.map((t) => <span class="badge">{t}</span>)}</div>
+          </div>
+          <div class="cs-stack">
+            <span class="cs-stack-label">Ingezette producten &amp; technologie</span>
+            <div class="cs-stack-tags">{c.stack.map((s) => <span class="cs-stack-pill">{s}</span>)}</div>
           </div>
           <a href="/contact#afspraak" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1.25rem;">Plan een gesprek</a>
         </div>
@@ -155,13 +158,13 @@ const others = cases.filter((x) => x.slug !== c.slug).slice(0, 3);
 .cs-hero-img > img { width: 100%; border-radius: var(--radius-lg); box-shadow: 0 30px 70px rgba(0,0,0,0.45); aspect-ratio: 4/3; object-fit: cover; }
 .cs-mark {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  background: #fff; border-radius: 22px; padding: 1.25rem 1.8rem;
+  background: #fff; border-radius: 22px; box-sizing: border-box; padding: 1.1rem 1.6rem;
   box-shadow: 0 14px 34px rgba(0,0,0,0.35);
   display: flex; align-items: center; justify-content: center;
-  max-width: 75%;
-  font-weight: 800; font-size: 1.15rem; color: var(--color-text); text-align: center;
+  width: 220px; height: 92px; max-width: 75%;
+  font-weight: 800; font-size: 1.05rem; color: var(--color-text); text-align: center;
 }
-.cs-mark img { height: 52px; width: auto; max-width: 200px; object-fit: contain; display: block; }
+.cs-mark img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
 @media (max-width: 820px) { .cs-hero-inner { grid-template-columns: 1fr; gap: 2rem; } }
 
 .cs-results { background: var(--color-dark-2); padding: 1.75rem 0; }
@@ -183,7 +186,8 @@ const others = cases.filter((x) => x.slug !== c.slug).slice(0, 3);
 .cs-phase h3 { font-size: 1.05rem; margin-bottom: 0.2rem; }
 .cs-stack { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--color-light); }
 .cs-stack-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted); }
-.cs-stack-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+.cs-focus-tags, .cs-stack-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+.cs-stack-pill { display: inline-block; background: transparent; border: 1px solid var(--color-light); color: var(--color-text-muted); font-size: 0.78rem; font-weight: 500; padding: 0.3rem 0.7rem; border-radius: 999px; }
 .cs-quote { border-left: 4px solid var(--color-green); background: var(--color-off-white); padding: 1.5rem 1.75rem; border-radius: 0 var(--radius) var(--radius) 0; margin-top: 2.5rem; }
 .cs-quote p { font-size: 1.15rem; font-style: italic; color: var(--color-primary); margin-bottom: 0.75rem; }
 .cs-quote cite { color: var(--color-text-muted); font-size: 0.9rem; }

@@ -6,7 +6,32 @@ export function getStaticPaths() {
   return cases.map((c) => ({ params: { slug: c.slug }, props: { c } }));
 }
 const { c } = Astro.props;
-const others = cases.filter((x) => x.slug !== c.slug).slice(0, 3);
+const others = cases
+  .filter((x) => x.slug !== c.slug)
+  .map((x) => ({
+    x,
+    score: (x.sector === c.sector ? 2 : 0) + x.tags.filter((t) => c.tags.includes(t)).length,
+  }))
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 3)
+  .map(({ x }) => x);
+
+const stackLinks = [
+  { test: /Billing Platform/i, href: '/en/producten/billing-module' },
+  { test: /Business Central/i, href: '/en/producten/business-central' },
+  { test: /Datasolver|Chamber of Commerce/i, href: '/en/producten/kvk-integratie' },
+  { test: /Exact/i, href: '/en/producten/exact-online' },
+  { test: /SharePoint/i, href: '/en/producten/sharepoint' },
+  { test: /AI Prompt Builder/i, href: '/en/producten/ai-prompt-builder' },
+  { test: /SignFlow/i, href: '/en/producten/signflow' },
+  { test: /Experience Cloud/i, href: '/en/diensten/experience-cloud' },
+  { test: /Agentforce/i, href: '/en/diensten/agentforce' },
+  { test: /Account Engagement/i, href: '/en/diensten/implementatie' },
+];
+function stackHref(label) {
+  const match = stackLinks.find((l) => l.test.test(label));
+  return match ? match.href : null;
+}
 ---
 
 <Layout title={`Case: ${c.client}`} description={c.summary}>
@@ -58,7 +83,7 @@ const others = cases.filter((x) => x.slug !== c.slug).slice(0, 3);
         </ul>
 
         <h2>Our approach</h2>
-        <p class="text-muted">{c.approachIntro}</p>
+        <p class="text-muted" set:html={c.approachIntro} />
         <div class="cs-phases">
           {c.approachPhases.map((p, i) => (
             <div class="cs-phase">
@@ -107,7 +132,10 @@ const others = cases.filter((x) => x.slug !== c.slug).slice(0, 3);
           </div>
           <div class="cs-stack">
             <span class="cs-stack-label">Products &amp; technology used</span>
-            <div class="cs-stack-tags">{c.stack.map((s) => <span class="cs-stack-pill">{s}</span>)}</div>
+            <div class="cs-stack-tags">{c.stack.map((s) => {
+              const href = stackHref(s);
+              return href ? <a href={href} class="cs-stack-pill cs-stack-pill-link">{s}</a> : <span class="cs-stack-pill">{s}</span>;
+            })}</div>
           </div>
           <a href="/en/contact#afspraak" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1.25rem;">Schedule a call</a>
         </div>
@@ -177,6 +205,8 @@ const others = cases.filter((x) => x.slug !== c.slug).slice(0, 3);
 @media (max-width: 820px) { .cs-body { grid-template-columns: 1fr; gap: 2rem; } }
 .cs-lead { font-size: 1.2rem; color: var(--color-text); margin-bottom: 2rem; }
 .cs-main h2 { font-size: 1.5rem; margin: 2.5rem 0 0.75rem; }
+.cs-main :global(a) { color: var(--color-green-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.cs-main :global(a:hover) { color: var(--color-green); }
 .cs-points { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1rem; }
 .cs-points li { display: flex; align-items: flex-start; gap: 0.65rem; color: var(--color-text); font-size: 0.96rem; }
 .cs-points li::before { content: ''; width: 20px; height: 20px; flex-shrink: 0; margin-top: 0.15rem; border-radius: 50%; background: rgba(108,68,148,0.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236c4494' stroke-width='3' stroke-linecap='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3C/svg%3E") center/12px no-repeat; }
@@ -188,6 +218,8 @@ const others = cases.filter((x) => x.slug !== c.slug).slice(0, 3);
 .cs-stack-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted); }
 .cs-focus-tags, .cs-stack-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
 .cs-stack-pill { display: inline-block; background: transparent; border: 1px solid var(--color-light); color: var(--color-text-muted); font-size: 0.78rem; font-weight: 500; padding: 0.3rem 0.7rem; border-radius: 999px; }
+.cs-stack-pill-link { text-decoration: none; cursor: pointer; transition: border-color var(--transition), color var(--transition); }
+.cs-stack-pill-link:hover { border-color: var(--color-green-dark); color: var(--color-green-dark); }
 .cs-quote { border-left: 4px solid var(--color-green); background: var(--color-off-white); padding: 1.5rem 1.75rem; border-radius: 0 var(--radius) var(--radius) 0; margin-top: 2.5rem; }
 .cs-quote p { font-size: 1.15rem; font-style: italic; color: var(--color-primary); margin-bottom: 0.75rem; }
 .cs-quote cite { color: var(--color-text-muted); font-size: 0.9rem; }

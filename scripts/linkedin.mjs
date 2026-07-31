@@ -10,9 +10,11 @@ import { dirname, join } from 'node:path';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ENV_PATH = join(ROOT, '.env');
 
-// LinkedIn requires a dated version header on every /rest/ call. Bumping this
-// is the documented way to opt into a newer API surface.
-export const LINKEDIN_VERSION = '202506';
+// LinkedIn requires a dated version header on every /rest/ call, and only a
+// window of versions stays active: anything outside it answers 426
+// NONEXISTENT_VERSION. Bump this when that happens, to a version LinkedIn
+// currently accepts.
+export const LINKEDIN_VERSION = '202503';
 
 export async function readEnv() {
   const raw = await readFile(ENV_PATH, 'utf8');
@@ -162,20 +164,31 @@ export async function apiPost(path, accessToken, payload) {
   return { id: res.headers.get('x-restli-id'), body };
 }
 
-/** Organizations the authorised member administers. */
+/**
+ * Organizations the authorised member administers.
+ *
+ * organizationAcls rejects a projection parameter, so names are not available on
+ * the ACL itself and each organization is fetched separately. A failed lookup is
+ * not fatal: the URN is what we actually need, the name is only there to make
+ * the choice readable.
+ */
 export async function listAdministeredOrganizations(accessToken) {
   const data = await apiGet(
-    'organizationAcls?q=roleAssignee&role=ADMINISTRATOR&state=APPROVED' +
-      '&projection=(elements*(organization~(id,localizedName,vanityName)))',
+    'organizationAcls?q=roleAssignee&role=ADMINISTRATOR&state=APPROVED',
     accessToken
   );
-  return (data.elements || []).map((el) => {
-    const org = el['organization~'] || {};
-    return {
-      urn: el.organization,
-      id: org.id,
-      name: org.localizedName,
-      vanityName: org.vanityName,
-    };
-  });
+
+  const urns = (data.elements || []).map((el) => el.organization).filter(Boolean);
+
+  return Promise.all(
+    urns.map(async (urn) => {
+      const id = urn.split(':').pop();
+      try {
+        const org = await apiGet(`organizations/${id}`, accessToken);
+        return { urn, id, name: org.localizedName, vanityName: org.vanityName };
+      } catch {
+        return { urn, id, name: `(naam niet opgehaald, id ${id})` };
+      }
+    })
+  );
 }

@@ -46,10 +46,19 @@ Publiceren gebeurt **niet automatisch**. Zodra Rinse de PR beoordeelt en goedkeu
 
 - Bij merge: zet in beide bestanden `draft: false`.
 - Zet de `status` van het kalender-item op `"published"`.
+- Zet een LinkedIn-concept klaar voor het artikel:
+
+  ```bash
+  node scripts/linkedin-draft-post.mjs <slug>
+  ```
+
+  Dit gebeurt bewust pas ná de merge, zodat de post naar een bestaande pagina
+  linkt. Zie [linkedin-integratie.md](./linkedin-integratie.md).
 
 Dit gebeurt handmatig of in een losse review-stap; de wekelijkse Routine opent alleen de PR, merget nooit vanzelf.
 
 ## Wat deze automatisering niet doet
 
 - Geen automatische publicatie zonder menselijke controle.
-- Geen social media cross-posting (zie backlog: LinkedIn-koppeling vereist een aparte, nog niet opgezette integratie).
+- Geen automatisch geplaatste LinkedIn-posts. De koppeling maakt uitsluitend
+  **concepten** op de bedrijfspagina; publiceren blijft een menselijke handeling.

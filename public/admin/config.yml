@@ -2,10 +2,11 @@ backend:
   name: github
   repo: Rinz83/resolveit-website
   branch: main
-  # Apex domain, not www: www 301-redirects here, and /api/auth builds its
-  # GitHub redirect_uri from the request origin. Matching them keeps the OAuth
-  # popup handshake on a single origin.
-  base_url: https://resolveit.nl
+  # www, matching the canonical domain used by every page's canonical tag and by
+  # robots.txt. Both www and the apex serve 200, so /api/auth derives its GitHub
+  # redirect_uri from whichever origin the admin was opened on. Pinning this to
+  # the canonical host keeps that handshake on the origin GitHub has registered.
+  base_url: https://www.resolveit.nl
   auth_endpoint: api/auth
 
 # Uploaded images are stored here and referenced by this public path.

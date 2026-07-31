@@ -320,6 +320,142 @@ const cc = lang === 'en'
       }
     });
 
+    // ---------------------------------------------------------------------
+    // Engagement events carried over from Tag Manager container GTM-M7CSJFKX.
+    //
+    // The event names are deliberately the container's own, not GA4 standard
+    // names: existing reports, audiences and Google Ads conversions are keyed on
+    // these strings, so renaming them would silently break historical continuity.
+    // The click_url parameter matches what the old tags sent (gtm.elementUrl).
+    // ---------------------------------------------------------------------
+
+    // Link clicks, matched against the href like the old triggers did. Order
+    // matters only in that every match fires; a link can satisfy more than one
+    // rule, which is how the container behaved too.
+    const linkRules = [
+      { event: 'L_Telefoon_klik', test: (h) => h.startsWith('tel:') },
+      { event: 'L_Mail_klik', test: (h) => h.startsWith('mailto:') },
+      { event: 'L_Socials_klik', test: (h) => h.includes('linkedin.com') || h.includes('wa.me') },
+      { event: 'L_App_Exchange_klik', test: (h) => h.includes('appexchange.salesforce.com') },
+      // Matched on the raw attribute so an in-page anchor still counts, and
+      // excluding tel:/mailto: keeps contact@ addresses out of this one.
+      {
+        event: 'L_Klik_naar_contact',
+        test: (h) => h.includes('contact') && !h.startsWith('tel:') && !h.startsWith('mailto:'),
+      },
+    ];
+
+    document.addEventListener('click', (e) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      const a = t.closest('a[href]');
+      if (!a) return;
+      const href = a.getAttribute('href') || '';
+      const absolute = (a as HTMLAnchorElement).href || href;
+
+      for (const rule of linkRules) {
+        if (rule.test(href)) track(rule.event, { click_url: absolute });
+      }
+
+      // The old container keyed this off an .apply-button class. The vacancy CTA
+      // is a plain link to /contact now, so it is marked up explicitly instead.
+      if (a.hasAttribute('data-track-apply')) {
+        track('L_Sollicitatie_start', { click_url: absolute });
+      }
+    });
+
+    // Booking-intent click. begin_appointment above is the GA4-standard name for
+    // the same action; both fire so the older reports keep working.
+    document.addEventListener('click', (e) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      const a = t.closest('a[href*="calendly.com"]');
+      if (a) track('BL_Calendly_klik', { click_url: (a as HTMLAnchorElement).href });
+    });
+
+    // Visiting the appointment page at all was tracked separately.
+    if (/afspraak/i.test(location.pathname + location.hash)) {
+      track('BL_Calendly_page_visit', { click_url: location.href });
+    }
+
+    // Qualified-visitor signal: still on the page after 30 seconds, fired once.
+    window.setTimeout(() => track('L_Kwalitatieve_websitebezoeker_30_seconden', {}), 30000);
+
+    // Leadinfo reports chat interactions by pushing to dataLayer. With Tag
+    // Manager gone nothing consumes those pushes, so watch for the one the old
+    // container forwarded. gtag's own pushes carry no eventAction, so they fall
+    // straight through without recursing.
+    const dl = (window as any).dataLayer;
+    if (dl && typeof dl.push === 'function') {
+      const originalPush = dl.push.bind(dl);
+      dl.push = function (...entries) {
+        for (const entry of entries) {
+          const action = entry && typeof entry === 'object' ? (entry as any).eventAction : null;
+          if (typeof action === 'string' && action.includes('leadinfo_opened_by_click')) {
+            track('BL_Leadinfo_klik', {});
+          }
+        }
+        return originalPush(...entries);
+      };
+    }
+
+    // ---------------------------------------------------------------------
+    // Google Ads click id into the Pardot forms.
+    //
+    // The forms have a gclid field that Pardot prefills from the iframe's own
+    // query string, but the iframe is cross-origin so the value has to be in the
+    // src. A visitor usually lands on an ad page and converts on another one, so
+    // the id is remembered rather than read from the current URL only.
+    //
+    // Persisting it is gated on cookie consent, matching how gtag holds back
+    // ad_storage until the banner is accepted. A gclid in the URL of the page
+    // being viewed is always honoured, consent or not: that is the visitor's own
+    // navigation and it never outlives the page load.
+    // ---------------------------------------------------------------------
+    const GCLID_KEY = 'riy-gclid';
+
+    const readGclid = () => {
+      const fromUrl = new URLSearchParams(location.search).get('gclid');
+      if (fromUrl) {
+        try {
+          if (localStorage.getItem('riy-consent') === 'granted') {
+            localStorage.setItem(GCLID_KEY, fromUrl);
+          }
+        } catch (e) {}
+        return fromUrl;
+      }
+      try {
+        return localStorage.getItem(GCLID_KEY);
+      } catch (e) {
+        return null;
+      }
+    };
+
+    const gclid = readGclid();
+
+    const applyGclid = () => {
+      if (!gclid) return;
+      document.querySelectorAll('iframe.pardot-form').forEach((node) => {
+        const frame = node as HTMLIFrameElement;
+        const raw = frame.getAttribute('src');
+        if (!raw) return;
+        const url = new URL(raw, location.href);
+        // Skip if it is already correct, so this never reloads a form needlessly.
+        if (url.searchParams.get('gclid') === gclid) return;
+        url.searchParams.set('gclid', gclid);
+        frame.setAttribute('src', url.toString());
+      });
+    };
+
+    if (gclid) {
+      applyGclid();
+      // Forms inside modals can be added later, so re-apply as nodes appear. The
+      // equality guard above stops this from looping on its own mutations.
+      if ('MutationObserver' in window) {
+        new MutationObserver(applyGclid).observe(document.body, { childList: true, subtree: true });
+      }
+    }
+
     // Auto-resize embedded Pardot form iframes to their content height
     // (the form layout template posts its height via postMessage).
     window.addEventListener('message', (e) => {

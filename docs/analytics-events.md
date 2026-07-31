@@ -71,8 +71,61 @@ Het werkt op elk formulier met de class `pardot-form`, inclusief de formulieren
 in modals, die later in de pagina verschijnen. De `src` wordt alleen herschreven
 als de waarde nog niet klopt, zodat een formulier nooit onnodig herlaadt.
 
+## Google Ads-conversies
+
+Account `AW-16749801902`. De conversielabels komen uit dezelfde container. Ze
+hangen aan de GA4-events hierboven in plaats van hun eigen triggers te hebben,
+zodat een trigger maar op één plek onderhouden hoeft te worden. De
+conversion linker die de container apart aanzette doet `gtag` zelf.
+
+| Label | Hangt aan |
+| --- | --- |
+| `YM6TCKCW_owaEK7j9rI-` | `L_Kwalitatieve_websitebezoeker_30_seconden` |
+| `VtNjCPOD3McbEK7j9rI-` | `L_Telefoon_klik` |
+| `iDvICIPL5N0bEK7j9rI-` | `L_Mail_klik` |
+| `85w-CKzujt0bEK7j9rI-` | `BL_Leadinfo_klik` |
+| `oQ45CM3e8d0bEK7j9rI-` | `schedule_appointment` |
+| `E58OCOXY2t0bEK7j9rI-` | bezoek aan `/contact` of `/en/contact` |
+| `c-P2CMWbg40aEK7j9rI-` | bedankpagina met bron `billing` |
+| `nBW4CMubg40aEK7j9rI-` | bedankpagina met bron `sharepoint` |
+| `u3UUCKOW_owaEK7j9rI-` | openen van het demo-formulier op de Billing-pagina |
+
+Vier labels uit de container hebben geen plek meer, omdat het element dat ze
+mat niet meer bestaat. Ze staan hier zodat duidelijk is dat ze bewust
+ontbreken en niet vergeten zijn:
+
+- `cLIoCKmW_owaEK7j9rI-` en `QZA3CKaW_owaEK7j9rI-`: klikken op de SharePoint
+  demo- en proefperiode-popup. Die popups bestaan niet meer.
+- `_CqCCPu_nKccEK7j9rI-`: klik op de Exact demo-popup, idem.
+- `fIMbCMibg40aEK7j9rI-`: inzending van het formulier "Proefperiode Sharepoint".
+  Demo en proefperiode landen nu op dezelfde bedankpagina, dus die twee zijn niet
+  meer van elkaar te onderscheiden. Alleen het demo-label vuurt.
+
+Wil je die vier terug, dan is daar eerst een onderscheidend element of een eigen
+bedankpagina voor nodig.
+
+## Overige trackers
+
+Ook uit de container overgenomen, en allemaal pas ná toestemming geladen:
+
+| Tracker | Id |
+| --- | --- |
+| Leadinfo | `LI-68482C03CF266` |
+| LinkedIn Insight Tag | partner `8312826` |
+| Hotjar | site `6724552` |
+| Bullseye | `136e696c-eb2e-436f-a9f1-8989e5ecdc3b` |
+
+Hotjar was in de container al aan toestemming gekoppeld. De andere drie vuurden
+daar op elke pageview, maar ze plaatsen cookies en identificeren bezoekers, dus
+ze volgen nu dezelfde regel.
+
 ## Niet overgenomen
 
-De oude container had ook dertien Google Ads-conversietags en een LinkedIn
-Insight Tag. Die zijn niet meegenomen; dit gaat alleen over GA4. Wil je die
-terug, dan is dat een apart klusje.
+Drie custom HTML-tags uit de container zijn vervallen:
+
+- Een jQuery-listener op `gform_confirmation_loaded`, voor Gravity Forms. Dat is
+  WordPress; die formulieren bestaan hier niet.
+- Een postMessage-listener die inzendingen in de oude popup-iframes opving. Die
+  rol is overgenomen door de `thank-you-*`-pagina's.
+- Een Calendly postMessage-listener. Die zit nu native in de layout en stuurt
+  `schedule_appointment`.

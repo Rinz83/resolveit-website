@@ -148,6 +148,10 @@ const cc = lang === 'en'
     } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'G-N45J4VLRC2');
+    // Google Ads, so the conversion labels carried over from Tag Manager have an
+    // account to report into. gtag handles the conversion linker itself, which is
+    // what the container's Conversion Linker tag did.
+    gtag('config', 'AW-16749801902');
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-N45J4VLRC2" is:inline></script>
 
@@ -230,16 +234,22 @@ const cc = lang === 'en'
   </style>
 
   <script is:inline>
-    // Leadinfo (company identification + Leadbot chat). Previously loaded via
-    // Google Tag Manager; injected directly now that GTM is gone.
+    // Third-party trackers carried over from Tag Manager container GTM-M7CSJFKX:
+    // Leadinfo (company identification + Leadbot chat), the LinkedIn Insight Tag,
+    // Hotjar and Bullseye.
     //
-    // Leadinfo sets cookies, so it stays unloaded until the visitor accepts the
-    // banner, the same rule that applies to GA above. Called both on load (for a
-    // choice stored on an earlier visit) and straight from the accept button, so
-    // the chat appears without needing a reload.
-    window.riyLoadLeadinfo = function () {
-      if (window.riyLeadinfoLoaded) return;
-      window.riyLeadinfoLoaded = true;
+    // All four stay unloaded until the visitor accepts the cookie banner, the same
+    // rule that applies to GA above. Hotjar was already consent-gated in the
+    // container; the other three fired on every page view there, but they set
+    // cookies and identify visitors, so gating them is the correct behaviour.
+    //
+    // Called both on load (for a choice stored on an earlier visit) and straight
+    // from the accept button, so the chat appears without needing a reload.
+    window.riyLoadConsentedScripts = function () {
+      if (window.riyConsentedScriptsLoaded) return;
+      window.riyConsentedScriptsLoaded = true;
+
+      // Leadinfo — LI-68482C03CF266
       (function (a, e, f, g, b, h, d, c) {
         a[b] || ((a.GlobalLeadinfoNamespace = a.GlobalLeadinfoNamespace || []),
           a.GlobalLeadinfoNamespace.push(b),
@@ -252,6 +262,36 @@ const cc = lang === 'en'
           (d.src = g),
           c.parentNode.insertBefore(d, c));
       })(window, document, 'script', 'https://cdn.leadinfo.net/ping.js', 'leadinfo', 'LI-68482C03CF266');
+
+      // LinkedIn Insight Tag — partner 8312826
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push('8312826');
+      if (!window.lintrk) {
+        window.lintrk = function (a, b) { window.lintrk.q.push([a, b]); };
+        window.lintrk.q = [];
+      }
+      var li = document.createElement('script');
+      li.async = true;
+      li.src = 'https://snap.licdn.com/li.lms-analytics/insight.min.js';
+      document.head.appendChild(li);
+
+      // Hotjar — site 6724552
+      (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments); };
+        h._hjSettings = { hjid: 6724552, hjsv: 6 };
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+
+      // Bullseye
+      var bs = document.createElement('script');
+      bs.async = true;
+      bs.defer = true;
+      bs.src = 'https://script.bullseye.so/script/136e696c-eb2e-436f-a9f1-8989e5ecdc3b';
+      document.head.appendChild(bs);
     };
   </script>
 
@@ -264,7 +304,7 @@ const cc = lang === 'en'
       var stored = null;
       try { stored = localStorage.getItem('riy-consent'); } catch (e) {}
       if (!stored) banner.hidden = false;
-      if (stored === 'granted') window.riyLoadLeadinfo();
+      if (stored === 'granted') window.riyLoadConsentedScripts();
       function choose(choice) {
         try { localStorage.setItem('riy-consent', choice); } catch (e) {}
         var g = choice === 'granted' ? 'granted' : 'denied';
@@ -273,7 +313,7 @@ const cc = lang === 'en'
             ad_storage: g, ad_user_data: g, ad_personalization: g, analytics_storage: g,
           });
         }
-        if (choice === 'granted') window.riyLoadLeadinfo();
+        if (choice === 'granted') window.riyLoadConsentedScripts();
         banner.hidden = true;
       }
       banner.querySelector('.cc-accept').addEventListener('click', function () { choose('granted'); });
@@ -299,11 +339,64 @@ const cc = lang === 'en'
       }
     });
 
-    // Fire a GA event helper (no-op until consent is granted / gtag exists).
+    // ---------------------------------------------------------------------
+    // Google Ads conversions, carried over from container GTM-M7CSJFKX.
+    //
+    // Each label below fired from its own tag there. Rather than duplicate the
+    // trigger logic, they hang off the GA4 events this file already sends, so a
+    // trigger only ever has to be maintained in one place.
+    // ---------------------------------------------------------------------
+    const ADS_ACCOUNT = 'AW-16749801902';
+
+    const adsLabelFor = {
+      L_Kwalitatieve_websitebezoeker_30_seconden: 'YM6TCKCW_owaEK7j9rI-',
+      L_Telefoon_klik: 'VtNjCPOD3McbEK7j9rI-',
+      L_Mail_klik: 'iDvICIPL5N0bEK7j9rI-',
+      BL_Leadinfo_klik: '85w-CKzujt0bEK7j9rI-',
+      schedule_appointment: 'oQ45CM3e8d0bEK7j9rI-',
+    };
+
+    const adsConvert = (label) => {
+      const g = (window as any).gtag;
+      if (typeof g === 'function' && label) {
+        g('event', 'conversion', { send_to: ADS_ACCOUNT + '/' + label });
+      }
+    };
+
+    // Fire a GA event helper (no-op until consent is granted / gtag exists), plus
+    // the matching Ads conversion when there is one.
     const track = (name, params) => {
       const g = (window as any).gtag;
       if (typeof g === 'function') g('event', name, params || {});
+      adsConvert(adsLabelFor[name]);
     };
+
+    // Reaching the contact page was its own Ads conversion, with no GA4 event
+    // beside it, so it is triggered on the path directly.
+    if (/^\/(en\/)?contact\/?$/.test(location.pathname)) {
+      adsConvert('E58OCOXY2t0bEK7j9rI-');
+    }
+
+    // Form submissions land on a thank-you page. The container measured these
+    // inside the old popup forms; the per-product label is derived from the
+    // page's own source marker instead.
+    const adsLabelForFormSource = {
+      billing: 'c-P2CMWbg40aEK7j9rI-',
+      sharepoint: 'nBW4CMubg40aEK7j9rI-',
+    };
+    const ty = document.querySelector('.ty[data-ty-source]');
+    if (ty) adsConvert(adsLabelForFormSource[(ty as HTMLElement).dataset.tySource]);
+
+    // Opening the Billing demo form. The container keyed this off the old
+    // #demoBillingPopup link; the modal on the Billing page replaces it.
+    document.addEventListener('click', (e) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      const a = t.closest('a[href="#demo"]');
+      if (a && /billing-module/.test(location.pathname)) {
+        adsConvert('u3UUCKOW_owaEK7j9rI-');
+      }
+    });
 
     // Pardot form engagement: the form template posts a "form_start" event
     // when the visitor first focuses a field.

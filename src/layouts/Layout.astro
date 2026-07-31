@@ -198,6 +198,9 @@ const cc = lang === 'en'
       border-radius: 14px;
       box-shadow: var(--shadow-lg, 0 16px 40px rgba(0,0,0,.16));
     }
+    /* Author `display: flex` above beats the UA sheet's [hidden] rule, so the
+       banner needs an explicit hidden state to disappear on accept/decline. */
+    .cc-banner[hidden] { display: none; }
     .cc-text {
       margin: 0;
       flex: 1 1 260px;

@@ -230,6 +230,32 @@ const cc = lang === 'en'
   </style>
 
   <script is:inline>
+    // Leadinfo (company identification + Leadbot chat). Previously loaded via
+    // Google Tag Manager; injected directly now that GTM is gone.
+    //
+    // Leadinfo sets cookies, so it stays unloaded until the visitor accepts the
+    // banner, the same rule that applies to GA above. Called both on load (for a
+    // choice stored on an earlier visit) and straight from the accept button, so
+    // the chat appears without needing a reload.
+    window.riyLoadLeadinfo = function () {
+      if (window.riyLeadinfoLoaded) return;
+      window.riyLeadinfoLoaded = true;
+      (function (a, e, f, g, b, h, d, c) {
+        a[b] || ((a.GlobalLeadinfoNamespace = a.GlobalLeadinfoNamespace || []),
+          a.GlobalLeadinfoNamespace.push(b),
+          (a[b] = function () { (a[b].q = a[b].q || []).push(arguments); }),
+          (a[b].t = a[b].t || h),
+          (a[b].q = a[b].q || []),
+          (d = e.createElement(f)),
+          (c = e.getElementsByTagName(f)[0]),
+          (d.async = 1),
+          (d.src = g),
+          c.parentNode.insertBefore(d, c));
+      })(window, document, 'script', 'https://cdn.leadinfo.net/ping.js', 'leadinfo', 'LI-68482C03CF266');
+    };
+  </script>
+
+  <script is:inline>
     // Cookie consent: show the banner until a choice is stored, then update
     // Google Consent Mode v2 accordingly.
     (function () {
@@ -238,6 +264,7 @@ const cc = lang === 'en'
       var stored = null;
       try { stored = localStorage.getItem('riy-consent'); } catch (e) {}
       if (!stored) banner.hidden = false;
+      if (stored === 'granted') window.riyLoadLeadinfo();
       function choose(choice) {
         try { localStorage.setItem('riy-consent', choice); } catch (e) {}
         var g = choice === 'granted' ? 'granted' : 'denied';
@@ -246,6 +273,7 @@ const cc = lang === 'en'
             ad_storage: g, ad_user_data: g, ad_personalization: g, analytics_storage: g,
           });
         }
+        if (choice === 'granted') window.riyLoadLeadinfo();
         banner.hidden = true;
       }
       banner.querySelector('.cc-accept').addEventListener('click', function () { choose('granted'); });

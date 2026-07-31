@@ -47,6 +47,20 @@ Het script slaat het access token, het refresh token en de vervaldatum op in
 één gevonden wordt. Zijn er meerdere, dan print het de keuzes en zet je de juiste
 zelf in `.env`.
 
+Ging dat laatste mis, of is de pagina gewijzigd? Dan kun je alleen die stap
+overdoen zonder opnieuw te autoriseren:
+
+```bash
+node scripts/linkedin-orgs.mjs
+```
+
+## API-versie
+
+Elke `/rest/`-aanroep stuurt een `LinkedIn-Version`-header mee, vastgelegd in
+`LINKEDIN_VERSION` in `scripts/linkedin.mjs`. LinkedIn houdt maar een beperkt
+aantal versies actief. Krijg je een `426 NONEXISTENT_VERSION`, dan is die versie
+uitgefaseerd en zet je er een op die wel geaccepteerd wordt.
+
 ## Concept-post aanmaken
 
 ```bash

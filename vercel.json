@@ -2,9 +2,15 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/",
       "has": [{ "type": "host", "value": "resolveit.nl" }],
-      "destination": "https://www.resolveit.nl/:path*",
+      "destination": "https://www.resolveit.nl/",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [{ "type": "host", "value": "resolveit.nl" }],
+      "destination": "https://www.resolveit.nl/:path+",
       "permanent": true
     }
   ]

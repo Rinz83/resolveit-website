@@ -17,3 +17,6 @@ Thumbs.db
 # raw source screenshots dropped in for the manual (copied into public/images/salespoint)
 /salesforce setup/
 /Lightning config/
+
+# Google service account key (never commit)
+secrets/

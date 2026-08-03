@@ -19,8 +19,9 @@ export interface Props {
   metrics: { num: string; label: string }[];
   products?: { label: string; href: string; featured?: boolean }[];
   caseHighlights?: { client: string; quote?: string; author?: string; result: string; href: string }[];
+  faqs?: { q: string; a: string }[];
 }
-const { eyebrow, title, intro, icon, dashboard, painLine, painPoints, capabilities, metrics, products = [], caseHighlights = [], lang = 'nl' } = Astro.props;
+const { eyebrow, title, intro, icon, dashboard, painLine, painPoints, capabilities, metrics, products = [], caseHighlights = [], faqs = [], lang = 'nl' } = Astro.props;
 const ringDash = dashboard.ring ? 157 - (157 * parseInt(dashboard.ring)) / 100 : 20;
 const en = lang === 'en';
 const T = {
@@ -38,6 +39,8 @@ const T = {
   alleSectoren: en ? 'All industries' : 'Alle sectoren',
   casesTitle: en ? 'What clients achieve with us' : 'Wat klanten met ons bereiken',
   casesEyebrow: en ? 'Cases' : 'Cases',
+  faqEyebrow: en ? 'Frequently asked questions' : 'Veelgestelde vragen',
+  faqTitle: en ? 'Good to know for your sector' : 'Goed om te weten voor uw sector',
   leesCase: en ? 'Read the case →' : 'Lees de case →',
   ctaTitle: en ? 'Recognise these challenges?' : 'Herkent u deze uitdagingen?',
   ctaText: en ? 'Schedule a no-obligation consultancy call: we think along with you, with no strings attached.' : 'Plan een vrijblijvend consultancygesprek: we denken met u mee, zonder verplichtingen.',
@@ -192,6 +195,30 @@ const T = {
   </section>
 )}
 
+<!-- FAQ -->
+{faqs.length > 0 && (
+  <section class="section">
+    <div class="container" style="max-width:820px;">
+      <div class="section-header reveal"><span class="eyebrow">{T.faqEyebrow}</span><h2>{T.faqTitle}</h2></div>
+      <div class="sec-faq-list">
+        {faqs.map(f => (
+          <details class="sec-faq reveal"><summary>{f.q}<span class="sec-faq-plus">+</span></summary><p set:html={f.a} /></details>
+        ))}
+      </div>
+    </div>
+    {/* FAQ rich-result eligibility; answers are stripped of inline HTML. */}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
+      })),
+    })} is:inline />
+  </section>
+)}
+
 <!-- CROSS LINKS -->
 <section class="section-sm bg-off-white">
   <div class="container">
@@ -295,6 +322,17 @@ const T = {
 .metric-num { display: block; font-size: 1.9rem; font-weight: 800; color: var(--color-green-soft); margin-bottom: 0.3rem; }
 .metric-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
 @media (max-width: 820px) { .metrics-grid { grid-template-columns: 1fr 1fr; } }
+
+/* faq (same look as the service/product pages) */
+.sec-faq-list { display: flex; flex-direction: column; gap: 0.85rem; }
+.sec-faq { background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: 14px; padding: 0 1.25rem; }
+.sec-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; list-style: none; padding: 1.1rem 0; font-weight: 600; color: var(--color-text); }
+.sec-faq summary::-webkit-details-marker { display: none; }
+.sec-faq-plus { font-size: 1.4rem; color: var(--color-green); transition: transform var(--transition); flex-shrink: 0; }
+.sec-faq[open] .sec-faq-plus { transform: rotate(45deg); }
+.sec-faq p { padding: 0 0 1.2rem; color: var(--color-text-muted); margin: 0; }
+.sec-faq p :global(a) { color: var(--color-green-dark); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; font-weight: 700; }
+.sec-faq p :global(a:hover) { color: var(--color-green); }
 
 /* related + cta */
 .sec-related-label { text-align: center; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-muted); margin-bottom: 1.25rem; }

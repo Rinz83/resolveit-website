@@ -3,8 +3,14 @@ import Layout from '../../../layouts/Layout.astro';
 import SectorPage from '../../../components/SectorPage.astro';
 const icon = `<svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.4"/><path d="M3.5 19.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="17.5" cy="7" r="2.2" stroke="currentColor" stroke-width="1.4"/></svg>`;
 ---
-<Layout title="Salesforce for Recruitment & Staffing: pipeline, placements & margin" description="Salesforce for recruitment and staffing agencies: manage candidates, vacancies and clients in one pipeline, automate follow-ups and link placements directly to invoicing.">
+<Layout title="Salesforce for Recruitment & Staffing: pipeline, placements & margin" description="Salesforce for recruitment and staffing agencies: manage candidates, vacancies and clients in one pipeline, automate follow-ups and link placements directly to invoicing." breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Industries', item: '/en/voor-wie' }, { name: 'Recruitment', item: '/en/voor-wie/recruitment' }]}>
   <SectorPage
+    faqs={[
+      { q: 'Can candidates, vacancies and clients live in one system?', a: 'Yes. Salesforce is set up as one pipeline from candidate to placement, with automated follow-ups and a complete view per client.' },
+      { q: 'Can placements be linked directly to invoicing?', a: 'Yes. A placement automatically becomes an invoice via the <a href="/en/producten/billing-module">Billing Platform</a>, including recurring weekly or monthly invoicing for secondment and staffing.' },
+      { q: 'How do we keep client company data up to date?', a: '<a href="/en/producten/kvk-integratie">Datasolver</a> automatically enriches and verifies company data against the Dutch Chamber of Commerce register, so your CRM stays clean and invoices always reach the right entity.' },
+      { q: 'How fast can a recruitment agency go live with Salesforce?', a: 'A focused setup is often live within a few weeks, as our <a href="/en/cases">cases</a> show. A <a href="/en/diensten/consultancy">free assessment</a> determines scope and planning upfront.' },
+    ]}
     lang="en"
     eyebrow="Industries · Recruitment & Staffing"
     title="From first match to invoiced placement, in one pipeline"

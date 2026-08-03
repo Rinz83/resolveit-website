@@ -43,6 +43,30 @@ const jobs = [
 ---
 
 <Layout title="Careers" description="Working at Resolve IT? Young, ambitious and unconventional. Browse our open Salesforce vacancies and grow with us.">
+  {/* JobPosting per vacancy for Google for Jobs. datePosted is deliberately a
+      fixed date (last content update), not the build date. */}
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@graph': jobs.map((j) => ({
+      '@type': 'JobPosting',
+      title: j.title,
+      description: `<p>${j.intro}</p><ul>${j.does.map((d) => `<li>${d}</li>`).join('')}</ul>`,
+      datePosted: '2026-08-03',
+      employmentType: 'FULL_TIME',
+      hiringOrganization: { '@id': 'https://www.resolveit.nl/#organization' },
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Clarissenhof 336',
+          postalCode: '5047 RW',
+          addressLocality: 'Tilburg',
+          addressCountry: 'NL',
+        },
+      },
+      directApply: true,
+    })),
+  })} is:inline />
 
   <!-- HERO -->
   <section class="jb-hero">

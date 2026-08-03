@@ -3,8 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import SectorPage from '../../components/SectorPage.astro';
 const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M3 20V10l5 3V10l5 3V6l5 4v10H3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
 ---
-<Layout title="Salesforce voor Manufacturing: orders, productie & service" description="Salesforce voor de maakindustrie: verbind sales, orderverwerking, productieplanning en service. Realtime grip op orders, prognoses, marges en klantrelaties.">
+<Layout title="Salesforce voor Manufacturing: orders, productie & service" description="Salesforce voor de maakindustrie: verbind sales, orderverwerking, productieplanning en service. Realtime grip op orders, prognoses, marges en klantrelaties." breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Voor wie?', item: '/voor-wie' }, { name: 'Manufacturing', item: '/voor-wie/manufacturing' }]}>
   <SectorPage
+    faqs={[
+      { q: 'Kan Salesforce koppelen met ons ERP-systeem?', a: 'Ja. Voor Exact Online en Microsoft Business Central gebruiken we onze eigen Influx Connectors; andere ERP-systemen koppelen we via <a href="/diensten/development">maatwerkintegraties</a>. Orders, klanten en facturen blijven zo overal synchroon.' },
+      { q: 'Hoe krijgen sales, productie en service een gedeeld klantbeeld?', a: 'Alle orders, contracten en servicehistorie komen samen in Salesforce. Iedere afdeling werkt met dezelfde actuele data, van offerte tot aftersales.' },
+      { q: 'Kunnen orderverwerking en facturatie geautomatiseerd worden?', a: 'Ja. Een gesloten deal wordt automatisch een order en factuur via het <a href="/producten/billing-module">Billing Platform</a>, inclusief betalingsopvolging. Dat scheelt handwerk en fouten in de administratie.' },
+      { q: 'Wat is een realistische doorlooptijd voor de maakindustrie?', a: 'Een implementatie met ERP-koppeling plannen we doorgaans in fases van enkele weken, zodat de productie gewoon doordraait. We starten met een <a href="/diensten/consultancy">gratis assessment</a>.' },
+    ]}
     eyebrow="Voor wie? · Manufacturing"
     title="Van offerte tot levering: één keten, geen losse eilanden"
     intro="In de maakindustrie telt elke dag levertijd en elke euro marge. Wij verbinden sales, orderverwerking, productieplanning en service in Salesforce, zodat u realtime stuurt op orders, prognoses en klanttevredenheid, en sterkere, langdurige klantrelaties bouwt."

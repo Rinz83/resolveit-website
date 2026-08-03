@@ -3,8 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import SectorPage from '../../components/SectorPage.astro';
 const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M7 18a4 4 0 0 1-.5-7.97A5.5 5.5 0 0 1 17 9.5a3.5 3.5 0 0 1 .5 6.96" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12v6m0-6-2 2m2-2 2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 ---
-<Layout title="Salesforce voor SaaS: recurring revenue, churn & dashboards" description="Salesforce voor SaaS-bedrijven: van lead tot recurring revenue. Beheer MRR, churn en NRR met live dashboards, automatiseer abonnementen en facturatie via ons Billing Platform.">
+<Layout title="Salesforce voor SaaS: MRR, churn & billing" description="Salesforce voor SaaS-bedrijven: van lead tot recurring revenue. Live dashboards op MRR, churn en NRR, met abonnementen en facturatie volledig geautomatiseerd." breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Voor wie?', item: '/voor-wie' }, { name: 'SaaS', item: '/voor-wie/saas' }]}>
   <SectorPage
+    faqs={[
+      { q: 'Kan Salesforce onze MRR, churn en NRR automatisch bijhouden?', a: 'Ja. Wij richten live dashboards in op MRR, ARR, churn en NRR, gevoed door uw abonnementsdata uit het <a href="/producten/billing-module">Billing Platform</a>. Board-updates en investeerdersrapportages kosten daarmee geen handwerk meer.' },
+      { q: 'Hoe automatiseren jullie abonnementsfacturatie voor SaaS?', a: 'Abonnementen worden geactiveerd zodra een deal op closed-won staat. Facturen gaan automatisch de deur uit per maand, kwartaal of jaar, en incasso loopt via Stripe. Up- en downgrades worden direct in de MRR verwerkt.' },
+      { q: 'Koppelt dit met onze boekhouding?', a: 'Ja. Via de <a href="/producten/exact-online">Influx Exact Connector</a> of de <a href="/producten/business-central">Influx Business Central Connector</a> lopen facturen en betaalstatussen synchroon met uw boekhouding, zonder dubbele invoer.' },
+      { q: 'Hoe lang duurt een Salesforce-implementatie voor een SaaS-bedrijf?', a: 'Een gerichte inrichting met billing en dashboards staat vaak binnen enkele weken. We starten met een <a href="/diensten/consultancy">gratis assessment</a> om scope en volgorde te bepalen.' },
+    ]}
     eyebrow="Voor wie? · SaaS"
     title="Van trial tot recurring revenue, zonder dat groei vastloopt"
     intro="SaaS draait op terugkerende omzet, lage churn en slim onboarden. Wij bouwen een Salesforce-omgeving die meeschaalt met uw abonneebestand, met live dashboards op MRR, churn en NRR, en facturatie volledig geautomatiseerd via ons Billing Platform."

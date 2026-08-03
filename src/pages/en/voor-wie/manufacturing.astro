@@ -3,8 +3,14 @@ import Layout from '../../../layouts/Layout.astro';
 import SectorPage from '../../../components/SectorPage.astro';
 const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M3 20V10l5 3V10l5 3V6l5 4v10H3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
 ---
-<Layout title="Salesforce for Manufacturing: orders, production & service" description="Salesforce for manufacturers: connect sales, order processing, production planning and service. Real-time grip on orders, forecasts, margins and customer relationships.">
+<Layout title="Salesforce for Manufacturing: orders, production & service" description="Salesforce for manufacturers: connect sales, order processing, production planning and service. Real-time grip on orders, forecasts, margins and customer relationships." breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Industries', item: '/en/voor-wie' }, { name: 'Manufacturing', item: '/en/voor-wie/manufacturing' }]}>
   <SectorPage
+    faqs={[
+      { q: 'Can Salesforce connect to our ERP system?', a: 'Yes. For Exact Online and Microsoft Business Central we use our own Influx Connectors; other ERP systems are connected via <a href="/en/diensten/development">custom integrations</a>. Orders, customers and invoices stay in sync everywhere.' },
+      { q: 'How do sales, production and service get one shared customer view?', a: 'All orders, contracts and service history come together in Salesforce. Every department works with the same up-to-date data, from quote to aftersales.' },
+      { q: 'Can order processing and invoicing be automated?', a: 'Yes. A closed deal automatically becomes an order and invoice via the <a href="/en/producten/billing-module">Billing Platform</a>, including payment follow-up. That saves manual work and errors in administration.' },
+      { q: 'What is a realistic timeline for manufacturers?', a: 'An implementation with an ERP connection is usually planned in phases of a few weeks, so production keeps running. We start with a <a href="/en/diensten/consultancy">free assessment</a>.' },
+    ]}
     lang="en"
     eyebrow="Industries · Manufacturing"
     title="From quote to delivery: one chain, no separate islands"

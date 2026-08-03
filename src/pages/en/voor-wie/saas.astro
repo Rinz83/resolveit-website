@@ -3,8 +3,14 @@ import Layout from '../../../layouts/Layout.astro';
 import SectorPage from '../../../components/SectorPage.astro';
 const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M7 18a4 4 0 0 1-.5-7.97A5.5 5.5 0 0 1 17 9.5a3.5 3.5 0 0 1 .5 6.96" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12v6m0-6-2 2m2-2 2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 ---
-<Layout title="Salesforce for SaaS: recurring revenue, churn & dashboards" description="Salesforce for SaaS companies: from lead to recurring revenue. Manage MRR, churn and NRR with live dashboards, automate subscriptions and billing via our Billing Platform.">
+<Layout title="Salesforce for SaaS: MRR, churn & billing" description="Salesforce for SaaS companies: from lead to recurring revenue. Live dashboards for MRR, churn and NRR, with subscriptions and billing fully automated." breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Industries', item: '/en/voor-wie' }, { name: 'SaaS', item: '/en/voor-wie/saas' }]}>
   <SectorPage
+    faqs={[
+      { q: 'Can Salesforce track our MRR, churn and NRR automatically?', a: 'Yes. We set up live dashboards for MRR, ARR, churn and NRR, fed by your subscription data from the <a href="/en/producten/billing-module">Billing Platform</a>. Board updates and investor reporting no longer require manual work.' },
+      { q: 'How do you automate subscription billing for SaaS?', a: 'Subscriptions activate the moment a deal hits closed-won. Invoices go out automatically per month, quarter or year, and collection runs via Stripe. Upgrades and downgrades are reflected in MRR immediately.' },
+      { q: 'Does this connect to our accounting system?', a: 'Yes. Via the <a href="/en/producten/exact-online">Influx Exact Connector</a> or the <a href="/en/producten/business-central">Influx Business Central Connector</a>, invoices and payment statuses stay in sync with your accounting, without double entry.' },
+      { q: 'How long does a Salesforce implementation take for a SaaS company?', a: 'A focused setup with billing and dashboards is often live within a few weeks. We start with a <a href="/en/diensten/consultancy">free assessment</a> to determine scope and order.' },
+    ]}
     lang="en"
     eyebrow="Industries · SaaS"
     title="From trial to recurring revenue, without growth grinding to a halt"

@@ -51,7 +51,22 @@ const faqJsonLd = JSON.stringify({
 });
 ---
 
-<Layout breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Products', item: '/en/producten' }, { name: 'Billing Platform', item: '/en/producten/billing-module' }]} title="Billing Platform: invoicing, subscriptions & payments in Salesforce" description="The complete Billing Platform for Salesforce: invoicing, subscription management, MRR insight, accounts receivable and automatic collection via Stripe, connected to Exact Online and Datasolver.">
+<Layout breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Products', item: '/en/producten' }, { name: 'Billing Platform', item: '/en/producten/billing-module' }]} title="Billing Platform: invoicing in Salesforce" description="The complete Billing Platform for Salesforce: invoicing, subscriptions, MRR insight, accounts receivable and automatic collection via Stripe.">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Billing Platform for Salesforce',
+    description: 'Invoicing, subscription management, MRR insight, accounts receivable and automatic collection via Stripe, fully inside Salesforce.',
+    brand: { '@id': 'https://www.resolveit.nl/#organization' },
+    url: 'https://www.resolveit.nl/en/producten/billing-module/',
+    offers: plans.filter((p) => p.price).map((p) => ({
+      '@type': 'Offer',
+      name: p.name,
+      price: p.price,
+      priceCurrency: 'EUR',
+      url: 'https://www.resolveit.nl/en/producten/billing-module/',
+    })),
+  })} is:inline />
 
   <section class="pp-hero">
     <div class="pp-aurora" aria-hidden="true"><span></span><span></span></div>

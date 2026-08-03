@@ -12,8 +12,10 @@ const SITE = 'https://www.resolveit.nl';
 // Single-language pages (no /en/ counterpart) — listed without hreflang alternates.
 const standalonePaths = ['/improve-customer-experience-where-it-matters-most'];
 
-const nlUrl = (p) => SITE + (p === '/' ? '' : p);
-const enUrl = (p) => SITE + '/en' + (p === '/' ? '' : p);
+// Trailing-slash form, matching the canonical URLs each page declares, so the
+// sitemap, canonicals and hreflang all agree on one URL variant.
+const nlUrl = (p) => SITE + (p === '/' ? '/' : `${p}/`);
+const enUrl = (p) => SITE + '/en' + (p === '/' ? '/' : `${p}/`);
 const isoDay = (d) => d.toISOString().slice(0, 10);
 
 export async function GET() {
@@ -40,7 +42,7 @@ export async function GET() {
   </url>`;
 
   const standaloneEntry = (p) => `  <url>
-    <loc>${SITE + p}</loc>
+    <loc>${SITE + p}/</loc>
     <lastmod>${buildDate}</lastmod>
   </url>`;
 

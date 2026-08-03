@@ -3,8 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import SectorPage from '../../components/SectorPage.astro';
 const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M13 3 5 13h6l-1 8 8-10h-6l1-8z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
 ---
-<Layout title="Salesforce voor Energie & Utilities: contracten, service & compliance" description="Salesforce voor energie- en nutsbedrijven: contractmanagement, field service, klantportalen en compliance-rapportages in één gestroomlijnde omgeving.">
+<Layout title="Salesforce voor Energie & Utilities: contracten, service & compliance" description="Salesforce voor energie- en nutsbedrijven: contractmanagement, field service, klantportalen en compliance-rapportages in één gestroomlijnde omgeving." breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Voor wie?', item: '/voor-wie' }, { name: 'Energie & Utilities', item: '/voor-wie/energie-utilities' }]}>
   <SectorPage
+    faqs={[
+      { q: 'Kan Salesforce terugkerende facturatie voor energiecontracten aan?', a: 'Ja. Het <a href="/producten/billing-module">Billing Platform</a> factureert contracten automatisch per periode, inclusief betalingsherinneringen en automatische incasso. Ook grote volumes lopen zonder handwerk door.' },
+      { q: 'Hoe beheren we contracten en verlengingen in Salesforce?', a: 'Contracten, looptijden en verlengmomenten staan centraal vastgelegd. Automatische signalen zorgen dat verlengingen en indexaties op tijd worden opgepakt.' },
+      { q: 'Blijven onze klant- en bedrijfsgegevens actueel?', a: 'Ja. <a href="/producten/kvk-integratie">Datasolver</a> houdt zakelijke klantdata automatisch actueel met het KvK-register, belangrijk voor compliance en correcte facturatie.' },
+      { q: 'Koppelt Salesforce met onze bestaande systemen?', a: 'Ja. De boekhouding koppelen we via onze Influx Connectors; branchespecifieke systemen sluiten we aan via <a href="/diensten/development">maatwerkintegraties</a> op basis van API’s.' },
+    ]}
     eyebrow="Voor wie? · Energie & Utilities"
     title="Grip op contracten, service en compliance, bij grote klantvolumes"
     intro="Energie- en nutsbedrijven jongleren met complexe tarieven, strenge regelgeving en veel klantcontact. Wij brengen contractbeheer, veldservice en klantcommunicatie samen in Salesforce, zodat u betrouwbare service levert aan grote volumes én moeiteloos voldoet aan uw rapportageverplichtingen."

@@ -3,8 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import SectorPage from '../../components/SectorPage.astro';
 const icon = `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" stroke="currentColor" stroke-width="1.1"/></svg>`;
 ---
-<Layout title="Salesforce voor andere sectoren: maatwerk CRM" description="Salesforce is voor elke branche aanpasbaar. Resolve IT vertaalt uw specifieke processen naar een schaalbare CRM-oplossing op maat, ongeacht uw sector.">
+<Layout title="Salesforce voor andere sectoren: maatwerk CRM" description="Salesforce is voor elke branche aanpasbaar. Resolve IT vertaalt uw specifieke processen naar een schaalbare CRM-oplossing op maat, ongeacht uw sector." breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Voor wie?', item: '/voor-wie' }, { name: 'Overige sectoren', item: '/voor-wie/overige-sectoren' }]}>
   <SectorPage
+    faqs={[
+      { q: 'Werkt Salesforce ook voor onze branche?', a: 'Vrijwel zeker. Salesforce is volledig aanpasbaar en wij hebben ruim 340 projecten afgerond in uiteenlopende sectoren, van fintech tot casting. Bekijk onze <a href="/cases">cases</a> voor voorbeelden.' },
+      { q: 'Wat als er geen standaardoplossing voor ons proces bestaat?', a: 'Dan bouwen we die. Via <a href="/diensten/development">Development & Integraties</a> vertalen we uw specifieke werkwijze naar maatwerk in Salesforce, zonder onnodig complexe workarounds.' },
+      { q: 'Kunnen jullie onze bestaande systemen koppelen?', a: 'Ja. Boekhouding, documentbeheer en betalingen koppelen we met onze eigen <a href="/producten">producten</a>; overige systemen via API-integraties.' },
+      { q: 'Hoe ontdekken we wat er voor onze organisatie mogelijk is?', a: 'Plan een vrijblijvend gesprek of start met een <a href="/diensten/consultancy">gratis assessment</a>. U krijgt een concreet beeld van quick wins, kosten en doorlooptijd.' },
+    ]}
     eyebrow="Voor wie? · Overige sectoren"
     title="Staat uw branche er niet bij? Dan bouwen we het op maat"
     intro="Salesforce is geen standaardpakket maar een platform. Wij vertalen de processen die úw organisatie uniek maken naar een schaalbare oplossing, of u nu in zorg, onderwijs, vastgoed, non-profit of een nichemarkt zit. Eén systeem, volledig op uw werkwijze afgestemd."

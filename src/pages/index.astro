@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { calendlyUrl } from '../i18n/ui.js';
 
 const services = [
   { icon: '/images/Icon-1.svg', title: 'Implementatie & Onboarding', text: 'Salesforce op maat implementeren zodat het aansluit op uw strategische doelen en direct waarde levert.', href: '/diensten/implementatie' },
@@ -60,7 +61,7 @@ const row1 = clients.slice(0, mid);
 const row2 = clients.slice(mid);
 ---
 
-<Layout title="Salesforce Partner Nederland: Implementatie & Integratie" description="Resolve IT helpt bedrijven Salesforce in te zetten als motor voor groei. Implementatie, integraties, training en consultancy." transparentHeader={true}>
+<Layout title="Salesforce Partner Nederland: Implementatie & Integratie" description="Resolve IT implementeert Salesforce en koppelt het aan Exact, Stripe, SharePoint en meer met eigen AppExchange-producten. Gold Partner, 340+ projecten." transparentHeader={true}>
 
   <!-- HERO -->
   <section class="hero">
@@ -75,15 +76,15 @@ const row2 = clients.slice(mid);
     <div class="container hero-inner">
       <div class="hero-content">
         <span class="hero-pill"><span class="dot"></span> Salesforce Gold Partner · sinds 2019</span>
-        <h1>Harness the<br />power of<br /><span class="gradient-text">Salesforce</span></h1>
-        <p>Resolve IT helpt bedrijven Salesforce in te zetten als motor voor groei: van implementatie tot integratie, training en consultancy.</p>
+        <h1>Salesforce, verbonden met<br />de rest van<br /><span class="gradient-text">uw bedrijf</span></h1>
+        <p>De meeste partners stoppen bij CRM. Wij implementeren Salesforce én koppelen het aan uw facturatie, boekhouding, documenten en operatie, met producten die we zelf bouwen en onderhouden. Eén systeem, van eerste contact tot betaalde factuur.</p>
         <div class="hero-actions">
-          <a href="/producten" class="btn btn-primary">Onze producten</a>
-          <a href="/contact" class="btn btn-outline">Stel een vraag</a>
+          <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary">Plan een gesprek van 30 minuten</a>
+          <a href="/cases" class="btn btn-outline">Bekijk klantcases</a>
         </div>
         <div class="hero-stats">
-          <div class="hstat"><span class="hstat-num"><span data-count="340" data-suffix="+">0</span></span><span class="hstat-label">Projecten</span></div>
-          <div class="hstat"><span class="hstat-num"><span data-count="10" data-suffix="+">0</span></span><span class="hstat-label">Experts</span></div>
+          <div class="hstat"><span class="hstat-num"><span data-count="340" data-suffix="+">340+</span></span><span class="hstat-label">Projecten</span></div>
+          <div class="hstat"><span class="hstat-num"><span data-count="10" data-suffix="+">10+</span></span><span class="hstat-label">Experts</span></div>
           <div class="hstat"><span class="hstat-num">5★</span><span class="hstat-label">AppExchange</span></div>
         </div>
         <div class="hero-partners">
@@ -107,7 +108,7 @@ const row2 = clients.slice(mid);
           </div>
           <div class="float-badge fb-2">
             <span class="fb-icon" style="background:rgba(108,68,148,0.18);color:#a988d0">↑</span>
-            <div><strong>+45% efficiëntie</strong><small>gemiddeld resultaat</small></div>
+            <div><strong>75% tijdsbesparing</strong><small>PayPlaza-onboarding</small></div>
           </div>
         </div>
         <div class="orb orb-green" aria-hidden="true"></div>
@@ -115,6 +116,105 @@ const row2 = clients.slice(mid);
       </div>
     </div>
 
+  </section>
+
+  <!-- KLANTEN (tile wall) — direct onder de hero: eerst bewijs, dan verhaal -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">Onze klanten</span>
+        <h2>Vertrouwd door organisaties in Nederland en België</h2>
+        <p>Van scale-ups tot gevestigde namen als Talpa Studios, Marie-Stella-Maris en PayPlaza.</p>
+      </div>
+    </div>
+    <div class="client-carousel">
+      <div class="client-row">
+        <div class="client-row-track">
+          {[...row1, ...row1].map(c => (
+            <div class="client-tile"><img src={c.src} alt={c.alt} title={c.alt} loading="lazy" /></div>
+          ))}
+        </div>
+      </div>
+      <div class="client-row">
+        <div class="client-row-track reverse">
+          {[...row2, ...row2].map(c => (
+            <div class="client-tile"><img src={c.src} alt={c.alt} title={c.alt} loading="lazy" /></div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <p class="clients-more">…en vele anderen</p>
+  </section>
+
+  <!-- HERKENBARE PROBLEMEN -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Herkenbaar?</span>
+        <h2>Komt dit u bekend voor?</h2>
+      </div>
+      <div class="prob-grid">
+        <div class="prob-card reveal">Salesforce draait, maar facturatie gebeurt nog in een ander systeem, met de hand.</div>
+        <div class="prob-card reveal" style="--reveal-delay:0.08s">Uw team werkt om Salesforce heen in plaats van erin.</div>
+        <div class="prob-card reveal" style="--reveal-delay:0.16s">Rapportages sluiten nooit helemaal aan op wat finance in Exact ziet.</div>
+        <div class="prob-card reveal" style="--reveal-delay:0.24s">Elke nieuwe koppeling wordt een maatwerkproject.</div>
+      </div>
+      <p class="prob-closer reveal">Dit zijn de problemen die wij wekelijks oplossen. Meestal met producten die al bestaan.</p>
+    </div>
+  </section>
+
+  <!-- OPLOSSINGSPADEN -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Waar te beginnen</span>
+        <h2>Kies uw startpunt</h2>
+      </div>
+      <div class="grid-4">
+        <a href="/diensten/implementatie" class="service-card card reveal">
+          <h3>Implementeer Salesforce</h3>
+          <p class="text-muted">Een eerste implementatie of een frisse start, binnen weken live, met adoptie ingebouwd.</p>
+          <span class="card-link">Meer lezen →</span>
+        </a>
+        <a href="/diensten/consultancy" class="service-card card reveal" style="--reveal-delay:0.08s">
+          <h3>Verbeter wat u heeft</h3>
+          <p class="text-muted">Een onafhankelijke audit van uw inrichting, met quick wins eerst en daarna een roadmap.</p>
+          <span class="card-link">Meer lezen →</span>
+        </a>
+        <a href="/producten" class="service-card card reveal" style="--reveal-delay:0.16s">
+          <h3>Koppel Salesforce aan finance en operatie</h3>
+          <p class="text-muted">Exact Online, Business Central, Stripe, SharePoint en meer, met onze eigen onderhouden connectors.</p>
+          <span class="card-link">Meer lezen →</span>
+        </a>
+        <a href="/diensten/agentforce" class="service-card card reveal" style="--reveal-delay:0.24s">
+          <h3>Automatiseer met AI</h3>
+          <p class="text-muted">Agentforce- en Fin-agents die routinewerk afhandelen, met guardrails die u bepaalt.</p>
+          <span class="card-link">Meer lezen →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- UITGELICHTE CASE -->
+  <section class="section feat-case bg-dark">
+    <div class="container">
+      <div class="feat-case-inner reveal">
+        <div>
+          <span class="eyebrow">Klantcase · PayPlaza</span>
+          <h2 class="text-white">75% minder tijd per onboarding, 50+ partners, 20.000+ POS-locaties</h2>
+          <p>PayPlaza automatiseerde zijn klantonboarding op Salesforce met Resolve IT. Wat handmatig checklistwerk was, draait nu als één beheerst proces.</p>
+          <div class="feat-case-actions">
+            <a href="/cases/payplaza" class="btn btn-primary">Lees de PayPlaza-case</a>
+            <a href="/cases" class="btn btn-outline">Alle cases</a>
+          </div>
+        </div>
+        <div class="feat-case-stats">
+          <div class="feat-stat"><span>75%</span><small>minder tijd per onboarding</small></div>
+          <div class="feat-stat"><span>50+</span><small>partners onboard</small></div>
+          <div class="feat-stat"><span>20.000+</span><small>POS-locaties</small></div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- DIENSTEN -->
@@ -148,11 +248,11 @@ const row2 = clients.slice(mid);
           <p class="text-muted" style="margin-bottom:2rem;">Wij combineren diepgaande Salesforce-expertise met een praktische, no-nonsense aanpak die echt werkt voor uw organisatie.</p>
           <ul class="list-check">
             <li>Onafhankelijk advies zonder verborgen agenda</li>
-            <li>Praktische aanpak, wij denken mee als partner</li>
-            <li>Kristalheldere communicatie, geen jargon</li>
-            <li>Langdurige samenwerking ook na implementatie</li>
-            <li>Gecertificeerde Salesforce-experts in uw team</li>
-            <li>Maatwerk oplossingen voor uw specifieke situatie</li>
+            <li>Direct contact met senior consultants, zonder accountmanagerlaag</li>
+            <li>Onze integraties worden ondersteund door het team dat ze bouwde</li>
+            <li>Geen onnodig maatwerk: bestaat er een product, dan gebruiken we het</li>
+            <li>Kennisoverdracht hoort erbij, zodat u niet van ons afhankelijk bent</li>
+            <li>Langdurige samenwerking, ook na livegang</li>
           </ul>
           <div style="margin-top:2rem;">
             <a href="/over-ons" class="btn btn-outline-dark">Meer over ons</a>
@@ -167,7 +267,7 @@ const row2 = clients.slice(mid);
           ].map((v, i) => (
             <div class="value-item reveal" style={`--reveal-delay:${i * 0.1}s`}>
               <span class="value-num">
-                {v.plain ? `${v.num}${v.suffix}` : <span data-count={v.num} data-suffix={v.suffix}>0</span>}
+                {v.plain ? `${v.num}${v.suffix}` : <span data-count={v.num} data-suffix={v.suffix}>{`${v.num}${v.suffix}`}</span>}
               </span>
               <span class="value-label">{v.label}</span>
             </div>
@@ -219,8 +319,8 @@ const row2 = clients.slice(mid);
     <div class="container" style="position:relative;z-index:1;">
       <div class="section-header reveal">
         <span class="eyebrow">Producten</span>
-        <h2 class="text-white">Slimme Salesforce-uitbreidingen</h2>
-        <p style="color:rgba(255,255,255,0.7)">Onze eigen producten op de Salesforce AppExchange: direct inzetbaar, bewezen effectief.</p>
+        <h2 class="text-white">Onze eigen producten op de AppExchange</h2>
+        <p style="color:rgba(255,255,255,0.7)">Gebouwd en onderhouden door hetzelfde team dat ze implementeert. Geen verweesde maatwerkcode.</p>
       </div>
       <div class="grid-2">
         {products.map((p, i) => (
@@ -256,45 +356,17 @@ const row2 = clients.slice(mid);
     </div>
   </section>
 
-  <!-- KLANTEN (tile wall) -->
-  <section class="section bg-off-white">
-    <div class="container">
-      <div class="section-header reveal" style="margin-bottom:2.5rem;">
-        <span class="eyebrow">Onze klanten</span>
-        <h2>Vertrouwd door toonaangevende organisaties</h2>
-        <p>Van scale-ups tot gevestigde namen: organisaties in uiteenlopende sectoren bouwen met ons op Salesforce.</p>
-      </div>
-    </div>
-    <div class="client-carousel">
-      <div class="client-row">
-        <div class="client-row-track">
-          {[...row1, ...row1].map(c => (
-            <div class="client-tile"><img src={c.src} alt={c.alt} title={c.alt} loading="lazy" /></div>
-          ))}
-        </div>
-      </div>
-      <div class="client-row">
-        <div class="client-row-track reverse">
-          {[...row2, ...row2].map(c => (
-            <div class="client-tile"><img src={c.src} alt={c.alt} title={c.alt} loading="lazy" /></div>
-          ))}
-        </div>
-      </div>
-    </div>
-    <p class="clients-more">…en vele anderen</p>
-  </section>
-
   <!-- CTA STRIP -->
   <section class="cta-strip bg-dark">
     <div class="cta-glow" aria-hidden="true"></div>
     <div class="container cta-strip-inner reveal">
       <div>
-        <h2>Klaar om het volledige potentieel van Salesforce te benutten?</h2>
-        <p>Neem contact op voor een vrijblijvend gesprek of plan direct een afspraak in.</p>
+        <h2>Zie hoe verbonden Salesforce eruitziet voor uw organisatie</h2>
+        <p>Een gesprek van 30 minuten, vrijblijvend. U vertrekt met een praktische vervolgstap, met of zonder ons.</p>
       </div>
       <div class="cta-strip-actions">
-        <a href="/contact#afspraak" class="btn btn-primary">Maak een afspraak</a>
-        <a href="/contact" class="btn btn-outline">Stel een vraag</a>
+        <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary">Plan een gesprek van 30 minuten</a>
+        <a href="/cases" class="btn btn-outline">Bekijk klantcases</a>
       </div>
     </div>
   </section>
@@ -829,4 +901,33 @@ const row2 = clients.slice(mid);
 .cta-strip h2, .cta-strip p { color: var(--color-white); }
 .cta-strip p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; }
 .cta-strip-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+
+/* ============ HERKENBARE PROBLEMEN ============ */
+.prob-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 900px; margin: 0 auto; }
+@media (max-width: 700px) { .prob-grid { grid-template-columns: 1fr; } }
+.prob-card {
+  background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg);
+  padding: 1.4rem 1.6rem; font-size: 1.02rem; line-height: 1.55; color: var(--color-text);
+  position: relative; padding-left: 3.1rem;
+}
+.prob-card::before {
+  content: '?'; position: absolute; left: 1.1rem; top: 1.25rem;
+  width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: rgba(108,68,148,0.12); color: var(--color-primary); font-weight: 800; font-size: 0.9rem;
+}
+.prob-closer { text-align: center; margin-top: 2rem; font-weight: 600; }
+
+/* ============ UITGELICHTE CASE ============ */
+.feat-case { position: relative; overflow: hidden; }
+.feat-case-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: center; }
+@media (max-width: 820px) { .feat-case-inner { grid-template-columns: 1fr; } }
+.feat-case p { color: rgba(255,255,255,0.75); margin: 1rem 0 0; }
+.feat-case-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.75rem; }
+.feat-case-stats { display: grid; gap: 1rem; }
+.feat-stat {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg);
+  padding: 1.1rem 1.4rem; display: flex; align-items: baseline; gap: 0.9rem;
+}
+.feat-stat span { font-size: 1.7rem; font-weight: 800; color: var(--color-green); white-space: nowrap; }
+.feat-stat small { color: rgba(255,255,255,0.75); font-size: 0.9rem; }
 </style>

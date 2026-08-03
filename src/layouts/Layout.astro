@@ -614,6 +614,9 @@ const cc = lang === 'en'
           const el = entry.target;
           const target = parseFloat(el.dataset.count);
           const suffix = el.dataset.suffix || '';
+          // The markup ships the final value so crawlers and no-JS visitors never
+          // see "0 projects"; reset to 0 only here, right before animating.
+          el.textContent = '0';
           const dur = 1400;
           const start = performance.now();
           const tick = (now) => {

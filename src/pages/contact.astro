@@ -9,9 +9,20 @@ import { calendlyUrl, pardotForms } from '../i18n/ui.js';
     <div class="container">
       <span class="eyebrow">Neem contact op</span>
       <h1>Hoe kunnen wij u helpen?</h1>
-      <p>Vul het formulier in en we nemen zo snel mogelijk contact met u op. Of gebruik een van de directe kanalen hieronder.</p>
+      <p>Vertel ons wat u wilt verbeteren of koppelen. Een Salesforce-consultant reageert persoonlijk, doorgaans binnen één werkdag, met de meest praktische vervolgstap.</p>
     </div>
   </div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="contact-steps reveal">
+        <div class="contact-step"><span class="contact-step-n">1</span><p>We bekijken uw situatie.</p></div>
+        <div class="contact-step"><span class="contact-step-n">2</span><p>We plannen een kennismaking van 30 minuten.</p></div>
+        <div class="contact-step"><span class="contact-step-n">3</span><p>U ontvangt een eerste advies, scope of relevante demo.</p></div>
+      </div>
+      <p class="contact-steps-note">Het eerste gesprek is verkennend en vrijblijvend.</p>
+    </div>
+  </section>
 
   <section class="section">
     <div class="container contact-grid">
@@ -152,6 +163,14 @@ import { calendlyUrl, pardotForms } from '../i18n/ui.js';
 .cert-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
 
 .pardot-form { width: 100%; min-height: 480px; border: 0; display: block; overflow: hidden; }
+
+/* Expectation strip: three steps + non-binding note under the hero. */
+.contact-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+@media (max-width: 700px) { .contact-steps { grid-template-columns: 1fr; } }
+.contact-step { display: flex; align-items: flex-start; gap: 0.9rem; background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg); padding: 1.1rem 1.3rem; }
+.contact-step-n { flex-shrink: 0; width: 1.8rem; height: 1.8rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--color-green); color: #fff; font-weight: 800; font-size: 0.9rem; }
+.contact-step p { margin: 0.15rem 0 0; font-size: 0.95rem; }
+.contact-steps-note { text-align: center; margin-top: 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; }
 </style>
 
 <script>

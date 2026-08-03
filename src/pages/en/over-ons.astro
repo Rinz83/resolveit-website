@@ -49,7 +49,7 @@ const timeline = [
       </div>
       <div class="ab-hero-img">
         <img src="/images/cases/case-1.jpg" alt="The Resolve IT team at work" />
-        <div class="ab-hero-badge"><strong>Salesforce</strong><span>Certified Partner</span></div>
+        <div class="ab-hero-badge"><strong>Salesforce</strong><span>Gold Consultancy Partner</span></div>
       </div>
     </div>
   </section>
@@ -64,7 +64,7 @@ const timeline = [
         { num: '5★', plain: true, label: 'AppExchange rating' },
       ].map(s => (
         <div class="ab-stat">
-          <span class="ab-stat-num">{s.plain ? s.num : <span data-count={s.num} data-suffix={s.suffix}>0</span>}</span>
+          <span class="ab-stat-num">{s.plain ? s.num : <span data-count={s.num} data-suffix={s.suffix}>{`${s.num}${s.suffix}`}</span>}</span>
           <span class="ab-stat-lbl">{s.label}</span>
         </div>
       ))}

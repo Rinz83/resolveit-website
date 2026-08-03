@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { sectors } from '../../data/sectors.js';
+import { calendlyUrl } from '../../i18n/ui.js';
 
 const services = [
   { icon: '/images/Icon-1.svg', title: 'Implementation & Onboarding', text: 'Implement Salesforce so it aligns with your strategic goals and delivers value from day one.', href: '/en/diensten/implementatie' },
@@ -67,7 +68,7 @@ const row1 = clients.slice(0, mid);
 const row2 = clients.slice(mid);
 ---
 
-<Layout title="Harness the Power of Salesforce" description="Resolve IT helps businesses turn Salesforce into an engine for growth: implementation, integrations, training and consultancy." transparentHeader={true}>
+<Layout title="Salesforce Partner for Implementation & Integration" description="Resolve IT implements Salesforce and connects it to Exact, Stripe, SharePoint and more with our own AppExchange products. Gold Partner, 340+ projects." transparentHeader={true}>
 
   <!-- HERO -->
   <section class="hero">
@@ -82,15 +83,15 @@ const row2 = clients.slice(mid);
     <div class="container hero-inner">
       <div class="hero-content">
         <span class="hero-pill"><span class="dot"></span> Salesforce Gold Partner · since 2019</span>
-        <h1>Harness the<br />power of<br /><span class="gradient-text">Salesforce</span></h1>
-        <p>Resolve IT helps businesses turn Salesforce into an engine for growth, from implementation to integration, training and consultancy.</p>
+        <h1>Salesforce, connected<br />to the rest of<br /><span class="gradient-text">your business</span></h1>
+        <p>Most partners stop at CRM. We implement Salesforce and connect it to your invoicing, accounting, documents and operations, using products we built and maintain ourselves. One system of record, from first contact to paid invoice.</p>
         <div class="hero-actions">
-          <a href="/en/producten" class="btn btn-primary">Our products</a>
-          <a href="/en/contact" class="btn btn-outline">Ask a question</a>
+          <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary">Book a 30-minute consultation</a>
+          <a href="/en/cases" class="btn btn-outline">View customer cases</a>
         </div>
         <div class="hero-stats">
-          <div class="hstat"><span class="hstat-num"><span data-count="340" data-suffix="+">0</span></span><span class="hstat-label">Projects</span></div>
-          <div class="hstat"><span class="hstat-num"><span data-count="10" data-suffix="+">0</span></span><span class="hstat-label">Experts</span></div>
+          <div class="hstat"><span class="hstat-num"><span data-count="340" data-suffix="+">340+</span></span><span class="hstat-label">Projects</span></div>
+          <div class="hstat"><span class="hstat-num"><span data-count="10" data-suffix="+">10+</span></span><span class="hstat-label">Experts</span></div>
           <div class="hstat"><span class="hstat-num">5★</span><span class="hstat-label">AppExchange</span></div>
         </div>
         <div class="hero-partners">
@@ -114,7 +115,7 @@ const row2 = clients.slice(mid);
           </div>
           <div class="float-badge fb-2">
             <span class="fb-icon" style="background:rgba(108,68,148,0.18);color:#a988d0">↑</span>
-            <div><strong>+45% efficiency</strong><small>average result</small></div>
+            <div><strong>75% time saved</strong><small>PayPlaza onboarding</small></div>
           </div>
         </div>
         <div class="orb orb-green" aria-hidden="true"></div>
@@ -125,6 +126,34 @@ const row2 = clients.slice(mid);
     <a href="#diensten" class="scroll-cue" aria-label="Scroll down"><span></span></a>
   </section>
 
+  <!-- CLIENTS (tile wall) — directly under the hero: proof before pitch -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">Our clients</span>
+        <h2>Trusted by organisations across the Netherlands and Belgium</h2>
+        <p>From scale-ups to established names such as Talpa Studios, Marie-Stella-Maris and PayPlaza.</p>
+      </div>
+    </div>
+    <div class="client-carousel">
+      <div class="client-row">
+        <div class="client-row-track">
+          {[...row1, ...row1].map(c => (
+            <div class="client-tile"><img src={c.src} alt={c.alt} title={c.alt} loading="lazy" /></div>
+          ))}
+        </div>
+      </div>
+      <div class="client-row">
+        <div class="client-row-track reverse">
+          {[...row2, ...row2].map(c => (
+            <div class="client-tile"><img src={c.src} alt={c.alt} title={c.alt} loading="lazy" /></div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <p class="clients-more">…and many others</p>
+  </section>
+
   <!-- INTEGRATIONS MARQUEE -->
   <section class="marquee-band">
     <div class="marquee" aria-hidden="true">
@@ -132,6 +161,77 @@ const row2 = clients.slice(mid);
         {[...integrations, ...integrations].map(name => (
           <span class="marquee-item">{name}</span>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER PROBLEMS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Recognise this?</span>
+        <h2>Does this sound familiar?</h2>
+      </div>
+      <div class="prob-grid">
+        <div class="prob-card reveal">Salesforce is live, but invoicing still happens in another system, by hand.</div>
+        <div class="prob-card reveal" style="--reveal-delay:0.08s">Your team works around Salesforce instead of in it.</div>
+        <div class="prob-card reveal" style="--reveal-delay:0.16s">Reports never quite match what finance sees in Exact.</div>
+        <div class="prob-card reveal" style="--reveal-delay:0.24s">Every new integration turns into a custom development project.</div>
+      </div>
+      <p class="prob-closer reveal">These are the problems we solve every week. Usually with products that already exist.</p>
+    </div>
+  </section>
+
+  <!-- SOLUTION PATHS -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Where to start</span>
+        <h2>Choose your starting point</h2>
+      </div>
+      <div class="grid-4">
+        <a href="/en/diensten/implementatie" class="service-card card reveal">
+          <h3>Implement Salesforce</h3>
+          <p class="text-muted">A first implementation or a fresh start, live within weeks, with adoption built in.</p>
+          <span class="card-link">Read more →</span>
+        </a>
+        <a href="/en/diensten/consultancy" class="service-card card reveal" style="--reveal-delay:0.08s">
+          <h3>Improve what you have</h3>
+          <p class="text-muted">An independent audit of your set-up, with quick wins first and a roadmap after.</p>
+          <span class="card-link">Read more →</span>
+        </a>
+        <a href="/en/producten" class="service-card card reveal" style="--reveal-delay:0.16s">
+          <h3>Connect Salesforce to finance and operations</h3>
+          <p class="text-muted">Exact Online, Business Central, Stripe, SharePoint and more, using our own maintained connectors.</p>
+          <span class="card-link">Read more →</span>
+        </a>
+        <a href="/en/diensten/agentforce" class="service-card card reveal" style="--reveal-delay:0.24s">
+          <h3>Automate with AI</h3>
+          <p class="text-muted">Agentforce and Fin agents that resolve routine work, with guardrails you control.</p>
+          <span class="card-link">Read more →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED CASE -->
+  <section class="section feat-case bg-dark">
+    <div class="container">
+      <div class="feat-case-inner reveal">
+        <div>
+          <span class="eyebrow">Customer case · PayPlaza</span>
+          <h2 class="text-white">75% less time per onboarding, 50+ partners, 20,000+ POS locations</h2>
+          <p>PayPlaza automated its customer onboarding on Salesforce with Resolve IT. What used to be manual checklist work now runs as one governed process.</p>
+          <div class="feat-case-actions">
+            <a href="/en/cases/payplaza" class="btn btn-primary">Read the PayPlaza case</a>
+            <a href="/en/cases" class="btn btn-outline">All cases</a>
+          </div>
+        </div>
+        <div class="feat-case-stats">
+          <div class="feat-stat"><span>75%</span><small>less time per onboarding</small></div>
+          <div class="feat-stat"><span>50+</span><small>partners onboarded</small></div>
+          <div class="feat-stat"><span>20,000+</span><small>POS locations</small></div>
+        </div>
       </div>
     </div>
   </section>
@@ -167,11 +267,11 @@ const row2 = clients.slice(mid);
           <p class="text-muted" style="margin-bottom:2rem;">We combine deep Salesforce expertise with a practical, no-nonsense approach that truly works for your organisation.</p>
           <ul class="list-check">
             <li>Independent advice with no hidden agenda</li>
-            <li>Practical approach: we think along as a partner</li>
-            <li>Crystal-clear communication, no jargon</li>
+            <li>Direct access to senior consultants, no account-manager layer</li>
+            <li>Our integrations are supported by the team that built them</li>
+            <li>No unnecessary custom development: if a product exists, we use it</li>
+            <li>Knowledge transfer included, so you are not dependent on us</li>
             <li>Long-term collaboration, also after go-live</li>
-            <li>Certified Salesforce experts on your team</li>
-            <li>Tailored solutions for your specific situation</li>
           </ul>
           <div style="margin-top:2rem;">
             <a href="/en/over-ons" class="btn btn-outline-dark">More about us</a>
@@ -186,7 +286,7 @@ const row2 = clients.slice(mid);
           ].map((v, i) => (
             <div class="value-item reveal" style={`--reveal-delay:${i * 0.1}s`}>
               <span class="value-num">
-                {v.plain ? `${v.num}${v.suffix}` : <span data-count={v.num} data-suffix={v.suffix}>0</span>}
+                {v.plain ? `${v.num}${v.suffix}` : <span data-count={v.num} data-suffix={v.suffix}>{`${v.num}${v.suffix}`}</span>}
               </span>
               <span class="value-label">{v.label}</span>
             </div>
@@ -238,8 +338,8 @@ const row2 = clients.slice(mid);
     <div class="container" style="position:relative;z-index:1;">
       <div class="section-header reveal">
         <span class="eyebrow">Products</span>
-        <h2 class="text-white">Smart Salesforce extensions</h2>
-        <p style="color:rgba(255,255,255,0.7)">Our own products on the Salesforce AppExchange, ready to use, proven effective.</p>
+        <h2 class="text-white">Our own products on the AppExchange</h2>
+        <p style="color:rgba(255,255,255,0.7)">Built and maintained by the same team that implements them. No abandoned custom code.</p>
       </div>
       <div class="grid-2">
         {products.map((p, i) => (
@@ -275,45 +375,17 @@ const row2 = clients.slice(mid);
     </div>
   </section>
 
-  <!-- CLIENTS (tile wall) -->
-  <section class="section bg-off-white">
-    <div class="container">
-      <div class="section-header reveal" style="margin-bottom:2.5rem;">
-        <span class="eyebrow">Our clients</span>
-        <h2>Trusted by leading organisations</h2>
-        <p>From scale-ups to established names, organisations across many sectors build on Salesforce with us.</p>
-      </div>
-    </div>
-    <div class="client-carousel">
-      <div class="client-row">
-        <div class="client-row-track">
-          {[...row1, ...row1].map(c => (
-            <div class="client-tile"><img src={c.src} alt={c.alt} title={c.alt} loading="lazy" /></div>
-          ))}
-        </div>
-      </div>
-      <div class="client-row">
-        <div class="client-row-track reverse">
-          {[...row2, ...row2].map(c => (
-            <div class="client-tile"><img src={c.src} alt={c.alt} title={c.alt} loading="lazy" /></div>
-          ))}
-        </div>
-      </div>
-    </div>
-    <p class="clients-more">…and many others</p>
-  </section>
-
   <!-- CTA STRIP -->
   <section class="cta-strip bg-dark">
     <div class="cta-glow" aria-hidden="true"></div>
     <div class="container cta-strip-inner reveal">
       <div>
-        <h2>Ready to unlock the full potential of Salesforce?</h2>
-        <p>Get in touch for a no-obligation conversation, or book a meeting directly.</p>
+        <h2>See what connected Salesforce looks like for your organisation</h2>
+        <p>A 30-minute conversation, no obligations. You leave with a practical next step, whether that involves us or not.</p>
       </div>
       <div class="cta-strip-actions">
-        <a href="/en/contact#afspraak" class="btn btn-primary">Book a meeting</a>
-        <a href="/en/contact" class="btn btn-outline">Ask a question</a>
+        <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary">Book a 30-minute consultation</a>
+        <a href="/en/cases" class="btn btn-outline">View customer cases</a>
       </div>
     </div>
   </section>
@@ -766,4 +838,33 @@ const row2 = clients.slice(mid);
 .cta-strip h2, .cta-strip p { color: var(--color-white); }
 .cta-strip p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; }
 .cta-strip-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+
+/* ============ CUSTOMER PROBLEMS ============ */
+.prob-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 900px; margin: 0 auto; }
+@media (max-width: 700px) { .prob-grid { grid-template-columns: 1fr; } }
+.prob-card {
+  background: var(--color-off-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg);
+  padding: 1.4rem 1.6rem; font-size: 1.02rem; line-height: 1.55; color: var(--color-text);
+  position: relative; padding-left: 3.1rem;
+}
+.prob-card::before {
+  content: '?'; position: absolute; left: 1.1rem; top: 1.25rem;
+  width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: rgba(108,68,148,0.12); color: var(--color-primary); font-weight: 800; font-size: 0.9rem;
+}
+.prob-closer { text-align: center; margin-top: 2rem; font-weight: 600; }
+
+/* ============ FEATURED CASE ============ */
+.feat-case { position: relative; overflow: hidden; }
+.feat-case-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: center; }
+@media (max-width: 820px) { .feat-case-inner { grid-template-columns: 1fr; } }
+.feat-case p { color: rgba(255,255,255,0.75); margin: 1rem 0 0; }
+.feat-case-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.75rem; }
+.feat-case-stats { display: grid; gap: 1rem; }
+.feat-stat {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg);
+  padding: 1.1rem 1.4rem; display: flex; align-items: baseline; gap: 0.9rem;
+}
+.feat-stat span { font-size: 1.7rem; font-weight: 800; color: var(--color-green); white-space: nowrap; }
+.feat-stat small { color: rgba(255,255,255,0.75); font-size: 0.9rem; }
 </style>

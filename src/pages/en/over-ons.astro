@@ -23,6 +23,20 @@ const values = [
   { icon: icons.partnership, title: 'Knowledge transfer included', text: 'Documentation and training are part of every delivery, so you are not dependent on us.' },
 ];
 
+// Team members as Person entities linked to the Organization, so search and
+// AI engines can attribute expertise to the real people behind the company.
+const SITE = 'https://www.resolveit.nl';
+const teamJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': team.map((m) => ({
+    '@type': 'Person',
+    name: m.name,
+    jobTitle: m.role,
+    image: `${SITE}${m.photo}`,
+    worksFor: { '@id': `${SITE}/#organization` },
+  })),
+});
+
 const timeline = [
   { year: '2019', title: 'Resolve IT founded', text: 'Started with one mission: helping organisations unlock the full potential of Salesforce.' },
   { year: '2021', title: 'Our own products', text: 'Launch of our own Salesforce modules on the AppExchange, including the Billing Platform.' },
@@ -32,7 +46,8 @@ const timeline = [
 ];
 ---
 
-<Layout title="About us" description="Learn more about Resolve IT: founded in 2019, with 10+ certified Salesforce experts and 340+ completed projects.">
+<Layout title="About us" description="Learn more about Resolve IT: founded in 2019, with 10+ certified Salesforce experts and 340+ completed projects." breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'About us', item: '/en/over-ons' }]}>
+  <script type="application/ld+json" set:html={teamJsonLd} is:inline />
 
   <!-- HERO -->
   <section class="ab-hero">

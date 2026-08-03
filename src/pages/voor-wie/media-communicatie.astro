@@ -3,8 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import SectorPage from '../../components/SectorPage.astro';
 const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M4 9v6l11 4V5L4 9z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M18 8a5 5 0 0 1 0 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>`;
 ---
-<Layout title="Salesforce voor Media & Communicatie: advertenties, abonnees & content" description="Salesforce voor media- en communicatiebedrijven: advertentieverkoop, abonnementen, redactionele workflows en klantrelaties in één omgeving, met facturatie en verlengingen geautomatiseerd.">
+<Layout title="Salesforce voor Media & Communicatie: advertenties, abonnees & content" description="Salesforce voor media- en communicatiebedrijven: advertentieverkoop, abonnementen, redactionele workflows en klantrelaties in één omgeving, met facturatie en verlengingen geautomatiseerd." breadcrumbs={[{ name: 'Home', item: '/' }, { name: 'Voor wie?', item: '/voor-wie' }, { name: 'Media & Communicatie', item: '/voor-wie/media-communicatie' }]}>
   <SectorPage
+    faqs={[
+      { q: 'Kunnen advertentieverkoop en abonnementen in één Salesforce-omgeving?', a: 'Ja. Advertentiesales, abonnees en campagnes komen samen in één klantbeeld, zodat commercie en service met dezelfde actuele data werken.' },
+      { q: 'Hoe automatiseren we abonnements- en advertentiefacturatie?', a: 'Via het <a href="/producten/billing-module">Billing Platform</a>: terugkerende facturen per maand, kwartaal of jaar, automatische incasso en herinneringen. Mediabedrijven zoals <a href="/cases/mybusinessmedia">MYbusinessmedia</a> werken er dagelijks mee.' },
+      { q: 'Koppelt dit met onze boekhouding?', a: 'Ja. Via de <a href="/producten/exact-online">Influx Exact Connector</a> of de <a href="/producten/business-central">Influx Business Central Connector</a> lopen facturen en betalingen synchroon met uw administratie.' },
+      { q: 'Hoe snel kunnen we live?', a: 'Een eerste inrichting staat vaak binnen enkele weken. We starten met een <a href="/diensten/consultancy">gratis assessment</a> van uw huidige processen en systemen.' },
+    ]}
     eyebrow="Voor wie? · Media & Communicatie"
     title="Advertenties, abonnees en content: uit één centrale waarheid"
     intro="Media draait op relaties: adverteerders, abonnees en lezers. Wij verbinden advertentieverkoop, abonnementenbeheer en redactie in Salesforce, met facturatie en verlengingen volledig geautomatiseerd, zodat u meer haalt uit elke relatie en uit elke euro herhaalomzet."

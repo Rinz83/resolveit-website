@@ -26,7 +26,11 @@ const blogJsonLd = JSON.stringify({
   description: post.data.description,
   image: postImg,
   datePublished: post.data.pubDate.toISOString(),
-  author: { '@type': 'Organization', name: post.data.author },
+  dateModified: (post.data.updatedDate || post.data.pubDate).toISOString(),
+  // Named team members are people; the 'Resolve IT' fallback is the company.
+  author: post.data.author === 'Resolve IT'
+    ? { '@id': `${SITE}/#organization` }
+    : { '@type': 'Person', name: post.data.author, worksFor: { '@id': `${SITE}/#organization` } },
   publisher: { '@id': `${SITE}/#organization` },
   mainEntityOfPage: `${SITE}/en/blog/${enSlug}`,
   articleSection: post.data.category,

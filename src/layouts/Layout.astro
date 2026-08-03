@@ -38,8 +38,10 @@ const siteBase = Astro.site ?? 'https://www.resolveit.nl';
 const pn = Astro.url.pathname;
 const nlClean = (getLangFromUrl(pn) === 'en' ? pn.replace(/^\/en/, '') : pn).replace(/\/$/, '') || '/';
 const hasAlternate = translatedPaths.has(nlClean);
-const nlHref = new URL(nlClean, siteBase).href;
-const enHref = new URL(nlClean === '/' ? '/en' : `/en${nlClean}`, siteBase).href;
+// Trailing-slash form, matching the canonical URLs, so hreflang and canonical
+// point at the same URL variant.
+const nlHref = new URL(nlClean === '/' ? '/' : `${nlClean}/`, siteBase).href;
+const enHref = new URL(nlClean === '/' ? '/en/' : `/en${nlClean}/`, siteBase).href;
 
 // Cookie-consent banner copy (bilingual).
 const cc = lang === 'en'
@@ -96,8 +98,26 @@ const cc = lang === 'en'
         email: 'contact@resolveit.nl',
         telephone: '+31411799828',
         description: 'Salesforce Gold Partner: implementation, integrations, training and consultancy.',
-        address: { '@type': 'PostalAddress', addressCountry: 'NL' },
-        sameAs: ['https://www.linkedin.com/company/resolveitnow/'],
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Clarissenhof 336',
+          postalCode: '5047 RW',
+          addressLocality: 'Tilburg',
+          addressCountry: 'NL',
+        },
+        foundingDate: '2019',
+        vatID: 'NL860777157B01',
+        // KvK-nummer as a typed identifier so registers and AI engines can
+        // verify the legal entity behind the site.
+        identifier: {
+          '@type': 'PropertyValue',
+          propertyID: 'KVK',
+          value: '76723364',
+        },
+        sameAs: [
+          'https://www.linkedin.com/company/resolveitnow/',
+          'https://appexchange.salesforce.com/appxListingDetail?listingId=af6947f7-045b-4d53-b61c-6076f7082235',
+        ],
       },
       {
         '@type': 'WebSite',

@@ -3,8 +3,14 @@ import Layout from '../../../layouts/Layout.astro';
 import SectorPage from '../../../components/SectorPage.astro';
 const icon = `<svg viewBox="0 0 24 24" fill="none"><path d="M13 3 5 13h6l-1 8 8-10h-6l1-8z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
 ---
-<Layout title="Salesforce for Energy & Utilities: contracts, service & compliance" description="Salesforce for energy and utility companies: contract management, field service, customer portals and compliance reporting in one streamlined environment.">
+<Layout title="Salesforce for Energy & Utilities: contracts, service & compliance" description="Salesforce for energy and utility companies: contract management, field service, customer portals and compliance reporting in one streamlined environment." breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Industries', item: '/en/voor-wie' }, { name: 'Energy & Utilities', item: '/en/voor-wie/energie-utilities' }]}>
   <SectorPage
+    faqs={[
+      { q: 'Can Salesforce handle recurring billing for energy contracts?', a: 'Yes. The <a href="/en/producten/billing-module">Billing Platform</a> invoices contracts automatically per period, including payment reminders and direct debit. High volumes run through without manual work.' },
+      { q: 'How do we manage contracts and renewals in Salesforce?', a: 'Contracts, terms and renewal moments are recorded centrally. Automatic signals ensure renewals and indexations are picked up on time.' },
+      { q: 'Does our customer and company data stay up to date?', a: 'Yes. <a href="/en/producten/kvk-integratie">Datasolver</a> keeps business customer data automatically in sync with the Chamber of Commerce register, important for compliance and correct invoicing.' },
+      { q: 'Does Salesforce connect to our existing systems?', a: 'Yes. Accounting is connected via our Influx Connectors; industry-specific systems are integrated through <a href="/en/diensten/development">custom API integrations</a>.' },
+    ]}
     lang="en"
     eyebrow="Industries · Energy & Utilities"
     title="Grip on contracts, service and compliance, at large customer volumes"

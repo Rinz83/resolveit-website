@@ -3,8 +3,14 @@ import Layout from '../../../layouts/Layout.astro';
 import SectorPage from '../../../components/SectorPage.astro';
 const icon = `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" stroke="currentColor" stroke-width="1.1"/></svg>`;
 ---
-<Layout title="Salesforce for other industries: custom CRM" description="Salesforce is adaptable to any industry. Resolve IT translates your specific processes into a scalable, tailored CRM solution, whatever your sector.">
+<Layout title="Salesforce for other industries: custom CRM" description="Salesforce is adaptable to any industry. Resolve IT translates your specific processes into a scalable, tailored CRM solution, whatever your sector." breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Industries', item: '/en/voor-wie' }, { name: 'Other industries', item: '/en/voor-wie/overige-sectoren' }]}>
   <SectorPage
+    faqs={[
+      { q: 'Does Salesforce also work for our industry?', a: 'Almost certainly. Salesforce is fully adaptable and we have completed over 340 projects across widely varying industries, from fintech to casting. See our <a href="/en/cases">cases</a> for examples.' },
+      { q: 'What if no standard solution exists for our process?', a: 'Then we build it. Via <a href="/en/diensten/development">Development & Integrations</a> we translate your specific way of working into tailored Salesforce functionality, without needlessly complex workarounds.' },
+      { q: 'Can you connect our existing systems?', a: 'Yes. Accounting, document management and payments are connected with our own <a href="/en/producten">products</a>; other systems via API integrations.' },
+      { q: 'How do we find out what is possible for our organisation?', a: 'Book a no-obligation call or start with a <a href="/en/diensten/consultancy">free assessment</a>. You get a concrete picture of quick wins, costs and timelines.' },
+    ]}
     lang="en"
     eyebrow="Industries · Other industries"
     title="Don’t see your sector? Then we build it to fit"

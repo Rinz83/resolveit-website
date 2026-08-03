@@ -46,6 +46,9 @@ Publiceren gebeurt **niet automatisch**. Zodra Rinse de PR beoordeelt en goedkeu
 
 - Bij merge: zet in beide bestanden `draft: false`.
 - Zet de `status` van het kalender-item op `"published"`.
+- Voeg `'/blog/<slug>'` toe aan `translatedPaths` in `src/i18n/ui.js` (alfabetisch
+  in de blog-sectie). Zonder deze regel krijgt het artikel geen hreflang-tags,
+  staat het niet in `sitemap.xml` en valt de taalwissel terug op de EN-homepage.
 - Zet een LinkedIn-concept klaar voor het artikel:
 
   ```bash

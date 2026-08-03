@@ -4,7 +4,7 @@ description: "Invoicing that lives apart from your CRM leads to double entry, sl
 pubDate: 2026-07-06
 author: "Rick Koevoets"
 category: "Billing Platform"
-draft: true
+draft: false
 ---
 
 At many backoffice organisations, invoicing lives apart from the CRM: sales registers the deal in Salesforce, but the invoice gets created by hand in a separate package or even in Excel. That feels manageable at first, but as the customer base grows, this gap between sales and finance starts costing revenue directly.

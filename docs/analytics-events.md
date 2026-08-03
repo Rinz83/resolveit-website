@@ -121,7 +121,7 @@ ze volgen nu dezelfde regel.
 
 ## Account Engagement (Pardot)
 
-Account `982612`, campagne `28209`. Deze zat niet in Tag Manager maar in het oude
+Account `981612`, campagne `28209`. Deze zat niet in Tag Manager maar in het oude
 WordPress-thema, en verdween daarom bij de herbouw: het dashboard bleef leeg
 terwijl er wel bezoek was.
 

@@ -4,7 +4,7 @@ description: "MRR bijhouden in Salesforce voorkomt losse spreadsheets en discuss
 pubDate: 2026-06-29
 author: "Rick Koevoets"
 category: "Billing Platform"
-draft: true
+draft: false
 ---
 
 Bij vrijwel elk SaaS-bedrijf begint MRR bijhouden in Salesforce als een goed voornemen en eindigt het in een spreadsheet. Iemand exporteert maandelijks de contracten, plakt ze in een tabblad, corrigeert handmatig de upgrades en opzeggingen, en stuurt het resultaat rond. Zolang u tientallen klanten heeft, werkt dat. Bij honderden abonnementen met verschillende looptijden, staffels en tussentijdse wijzigingen wordt het een onbetrouwbaar rekenwerk waar niemand nog op durft te sturen.

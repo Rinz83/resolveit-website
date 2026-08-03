@@ -4,7 +4,7 @@ description: "Tracking MRR in Salesforce keeps you out of stray spreadsheets and
 pubDate: 2026-06-29
 author: "Rick Koevoets"
 category: "Billing Platform"
-draft: true
+draft: false
 ---
 
 At almost every SaaS company, tracking MRR in Salesforce starts as a good intention and ends in a spreadsheet. Someone exports the contracts every month, pastes them into a tab, manually corrects the upgrades and cancellations, and circulates the result. With a few dozen customers, that works. With hundreds of subscriptions across different terms, tiers and mid-term changes, it turns into arithmetic nobody quite trusts enough to act on.

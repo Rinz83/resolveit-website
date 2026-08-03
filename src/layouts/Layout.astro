@@ -155,6 +155,25 @@ const cc = lang === 'en'
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-N45J4VLRC2" is:inline></script>
 
+  <!-- Salesforce Account Engagement (Pardot) — account 982612, campaign 28209.
+       Lived in the old WordPress theme rather than in Tag Manager, which is why it
+       disappeared with the rebuild and the dashboard went quiet.
+
+       Loaded from go.resolveit.nl, the tracker domain that already serves the
+       forms, instead of the old pi.pardot.com: same script, but the visitor cookie
+       is first-party, so Safari and Firefox no longer discard it.
+
+       Deliberately NOT behind the cookie banner, unlike the trackers further down,
+       so page views are recorded for every visitor. Note that first-party only
+       decides whether browsers keep the cookie, not whether consent is required;
+       this is an explicit business decision, not an oversight. -->
+  <script is:inline>
+    window.piAId = '982612';
+    window.piCId = '28209';
+    window.piHostname = 'go.resolveit.nl';
+  </script>
+  <script async src="https://go.resolveit.nl/pd.js" is:inline></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link

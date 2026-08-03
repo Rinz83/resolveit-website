@@ -184,7 +184,7 @@ export const cases = [
   {
     slug: 'multa-casting',
     client: 'MULTA Casting',
-    logo: '/images/clients/multacasting.jpg',
+    logo: '/images/clients/multacasting.png',
     image: '/images/cases/case-banner.svg',
     sector: 'Recruitment',
     tags: ['Implementation', 'Custom', 'Experience Cloud'],

@@ -1,8 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { cases } from '../../data/cases.en.js';
-const featured = cases[0];
-const rest = cases.slice(1);
+
+// Flagships with hard numbers lead; the rest keeps its original order.
+const flagships = ['payplaza', 'marie-stella-maris', 'talpa-studios', 'staff-capital'];
+const pos = (c) => { const i = flagships.indexOf(c.slug); return i === -1 ? flagships.length : i; };
+const ordered = [...cases].sort((a, b) => pos(a) - pos(b));
+const featured = ordered[0];
+const rest = ordered.slice(1);
 ---
 
 <Layout title="Cases" description="Discover how Resolve IT helps organisations such as Talpa Studios, PayPlaza, MYbusinessmedia and others move forward with Salesforce.">

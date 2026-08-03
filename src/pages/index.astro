@@ -28,7 +28,7 @@ const clients = [
   { src: '/images/clients/werkeninderegio.png', alt: 'Werken in de Regio' },
   { src: '/images/clients/opple.png', alt: 'OPPLE Lighting' },
   { src: '/images/clients/talpa.png', alt: 'Talpa Studios' },
-  { src: '/images/clients/multacasting.jpg', alt: 'MULTA Casting' },
+  { src: '/images/clients/multacasting.png', alt: 'MULTA Casting' },
   { src: '/images/clients/considerati.png', alt: 'Considerati' },
   { src: '/images/clients/parkbee.png', alt: 'ParkBee' },
   { src: '/images/clients/mediconnect.png', alt: 'MediConnect' },
@@ -42,7 +42,7 @@ const clients = [
   { src: '/images/clients/oranjebemiddelt.png', alt: 'OranjeBemiddelt' },
   { src: '/images/clients/cloudcrossing.svg', alt: 'CloudCrossing' },
   { src: '/images/clients/aquaplus-sprinkler.png', alt: 'Aqua+ Sprinklersystemen' },
-  { src: '/images/clients/mokma.jpeg', alt: 'MoneyOak' },
+  { src: '/images/clients/mokma.png', alt: 'MoneyOak' },
   { src: '/images/clients/silverstone.png', alt: 'Silverstone Real Estate' },
 ];
 
@@ -141,6 +141,9 @@ const row2 = clients.slice(mid);
   <section id="diensten" class="section bg-off-white">
     <div class="container">
       <div class="section-header reveal">
+        <span class="route-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2.4"/><path d="M8.4 19H16a3.5 3.5 0 0 0 0-7H8a3.5 3.5 0 0 1 0-7h3.6" stroke-dasharray="3.5 3"/><path d="M18 2.6a3 3 0 0 1 3 3c0 2.1-3 5-3 5s-3-2.9-3-5a3 3 0 0 1 3-3z"/><circle cx="18" cy="5.6" r="0.9"/></svg>
+        </span>
         <span class="eyebrow">Waar te beginnen</span>
         <h2>Kies uw startpunt</h2>
         <p>Facturatie nog met de hand, een team dat om Salesforce heen werkt, rapportages die niet aansluiten op Exact: dit zijn de vragen waarmee klanten bij ons komen. Meestal lossen we ze op met producten die al bestaan.</p>
@@ -884,4 +887,7 @@ const row2 = clients.slice(mid);
 }
 .feat-stat span { font-size: 1.7rem; font-weight: 800; color: var(--color-green); white-space: nowrap; }
 .feat-stat small { color: rgba(255,255,255,0.75); font-size: 0.9rem; }
+/* Route badge introducing the starting-point section. */
+.route-ico { width: 56px; height: 56px; border-radius: 50%; background: rgba(109,183,87,0.12); color: var(--color-green); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.1rem; }
+.route-ico svg { width: 28px; height: 28px; }
 </style>

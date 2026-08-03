@@ -114,10 +114,29 @@ Ook uit de container overgenomen, en allemaal pas ná toestemming geladen:
 | LinkedIn Insight Tag | partner `8312826` |
 | Hotjar | site `6724552` |
 | Bullseye | `136e696c-eb2e-436f-a9f1-8989e5ecdc3b` |
+| Account Engagement (Pardot) | account `982612`, campagne `28209` |
 
-Hotjar was in de container al aan toestemming gekoppeld. De andere drie vuurden
+Hotjar was in de container al aan toestemming gekoppeld. De andere vuurden
 daar op elke pageview, maar ze plaatsen cookies en identificeren bezoekers, dus
 ze volgen nu dezelfde regel.
+
+### Account Engagement
+
+Deze zat niet in Tag Manager maar in het oude WordPress-thema, en verdween
+daarom bij de herbouw: het dashboard bleef leeg terwijl er wel bezoek was.
+
+Twee dingen wijken af van de oude opzet:
+
+- **Trackerdomein.** Het oude thema laadde `pd.js` van `pi.pardot.com`. Nu komt
+  het van `go.resolveit.nl`, hetzelfde domein dat de formulieren al serveert.
+  Dezelfde tracker, maar de bezoekerscookie wordt daarmee first-party, zodat
+  Safari en Firefox hem niet weggooien.
+- **Toestemming.** Het oude thema laadde de tracker op elke pageview. Nu wacht
+  hij op de cookiebanner, net als de rest. Dat betekent dat bezoekers die
+  weigeren niet in het dashboard verschijnen.
+
+Formulierinzendingen blijven onafhankelijk hiervan werken: die gaan via de
+Pardot-formulieren zelf, niet via de paginatracker.
 
 ## Niet overgenomen
 

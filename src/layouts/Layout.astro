@@ -292,6 +292,21 @@ const cc = lang === 'en'
       bs.defer = true;
       bs.src = 'https://script.bullseye.so/script/136e696c-eb2e-436f-a9f1-8989e5ecdc3b';
       document.head.appendChild(bs);
+
+      // Salesforce Account Engagement (Pardot) — account 982612, campaign 28209.
+      // Lived in the old WordPress theme rather than in Tag Manager, which is why
+      // it disappeared with the rebuild and the dashboard went quiet.
+      //
+      // Loaded from go.resolveit.nl, the tracker domain that already serves the
+      // forms, instead of the old pi.pardot.com. Same script, but the visitor
+      // cookie becomes first-party, so Safari and Firefox no longer discard it.
+      window.piAId = '982612';
+      window.piCId = '28209';
+      window.piHostname = 'go.resolveit.nl';
+      var pd = document.createElement('script');
+      pd.async = true;
+      pd.src = 'https://go.resolveit.nl/pd.js';
+      document.head.appendChild(pd);
     };
   </script>
 

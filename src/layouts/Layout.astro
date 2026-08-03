@@ -186,9 +186,8 @@ const cc = lang === 'en'
     rel="stylesheet"
   />
 
-  <!-- Calendly popup widget (on-page overlay for booking links) -->
-  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
-  <script src="https://assets.calendly.com/assets/external/widget.js" async is:inline></script>
+  <!-- Calendly assets load on first click of a booking link (see the click
+       handler below) instead of on every pageview: ~60 KB saved per visit. -->
 </head>
 <body>
   <Nav transparent={transparentHeader} />
@@ -347,6 +346,28 @@ const cc = lang === 'en'
 
   <script>
     // Calendly: open booking links as an on-page overlay instead of a new tab.
+    // The widget assets load on the first click rather than on every pageview;
+    // if loading fails, the link falls back to opening Calendly in a new tab.
+    let calendlyLoading: Promise<any> | null = null;
+    const loadCalendly = () => {
+      if ((window as any).Calendly) return Promise.resolve((window as any).Calendly);
+      if (!calendlyLoading) {
+        calendlyLoading = new Promise((resolve, reject) => {
+          const l = document.createElement('link');
+          l.rel = 'stylesheet';
+          l.href = 'https://assets.calendly.com/assets/external/widget.css';
+          document.head.appendChild(l);
+          const s = document.createElement('script');
+          s.src = 'https://assets.calendly.com/assets/external/widget.js';
+          s.async = true;
+          s.onload = () => resolve((window as any).Calendly);
+          s.onerror = () => { calendlyLoading = null; reject(new Error('calendly load failed')); };
+          document.head.appendChild(s);
+        });
+      }
+      return calendlyLoading;
+    };
+
     document.addEventListener('click', (e) => {
       const t = e.target;
       if (!(t instanceof Element)) return;
@@ -356,11 +377,14 @@ const cc = lang === 'en'
       // booking (schedule_appointment fired on calendly.event_scheduled).
       const gg = (window as any).gtag;
       if (typeof gg === 'function') gg('event', 'begin_appointment', { method: 'calendly' });
-      const C = (window as any).Calendly;
-      if (C && typeof C.initPopupWidget === 'function') {
-        e.preventDefault();
-        C.initPopupWidget({ url: (a as HTMLAnchorElement).href });
-      }
+      const href = (a as HTMLAnchorElement).href;
+      e.preventDefault();
+      loadCalendly()
+        .then((C) => {
+          if (C && typeof C.initPopupWidget === 'function') C.initPopupWidget({ url: href });
+          else window.open(href, '_blank', 'noopener');
+        })
+        .catch(() => window.open(href, '_blank', 'noopener'));
     });
 
     // ---------------------------------------------------------------------
@@ -614,6 +638,9 @@ const cc = lang === 'en'
           const el = entry.target;
           const target = parseFloat(el.dataset.count);
           const suffix = el.dataset.suffix || '';
+          // The markup ships the final value so crawlers and no-JS visitors never
+          // see "0 projects"; reset to 0 only here, right before animating.
+          el.textContent = '0';
           const dur = 1400;
           const start = performance.now();
           const tick = (now) => {

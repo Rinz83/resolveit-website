@@ -19,8 +19,8 @@ const icons = {
 const values = [
   { icon: icons.foundation, title: 'Sterke fundering', text: 'Slimme, robuuste Salesforce-integraties met schaalbare automatisering en workflows die de tand des tijds doorstaan.' },
   { icon: icons.flexible, title: 'Flexibel & transparant', text: 'We combineren onze expertise met uw kennis. Onafhankelijk advies, praktische implementatie en heldere communicatie.' },
-  { icon: icons.innovation, title: 'Innovatiegericht', text: 'Complexe vraagstukken aanpakken met creatieve, op maat gemaakte oplossingen, continu strevend naar excellentie.' },
-  { icon: icons.partnership, title: 'Collegiale samenwerking', text: 'Langdurige betrokkenheid die verder gaat dan implementatie, met doorlopende training en updates.' },
+  { icon: icons.innovation, title: 'Direct senior contact', text: 'De consultant die u spreekt in het kennismakingsgesprek is de consultant op uw project. Geen accountmanagerlaag ertussen.' },
+  { icon: icons.partnership, title: 'Kennisoverdracht inbegrepen', text: 'Documentatie en training zijn onderdeel van elke oplevering, zodat u niet van ons afhankelijk bent.' },
 ];
 
 const timeline = [
@@ -49,7 +49,7 @@ const timeline = [
       </div>
       <div class="ab-hero-img">
         <img src="/images/cases/case-1.jpg" alt="Het team van Resolve IT aan het werk" />
-        <div class="ab-hero-badge"><strong>Salesforce</strong><span>Certified Partner</span></div>
+        <div class="ab-hero-badge"><strong>Salesforce</strong><span>Gold Consultancy Partner</span></div>
       </div>
     </div>
   </section>
@@ -64,7 +64,7 @@ const timeline = [
         { num: '5★', plain: true, label: 'AppExchange rating' },
       ].map(s => (
         <div class="ab-stat">
-          <span class="ab-stat-num">{s.plain ? s.num : <span data-count={s.num} data-suffix={s.suffix}>0</span>}</span>
+          <span class="ab-stat-num">{s.plain ? s.num : <span data-count={s.num} data-suffix={s.suffix}>{`${s.num}${s.suffix}`}</span>}</span>
           <span class="ab-stat-lbl">{s.label}</span>
         </div>
       ))}

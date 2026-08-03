@@ -19,8 +19,8 @@ const icons = {
 const values = [
   { icon: icons.foundation, title: 'Strong foundation', text: 'Smart, robust Salesforce integrations with scalable automation and workflows that stand the test of time.' },
   { icon: icons.flexible, title: 'Flexible & transparent', text: 'We combine our expertise with your knowledge. Independent advice, practical implementation and clear communication.' },
-  { icon: icons.innovation, title: 'Innovation-driven', text: 'Tackling complex challenges with creative, tailor-made solutions, continuously striving for excellence.' },
-  { icon: icons.partnership, title: 'Collaborative partnership', text: 'Long-term commitment that goes beyond implementation, with ongoing training and updates.' },
+  { icon: icons.innovation, title: 'Direct senior access', text: 'The consultant you meet in the introduction is the consultant on your project. No account-manager layer in between.' },
+  { icon: icons.partnership, title: 'Knowledge transfer included', text: 'Documentation and training are part of every delivery, so you are not dependent on us.' },
 ];
 
 const timeline = [
@@ -49,7 +49,7 @@ const timeline = [
       </div>
       <div class="ab-hero-img">
         <img src="/images/cases/case-1.jpg" alt="The Resolve IT team at work" />
-        <div class="ab-hero-badge"><strong>Salesforce</strong><span>Certified Partner</span></div>
+        <div class="ab-hero-badge"><strong>Salesforce</strong><span>Gold Consultancy Partner</span></div>
       </div>
     </div>
   </section>
@@ -64,7 +64,7 @@ const timeline = [
         { num: '5★', plain: true, label: 'AppExchange rating' },
       ].map(s => (
         <div class="ab-stat">
-          <span class="ab-stat-num">{s.plain ? s.num : <span data-count={s.num} data-suffix={s.suffix}>0</span>}</span>
+          <span class="ab-stat-num">{s.plain ? s.num : <span data-count={s.num} data-suffix={s.suffix}>{`${s.num}${s.suffix}`}</span>}</span>
           <span class="ab-stat-lbl">{s.label}</span>
         </div>
       ))}

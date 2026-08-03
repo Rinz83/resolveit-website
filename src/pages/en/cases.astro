@@ -1,8 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { cases } from '../../data/cases.en.js';
-const featured = cases[0];
-const rest = cases.slice(1);
+
+// Flagships with hard numbers lead; the rest keeps its original order.
+const flagships = ['payplaza', 'marie-stella-maris', 'talpa-studios', 'staff-capital'];
+const pos = (c) => { const i = flagships.indexOf(c.slug); return i === -1 ? flagships.length : i; };
+const ordered = [...cases].sort((a, b) => pos(a) - pos(b));
+const featured = ordered[0];
+const rest = ordered.slice(1);
 ---
 
 <Layout title="Cases" description="Discover how Resolve IT helps organisations such as Talpa Studios, PayPlaza, MYbusinessmedia and others move forward with Salesforce.">
@@ -55,6 +60,9 @@ const rest = cases.slice(1);
             </div>
             <div class="case-card-body">
               <h3>{c.client}</h3>
+              {c.results?.[0] && (
+                <span class="case-card-metric"><strong>{c.results[0].num}</strong> {c.results[0].label}</span>
+              )}
               <p class="text-muted">{c.summary}</p>
               <div class="case-tags">{c.tags.map(t => <span class="badge">{t}</span>)}</div>
               <span class="card-link">Read the case →</span>
@@ -126,5 +134,8 @@ const rest = cases.slice(1);
 .cta-strip h2, .cta-strip p { color: #fff; }
 .cta-strip p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; }
 .cta-strip-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+/* Headline result on the card, so outcomes are visible before the click. */
+.case-card-metric { font-size: 0.85rem; color: var(--color-text-muted); }
+.case-card-metric strong { color: var(--color-green); font-weight: 800; }
 </style>
 </content>

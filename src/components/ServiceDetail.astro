@@ -150,6 +150,16 @@ const T = {
         ))}
       </div>
     </div>
+    {/* FAQ rich-result eligibility; answers are stripped of inline HTML. */}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
+      })),
+    })} is:inline />
   </section>
 )}
 

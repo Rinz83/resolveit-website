@@ -150,7 +150,12 @@ function stackHref(label) {
       <div class="cs-more">
         {others.map((o) => (
           <a href={`/en/cases/${o.slug}`} class="cs-more-card">
-            <div class="cs-more-img"><img src={o.image} alt={o.client} loading="lazy" /></div>
+            <div class="cs-more-img">
+              <img src={o.image} alt={o.client} loading="lazy" />
+              <span class="cs-mark cs-mark-sm">
+                {o.logo ? <img src={o.logo} alt={`${o.client} logo`} loading="lazy" /> : o.client}
+              </span>
+            </div>
             <div class="cs-more-body"><span class="badge">{o.sector}</span><h3>{o.client}</h3></div>
           </a>
         ))}
@@ -239,8 +244,10 @@ function stackHref(label) {
 @media (max-width: 700px) { .cs-more { grid-template-columns: 1fr; } }
 .cs-more-card { background: var(--color-white); border: 1px solid var(--color-light); border-radius: var(--radius-lg); overflow: hidden; transition: transform var(--transition), box-shadow var(--transition); }
 .cs-more-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.cs-more-img { aspect-ratio: 16/9; overflow: hidden; }
-.cs-more-img img { width: 100%; height: 100%; object-fit: cover; }
+.cs-more-img { aspect-ratio: 16/9; overflow: hidden; position: relative; }
+.cs-more-img > img { width: 100%; height: 100%; object-fit: cover; }
+/* Same client mark as the case overview, scaled to the smaller card. */
+.cs-mark-sm { width: 132px; height: 60px; border-radius: 16px; padding: 0.7rem 1rem; font-size: 0.82rem; }
 .cs-more-body { padding: 1.1rem 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
 .cs-more-body h3 { font-size: 1.05rem; }
 

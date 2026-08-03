@@ -4,7 +4,7 @@ description: "Facturatie los van uw CRM leidt tot dubbele invoer, trage betaling
 pubDate: 2026-07-06
 author: "Rick Koevoets"
 category: "Billing Platform"
-draft: true
+draft: false
 ---
 
 Bij veel backoffice-organisaties staat de administratie los van het CRM: verkoop registreert de deal in Salesforce, maar de factuur wordt handmatig opgesteld in een apart pakket of zelfs in Excel. Dat voelt in het begin werkbaar, maar naarmate het klantenbestand groeit, gaat dit gat tussen sales en finance rechtstreeks ten koste van uw omzet.

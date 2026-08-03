@@ -168,7 +168,12 @@ const cc = lang === 'en'
        decides whether browsers keep the cookie, not whether consent is required;
        this is an explicit business decision, not an oversight. -->
   <script is:inline>
-    window.piAId = '982612';
+    // 981612, not the 982612 the old WordPress theme declared. Pardot attributes
+    // the visitor to whichever account owns the tracker domain: sending 982612
+    // still came back with a `visitor_id981612` cookie, and the forms live at
+    // go.resolveit.nl/l/981612/. Declaring the account it actually lands in keeps
+    // the hit and the cookie from disagreeing.
+    window.piAId = '981612';
     window.piCId = '28209';
     window.piHostname = 'go.resolveit.nl';
   </script>

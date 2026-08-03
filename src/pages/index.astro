@@ -2,13 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import { calendlyUrl } from '../i18n/ui.js';
 
-const services = [
-  { icon: '/images/Icon-1.svg', title: 'Implementatie & Onboarding', text: 'Salesforce op maat implementeren zodat het aansluit op uw strategische doelen en direct waarde levert.', href: '/diensten/implementatie' },
-  { icon: '/images/Icon-2.svg', title: 'Audit & Consultancy', text: 'Uw huidige Salesforce-omgeving optimaliseren en een roadmap bepalen met quick wins en langetermijnverbeteringen.', href: '/diensten/consultancy' },
-  { icon: '/images/Icon-3.svg', title: 'Development & Integraties', text: 'Maatwerk ontwikkeling en koppelingen met tools zoals Exact Online, SharePoint, Stripe, DocuSign en meer.', href: '/diensten/development' },
-  { icon: '/images/Icon-4.svg', title: 'Training & Best Practices', text: 'Gebruikerstraining en admin-certificering zodat uw team zelfstandig met Salesforce aan de slag kan.', href: '/diensten/training' },
-];
-
 const products = [
   { logo: '/images/logos/billing-platform.svg', title: 'Billing Platform', text: 'Facturatie, abonnementen en betalingen vanuit Salesforce, gekoppeld aan Stripe, Exact Online en uw administratie.', badge: 'Managed App', href: '/producten/billing-module' },
   { logo: '/images/logos/ai-prompt-builder.svg', title: 'AI Prompt Builder', text: 'Integreer OpenAI, Anthropic, Gemini of uw eigen LLM rechtstreeks in Salesforce Flows, zonder code.', badge: 'Managed App', href: '/producten/ai-prompt-builder' },
@@ -20,8 +13,6 @@ const products = [
 ];
 
 import { sectors } from '../data/sectors.js';
-
-const integrations = ['Stripe', 'Exact Online', 'SharePoint', 'OneDrive', 'Google Drive', 'Aircall', 'SAP', 'DocuSign', 'ChatGPT', 'Microsoft Teams', 'Slack', 'HubSpot'];
 
 // Customer logos. Original site wordmarks + logos pulled from our Salesforce
 // (active customers): the Logo__c URLs, plus marks fetched from each customer's
@@ -146,29 +137,13 @@ const row2 = clients.slice(mid);
     <p class="clients-more">…en vele anderen</p>
   </section>
 
-  <!-- HERKENBARE PROBLEMEN -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Herkenbaar?</span>
-        <h2>Komt dit u bekend voor?</h2>
-      </div>
-      <div class="prob-grid">
-        <div class="prob-card reveal">Salesforce draait, maar facturatie gebeurt nog in een ander systeem, met de hand.</div>
-        <div class="prob-card reveal" style="--reveal-delay:0.08s">Uw team werkt om Salesforce heen in plaats van erin.</div>
-        <div class="prob-card reveal" style="--reveal-delay:0.16s">Rapportages sluiten nooit helemaal aan op wat finance in Exact ziet.</div>
-        <div class="prob-card reveal" style="--reveal-delay:0.24s">Elke nieuwe koppeling wordt een maatwerkproject.</div>
-      </div>
-      <p class="prob-closer reveal">Dit zijn de problemen die wij wekelijks oplossen. Meestal met producten die al bestaan.</p>
-    </div>
-  </section>
-
   <!-- OPLOSSINGSPADEN -->
-  <section class="section bg-off-white">
+  <section id="diensten" class="section bg-off-white">
     <div class="container">
       <div class="section-header reveal">
         <span class="eyebrow">Waar te beginnen</span>
         <h2>Kies uw startpunt</h2>
+        <p>Facturatie nog met de hand, een team dat om Salesforce heen werkt, rapportages die niet aansluiten op Exact: dit zijn de vragen waarmee klanten bij ons komen. Meestal lossen we ze op met producten die al bestaan.</p>
       </div>
       <div class="grid-4">
         <a href="/diensten/implementatie" class="service-card card reveal">
@@ -212,66 +187,6 @@ const row2 = clients.slice(mid);
           <div class="feat-stat"><span>75%</span><small>minder tijd per onboarding</small></div>
           <div class="feat-stat"><span>50+</span><small>partners onboard</small></div>
           <div class="feat-stat"><span>20.000+</span><small>POS-locaties</small></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIENSTEN -->
-  <section id="diensten" class="section bg-off-white">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Diensten</span>
-        <h2>Alles wat u nodig heeft voor Salesforce-succes</h2>
-        <p>Van implementatie tot optimalisatie: wij begeleiden u bij elke stap.</p>
-      </div>
-      <div class="grid-4">
-        {services.map((s, i) => (
-          <a href={s.href} class="service-card card reveal" style={`--reveal-delay:${i * 0.08}s`}>
-            <div class="service-icon"><img src={s.icon} alt="" width="80" height="61" loading="lazy" /></div>
-            <h3>{s.title}</h3>
-            <p class="text-muted">{s.text}</p>
-            <span class="card-link">Meer lezen →</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- WAAROM RESOLVE IT -->
-  <section class="section">
-    <div class="container">
-      <div class="two-col">
-        <div class="reveal">
-          <span class="eyebrow">Waarom Resolve IT?</span>
-          <h2>Onze aanpak maakt het verschil</h2>
-          <p class="text-muted" style="margin-bottom:2rem;">Wij combineren diepgaande Salesforce-expertise met een praktische, no-nonsense aanpak die echt werkt voor uw organisatie.</p>
-          <ul class="list-check">
-            <li>Onafhankelijk advies zonder verborgen agenda</li>
-            <li>Direct contact met senior consultants, zonder accountmanagerlaag</li>
-            <li>Onze integraties worden ondersteund door het team dat ze bouwde</li>
-            <li>Geen onnodig maatwerk: bestaat er een product, dan gebruiken we het</li>
-            <li>Kennisoverdracht hoort erbij, zodat u niet van ons afhankelijk bent</li>
-            <li>Langdurige samenwerking, ook na livegang</li>
-          </ul>
-          <div style="margin-top:2rem;">
-            <a href="/over-ons" class="btn btn-outline-dark">Meer over ons</a>
-          </div>
-        </div>
-        <div class="value-grid">
-          {[
-            { num: 2019, suffix: '', label: 'Opgericht', plain: true },
-            { num: 340, suffix: '+', label: 'Projecten afgerond' },
-            { num: 10, suffix: '+', label: 'Gecertificeerde experts' },
-            { num: 5, suffix: '★', label: 'AppExchange rating', plain: true },
-          ].map((v, i) => (
-            <div class="value-item reveal" style={`--reveal-delay:${i * 0.1}s`}>
-              <span class="value-num">
-                {v.plain ? `${v.num}${v.suffix}` : <span data-count={v.num} data-suffix={v.suffix}>{`${v.num}${v.suffix}`}</span>}
-              </span>
-              <span class="value-label">{v.label}</span>
-            </div>
-          ))}
         </div>
       </div>
     </div>
@@ -331,6 +246,45 @@ const row2 = clients.slice(mid);
             <span class="card-link">Bekijk product →</span>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WAAROM RESOLVE IT -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div class="reveal">
+          <span class="eyebrow">Waarom Resolve IT?</span>
+          <h2>Onze aanpak maakt het verschil</h2>
+          <p class="text-muted" style="margin-bottom:2rem;">Wij combineren diepgaande Salesforce-expertise met een praktische, no-nonsense aanpak die echt werkt voor uw organisatie.</p>
+          <ul class="list-check">
+            <li>Onafhankelijk advies zonder verborgen agenda</li>
+            <li>Direct contact met senior consultants, zonder accountmanagerlaag</li>
+            <li>Onze integraties worden ondersteund door het team dat ze bouwde</li>
+            <li>Geen onnodig maatwerk: bestaat er een product, dan gebruiken we het</li>
+            <li>Kennisoverdracht hoort erbij, zodat u niet van ons afhankelijk bent</li>
+            <li>Langdurige samenwerking, ook na livegang</li>
+          </ul>
+          <div style="margin-top:2rem;">
+            <a href="/over-ons" class="btn btn-outline-dark">Meer over ons</a>
+          </div>
+        </div>
+        <div class="value-grid">
+          {[
+            { num: 2019, suffix: '', label: 'Opgericht', plain: true },
+            { num: 340, suffix: '+', label: 'Projecten afgerond' },
+            { num: 10, suffix: '+', label: 'Gecertificeerde experts' },
+            { num: 5, suffix: '★', label: 'AppExchange rating', plain: true },
+          ].map((v, i) => (
+            <div class="value-item reveal" style={`--reveal-delay:${i * 0.1}s`}>
+              <span class="value-num">
+                {v.plain ? `${v.num}${v.suffix}` : <span data-count={v.num} data-suffix={v.suffix}>{`${v.num}${v.suffix}`}</span>}
+              </span>
+              <span class="value-label">{v.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>

@@ -3,13 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import { sectors } from '../../data/sectors.js';
 import { calendlyUrl } from '../../i18n/ui.js';
 
-const services = [
-  { icon: '/images/Icon-1.svg', title: 'Implementation & Onboarding', text: 'Implement Salesforce so it aligns with your strategic goals and delivers value from day one.', href: '/en/diensten/implementatie' },
-  { icon: '/images/Icon-2.svg', title: 'Audit & Consultancy', text: 'Optimise your existing Salesforce environment and set a roadmap with quick wins and long-term improvements.', href: '/en/diensten/consultancy' },
-  { icon: '/images/Icon-3.svg', title: 'Development & Integrations', text: 'Custom development and connections to tools like Exact Online, SharePoint, Stripe, DocuSign and more.', href: '/en/diensten/development' },
-  { icon: '/images/Icon-4.svg', title: 'Training & Best Practices', text: 'User training and admin certification so your team works with Salesforce independently.', href: '/en/diensten/training' },
-];
-
 const products = [
   { logo: '/images/logos/billing-platform.svg', title: 'Billing Platform', text: 'Invoicing, subscriptions and payments from Salesforce, connected to Stripe, Exact Online and your administration.', badge: 'Managed App', href: '/en/producten/billing-module' },
   { logo: '/images/logos/ai-prompt-builder.svg', title: 'AI Prompt Builder', text: 'Integrate OpenAI, Anthropic, Gemini or your own LLM directly into Salesforce Flows, without code.', badge: 'Managed App', href: '/en/producten/ai-prompt-builder' },
@@ -31,8 +24,6 @@ const industry = {
   'media-communicatie': { label: 'Media & Communications', desc: 'Ads, subscribers and content in one system.' },
   'overige-sectoren': { label: 'Other industries', desc: 'Custom Salesforce for every industry.' },
 };
-
-const integrations = ['Stripe', 'Exact Online', 'SharePoint', 'OneDrive', 'Google Drive', 'Aircall', 'SAP', 'DocuSign', 'ChatGPT', 'Microsoft Teams', 'Slack', 'HubSpot'];
 
 const clients = [
   { src: '/images/clients/gospooky.png', alt: 'GoSpooky' },
@@ -154,40 +145,13 @@ const row2 = clients.slice(mid);
     <p class="clients-more">…and many others</p>
   </section>
 
-  <!-- INTEGRATIONS MARQUEE -->
-  <section class="marquee-band">
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        {[...integrations, ...integrations].map(name => (
-          <span class="marquee-item">{name}</span>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- CUSTOMER PROBLEMS -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Recognise this?</span>
-        <h2>Does this sound familiar?</h2>
-      </div>
-      <div class="prob-grid">
-        <div class="prob-card reveal">Salesforce is live, but invoicing still happens in another system, by hand.</div>
-        <div class="prob-card reveal" style="--reveal-delay:0.08s">Your team works around Salesforce instead of in it.</div>
-        <div class="prob-card reveal" style="--reveal-delay:0.16s">Reports never quite match what finance sees in Exact.</div>
-        <div class="prob-card reveal" style="--reveal-delay:0.24s">Every new integration turns into a custom development project.</div>
-      </div>
-      <p class="prob-closer reveal">These are the problems we solve every week. Usually with products that already exist.</p>
-    </div>
-  </section>
-
   <!-- SOLUTION PATHS -->
-  <section class="section bg-off-white">
+  <section id="diensten" class="section bg-off-white">
     <div class="container">
       <div class="section-header reveal">
         <span class="eyebrow">Where to start</span>
         <h2>Choose your starting point</h2>
+        <p>Invoicing still done by hand, a team working around Salesforce, reports that never match Exact: these are the questions customers bring us. We usually solve them with products that already exist.</p>
       </div>
       <div class="grid-4">
         <a href="/en/diensten/implementatie" class="service-card card reveal">
@@ -231,66 +195,6 @@ const row2 = clients.slice(mid);
           <div class="feat-stat"><span>75%</span><small>less time per onboarding</small></div>
           <div class="feat-stat"><span>50+</span><small>partners onboarded</small></div>
           <div class="feat-stat"><span>20,000+</span><small>POS locations</small></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="diensten" class="section bg-off-white">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Services</span>
-        <h2>Everything you need for Salesforce success</h2>
-        <p>From implementation to optimisation, we guide you every step of the way.</p>
-      </div>
-      <div class="grid-4">
-        {services.map((s, i) => (
-          <a href={s.href} class="service-card card reveal" style={`--reveal-delay:${i * 0.08}s`}>
-            <div class="service-icon"><img src={s.icon} alt="" width="80" height="61" loading="lazy" /></div>
-            <h3>{s.title}</h3>
-            <p class="text-muted">{s.text}</p>
-            <span class="card-link">Read more →</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY RESOLVE IT -->
-  <section class="section">
-    <div class="container">
-      <div class="two-col">
-        <div class="reveal">
-          <span class="eyebrow">Why Resolve IT?</span>
-          <h2>Our approach makes the difference</h2>
-          <p class="text-muted" style="margin-bottom:2rem;">We combine deep Salesforce expertise with a practical, no-nonsense approach that truly works for your organisation.</p>
-          <ul class="list-check">
-            <li>Independent advice with no hidden agenda</li>
-            <li>Direct access to senior consultants, no account-manager layer</li>
-            <li>Our integrations are supported by the team that built them</li>
-            <li>No unnecessary custom development: if a product exists, we use it</li>
-            <li>Knowledge transfer included, so you are not dependent on us</li>
-            <li>Long-term collaboration, also after go-live</li>
-          </ul>
-          <div style="margin-top:2rem;">
-            <a href="/en/over-ons" class="btn btn-outline-dark">More about us</a>
-          </div>
-        </div>
-        <div class="value-grid">
-          {[
-            { num: 2019, suffix: '', label: 'Founded', plain: true },
-            { num: 340, suffix: '+', label: 'Projects completed' },
-            { num: 10, suffix: '+', label: 'Certified experts' },
-            { num: 5, suffix: '★', label: 'AppExchange rating', plain: true },
-          ].map((v, i) => (
-            <div class="value-item reveal" style={`--reveal-delay:${i * 0.1}s`}>
-              <span class="value-num">
-                {v.plain ? `${v.num}${v.suffix}` : <span data-count={v.num} data-suffix={v.suffix}>{`${v.num}${v.suffix}`}</span>}
-              </span>
-              <span class="value-label">{v.label}</span>
-            </div>
-          ))}
         </div>
       </div>
     </div>
@@ -350,6 +254,45 @@ const row2 = clients.slice(mid);
             <span class="card-link">View product →</span>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY RESOLVE IT -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div class="reveal">
+          <span class="eyebrow">Why Resolve IT?</span>
+          <h2>Our approach makes the difference</h2>
+          <p class="text-muted" style="margin-bottom:2rem;">We combine deep Salesforce expertise with a practical, no-nonsense approach that truly works for your organisation.</p>
+          <ul class="list-check">
+            <li>Independent advice with no hidden agenda</li>
+            <li>Direct access to senior consultants, no account-manager layer</li>
+            <li>Our integrations are supported by the team that built them</li>
+            <li>No unnecessary custom development: if a product exists, we use it</li>
+            <li>Knowledge transfer included, so you are not dependent on us</li>
+            <li>Long-term collaboration, also after go-live</li>
+          </ul>
+          <div style="margin-top:2rem;">
+            <a href="/en/over-ons" class="btn btn-outline-dark">More about us</a>
+          </div>
+        </div>
+        <div class="value-grid">
+          {[
+            { num: 2019, suffix: '', label: 'Founded', plain: true },
+            { num: 340, suffix: '+', label: 'Projects completed' },
+            { num: 10, suffix: '+', label: 'Certified experts' },
+            { num: 5, suffix: '★', label: 'AppExchange rating', plain: true },
+          ].map((v, i) => (
+            <div class="value-item reveal" style={`--reveal-delay:${i * 0.1}s`}>
+              <span class="value-num">
+                {v.plain ? `${v.num}${v.suffix}` : <span data-count={v.num} data-suffix={v.suffix}>{`${v.num}${v.suffix}`}</span>}
+              </span>
+              <span class="value-label">{v.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>

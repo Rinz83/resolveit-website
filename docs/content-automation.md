@@ -58,6 +58,15 @@ Publiceren gebeurt **niet automatisch**. Zodra Rinse de PR beoordeelt en goedkeu
   Dit gebeurt bewust pas ná de merge, zodat de post naar een bestaande pagina
   linkt. Zie [linkedin-integratie.md](./linkedin-integratie.md).
 
+- Meld de nieuwe pagina's aan bij IndexNow (Bing en daarmee ook de zoekfuncties
+  van ChatGPT/Copilot), zodra de deploy live staat:
+
+  ```bash
+  node scripts/indexnow.mjs /blog/<slug> /en/blog/<slug>
+  ```
+
+  Google gebruikt IndexNow niet; daarvoor volstaat de sitemap.
+
 Dit gebeurt handmatig of in een losse review-stap; de wekelijkse Routine opent alleen de PR, merget nooit vanzelf.
 
 ## Wat deze automatisering niet doet

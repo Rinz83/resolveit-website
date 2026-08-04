@@ -57,15 +57,22 @@ const faqJsonLd = JSON.stringify({
     '@type': 'Product',
     name: 'Billing Platform for Salesforce',
     description: 'Invoicing, subscription management, MRR insight, accounts receivable and automatic collection via Stripe, fully inside Salesforce.',
-    brand: { '@id': 'https://www.resolveit.nl/#organization' },
+    image: 'https://www.resolveit.nl/images/og-default.png',
+    // A Brand object, not an @id reference to the Organization node: Google's
+    // Merchant listings validator rejects the reference form.
+    brand: { '@type': 'Brand', name: 'Resolve IT' },
     url: 'https://www.resolveit.nl/en/producten/billing-module/',
     offers: plans.filter((p) => p.price).map((p) => ({
       '@type': 'Offer',
       name: p.name,
       price: p.price,
       priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
       url: 'https://www.resolveit.nl/en/producten/billing-module/',
     })),
+    // shippingDetails and hasMerchantReturnPolicy are deliberately absent:
+    // Google documents both as not applicable to digital goods. aggregateRating
+    // and review need real customer ratings, which we do not have.
   })} is:inline />
 
   <section class="pp-hero">

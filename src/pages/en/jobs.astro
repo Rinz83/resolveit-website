@@ -52,6 +52,10 @@ const jobs = [
       title: j.title,
       description: `<p>${j.intro}</p><ul>${j.does.map((d) => `<li>${d}</li>`).join('')}</ul>`,
       datePosted: '2026-08-03',
+      // Evergreen vacancies. Google drops a posting from results after
+      // validThrough, so this date needs pushing forward periodically for as
+      // long as the vacancy stays open.
+      validThrough: '2026-12-31T23:59:59+01:00',
       employmentType: 'FULL_TIME',
       hiringOrganization: { '@id': 'https://www.resolveit.nl/#organization' },
       jobLocation: {
@@ -61,6 +65,7 @@ const jobs = [
           streetAddress: 'Clarissenhof 336',
           postalCode: '5047 RW',
           addressLocality: 'Tilburg',
+          addressRegion: 'Noord-Brabant',
           addressCountry: 'NL',
         },
       },

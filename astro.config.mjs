@@ -175,6 +175,9 @@ export default defineConfig({
   site: 'https://www.resolveit.nl',
   output: 'hybrid',
   adapter: vercel(),
+  // Dev only: honour the port the preview harness assigns via the PORT env
+  // var (Astro/Vite do not read PORT themselves). Falls back to the default.
+  server: { port: Number(process.env.PORT) || 4321 },
   publicDir: fileURLToPath(new URL('./public', import.meta.url)),
   srcDir: fileURLToPath(new URL('./src', import.meta.url)),
   redirects: redirectsConfig,

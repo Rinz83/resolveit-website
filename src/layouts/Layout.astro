@@ -408,59 +408,66 @@ const cc = lang === 'en'
     });
 
     // ---------------------------------------------------------------------
-    // Google Ads click id into the Pardot forms.
+    // Ad click ids into the Pardot forms: gclid (Google Ads) and msclkid
+    // (Microsoft/Bing Ads).
     //
-    // The forms have a gclid field that Pardot prefills from the iframe's own
-    // query string, but the iframe is cross-origin so the value has to be in the
-    // src. A visitor usually lands on an ad page and converts on another one, so
-    // the id is remembered rather than read from the current URL only.
+    // The forms have hidden fields that Pardot prefills from the iframe's own
+    // query string, but the iframe is cross-origin so the values have to be in
+    // the src. A visitor usually lands on an ad page and converts on another
+    // one, so the ids are remembered rather than read from the current URL only.
     //
-    // Persisting it is gated on cookie consent, matching how gtag holds back
-    // ad_storage until the banner is accepted. A gclid in the URL of the page
-    // being viewed is always honoured, consent or not: that is the visitor's own
-    // navigation and it never outlives the page load.
+    // Persisting them is gated on cookie consent, matching how ad_storage is
+    // held back until the banner is accepted. An id in the URL of the page
+    // being viewed is always honoured, consent or not: that is the visitor's
+    // own navigation and it never outlives the page load.
     // ---------------------------------------------------------------------
-    const GCLID_KEY = 'riy-gclid';
+    const CLICK_ID_PARAMS = ['gclid', 'msclkid'];
 
-    const readGclid = () => {
-      const fromUrl = new URLSearchParams(location.search).get('gclid');
+    const readClickId = (param: string) => {
+      const fromUrl = new URLSearchParams(location.search).get(param);
       if (fromUrl) {
         try {
           if (localStorage.getItem('riy-consent') === 'granted') {
-            localStorage.setItem(GCLID_KEY, fromUrl);
+            localStorage.setItem('riy-' + param, fromUrl);
           }
         } catch (e) {}
         return fromUrl;
       }
       try {
-        return localStorage.getItem(GCLID_KEY);
+        return localStorage.getItem('riy-' + param);
       } catch (e) {
         return null;
       }
     };
 
-    const gclid = readGclid();
+    const clickIds = CLICK_ID_PARAMS
+      .map((param) => ({ param, value: readClickId(param) }))
+      .filter((c) => c.value);
 
-    const applyGclid = () => {
-      if (!gclid) return;
+    const applyClickIds = () => {
       document.querySelectorAll('iframe.pardot-form').forEach((node) => {
         const frame = node as HTMLIFrameElement;
         const raw = frame.getAttribute('src');
         if (!raw) return;
         const url = new URL(raw, location.href);
-        // Skip if it is already correct, so this never reloads a form needlessly.
-        if (url.searchParams.get('gclid') === gclid) return;
-        url.searchParams.set('gclid', gclid);
-        frame.setAttribute('src', url.toString());
+        // Skip if everything is already correct, so this never reloads a form
+        // needlessly (the MutationObserver below would loop otherwise).
+        let changed = false;
+        for (const { param, value } of clickIds) {
+          if (url.searchParams.get(param) !== value) {
+            url.searchParams.set(param, value);
+            changed = true;
+          }
+        }
+        if (changed) frame.setAttribute('src', url.toString());
       });
     };
 
-    if (gclid) {
-      applyGclid();
-      // Forms inside modals can be added later, so re-apply as nodes appear. The
-      // equality guard above stops this from looping on its own mutations.
+    if (clickIds.length > 0) {
+      applyClickIds();
+      // Forms inside modals can be added later, so re-apply as nodes appear.
       if ('MutationObserver' in window) {
-        new MutationObserver(applyGclid).observe(document.body, { childList: true, subtree: true });
+        new MutationObserver(applyClickIds).observe(document.body, { childList: true, subtree: true });
       }
     }
 

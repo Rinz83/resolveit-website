@@ -51,21 +51,23 @@ oude WordPress-site die niet meer bestaan (`#demoBillingPopup`,
 `.apply-button`, de Gravity Forms-listener, de oude popup-iframes). Daarvoor
 zijn de custom events hierboven in de plaats gekomen.
 
-## Google Ads gclid in de formulieren
+## Ad click ids (gclid en msclkid) in de formulieren
 
-De Pardot-formulieren hebben een `gclid`-veld dat Pardot vult uit de query
-string van het formulier zelf. Het iframe is cross-origin, dus de waarde moet in
-de `src` staan.
+De Pardot-formulieren hebben verborgen velden die Pardot vult uit de query
+string van het formulier zelf: `gclid` (Google Ads) en `msclkid`
+(Microsoft/Bing Ads). Het iframe is cross-origin, dus de waardes moeten in de
+`src` staan. Let op: het formulier in Pardot moet zelf een veld met dat exacte
+naam hebben, anders wordt de meegegeven waarde genegeerd.
 
 Een bezoeker landt meestal op een advertentiepagina en converteert op een
-andere, dus de gclid wordt onthouden in `localStorage` onder `riy-gclid`. Dat
-opslaan gebeurt alleen na toestemming. Een gclid in de URL van de pagina die
-iemand op dat moment bekijkt wordt altijd doorgegeven, met of zonder
-toestemming: dat is de eigen navigatie van de bezoeker en het overleeft de
-pagina niet.
+andere, dus de ids worden onthouden in `localStorage` onder `riy-gclid` en
+`riy-msclkid`. Dat opslaan gebeurt alleen na toestemming. Een id in de URL van
+de pagina die iemand op dat moment bekijkt wordt altijd doorgegeven, met of
+zonder toestemming: dat is de eigen navigatie van de bezoeker en het overleeft
+de pagina niet.
 
 Het werkt op elk formulier met de class `pardot-form`, inclusief formulieren in
-modals. De `src` wordt alleen herschreven als de waarde nog niet klopt, zodat
+modals. De `src` wordt alleen herschreven als een waarde nog niet klopt, zodat
 een formulier nooit onnodig herlaadt.
 
 ## Tweetalige bedankpagina's

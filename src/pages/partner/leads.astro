@@ -1,0 +1,357 @@
+---
+// Afgeschermd leadsoverzicht voor de externe marketingpartner.
+//
+// De pagina zelf is een lege schil: de leaddata komt pas uit
+// /api/partner-leads nadat server-side de toegangscode is gecontroleerd.
+// noindex + geen vermelding in de sitemap houden de pagina uit Google;
+// de URL bewust NIET in robots.txt zetten, want dat zou hem juist verraden.
+//
+// Detailweergave is een zijpaneel (drawer) in plaats van een uitklaprij,
+// zodat de tabel rustig blijft.
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Leadsoverzicht (partner)" description="Intern leadsoverzicht voor de marketingpartner van Resolve IT." noindex={true} transparentHeader={false}>
+  <section class="pl">
+    <div class="container">
+      <div class="pl-head">
+        <span class="eyebrow">Marketingpartner</span>
+        <h1>Leadsoverzicht</h1>
+        <p class="pl-sub">Alle leads uit Salesforce, inclusief geconverteerde, met Pardot-engagement en activiteiten. Dagelijks ververst.</p>
+      </div>
+
+      <form id="pl-gate" class="pl-gate card" autocomplete="off">
+        <label for="pl-code">Toegangscode</label>
+        <div class="pl-gate-row">
+          <input id="pl-code" name="code" type="password" required placeholder="Voer de code in" />
+          <button type="submit" class="btn btn-primary">Ontgrendel</button>
+        </div>
+        <p id="pl-error" class="pl-error" hidden>Onjuiste code. Probeer het opnieuw.</p>
+      </form>
+
+      <div id="pl-app" hidden>
+        <div class="pl-toolbar">
+          <input id="pl-search" type="search" placeholder="Zoek op naam, bedrijf, e-mail, status, bron of product…" />
+          <div class="pl-toolbar-right">
+            <span id="pl-count" class="pl-count"></span>
+            <button type="button" id="pl-csv" class="btn btn-outline-dark">⬇ CSV</button>
+          </div>
+        </div>
+
+        <div class="pl-tablecard">
+          <div class="pl-tablewrap">
+            <table class="pl-table">
+              <thead>
+                <tr>
+                  <th data-sort="created" data-num aria-sort="descending">Aangemaakt</th>
+                  <th data-sort="name">Lead</th>
+                  <th data-sort="email">Contact</th>
+                  <th data-sort="status">Status</th>
+                  <th data-sort="source">Bron</th>
+                  <th data-sort="product">Product/dienst</th>
+                  <th data-sort="score" data-num>Score</th>
+                  <th data-sort="lastActivity" data-num>Laatste activiteit</th>
+                  <th data-sort="gclid">gclid</th>
+                  <th data-sort="msclkid">msclkid</th>
+                  <th aria-hidden="true"></th>
+                </tr>
+              </thead>
+              <tbody id="pl-rows"></tbody>
+            </table>
+          </div>
+          <p class="pl-foot"><span id="pl-updated"></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailpaneel -->
+  <div id="pl-overlay" class="pl-overlay" hidden></div>
+  <aside id="pl-drawer" class="pl-drawer" hidden aria-label="Leaddetails">
+    <div class="pl-drawer-head">
+      <div>
+        <h2 id="pld-name"></h2>
+        <p id="pld-company" class="pl-drawer-company"></p>
+      </div>
+      <button type="button" id="pl-close" class="pl-close" aria-label="Sluiten">×</button>
+    </div>
+    <div class="pl-drawer-body" id="pld-body"></div>
+  </aside>
+
+  {/* is:global omdat de tabelrijen en het detailpaneel via innerHTML worden
+      opgebouwd: Astro's scoped styles zouden die runtime-HTML niet raken.
+      Alle selectors zijn met pl- geprefixt, dus er lekt niets de site in. */}
+  <style is:global>
+    .pl { padding: 7rem 0 4rem; min-height: 80vh; background: var(--color-off-white, #f7f8fa); }
+    .pl-head { margin-bottom: 1.75rem; }
+    .pl-head h1 { margin-bottom: 0.35rem; }
+    .pl-sub { color: var(--color-text-muted); max-width: 60ch; }
+
+    .pl-gate { max-width: 440px; padding: 1.5rem; }
+    .pl-gate label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+    .pl-gate-row { display: flex; gap: 0.6rem; }
+    .pl-gate input { flex: 1; padding: 0.65rem 0.9rem; border: 1px solid var(--color-light, #e6e8ec); border-radius: var(--radius, 8px); font: inherit; }
+    .pl-error { color: #c0392b; margin-top: 0.6rem; font-size: 0.9rem; }
+
+    .pl-toolbar { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; margin-bottom: 0.9rem; }
+    #pl-search { flex: 1 1 320px; max-width: 460px; padding: 0.65rem 1rem; border: 1px solid var(--color-light, #e6e8ec); border-radius: var(--radius-pill, 999px); font: inherit; background: #fff; }
+    .pl-toolbar-right { display: flex; align-items: center; gap: 1rem; margin-left: auto; }
+    .pl-count { color: var(--color-text-muted); font-size: 0.9rem; white-space: nowrap; }
+
+    .pl-tablecard { background: #fff; border: 1px solid var(--color-light, #e6e8ec); border-radius: var(--radius-lg, 14px); box-shadow: var(--shadow, 0 6px 18px rgba(0,0,0,.06)); overflow: hidden; }
+    .pl-tablewrap { overflow-x: auto; max-height: 72vh; }
+    .pl-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 1000px; }
+    .pl-table th, .pl-table td { text-align: left; padding: 0.7rem 1rem; }
+    .pl-table thead th { background: #fff; border-bottom: 2px solid var(--color-light, #e6e8ec); cursor: pointer; user-select: none; position: sticky; top: 0; z-index: 1; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-text-muted); white-space: nowrap; }
+    .pl-table th[aria-sort="ascending"]::after { content: " ↑"; color: var(--color-primary); }
+    .pl-table th[aria-sort="descending"]::after { content: " ↓"; color: var(--color-primary); }
+    .pl-table tbody td { border-bottom: 1px solid var(--color-off-white, #f2f3f6); white-space: nowrap; }
+    .pl-table tbody tr.pl-row { cursor: pointer; transition: background 0.12s; }
+    .pl-table tbody tr.pl-row:nth-child(even) { background: #fafbfc; }
+    .pl-table tbody tr.pl-row:hover { background: var(--color-green-soft, #eef7ea); }
+
+    .pl-lead-name { font-weight: 600; color: var(--color-dark); }
+    .pl-lead-sub, .pl-contact-sub { display: block; font-size: 0.8rem; color: var(--color-text-muted); }
+    .pl-date-main { font-variant-numeric: tabular-nums; }
+
+    .pl-pill { display: inline-block; border-radius: var(--radius-pill, 999px); padding: 0.18rem 0.65rem; font-size: 0.78rem; font-weight: 600; background: var(--color-off-white, #f2f3f6); color: var(--color-text-muted); }
+    .pl-pill.converted { background: rgba(109,183,87,0.16); color: #2f7d1e; }
+    .pl-pill.open { background: rgba(59,130,246,0.12); color: #1d5fc2; }
+    .pl-pill.working { background: rgba(245,158,11,0.14); color: #a16207; }
+    .pl-pill.lost { background: rgba(148,163,184,0.18); color: #64748b; }
+
+    .pl-score { display: inline-flex; align-items: center; gap: 0.45rem; font-variant-numeric: tabular-nums; font-weight: 600; }
+    .pl-score-bar { width: 52px; height: 5px; border-radius: 3px; background: var(--color-off-white, #eef0f3); overflow: hidden; }
+    .pl-score-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--color-green, #6db757), var(--color-green-dark, #4e9440)); }
+
+    .pl-clickid { max-width: 9rem; overflow: hidden; text-overflow: ellipsis; font-family: ui-monospace, monospace; font-size: 0.78rem; color: var(--color-text-muted); }
+    .pl-chevron { color: var(--color-text-muted); font-size: 1.05rem; }
+    .pl-foot { margin: 0; padding: 0.7rem 1rem; border-top: 1px solid var(--color-off-white, #f2f3f6); color: var(--color-text-muted); font-size: 0.82rem; }
+
+    /* Drawer */
+    .pl-overlay { position: fixed; inset: 0; background: rgba(15,20,30,0.35); z-index: 1000; }
+    .pl-drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(480px, 94vw); background: #fff; z-index: 1001; box-shadow: var(--shadow-lg, -12px 0 40px rgba(0,0,0,.2)); display: flex; flex-direction: column; }
+    /* Author display beats the UA sheet's [hidden] rule, so both need an
+       explicit hidden state (same lesson as the cookie banner). */
+    .pl-overlay[hidden], .pl-drawer[hidden] { display: none; }
+    .pl-drawer-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1.4rem 1.5rem 1rem; border-bottom: 1px solid var(--color-light, #e6e8ec); }
+    .pl-drawer-head h2 { font-size: 1.25rem; margin: 0 0 0.15rem; }
+    .pl-drawer-company { margin: 0; color: var(--color-text-muted); }
+    .pl-close { border: none; background: var(--color-off-white, #f2f3f6); border-radius: 50%; width: 2.2rem; height: 2.2rem; font-size: 1.3rem; line-height: 1; cursor: pointer; color: var(--color-text-muted); }
+    .pl-close:hover { background: var(--color-light, #e6e8ec); }
+    .pl-drawer-body { padding: 1.25rem 1.5rem 2rem; overflow-y: auto; }
+
+    .pld-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .pld-section { margin-bottom: 1.5rem; }
+    .pld-section h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin: 0 0 0.6rem; }
+    .pld-kv { display: grid; grid-template-columns: 9.5rem 1fr; row-gap: 0.45rem; column-gap: 1rem; font-size: 0.9rem; }
+    .pld-kv dt { color: var(--color-text-muted); }
+    .pld-kv dd { margin: 0; word-break: break-word; }
+    .pld-kv dd.mono { font-family: ui-monospace, monospace; font-size: 0.82rem; }
+    .pld-text { font-size: 0.9rem; white-space: pre-wrap; background: var(--color-off-white, #f7f8fa); border-radius: var(--radius, 8px); padding: 0.75rem 0.9rem; margin: 0; }
+
+    .pld-timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+    .pld-timeline::before { content: ""; position: absolute; left: 0.42rem; top: 0.5rem; bottom: 0.5rem; width: 2px; background: var(--color-light, #e6e8ec); }
+    .pld-timeline li { position: relative; padding: 0 0 1rem 1.7rem; }
+    .pld-timeline li:last-child { padding-bottom: 0; }
+    .pld-timeline li::before { content: ""; position: absolute; left: 0; top: 0.3rem; width: 0.9rem; height: 0.9rem; border-radius: 50%; background: var(--color-green, #6db757); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--color-green, #6db757); }
+    .pld-timeline li.open-act::before { background: #fff; }
+    .pld-act-top { display: flex; gap: 0.6rem; align-items: baseline; font-size: 0.8rem; color: var(--color-text-muted); }
+    .pld-act-subject { font-size: 0.92rem; font-weight: 500; color: var(--color-dark); }
+    .pld-empty { color: var(--color-text-muted); font-size: 0.9rem; }
+  </style>
+
+  <script>
+    const gate = document.getElementById('pl-gate');
+    const app = document.getElementById('pl-app');
+    const errEl = document.getElementById('pl-error');
+    const rowsEl = document.getElementById('pl-rows');
+    const searchEl = document.getElementById('pl-search');
+    const overlay = document.getElementById('pl-overlay');
+    const drawer = document.getElementById('pl-drawer');
+
+    let leads = [];
+    let view = [];
+    let sortKey = 'created';
+    let sortDir = -1; // nieuw naar oud
+
+    const fmtDate = (iso) => (iso ? String(iso).slice(0, 10) : '');
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+
+    const statusClass = (l) => {
+      if (l.converted) return 'converted';
+      const s = (l.status || '').toLowerCase();
+      if (s.includes('unqualified') || s.includes('lost')) return 'lost';
+      if (s.includes('contact') && !s.includes('not')) return 'working';
+      return 'open';
+    };
+
+    const scoreCell = (score) => {
+      if (score == null) return '';
+      const pct = Math.max(0, Math.min(100, Math.round((score / 200) * 100)));
+      return `<span class="pl-score">${score}<span class="pl-score-bar"><i style="width:${pct}%"></i></span></span>`;
+    };
+
+    const render = () => {
+      const q = searchEl.value.trim().toLowerCase();
+      view = leads.filter((l) =>
+        !q || [l.name, l.company, l.email, l.status, l.source, l.product].some((v) => (v || '').toLowerCase().includes(q)));
+      view = view.slice().sort((a, b) => {
+        const va = a[sortKey] ?? '', vb = b[sortKey] ?? '';
+        if (typeof va === 'number' || typeof vb === 'number') return ((va || 0) - (vb || 0)) * sortDir;
+        return String(va).localeCompare(String(vb)) * sortDir;
+      });
+      document.getElementById('pl-count').textContent = `${view.length} van ${leads.length} leads`;
+      rowsEl.innerHTML = view.map((l, i) => `
+        <tr class="pl-row" data-i="${i}">
+          <td class="pl-date-main">${fmtDate(l.created)}</td>
+          <td><span class="pl-lead-name">${esc(l.name) || '–'}</span><span class="pl-lead-sub">${esc(l.company)}</span></td>
+          <td>${l.email ? `<a href="mailto:${esc(l.email)}">${esc(l.email)}</a>` : '–'}${l.phone ? `<span class="pl-contact-sub">${esc(l.phone)}</span>` : ''}</td>
+          <td><span class="pl-pill ${statusClass(l)}">${esc(l.status) || '–'}</span></td>
+          <td>${esc(l.source) || '–'}</td>
+          <td>${esc(l.product) || '–'}</td>
+          <td>${scoreCell(l.score)}</td>
+          <td class="pl-date-main">${fmtDate(l.lastActivity) || '–'}</td>
+          <td class="pl-clickid" title="${esc(l.gclid)}">${esc(l.gclid) || '–'}</td>
+          <td class="pl-clickid" title="${esc(l.msclkid)}">${esc(l.msclkid) || '–'}</td>
+          <td class="pl-chevron">›</td>
+        </tr>`).join('');
+    };
+
+    // ---- Drawer -------------------------------------------------------
+    const kvRow = (k, v, mono) => (v ? `<dt>${k}</dt><dd${mono ? ' class="mono"' : ''}>${esc(v)}</dd>` : '');
+
+    const openDrawer = (l) => {
+      document.getElementById('pld-name').textContent = l.name || '(naam onbekend)';
+      document.getElementById('pld-company').textContent = l.company || '';
+      const acts = (l.activities || []);
+      document.getElementById('pld-body').innerHTML = `
+        <div class="pld-pills">
+          <span class="pl-pill ${statusClass(l)}">${esc(l.status) || '–'}</span>
+          ${l.score != null ? `<span class="pl-pill">Score ${l.score}</span>` : ''}
+          ${l.grade ? `<span class="pl-pill">Grade ${esc(l.grade)}</span>` : ''}
+        </div>
+        <div class="pld-section">
+          <h3>Contact</h3>
+          <dl class="pld-kv">
+            ${l.email ? `<dt>E-mail</dt><dd><a href="mailto:${esc(l.email)}">${esc(l.email)}</a></dd>` : ''}
+            ${kvRow('Telefoon', l.phone)}
+            ${kvRow('Adres', l.address)}
+          </dl>
+        </div>
+        <div class="pld-section">
+          <h3>Marketing</h3>
+          <dl class="pld-kv">
+            ${kvRow('Bron', l.source)}
+            ${kvRow('Campagne', l.campaign)}
+            ${kvRow('Product/dienst', l.product)}
+            ${kvRow('Aangemaakt', fmtDate(l.created))}
+            ${kvRow('Laatste activiteit', fmtDate(l.lastActivity))}
+            ${kvRow('gclid', l.gclid, true)}
+            ${kvRow('msclkid', l.msclkid, true)}
+          </dl>
+        </div>
+        ${l.description ? `<div class="pld-section"><h3>Omschrijving</h3><p class="pld-text">${esc(l.description)}</p></div>` : ''}
+        ${l.comments ? `<div class="pld-section"><h3>Account Engagement-notities</h3><p class="pld-text">${esc(l.comments)}</p></div>` : ''}
+        <div class="pld-section">
+          <h3>Activiteiten${acts.length ? ` (${acts.length})` : ''}</h3>
+          ${acts.length ? `<ul class="pld-timeline">` + acts.map((a) => `
+            <li class="${a.open ? 'open-act' : ''}">
+              <div class="pld-act-top"><span>${fmtDate(a.date) || 'geen datum'}</span><span>${esc(a.type)}${a.open ? ' · open' : ''}</span></div>
+              <div class="pld-act-subject">${esc(a.subject)}</div>
+            </li>`).join('') + `</ul>` : '<p class="pld-empty">Geen gekoppelde activiteiten.</p>'}
+        </div>`;
+      overlay.hidden = false;
+      drawer.hidden = false;
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeDrawer = () => {
+      overlay.hidden = true;
+      drawer.hidden = true;
+      document.body.style.overflow = '';
+    };
+    overlay.addEventListener('click', closeDrawer);
+    document.getElementById('pl-close').addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+    rowsEl.addEventListener('click', (e) => {
+      const t = e.target;
+      if (!(t instanceof Element) || t.closest('a')) return;
+      const row = t.closest('tr.pl-row');
+      if (!row) return;
+      const lead = view[Number(row.getAttribute('data-i'))];
+      if (lead) openDrawer(lead);
+    });
+
+    document.querySelectorAll('.pl-table th[data-sort]').forEach((th) => {
+      th.addEventListener('click', () => {
+        const key = th.getAttribute('data-sort');
+        if (sortKey === key) sortDir = -sortDir;
+        else { sortKey = key; sortDir = th.hasAttribute('data-num') ? -1 : 1; }
+        document.querySelectorAll('.pl-table th').forEach((h) => h.removeAttribute('aria-sort'));
+        th.setAttribute('aria-sort', sortDir === 1 ? 'ascending' : 'descending');
+        render();
+      });
+    });
+
+    searchEl.addEventListener('input', render);
+
+    // CSV-export van de huidige (gefilterde en gesorteerde) weergave.
+    document.getElementById('pl-csv').addEventListener('click', () => {
+      const cols = [
+        ['Aangemaakt', (l) => fmtDate(l.created)], ['Naam', (l) => l.name], ['Bedrijf', (l) => l.company],
+        ['E-mail', (l) => l.email], ['Telefoon', (l) => l.phone], ['Adres', (l) => l.address],
+        ['Status', (l) => l.status], ['Bron', (l) => l.source], ['Campagne', (l) => l.campaign],
+        ['Product/dienst', (l) => l.product], ['Score', (l) => l.score], ['Grade', (l) => l.grade],
+        ['Laatste activiteit', (l) => fmtDate(l.lastActivity)], ['gclid', (l) => l.gclid], ['msclkid', (l) => l.msclkid],
+        ['Omschrijving', (l) => l.description], ['Notities', (l) => l.comments],
+        ['Activiteiten', (l) => (l.activities || []).map((a) => `${fmtDate(a.date)} ${a.type}: ${a.subject}`).join(' | ')],
+      ];
+      const cell = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+      const csv = [cols.map(([h]) => cell(h)).join(';'),
+        ...view.map((l) => cols.map(([, f]) => cell(f(l))).join(';'))].join('\r\n');
+      const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `resolveit-leads-${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    const unlock = async (code) => {
+      const res = await fetch('/api/partner-leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code }),
+      });
+      if (!res.ok) return false;
+      const payload = await res.json();
+      leads = payload.leads || [];
+      document.getElementById('pl-updated').textContent =
+        payload.generatedAt ? `Laatst ververst: ${new Date(payload.generatedAt).toLocaleString('nl-NL')}. Data uit Salesforce, dagelijks bijgewerkt.` : '';
+      gate.hidden = true;
+      app.hidden = false;
+      render();
+      return true;
+    };
+
+    gate.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errEl.hidden = true;
+      const code = document.getElementById('pl-code').value;
+      const ok = await unlock(code).catch(() => false);
+      if (ok) {
+        try { sessionStorage.setItem('pl-code', code); } catch {}
+      } else {
+        errEl.hidden = false;
+      }
+    });
+
+    // Re-unlock silently within the same browser session.
+    try {
+      const saved = sessionStorage.getItem('pl-code');
+      if (saved) unlock(saved).catch(() => {});
+    } catch {}
+  </script>
+</Layout>

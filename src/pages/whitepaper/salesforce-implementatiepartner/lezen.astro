@@ -266,12 +266,12 @@ import { calendlyUrl } from '../../../i18n/ui.js';
 </Layout>
 
 <script>
-  // Landing on this page means the whitepaper form was submitted — fire the
-  // lead conversion (only sends once consent is granted, via Consent Mode).
+  // Landing on this page means the whitepaper form was submitted — push the
+  // lead conversion into the dataLayer for the Tag Manager container.
   const el = document.querySelector('[data-lead-source]');
-  const g = (window as any).gtag;
-  if (el && typeof g === 'function') {
-    g('event', 'generate_lead', {
+  if (el) {
+    ((window as any).dataLayer = (window as any).dataLayer || []).push({
+      event: 'generate_lead',
       method: 'pardot',
       form_source: (el as HTMLElement).dataset.leadSource || 'form',
     });

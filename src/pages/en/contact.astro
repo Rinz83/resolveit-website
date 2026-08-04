@@ -128,8 +128,7 @@ import { calendlyUrl, pardotForms } from '../../i18n/ui.js';
 </style>
 
 <script>
-  // Track contact-page visits as a dedicated GA4 event (mark as a key event
-  // in GA4 to use it as a conversion). Sends only after consent is granted.
-  const g = (window as any).gtag;
-  if (typeof g === "function") g("event", "view_contact");
+  // Contact-page visits: pushed into the dataLayer for the Tag Manager
+  // container, which maps it to a GA4 key event.
+  ((window as any).dataLayer = (window as any).dataLayer || []).push({ event: "view_contact" });
 </script>

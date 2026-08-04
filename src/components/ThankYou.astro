@@ -1,6 +1,20 @@
 ---
 // Confirmation page shown after a Pardot form submits (its redirect target).
-const { message, ctaHref = '/', ctaLabel = 'Back to home', source = 'form' } = Astro.props;
+//
+// The copy is Dutch by default: the forms redirect to one fixed URL regardless
+// of which language page the visitor was on, and most visitors are Dutch. When
+// the visitor came from an /en/ page the inline script below swaps the copy to
+// English. The language marker is written to sessionStorage by the layout on
+// every regular pageview, because the Pardot redirect arrives from the
+// go.resolveit.nl iframe and carries no usable referrer.
+const {
+  message,
+  messageEn,
+  ctaHref = '/',
+  ctaLabel = 'Terug naar home',
+  ctaLabelEn = 'Back to home',
+  source = 'form',
+} = Astro.props;
 ---
 <section class="ty" data-ty-source={source}>
   <div class="ty-aurora" aria-hidden="true"><span></span><span></span></div>
@@ -8,26 +22,52 @@ const { message, ctaHref = '/', ctaLabel = 'Back to home', source = 'form' } = A
     <div class="ty-check" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
-    <h1>Thank you!</h1>
-    <p>{message}</p>
+    <h1 data-ty-h1>Bedankt!</h1>
+    <p data-ty-message>{message}</p>
     <div class="ty-actions">
-      <a href={ctaHref} class="btn btn-primary">{ctaLabel}</a>
-      <a href="/" class="btn btn-outline">Back to home</a>
+      <a href={ctaHref} class="btn btn-primary" data-ty-cta>{ctaLabel}</a>
+      <a href="/" class="btn btn-outline" data-ty-home>Terug naar home</a>
     </div>
   </div>
 </section>
 
-<script>
-  // Landing on a thank-you page means a form was submitted — fire the lead
-  // conversion (only sends once consent is granted, via Consent Mode).
-  const el = document.querySelector('.ty[data-ty-source]');
-  const g = (window as any).gtag;
-  if (el && typeof g === 'function') {
-    g('event', 'generate_lead', {
-      method: 'pardot',
-      form_source: (el as HTMLElement).dataset.tySource || 'form',
-    });
-  }
+<script is:inline define:vars={{ messageEn, ctaLabelEn }}>
+  (function () {
+    var lang = null;
+    try { lang = sessionStorage.getItem('riy-lang'); } catch (e) {}
+    if (lang === 'en') {
+      var set = function (sel, text) {
+        var el = document.querySelector(sel);
+        if (el && text) el.textContent = text;
+      };
+      set('[data-ty-h1]', 'Thank you!');
+      set('[data-ty-message]', messageEn);
+      set('[data-ty-cta]', ctaLabelEn);
+      set('[data-ty-home]', 'Back to home');
+      // Point the buttons at the English pages as well.
+      var toEn = function (sel) {
+        var el = document.querySelector(sel);
+        if (!el) return;
+        var href = el.getAttribute('href') || '/';
+        if (!href.startsWith('/en')) el.setAttribute('href', href === '/' ? '/en/' : '/en' + href);
+      };
+      toEn('[data-ty-cta]');
+      toEn('[data-ty-home]');
+      document.documentElement.lang = 'en';
+    }
+
+    // Landing on a thank-you page means a form was submitted: push the lead
+    // conversion into the dataLayer for the Tag Manager container.
+    var ty = document.querySelector('.ty[data-ty-source]');
+    if (ty) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'generate_lead',
+        method: 'pardot',
+        form_source: ty.getAttribute('data-ty-source') || 'form',
+      });
+    }
+  })();
 </script>
 
 <style>

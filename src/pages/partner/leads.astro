@@ -25,7 +25,7 @@ import Layout from '../../layouts/Layout.astro';
           <input id="pl-code" name="code" type="password" required placeholder="Voer de code in" />
           <button type="submit" class="btn btn-primary">Ontgrendel</button>
         </div>
-        <p id="pl-error" class="pl-error" hidden>Onjuiste code. Probeer het opnieuw.</p>
+        <p id="pl-error" class="pl-error" hidden></p>
       </form>
 
       <div id="pl-app" hidden>
@@ -325,7 +325,14 @@ import Layout from '../../layouts/Layout.astro';
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code }),
       });
-      if (!res.ok) return false;
+      if (!res.ok) {
+        // Onderscheid "verkeerde code" van "server niet ingericht", anders
+        // lijkt een ontbrekende env-var op een typfout van de bezoeker.
+        errEl.textContent = res.status === 503
+          ? 'De server is nog niet geconfigureerd (omgevingsvariabelen ontbreken). Neem contact op met Resolve IT.'
+          : 'Onjuiste code. Probeer het opnieuw.';
+        return false;
+      }
       const payload = await res.json();
       leads = payload.leads || [];
       document.getElementById('pl-updated').textContent =
@@ -344,6 +351,7 @@ import Layout from '../../layouts/Layout.astro';
       if (ok) {
         try { sessionStorage.setItem('pl-code', code); } catch {}
       } else {
+        if (!errEl.textContent) errEl.textContent = 'Er ging iets mis. Probeer het opnieuw.';
         errEl.hidden = false;
       }
     });

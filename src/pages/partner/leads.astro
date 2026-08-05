@@ -50,6 +50,9 @@ import Layout from '../../layouts/Layout.astro';
                   <th data-sort="product">Product/dienst</th>
                   <th data-sort="score" data-num>Score</th>
                   <th data-sort="lastActivity" data-num>Laatste activiteit</th>
+                  <th data-sort="utmSource">utm_source</th>
+                  <th data-sort="utmMedium">utm_medium</th>
+                  <th data-sort="utmCampaign">utm_campaign</th>
                   <th data-sort="gclid">gclid</th>
                   <th data-sort="msclkid">msclkid</th>
                   <th aria-hidden="true"></th>
@@ -195,7 +198,7 @@ import Layout from '../../layouts/Layout.astro';
     const render = () => {
       const q = searchEl.value.trim().toLowerCase();
       view = leads.filter((l) =>
-        !q || [l.name, l.company, l.email, l.status, l.source, l.product].some((v) => (v || '').toLowerCase().includes(q)));
+        !q || [l.name, l.company, l.email, l.status, l.source, l.product, l.utmSource, l.utmMedium, l.utmCampaign].some((v) => (v || '').toLowerCase().includes(q)));
       view = view.slice().sort((a, b) => {
         const va = a[sortKey] ?? '', vb = b[sortKey] ?? '';
         if (typeof va === 'number' || typeof vb === 'number') return ((va || 0) - (vb || 0)) * sortDir;
@@ -212,6 +215,9 @@ import Layout from '../../layouts/Layout.astro';
           <td>${esc(l.product) || '–'}</td>
           <td>${scoreCell(l.score)}</td>
           <td class="pl-date-main">${fmtDate(l.lastActivity) || '–'}</td>
+          <td>${esc(l.utmSource) || '–'}</td>
+          <td>${esc(l.utmMedium) || '–'}</td>
+          <td>${esc(l.utmCampaign) || '–'}</td>
           <td class="pl-clickid" title="${esc(l.gclid)}">${esc(l.gclid) || '–'}</td>
           <td class="pl-clickid" title="${esc(l.msclkid)}">${esc(l.msclkid) || '–'}</td>
           <td class="pl-chevron">›</td>
@@ -243,7 +249,9 @@ import Layout from '../../layouts/Layout.astro';
           <h3>Marketing</h3>
           <dl class="pld-kv">
             ${kvRow('Bron', l.source)}
-            ${kvRow('Campagne', l.campaign)}
+            ${kvRow('utm_source', l.utmSource)}
+            ${kvRow('utm_medium', l.utmMedium)}
+            ${kvRow('utm_campaign', l.utmCampaign)}
             ${kvRow('Product/dienst', l.product)}
             ${kvRow('Aangemaakt', fmtDate(l.created))}
             ${kvRow('Laatste activiteit', fmtDate(l.lastActivity))}
@@ -302,7 +310,8 @@ import Layout from '../../layouts/Layout.astro';
       const cols = [
         ['Aangemaakt', (l) => fmtDate(l.created)], ['Naam', (l) => l.name], ['Bedrijf', (l) => l.company],
         ['E-mail', (l) => l.email], ['Telefoon', (l) => l.phone], ['Adres', (l) => l.address],
-        ['Status', (l) => l.status], ['Bron', (l) => l.source], ['Campagne', (l) => l.campaign],
+        ['Status', (l) => l.status], ['Bron', (l) => l.source],
+        ['utm_source', (l) => l.utmSource], ['utm_medium', (l) => l.utmMedium], ['utm_campaign', (l) => l.utmCampaign],
         ['Product/dienst', (l) => l.product], ['Score', (l) => l.score], ['Grade', (l) => l.grade],
         ['Laatste activiteit', (l) => fmtDate(l.lastActivity)], ['gclid', (l) => l.gclid], ['msclkid', (l) => l.msclkid],
         ['Omschrijving', (l) => l.description], ['Notities', (l) => l.comments],

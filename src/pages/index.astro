@@ -214,19 +214,27 @@ const row2 = clients.slice(mid);
         </div>
       </div>
 
-      <div class="bp-hub reveal" aria-label="Het Billing Platform verbindt met Stripe, Exact Online, Datasolver en SharePoint">
-        <div class="bp-center">
-          <span class="bp-center-ico">💶</span>
-          <span>Billing Platform</span>
+      {/* Gelaagde architectuur: Salesforce als fundament, het Billing Platform
+          als schil daarbovenop, en de connectors die daarop aansluiten. Bewust
+          statisch, zonder animaties. */}
+      <div class="bp-stack reveal" aria-label="Salesforce vormt de basis, daarbovenop het Billing Platform, met connectors voor Exact Online, Business Central, Stripe, SharePoint, Datasolver en de Peppol Directory">
+        <div class="bp-chips">
+          <a href="/producten/exact-online" class="bp-chip"><img class="bp-logo bp-logo-wide" src="/images/logos/exact-online.svg" alt="Exact Online" /></a>
+          <a href="/producten/business-central" class="bp-chip"><img class="bp-logo" src="/images/logos/business-central.svg" alt="" /> Business Central</a>
+          <a href="/producten/billing-module" class="bp-chip"><span class="bp-stripe">Stripe</span> Betalingen</a>
+          <a href="/producten/sharepoint" class="bp-chip"><img class="bp-logo" src="/images/logos/sharepoint.svg" alt="" /> SharePoint</a>
+          <a href="/producten/kvk-integratie" class="bp-chip"><img class="bp-logo bp-logo-wide" src="/images/logos/datasolver.svg" alt="Datasolver" /></a>
+          <a href="/blog/peppol-id-opzoeken-salesforce" class="bp-chip">Peppol Directory</a>
         </div>
-        <a href="/producten/exact-online" class="bp-node bp-n1"><img class="bp-logo bp-logo-wide" src="/images/logos/exact-online.svg" alt="Exact Online" /></a>
-        <a href="/producten/billing-module" class="bp-node bp-n2"><span class="bp-stripe">Stripe</span> Betalingen</a>
-        <a href="/producten/kvk-integratie" class="bp-node bp-n3"><img class="bp-logo bp-logo-wide" src="/images/logos/datasolver.svg" alt="Datasolver" /></a>
-        <a href="/producten/sharepoint" class="bp-node bp-n4"><img class="bp-logo" src="/images/logos/sharepoint.svg" alt="SharePoint" /> SharePoint</a>
-        <svg class="bp-lines" viewBox="0 0 320 320" aria-hidden="true">
-          <line x1="160" y1="160" x2="60" y2="60"/><line x1="160" y1="160" x2="260" y2="60"/>
-          <line x1="160" y1="160" x2="60" y2="260"/><line x1="160" y1="160" x2="260" y2="260"/>
-        </svg>
+        <div class="bp-plugs" aria-hidden="true"></div>
+        <div class="bp-layer bp-layer-platform">
+          <span class="bp-layer-title">💶 Billing Platform</span>
+          <span class="bp-layer-sub">de schil over Salesforce</span>
+        </div>
+        <div class="bp-layer bp-layer-sf">
+          <span class="bp-layer-title"><img class="bp-sf-logo" src="/images/logos/salesforce.svg" alt="" /> Salesforce</span>
+          <span class="bp-layer-sub">de basis</span>
+        </div>
       </div>
     </div>
   </section>
@@ -674,35 +682,51 @@ const row2 = clients.slice(mid);
 .bp-list span { color: var(--color-text-muted); font-size: 0.92rem; }
 .bp-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-.bp-hub { position: relative; width: 320px; height: 320px; margin: 0 auto; }
-.bp-lines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
-.bp-lines line { stroke: rgba(109,183,87,0.4); stroke-width: 2; stroke-dasharray: 5 5; animation: bp-dash 18s linear infinite; }
-@keyframes bp-dash { to { stroke-dashoffset: -100; } }
-.bp-center {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 2;
-  width: 120px; height: 120px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
-  color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 0.3rem; font-weight: 700; font-size: 0.82rem; text-align: center; line-height: 1.2;
-  box-shadow: 0 12px 30px rgba(109,183,87,0.4);
-}
-.bp-center-ico { font-size: 1.8rem; }
-.bp-node {
-  position: absolute; z-index: 2;
-  display: flex; align-items: center; gap: 0.45rem;
+.bp-stack { max-width: 460px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+.bp-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 0.7rem; position: relative; z-index: 3; }
+.bp-chip {
+  display: inline-flex; align-items: center; gap: 0.45rem;
   background: #fff; border: 1px solid var(--color-light); border-radius: 12px;
-  padding: 0.6rem 0.9rem; font-size: 0.82rem; font-weight: 700; color: var(--color-text);
+  padding: 0.55rem 0.85rem; font-size: 0.82rem; font-weight: 700; color: var(--color-text);
   box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition);
 }
-.bp-node:hover { transform: scale(1.06); box-shadow: var(--shadow-lg); }
-.bp-node span { font-size: 1rem; }
+.bp-chip:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 .bp-logo { height: 20px; width: auto; max-width: 100px; object-fit: contain; display: block; flex-shrink: 0; }
 .bp-logo-wide { height: 17px; }
 .bp-stripe { background: #635bff; color: #fff; font-size: 0.65rem; padding: 0.1rem 0.4rem; border-radius: 4px; }
-.bp-n1 { top: 8px; left: -10px; animation: float-y 6s ease-in-out infinite; }
-.bp-n2 { top: 8px; right: -10px; animation: float-y 6.5s ease-in-out infinite 0.3s; }
-.bp-n3 { bottom: 8px; left: -10px; animation: float-y 6.2s ease-in-out infinite 0.6s; }
-.bp-n4 { bottom: 8px; right: -10px; animation: float-y 6.8s ease-in-out infinite 0.9s; }
+/* Drie statische stekkers tussen de connectors en de platformlaag. */
+.bp-plugs {
+  width: 72%; height: 26px;
+  background-image:
+    repeating-linear-gradient(180deg, rgba(109,183,87,0.55) 0 5px, transparent 5px 10px),
+    repeating-linear-gradient(180deg, rgba(109,183,87,0.55) 0 5px, transparent 5px 10px),
+    repeating-linear-gradient(180deg, rgba(109,183,87,0.55) 0 5px, transparent 5px 10px);
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: 15% 0, 50% 0, 85% 0;
+}
+.bp-layer {
+  width: 100%; border-radius: 16px; padding: 1.05rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.bp-layer-title { display: inline-flex; align-items: center; gap: 0.55rem; font-weight: 800; font-size: 1.02rem; }
+.bp-layer-sub { font-size: 0.78rem; opacity: 0.75; font-weight: 600; white-space: nowrap; }
+.bp-layer-platform {
+  width: 88%; position: relative; z-index: 2;
+  background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+  color: #fff; box-shadow: 0 12px 30px rgba(109,183,87,0.35);
+}
+.bp-layer-sf {
+  position: relative; z-index: 1;
+  background: #fff; border: 1px solid var(--color-light); color: var(--color-text);
+  margin-top: -12px; padding-top: calc(1.05rem + 12px);
+  box-shadow: var(--shadow);
+}
+.bp-sf-logo { height: 24px; width: auto; display: block; }
+@media (max-width: 480px) {
+  .bp-layer { flex-direction: column; gap: 0.2rem; text-align: center; }
+  .bp-layer-sf { padding-top: calc(0.85rem + 12px); }
+}
 
 /* ============ PRODUCTS (dark) ============ */
 .products-section { position: relative; overflow: hidden; }

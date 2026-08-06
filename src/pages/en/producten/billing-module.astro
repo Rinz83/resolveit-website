@@ -33,13 +33,13 @@ const quotes = [
 ];
 
 const faqs = [
-  { q: 'Which accounting packages does the Billing Module connect to?', a: 'Among others Exact Online, Unit4 Multivers and Microsoft Dynamics 365 Business Central. The Pro licence offers full ERP integration. For Exact Online you use our dedicated <a href="/en/producten/exact-online">Influx Exact Connector</a>, for Business Central our <a href="/en/producten/business-central">Influx Business Central Connector</a>. <a href="/blog/billing-platform-koppelen-aan-je-erp">Read more about ERP connections →</a>' },
+  { q: 'Which accounting packages does the Billing Module connect to?', a: 'Among others Exact Online, Unit4 Multivers, Microsoft Dynamics 365 Business Central and QuickBooks Online. The Pro licence offers full ERP integration. For Exact Online you use our dedicated <a href="/en/producten/exact-online">Influx for Exact Online</a>, for Business Central our <a href="/en/producten/business-central">Influx for Business Central</a> and for QuickBooks our <a href="/en/producten/quickbooks">Influx for QuickBooks</a>. <a href="/en/blog/billing-platform-koppelen-aan-je-erp">Read more about ERP connections →</a>' },
   { q: 'Can I sell subscriptions with different intervals?', a: 'Yes: monthly, quarterly and annually, with automatic billing per interval and dynamic price adjustment on up- or downgrades. Subscription management activates invoices automatically as soon as a deal reaches closed-won.' },
-  { q: 'How does automatic collection work?', a: 'Through our Payment Collection App, which connects Salesforce to Stripe. Payment methods (credit card, direct debit, PayPal) are managed securely in Salesforce and collected automatically on the customer’s preferred method. <a href="/blog/automatische-incasso-met-stripe">Read more about automatic collection →</a>' },
+  { q: 'How does automatic collection work?', a: 'Through our Payment Collection App, which connects Salesforce to Stripe. Payment methods (credit card, direct debit, PayPal) are managed securely in Salesforce and collected automatically on the customer’s preferred method. <a href="/en/blog/automatische-incasso-met-stripe">Read more about automatic collection →</a>' },
   { q: 'What is deferred revenue and is it supported?', a: 'Deferred revenue spreads the proceeds of, say, an annual contract across the correct months. With start and end dates on invoice lines, revenue is allocated cleanly, available in the Pro licence.' },
-  { q: 'How does the module help with accounts receivable?', a: 'Payment reminders are sent automatically at the moments you set, with an overview of outstanding amounts linked to credit limits. This shortens your receivables term without manual chasing. <a href="/blog/geautomatiseerde-betalingsherinneringen">Read more about automated reminders →</a>' },
-  { q: 'Do I get insight into my MRR and billing?', a: 'Yes. Reports and dashboards give real-time insight into Monthly Recurring Revenue, payment intents, subscriptions without an active payment method and the performance of your entire billing process. <a href="/blog/rapportages-en-dashboards-billing-platform">Read more about reporting →</a>' },
-  { q: 'Can I generate invoices in multiple languages and house styles?', a: 'Certainly. Invoices are generated as PDF based on product type, language and location, with customisable templates per administration. <a href="/blog/facturen-in-de-juiste-taal">Read more about language recognition →</a>' },
+  { q: 'How does the module help with accounts receivable?', a: 'Payment reminders are sent automatically at the moments you set, with an overview of outstanding amounts linked to credit limits. This shortens your receivables term without manual chasing. <a href="/en/blog/geautomatiseerde-betalingsherinneringen">Read more about automated reminders →</a>' },
+  { q: 'Do I get insight into my MRR and billing?', a: 'Yes. Reports and dashboards give real-time insight into Monthly Recurring Revenue, payment intents, subscriptions without an active payment method and the performance of your entire billing process. <a href="/en/blog/rapportages-en-dashboards-billing-platform">Read more about reporting →</a>' },
+  { q: 'Can I generate invoices in multiple languages and house styles?', a: 'Certainly. Invoices are generated as PDF based on product type, language and location, with customisable templates per administration. <a href="/en/blog/facturen-in-de-juiste-taal">Read more about language recognition →</a>' },
   { q: 'Do you help with implementation and training?', a: 'Yes. Our consultants handle the <a href="/en/diensten/implementatie">implementation</a> and give your team <a href="/en/diensten/training">training</a>, so you quickly work independently with the Billing Module.' },
   { q: 'Is there a free trial?', a: 'Yes, you can try the Billing Module without obligation. <a href="/en/contact">Get in touch</a> and we’ll set up a trial environment for you.' },
 ];
@@ -95,7 +95,7 @@ const faqJsonLd = JSON.stringify({
           </div>
           <div class="bm-inv-rows">
             <div class="bm-row"><span>Salesforce licence, annual</span><span>€ 4,800</span></div>
-            <div class="bm-row"><span>Influx Exact Connector</span><span>€ 876</span></div>
+            <div class="bm-row"><span>Influx for Exact Online</span><span>€ 876</span></div>
             <div class="bm-row"><span>Support &amp; maintenance</span><span>€ 1,200</span></div>
           </div>
           <div class="bm-inv-total"><span>Total</span><span>€ 6,876</span></div>
@@ -131,7 +131,7 @@ const faqJsonLd = JSON.stringify({
         <a href="/en/producten/exact-online" class="bm-eco-card">
           <span class="bm-eco-ico"><img src="/images/logos/exact-online.svg" alt="Exact Online" /></span>
           <h3>Exact Online</h3>
-          <p class="text-muted">Invoices and payments pushed automatically to your accounting via the Influx Exact Connector.</p>
+          <p class="text-muted">Invoices and payments pushed automatically to your accounting via Influx for Exact Online.</p>
           <span class="card-link">View connection →</span>
         </a>
         <a href="/en/producten/business-central" class="bm-eco-card">

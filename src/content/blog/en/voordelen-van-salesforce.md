@@ -55,10 +55,10 @@ Salesforce connects as standard with Office 365, Google, Exact Online and many o
 
 This is where many CRM projects distinguish themselves. A CRM that stands apart from your invoicing, accounting and documents still leaves you with manual work. That is why we build and maintain [our own products](/en/producten) that take care of these connections, including:
 
-1. The **Influx Exact Connector** for a seamless link between [Salesforce and Exact Online](/en/producten/exact-online), awarded the Exact Golden Luca 2025.
+1. The **Influx for Exact Online** for a seamless link between [Salesforce and Exact Online](/en/producten/exact-online), awarded the Exact Golden Luca 2025.
 2. The **Billing Platform** for [invoicing, subscriptions and payments](/en/producten/billing-module) directly from Salesforce, connected to Stripe and your accounts.
 3. **SalesPoint** for document management with a direct connection to SharePoint.
-4. The **Influx Business Central Connector** for organisations working with Microsoft Dynamics 365 Business Central.
+4. The **Influx for Business Central** for organisations working with Microsoft Dynamics 365 Business Central.
 
 The advantage of products over loose custom code: they are maintained by the team that built them, and updates to Salesforce or the connected system are absorbed centrally.
 

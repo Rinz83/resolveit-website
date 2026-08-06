@@ -63,7 +63,7 @@ Het debiteurenbeheer wordt daarmee grotendeels hands-off. Herinneringen gaan aut
 
 ## Kan ik facturen doorzetten naar mijn boekhoudpakket?
 
-Ja. Het Billing Platform koppelt onder andere met Exact Online, Unit4 Multivers en Microsoft Dynamics 365 Business Central. Voor Exact Online gebruikt u de dedicated [Influx Exact Connector](/producten/exact-online), voor Business Central de [Influx Business Central Connector](/producten/business-central). De Pro-licentie biedt volledige ERP-integratie.
+Ja. Het Billing Platform koppelt onder andere met Exact Online, Unit4 Multivers en Microsoft Dynamics 365 Business Central. Voor Exact Online gebruikt u de dedicated [Influx for Exact Online](/producten/exact-online), voor Business Central de [Influx for Business Central](/producten/business-central). De Pro-licentie biedt volledige ERP-integratie.
 
 Daarmee sluit de cirkel: de factuur ontstaat in Salesforce, wordt betaald via Stripe en landt automatisch in uw boekhouding. Facturen, klanten en betalingen synchroniseren tussen beide systemen, zodat uw financiële administratie klopt zonder dubbele invoer.
 

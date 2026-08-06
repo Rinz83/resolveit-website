@@ -60,7 +60,7 @@ An integration is never finished at the moment it goes live. Detect data errors 
 
 In addition, make clear agreements about incident handling: who spots an error, who resolves it and within what timeframe? Without those agreements, monitoring becomes a dashboard nobody looks at.
 
-You can see what this looks like in practice with our [Influx Exact Connector](/en/producten/exact-online): every synchronisation between Salesforce and Exact Online is logged, and errors are reported with a clear message, so troubleshooting stays straightforward.
+You can see what this looks like in practice with our [Influx for Exact Online](/en/producten/exact-online): every synchronisation between Salesforce and Exact Online is logged, and errors are reported with a clear message, so troubleshooting stays straightforward.
 
 ## 5. Keep Improving and Automating
 

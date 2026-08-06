@@ -1,8 +1,12 @@
 ---
 import { getLangFromUrl, useTranslations, localize, altLangPath, calendlyUrl } from '../i18n/ui.js';
 
+interface Props { transparent?: boolean; lang?: 'nl' | 'en'; }
+
 const currentPath = Astro.url.pathname;
-const lang = getLangFromUrl(currentPath);
+// lang can be overridden by the layout for pages whose language differs from
+// their URL prefix (e.g. the English campaign LP on the NL root).
+const { transparent = false, lang = getLangFromUrl(currentPath) } = Astro.props;
 const t = useTranslations(lang);
 const L = (p) => localize(p, lang);
 
@@ -18,8 +22,9 @@ const childLabels = {
   '/producten/billing-module': { nl: 'Billing Platform', en: 'Billing Platform' },
   '/producten/kvk-integratie': { nl: 'Datasolver', en: 'Datasolver' },
   '/producten/signflow': { nl: 'SignFlow', en: 'SignFlow' },
-  '/producten/exact-online': { nl: 'Influx Exact Connector', en: 'Influx Exact Connector' },
-  '/producten/business-central': { nl: 'Influx Business Central Connector', en: 'Influx Business Central Connector' },
+  '/producten/exact-online': { nl: 'Influx for Exact Online', en: 'Influx for Exact Online' },
+  '/producten/business-central': { nl: 'Influx for Business Central', en: 'Influx for Business Central' },
+  '/producten/quickbooks': { nl: 'Influx for QuickBooks', en: 'Influx for QuickBooks' },
   '/producten/sharepoint': { nl: 'SharePoint Connector', en: 'SharePoint Connector' },
   '/voor-wie/backoffice-services': { nl: 'Backoffice Services', en: 'Backoffice Services' },
   '/voor-wie/saas': { nl: 'SaaS', en: 'SaaS' },
@@ -35,7 +40,7 @@ const cl = (p) => childLabels[p][lang];
 const navLinks = [
   { label: t('nav.diensten'), href: '/diensten', children: ['/diensten/implementatie','/diensten/consultancy','/diensten/development','/diensten/training','/diensten/agentforce','/diensten/managed-services','/diensten/intercom-fin-ai'] },
   { label: t('nav.oplossingen'), href: '/oplossingen' },
-  { label: t('nav.producten'), href: '/producten', children: ['/producten/ai-prompt-builder','/producten/billing-module','/producten/kvk-integratie','/producten/signflow','/producten/exact-online','/producten/business-central','/producten/sharepoint'] },
+  { label: t('nav.producten'), href: '/producten', children: ['/producten/ai-prompt-builder','/producten/billing-module','/producten/kvk-integratie','/producten/signflow','/producten/sharepoint','/producten/exact-online','/producten/business-central','/producten/quickbooks'] },
   // Cases before the sector taxonomy: proof ranks above classification.
   { label: t('nav.cases'), href: '/cases' },
   { label: t('nav.voorwie'), href: '/voor-wie', children: ['/voor-wie/backoffice-services','/voor-wie/saas','/voor-wie/professional-services','/voor-wie/manufacturing','/voor-wie/recruitment','/voor-wie/energie-utilities','/voor-wie/media-communicatie','/voor-wie/overige-sectoren'] },
@@ -45,11 +50,11 @@ const navLinks = [
 ];
 
 // Language switch shows BOTH languages; the active one is highlighted.
-const nlHref = lang === 'nl' ? currentPath : altLangPath(currentPath);
+// When lang is overridden to 'en' on an NL-rooted page there is no NL twin,
+// so the NL option falls back to the homepage.
+const urlLang = getLangFromUrl(currentPath);
+const nlHref = lang === 'nl' ? currentPath : (urlLang === 'en' ? altLangPath(currentPath) : '/');
 const enHref = lang === 'en' ? currentPath : altLangPath(currentPath);
-
-interface Props { transparent?: boolean; }
-const { transparent = false } = Astro.props;
 ---
 
 <header class={`site-header ${transparent ? 'transparent' : ''}`} id="site-header">
@@ -59,7 +64,7 @@ const { transparent = false } = Astro.props;
       <img class="logo-light" src="/images/Footer-logo.svg" alt="Resolve IT" width="120" height="56" />
     </a>
 
-    <nav class="main-nav" aria-label="Hoofdnavigatie">
+    <nav class="main-nav" aria-label={lang === 'en' ? 'Main navigation' : 'Hoofdnavigatie'}>
       <ul class="nav-list">
         {navLinks.map(link => (
           <li class={`nav-item ${link.children ? 'has-dropdown' : ''}`}>
@@ -87,8 +92,8 @@ const { transparent = false } = Astro.props;
     <div class="header-actions">
       <div class="lang-switch" role="group" aria-label="Taal / Language">
         <span class="lang-globe" aria-hidden="true">🌐</span>
-        <a href={nlHref} class={`lang-opt ${lang === 'nl' ? 'active' : ''}`} aria-current={lang === 'nl' ? 'true' : undefined}>NL</a>
-        <a href={enHref} class={`lang-opt ${lang === 'en' ? 'active' : ''}`} aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+        <a href={nlHref} class={`lang-opt ${lang === 'nl' ? 'active' : ''}`} aria-current={lang === 'nl' ? 'page' : undefined} aria-label={lang === 'nl' ? 'Nederlands (huidige taal)' : 'Nederlandse versie'}>NL</a>
+        <a href={enHref} class={`lang-opt ${lang === 'en' ? 'active' : ''}`} aria-current={lang === 'en' ? 'page' : undefined} aria-label={lang === 'en' ? 'English (current language)' : 'English version'}>EN</a>
       </div>
       <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary btn-sm">{t('nav.afspraak')}</a>
       <button class="mobile-toggle" aria-label="Menu" id="mobile-toggle">
@@ -115,8 +120,8 @@ const { transparent = false } = Astro.props;
     <li>
       <div class="lang-switch mobile-lang" role="group" aria-label="Taal / Language">
         <span class="lang-globe" aria-hidden="true">🌐</span>
-        <a href={nlHref} class={`lang-opt ${lang === 'nl' ? 'active' : ''}`} aria-current={lang === 'nl' ? 'true' : undefined}>NL</a>
-        <a href={enHref} class={`lang-opt ${lang === 'en' ? 'active' : ''}`} aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+        <a href={nlHref} class={`lang-opt ${lang === 'nl' ? 'active' : ''}`} aria-current={lang === 'nl' ? 'page' : undefined} aria-label={lang === 'nl' ? 'Nederlands (huidige taal)' : 'Nederlandse versie'}>NL</a>
+        <a href={enHref} class={`lang-opt ${lang === 'en' ? 'active' : ''}`} aria-current={lang === 'en' ? 'page' : undefined} aria-label={lang === 'en' ? 'English (current language)' : 'English version'}>EN</a>
       </div>
     </li>
     <li><a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:1rem;display:inline-flex;">{t('nav.afspraak')}</a></li>

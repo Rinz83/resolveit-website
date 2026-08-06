@@ -6,7 +6,7 @@ author: "Imre Hamelink"
 category: "Exact Online"
 ---
 
-Sales works in Salesforce, finance in Exact Online. When that data sits separately, you end up with duplicate administration and figures that diverge. The Influx Exact Connector brings everything together in one place.
+Sales works in Salesforce, finance in Exact Online. When that data sits separately, you end up with duplicate administration and figures that diverge. Influx for Exact Online brings everything together in one place.
 
 ## The problem: fragmented customer data
 

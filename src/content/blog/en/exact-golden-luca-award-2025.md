@@ -26,4 +26,4 @@ We specialise in linking Salesforce and Exact Online to eliminate double entry. 
 
 ## What this means for you
 
-An award-winning, proven integration means less risk for you, a faster implementation and a partner that delivers measurable value. Thanks to all the clients building with us. [Discover the Influx Exact Connector](/en/producten/exact-online).
+An award-winning, proven integration means less risk for you, a faster implementation and a partner that delivers measurable value. Thanks to all the clients building with us. [Discover Influx for Exact Online](/en/producten/exact-online).

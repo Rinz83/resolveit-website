@@ -6,7 +6,7 @@ author: "Imre Hamelink"
 category: "Exact Online"
 ---
 
-Sales werkt in Salesforce, finance in Exact Online. Staat die data los van elkaar, dan ontstaat dubbele administratie en lopen gegevens uiteen. De Influx Exact Connector brengt alles samen op één plek.
+Sales werkt in Salesforce, finance in Exact Online. Staat die data los van elkaar, dan ontstaat dubbele administratie en lopen gegevens uiteen. Influx for Exact Online brengt alles samen op één plek.
 
 ## Het probleem: versnipperde klantdata
 

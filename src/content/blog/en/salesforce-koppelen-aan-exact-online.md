@@ -8,7 +8,7 @@ category: "Integrations"
 image: "/images/AdobeStock_-2-1024x683.jpg"
 ---
 
-A connection between Salesforce and Exact Online prevents duplicate data entry, reduces the risk of errors and gives sales and finance the same real-time view of customers, orders and invoices. With a standard connector such as the [Influx Exact Connector](/en/producten/exact-online), you are typically live within 24 hours, without developers. In this article we list the points to consider before you set up the connection.
+A connection between Salesforce and Exact Online prevents duplicate data entry, reduces the risk of errors and gives sales and finance the same real-time view of customers, orders and invoices. With a standard connector such as the [Influx for Exact Online](/en/producten/exact-online), you are typically live within 24 hours, without developers. In this article we list the points to consider before you set up the connection.
 
 ## Why would you connect Salesforce to Exact Online?
 
@@ -26,7 +26,7 @@ How well those gains materialise depends on the choices you make beforehand. We 
 
 ## Which data can you synchronise between Salesforce and Exact Online?
 
-A fully fledged connection exchanges more than customer data alone. With the Influx Exact Connector you synchronise more than ten object types between Salesforce and Exact Online, in one or both directions and configurable per object: from accounts and contacts to invoices, payments and general ledger accounts.
+A fully fledged connection exchanges more than customer data alone. With Influx for Exact Online you synchronise more than ten object types between Salesforce and Exact Online, in one or both directions and configurable per object: from accounts and contacts to invoices, payments and general ledger accounts.
 
 In concrete terms, these objects are covered:
 
@@ -60,13 +60,13 @@ A practical rule of thumb: start with one-way traffic where you can and only dep
 
 A good connection uses encrypted API connections with OAuth authentication, stores no passwords and leaves you in full control of the authorisations. Error handling is just as important: every synchronisation should be logged, with clear error messages so you can quickly see what went wrong and take targeted action.
 
-Security is no side issue when connecting your CRM to your accounting system. After all, you are exchanging customer data and financial data. With the Influx Exact Connector you authorise both systems via OAuth, all data travels over secured API connections and you can revoke authorisations at any time.
+Security is no side issue when connecting your CRM to your accounting system. After all, you are exchanging customer data and financial data. With Influx for Exact Online you authorise both systems via OAuth, all data travels over secured API connections and you can revoke authorisations at any time.
 
 For every solution you consider, probe the failure scenario. What happens if Exact Online is temporarily unreachable? Is a failed synchronisation reported automatically? Can you see precisely in a log which records were and were not processed? Full logging with error reporting makes the difference between a connection you trust and a connection you have to check every day.
 
 ## What does a connection between Salesforce and Exact Online cost?
 
-With a standard connector you pay a fixed monthly fee instead of funding a custom development project. The Influx Exact Connector starts at 73 euros per month for the Standard Connector; the Premium Connector at 95 euros per month adds AI-guided onboarding with Claude, including automatic field mapping.
+With a standard connector you pay a fixed monthly fee instead of funding a custom development project. Influx for Exact Online starts at 73 euros per month for the Standard Connector; the Premium Connector at 95 euros per month adds AI-guided onboarding with Claude, including automatic field mapping.
 
 The Standard Connector includes unlimited object connections, real-time and scheduled synchronisation, the visual mapping interface, logging with error reporting and OAuth security. For most organisations, that covers the full requirement.
 
@@ -74,7 +74,7 @@ The Premium variant makes the implementation virtually hands-off. You indicate w
 
 ## How quickly are you live and what do you need?
 
-With the Influx Exact Connector you are typically live within 24 hours. You need three things: an active Salesforce account, an active Exact Online account and API access to both systems. Developers are not required; you configure the connection yourself or together with us.
+With Influx for Exact Online you are typically live within 24 hours. You need three things: an active Salesforce account, an active Exact Online account and API access to both systems. Developers are not required; you configure the connection yourself or together with us.
 
 The setup runs in four steps:
 

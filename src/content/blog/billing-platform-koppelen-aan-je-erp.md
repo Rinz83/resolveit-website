@@ -10,7 +10,7 @@ Facturatie in Salesforce is pas écht krachtig als die naadloos doorloopt naar u
 
 ## Ondersteunde systemen
 
-Het platform koppelt onder andere met **Exact Online**, **Unit4 Multivers** en **Microsoft Dynamics**. Facturen en omzetstromen ontstaan in Salesforce, terwijl de uiteindelijke financiële verwerking plaatsvindt in uw ERP. Voor Exact Online gebruikt u onze dedicated [Influx Exact Connector](/producten/exact-online).
+Het platform koppelt onder andere met **Exact Online**, **Unit4 Multivers** en **Microsoft Dynamics**. Facturen en omzetstromen ontstaan in Salesforce, terwijl de uiteindelijke financiële verwerking plaatsvindt in uw ERP. Voor Exact Online gebruikt u onze dedicated [Influx for Exact Online](/producten/exact-online).
 
 ## Eén logische stroom
 

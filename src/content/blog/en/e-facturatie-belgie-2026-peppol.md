@@ -26,7 +26,7 @@ Your accounting software must support Peppol: WinBooks users may have to migrate
 
 ## Compliant with Salesforce and Exact
 
-Our [Influx Exact Connector](/en/producten/exact-online) offers:
+Our [Influx for Exact Online](/en/producten/exact-online) offers:
 
 - automatic invoice creation from Salesforce orders to Exact Online;
 - real-time status tracking (delivery, acceptance, payment);

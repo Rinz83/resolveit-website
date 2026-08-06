@@ -151,7 +151,7 @@ export const cases = [
     logo: '/images/clients/zyfer.png',
     image: '/images/cases/case-banner.svg',
     sector: 'Recruitment',
-    tags: ['Integratie', 'Influx Exact Connector', 'Recruitment'],
+    tags: ['Integratie', 'Influx for Exact Online', 'Recruitment'],
     summary: 'Verkoop- en inkoopfacturen automatisch van Salesforce naar Exact Online, met Peppol e-facturatie en AI-ondersteund recruitment.',
     about: 'Zyfer is een recruitmentbureau dat organisaties en talent bij elkaar brengt. Plaatsingen, marge en facturatie volgen elkaar in hoog tempo op. Salesforce vormt het commerciële hart van de organisatie; Exact Online de financiële administratie. Die twee werelden moesten naadloos op elkaar aansluiten.',
     openingQuote: { text: 'Facturen die vroeger handmatig werden overgetypt, lopen nu vanzelf door naar Exact. Daar kijken we niet meer naar om.', author: 'Team Zyfer' },
@@ -162,7 +162,7 @@ export const cases = [
       'Factuurnummerreeksen moesten in beide systemen kloppend worden gehouden',
       'De aankomende Peppol-verplichting voor e-facturatie vroeg om een toekomstvaste inrichting',
     ],
-    approachIntro: 'Met onze Influx Exact Connector koppelden we Salesforce rechtstreeks aan Exact Online, voor zowel de verkoop- als de inkoopkant. Daaromheen richtten we de facturatiestromen, nummerreeksen en Peppol e-facturatie in, stap voor stap en in nauw overleg met het team van Zyfer.',
+    approachIntro: 'Met onze Influx for Exact Online koppelden we Salesforce rechtstreeks aan Exact Online, voor zowel de verkoop- als de inkoopkant. Daaromheen richtten we de facturatiestromen, nummerreeksen en Peppol e-facturatie in, stap voor stap en in nauw overleg met het team van Zyfer.',
     approachPhases: [
       { title: 'Verkoopfacturen', text: 'Facturen die in Salesforce ontstaan, synchroniseren automatisch naar Exact Online, inclusief klantgegevens en factuurregels.' },
       { title: 'Inkoopfacturen', text: 'Ook de inkoopkant werd aangesloten, zodat facturen van ingehuurde professionals dezelfde geautomatiseerde route volgen.' },
@@ -179,7 +179,7 @@ export const cases = [
     resultsNarrative: 'Het overtypen van facturen is verleden tijd: verkoop- en inkoopfacturen lopen automatisch door naar Exact Online, met kloppende nummerreeksen en een Peppol-inrichting die klaar is voor de toekomst. Gecombineerd met AI-ondersteunde cv-verwerking en verrijkte bedrijfsdata haalt Zyfer meer uit Salesforce dan alleen facturatie.',
     quote: { text: 'De koppeling tussen Salesforce en Exact draait geruisloos op de achtergrond. Precies zoals het hoort.', author: 'Team Zyfer' },
     lookingAhead: 'Met de facturatiestromen op orde bouwt Zyfer verder aan een datagedreven recruitmentproces, met AI en automatisering als vaste bouwstenen.',
-    stack: ['Influx Exact Connector', 'Peppol e-facturatie', 'Datasolver', 'AI cv-parsing'],
+    stack: ['Influx for Exact Online', 'Peppol e-facturatie', 'Datasolver', 'AI cv-parsing'],
   },
   {
     slug: 'multa-casting',
@@ -240,7 +240,7 @@ export const cases = [
       { title: 'Administratie en opslag gekoppeld', text: 'Integratie met Exact Online voor naadloze financiële verwerking, en met SharePoint voor gecentraliseerde cloudopslag met een logische mappenstructuur, toegankelijk voor interne én externe teams.' },
       { title: 'Marketing en klantinzicht', text: 'Spotler werd vervangen door Salesforce Account Engagement, inclusief website-integratie met online formulieren en tracking. Dat levert een 360°-klantbeeld op vanaf het allereerste contact.' },
       { title: 'Transformatie naar online media', text: 'Lancering van een WordPress-portal waar vakbladcontent en advertenties online beschikbaar zijn. Nieuwe abonnees registreren zich via Account Engagement-formulieren en worden automatisch doorgezet naar Salesforce, waar abonnementen, terugkerende facturatie en lidmaatschapsrechten worden geactiveerd.' },
-      { title: 'Producten in gebruik', text: 'Ons Billing Platform vormt de motor onder de terugkerende facturatie en de Influx Exact Connector houdt de financiële administratie synchroon.' },
+      { title: 'Producten in gebruik', text: 'Ons Billing Platform vormt de motor onder de terugkerende facturatie en Influx for Exact Online houdt de financiële administratie synchroon.' },
     ],
     resultsIntro: 'MYbusinessmedia profiteert nu van een volledig gedigitaliseerd en geïntegreerd platform, met één centraal systeem dat alle processen en gegevens beheert.',
     results: [
@@ -251,7 +251,7 @@ export const cases = [
     resultsNarrative: 'Gegevens en processen zijn gecentraliseerd, de administratie loopt efficiënt via Exact Online en content wordt centraal opgeslagen in SharePoint. Marketingautomatisering en website-integratie geven diep inzicht in klanten, en de overgang naar een online platform, inclusief abonnementenbeheer en toegang tot professionele content, verliep naadloos. De transformatie maakt MYbusinessmedia klaar voor de toekomst: schaalbaar en digitaal georiënteerd.',
     quote: { text: 'Facturen maken is nog nooit zo makkelijk geweest.', author: 'Marcel Geurtse · Controller, MYbusinessmedia' },
     lookingAhead: 'Met één centraal systeem als fundament bouwt MYbusinessmedia verder aan haar digitale strategie: van verdere personalisatie van campagnes tot uitbreiding van het online platform.',
-    stack: ['Sales Cloud', 'Billing Platform', 'Influx Exact Connector', 'Account Engagement', 'SharePoint-integratie', 'WordPress-portal', 'Datamigratie'],
+    stack: ['Sales Cloud', 'Billing Platform', 'Influx for Exact Online', 'Account Engagement', 'SharePoint-integratie', 'WordPress-portal', 'Datamigratie'],
   },
   {
     slug: 'marketresponse',
@@ -314,7 +314,7 @@ export const cases = [
       { title: 'Portalen voor opdrachtgevers en klanten', text: 'Beide groepen kregen een persoonlijke omgeving die is aangesloten op Salesforce, om informatie te raadplegen of zelfstandig dossiers aan te vullen. Dat voorkomt fouten en biedt transparantie voor samenwerkingspartners.' },
       { title: 'E-learningplatform', text: 'Klanten volgen leermodules in een eigen e-learningomgeving om sneller te groeien in hun stappen naar ondernemerschap. Solvid ziet per klant welke modules gevolgd zijn en met welk resultaat.' },
       { title: 'Microsoft-integraties', text: 'Realtime koppelingen met SharePoint (documentbibliotheek), Office 365 (e-mail en afspraken), Microsoft Teams en Outlook voor het eenvoudig inplannen van afspraken.' },
-      { title: 'Producten in gebruik', text: 'Solvid Ondernemen zet daarnaast onze Influx Exact Connector, SharePoint Connector en AI Prompt Builder in, zodat facturatie, documentbeheer en AI-ondersteuning naadloos in het dagelijkse werk zijn opgenomen.' },
+      { title: 'Producten in gebruik', text: 'Solvid Ondernemen zet daarnaast onze Influx for Exact Online, SharePoint Connector en AI Prompt Builder in, zodat facturatie, documentbeheer en AI-ondersteuning naadloos in het dagelijkse werk zijn opgenomen.' },
     ],
     resultsIntro: 'Solvid Ondernemen werkt nu met een omgeving die naadloos aansluit op hun zeer complexe bedrijfsproces: efficiënt, flexibel en met realtime inzicht.',
     results: [
@@ -325,7 +325,7 @@ export const cases = [
     resultsNarrative: 'Medewerkers worden per klanttype en opdrachtgever stap voor stap door het traject geleid. Een dynamisch debiteurenoverzicht toont alle uitgaande facturen en betaalstatussen, documenten worden automatisch gegenereerd en dashboards leveren realtime stuurinformatie. Geautomatiseerde validaties en controles van klantinformatie zorgen bovendien voor een hogere data-integriteit.',
     quote: { text: 'De beste implementatiepartner die ik heb meegemaakt.', author: 'Inge Jansen · Bedrijfsadviseur, Solvid Ondernemen' },
     lookingAhead: 'Met het platform als fundament blijft Solvid Ondernemen doorontwikkelen: van verdere automatisering van terugkerende taken tot het uitbreiden van de e-learningmodules.',
-    stack: ['Sales Cloud', 'Klant- en opdrachtgeverportalen', 'E-learningplatform', 'Documentgeneratie', 'SharePoint-integratie', 'Office 365 & Teams-integratie', 'Influx Exact Connector', 'SharePoint Connector', 'AI Prompt Builder'],
+    stack: ['Sales Cloud', 'Klant- en opdrachtgeverportalen', 'E-learningplatform', 'Documentgeneratie', 'SharePoint-integratie', 'Office 365 & Teams-integratie', 'Influx for Exact Online', 'SharePoint Connector', 'AI Prompt Builder'],
   },
   {
     slug: 'payplaza',
@@ -435,8 +435,8 @@ export const cases = [
     logo: '/images/clients/follo.webp',
     image: '/images/cases/case-banner.svg',
     sector: 'SaaS & Online Marketing',
-    tags: ['Billing Platform', 'Influx Exact Connector', 'Stripe-integratie'],
-    summary: 'Het Billing Platform, de Influx Exact Connector en een Stripe-koppeling samengebracht voor abonnementsbeheer, facturatie en debiteurenbeheer, met een eigen pakketconfigurator en herziene factuursjablonen.',
+    tags: ['Billing Platform', 'Influx for Exact Online', 'Stripe-integratie'],
+    summary: 'Het Billing Platform, Influx for Exact Online en een Stripe-koppeling samengebracht voor abonnementsbeheer, facturatie en debiteurenbeheer, met een eigen pakketconfigurator en herziene factuursjablonen.',
     about: 'Follo Agency is een toonaangevende speler in de online marketingbranche en biedt vanuit Utrecht een breed pakket aan SaaS-diensten aan bedrijven in Nederland en België.',
     challengeIntro: 'Financiële informatie stond bij Follo Agency in losse velden en werd handmatig gerapporteerd aan de backoffice. Daarnaast ontbrak een gestructureerde manier om abonnementspakketten samen te stellen en declarabele uren achteraf te corrigeren op de factuur.',
     challengePoints: [
@@ -449,7 +449,7 @@ export const cases = [
     approachPhases: [
       { title: 'Pakketconfigurator', text: 'Met een eigen configurator stelt Follo Agency abonnementspakketten gestructureerd samen, in plaats van losse afspraken vast te leggen in aparte velden.' },
       { title: 'Facturatie & factuursjablonen', text: 'Het Billing Platform verzorgt de facturatie vanuit Salesforce, met factuursjablonen op maat die ook correcties op eerder gefactureerde, declarabele uren van consultants mogelijk maken.' },
-      { title: 'Influx Exact Connector', text: 'Onze Exact Connector koppelt de facturatie rechtstreeks aan de financiële administratie in Exact Online.' },
+      { title: 'Influx for Exact Online', text: 'Onze connector koppelt de facturatie rechtstreeks aan de financiële administratie in Exact Online.' },
       { title: 'Stripe voor automatische incasso', text: 'Met de Stripe-integratie int Follo Agency automatisch, en houdt het Billing Platform het debiteurenbeheer bij.' },
       { title: 'Datamigratie', text: 'Financiële data die eerder in losse velden en handmatige rapportages stond, is opgeschoond en overgezet naar de nieuwe inrichting.' },
       { title: 'Doorlopende doorontwikkeling', text: 'Na livegang is het team blijven doorbouwen aan nieuwe behoeftes vanuit de organisatie.' },
@@ -462,7 +462,7 @@ export const cases = [
     ],
     resultsNarrative: 'Waar financiële informatie eerder in losse velden stond en handmatig werd gerapporteerd aan de backoffice, loopt de facturatie nu automatisch en betrouwbaar vanuit Salesforce. Abonnementen worden gestructureerd samengesteld via een eigen configurator, en facturen op basis van declarabele uren zijn achteraf te corrigeren. Stripe verzorgt de automatische incasso, waardoor debiteurenbeheer nauwelijks nog omkijken kost.',
     lookingAhead: 'Follo Agency bouwt met Resolve IT verder aan nieuwe behoeftes binnen de organisatie, voortbouwend op het financiële fundament dat nu staat.',
-    stack: ['Billing Platform', 'Influx Exact Connector', 'Stripe-integratie', 'Pakketconfigurator', 'Factuursjablonen & correcties'],
+    stack: ['Billing Platform', 'Influx for Exact Online', 'Stripe-integratie', 'Pakketconfigurator', 'Factuursjablonen & correcties'],
   },
   {
     slug: 'marie-stella-maris',

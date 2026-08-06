@@ -60,7 +60,7 @@ Een integratie is nooit af op het moment van livegang. Detecteer datafouten proa
 
 Maak daarnaast heldere afspraken over incidentafhandeling: wie signaleert een fout, wie lost hem op en binnen welke termijn? Zonder die afspraken wordt monitoring een dashboard waar niemand naar kijkt.
 
-Hoe dat er in de praktijk uitziet, ziet u bij onze [Influx Exact Connector](/producten/exact-online): elke synchronisatie tussen Salesforce en Exact Online wordt gelogd en fouten worden met een duidelijke melding gerapporteerd, zodat troubleshooten eenvoudig blijft.
+Hoe dat er in de praktijk uitziet, ziet u bij onze [Influx for Exact Online](/producten/exact-online): elke synchronisatie tussen Salesforce en Exact Online wordt gelogd en fouten worden met een duidelijke melding gerapporteerd, zodat troubleshooten eenvoudig blijft.
 
 ## 5. Blijf verbeteren en automatiseren
 

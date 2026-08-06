@@ -5,44 +5,44 @@ import { calendlyUrl, pardotForms } from '../../../i18n/ui.js';
 
 const syncObjects = [
   { label: 'Customers', icon: '🏢' },
-  { label: 'Contacts', icon: '👤' },
-  { label: 'Vendors', icon: '🤝' },
-  { label: 'Items', icon: '📦' },
-  { label: 'Item categories', icon: '🗂️' },
-  { label: 'Dimensions', icon: '🧮' },
-  { label: 'Sales orders', icon: '🧾' },
-  { label: 'Sales invoices', icon: '💶' },
-  { label: 'Purchase invoices', icon: '📄' },
+  { label: 'Suppliers', icon: '🤝' },
+  { label: 'Products and services', icon: '📦' },
+  { label: 'Estimates', icon: '🧾' },
+  { label: 'Invoices', icon: '💶' },
+  { label: 'Payments', icon: '💳' },
+  { label: 'Credit memos', icon: '↩️' },
+  { label: 'Bills', icon: '📄' },
   { label: 'Chart of accounts', icon: '📊' },
+  { label: 'Classes & locations', icon: '🧮' },
 ];
 
 const features = [
-  { icon: '🔄', title: 'Customer & vendor data synchronisation', text: 'Keep customers, contacts and vendors automatically aligned between Salesforce and Business Central, no more double entry.' },
-  { icon: '🔗', title: 'Link objects', text: 'Link sales orders, invoices, items and the chart of accounts one-to-one between both systems.' },
-  { icon: '🧩', title: 'Visual drag-and-drop mapping', text: 'Set up connections via a visual interface. Relationships are shown clearly and are adjustable, without technical knowledge.' },
+  { icon: '🔄', title: 'Customer and supplier data synchronisation', text: 'Keep customers and suppliers automatically in sync between Salesforce and QuickBooks Online, no more double entry.' },
+  { icon: '🔗', title: 'Object mapping', text: 'Map invoices, payments, products and services and the chart of accounts one-to-one between both systems.' },
+  { icon: '🧩', title: 'Visual drag-and-drop mapping', text: 'Set up connections through a visual interface. Relationships are clearly displayed and adjustable, without technical knowledge.' },
   { icon: '⏱️', title: 'Real-time & scheduled sync', text: 'Choose per object whether data syncs instantly or on a schedule. Fully configurable.' },
   { icon: '🛡️', title: 'Secure via OAuth', text: 'Encrypted connections and OAuth authentication. Your data travels safely over secure API connections.' },
-  { icon: '🔍', title: 'Logging & error reporting', text: 'Complete logging of every synchronisation and clear error messages, so troubleshooting is simple.' },
+  { icon: '🔍', title: 'Logging & error reporting', text: 'Full logging of every synchronisation and clear error messages, so troubleshooting is easy.' },
 ];
 
 const steps = [
-  { n: '1', title: 'Connect', text: 'Authorise Salesforce and Business Central via OAuth. No developers needed: live within 24 hours.' },
-  { n: '2', title: 'Map', text: 'Drag fields and objects to each other in the visual mapping interface. You decide exactly what goes where.' },
-  { n: '3', title: 'Schedule', text: 'Set real-time or scheduled synchronisation, per object and per direction (one- or two-way).' },
-  { n: '4', title: 'Monitor', text: 'Track every synchronisation via the log and receive instant error messages when something goes wrong.' },
+  { n: '1', title: 'Connect', text: 'Authorise Salesforce and QuickBooks Online via OAuth. No developers needed: live within 24 hours.' },
+  { n: '2', title: 'Map', text: 'Drag fields and objects onto each other in the visual mapping interface. You decide exactly what goes where.' },
+  { n: '3', title: 'Schedule', text: 'Set up real-time or scheduled synchronisation, per object and per direction (one-way or two-way).' },
+  { n: '4', title: 'Monitor', text: 'Follow every synchronisation in the log and receive instant error notifications when something goes wrong.' },
 ];
 
 const faqs = [
-  { q: 'How quickly am I live with Influx for Business Central?', a: 'Usually within 24 hours. The connector works without custom development: you authorise both systems and configure the mapping yourself or together with us. Want guidance on setup? See our <a href="/en/diensten/implementatie">implementation &amp; onboarding</a>.' },
-  { q: 'Do I need developers to connect Salesforce and Business Central?', a: 'No. The visual drag-and-drop interface makes setting up connections possible without programming knowledge. For more complex needs our <a href="/en/diensten/development">development &amp; integration</a> consultants can step in.' },
-  { q: 'Which data can I exchange between Salesforce and Business Central?', a: 'Among others customers, contacts, vendors, items, item categories, dimensions, sales orders, sales invoices, purchase invoices and the chart of accounts, in one or both directions, configurable per object.' },
+  { q: 'How quickly am I live with Influx for QuickBooks?', a: 'Usually within 24 hours. The connector works without custom development: you authorise both systems and configure the mapping yourself or together with us. Want guidance on setup? See our <a href="/en/diensten/implementatie">implementation &amp; onboarding</a>.' },
+  { q: 'Do I need developers to connect Salesforce and QuickBooks?', a: 'No. The visual drag-and-drop interface makes setting up connections possible without programming knowledge. For more complex needs our <a href="/en/diensten/development">development &amp; integration</a> consultants can step in.' },
+  { q: 'Which data can I exchange between Salesforce and QuickBooks?', a: 'Among others customers, suppliers, products and services, estimates, invoices, payments, credit memos, bills and the chart of accounts, in one or both directions, configurable per object.' },
+  { q: 'Does the connector work with QuickBooks Online or QuickBooks Desktop?', a: 'The connector is built for QuickBooks Online and connects through the official QuickBooks Online API. Using a different QuickBooks edition? <a href="/en/contact">Get in touch</a> and we will look at the options with you.' },
   { q: 'Does the connector work with real-time and scheduled synchronisation?', a: 'Yes. You decide per object whether data syncs instantly (real-time) or on a schedule. This keeps you in control of performance and of when data is updated.' },
-  { q: 'What are the key features of the connector?', a: 'The visual drag-and-drop mapping, two-way synchronisation, real-time and scheduled sync, logging with error reporting and secure OAuth connection.' },
-  { q: 'How secure is the connection between Salesforce and Business Central?', a: 'All data travels over encrypted, secure API connections with OAuth authentication. No passwords are stored and you retain full control over the authorisations. <a href="/en/blog/veilige-gestructureerde-data">More about our security →</a>' },
+  { q: 'How secure is the connection between Salesforce and QuickBooks?', a: 'All data travels over encrypted, secure API connections with OAuth authentication. No passwords are stored and you retain full control over the authorisations. <a href="/en/blog/veilige-gestructureerde-data">More about our security →</a>' },
   { q: 'What happens if a synchronisation fails?', a: 'Every synchronisation is logged and errors are reported with a clear message, so you can quickly find out what went wrong and adjust precisely.' },
-  { q: 'Can I combine the connector with automatic invoicing?', a: 'Certainly. Many customers combine the Business Central connection with our <a href="/en/producten/billing-module">Billing Module</a> to generate invoices automatically from Salesforce and push them to the accounting.' },
-  { q: 'Does the connector work with Business Central dimensions?', a: 'Yes. Dimensions from Business Central can be included in the synchronisation, so analytical breakdowns such as cost centre or project are also available in Salesforce.' },
-  { q: 'What do I need to get started?', a: 'An active Salesforce account, an active Business Central environment and API access to both systems. <a href="/en/contact">Get in touch</a> for a demo or the terms.' },
+  { q: 'Can I combine the connector with automatic invoicing?', a: 'Certainly. Many customers combine the QuickBooks connection with our <a href="/en/producten/billing-module">Billing Module</a> to generate invoices automatically from Salesforce and push them to the accounting.' },
+  { q: 'Does the connector work with classes and locations from QuickBooks?', a: 'Yes. Classes and locations from QuickBooks Online can be included in the synchronisation, so analytical breakdowns such as department, project or branch are also available in Salesforce.' },
+  { q: 'What do I need to get started?', a: 'An active Salesforce account, an active QuickBooks Online subscription and API access to both systems. <a href="/en/contact">Get in touch</a> for a demo or the terms.' },
 ];
 
 const faqJsonLd = JSON.stringify({
@@ -52,7 +52,7 @@ const faqJsonLd = JSON.stringify({
 });
 ---
 
-<Layout breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Products', item: '/en/producten' }, { name: 'Influx for Business Central', item: '/en/producten/business-central' }]} title="Influx for Business Central: Salesforce × Business Central" description="Automate invoicing and synchronisation between Salesforce and Microsoft Dynamics 365 Business Central. Live within 24 hours, no developers.">
+<Layout breadcrumbs={[{ name: 'Home', item: '/en' }, { name: 'Products', item: '/en/producten' }, { name: 'Influx for QuickBooks', item: '/en/producten/quickbooks' }]} title="Influx for QuickBooks: Salesforce × QuickBooks Online" description="Automate invoicing and synchronisation between Salesforce and QuickBooks Online. Live within 24 hours, no developers.">
 
   <!-- HERO -->
   <section class="ex-hero">
@@ -60,13 +60,13 @@ const faqJsonLd = JSON.stringify({
     <div class="container ex-hero-inner">
       <div class="ex-hero-copy">
         <div class="ex-badges">
-          <span class="ex-badge"><span class="ex-badge-dot"></span> Influx for Business Central</span>
+          <span class="ex-badge"><span class="ex-badge-dot"></span> Influx for QuickBooks</span>
         </div>
-        <h1>Connect <span class="gradient-text">Salesforce</span> with Business Central</h1>
-        <p>Automate your invoicing and synchronise all data between Salesforce and Microsoft Dynamics 365 Business Central. <strong>Live within 24 hours, no developers.</strong> Fewer errors, less manual work: focus on what really counts.</p>
+        <h1>Connect <span class="gradient-text">Salesforce</span> with QuickBooks</h1>
+        <p>Automate your invoicing and synchronise all data between Salesforce and QuickBooks Online. <strong>Live within 24 hours, no developers.</strong> Fewer errors, less manual work: focus on what really matters.</p>
         <div class="ex-hero-actions">
           <a href="#demo" class="btn btn-primary">Request a demo</a>
-          <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-outline">Book a 30-min call</a>
+          <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-outline">Book a 30-minute call</a>
         </div>
       </div>
 
@@ -87,8 +87,8 @@ const faqJsonLd = JSON.stringify({
           </div>
 
           <div class="sync-node sync-ex">
-            <div class="sync-logo"><img src="/images/logos/business-central.svg" alt="Business Central" /></div>
-            <span>Business Central</span>
+            <div class="sync-logo"><img src="/images/logos/quickbooks.svg" alt="QuickBooks" /></div>
+            <span>QuickBooks Online</span>
           </div>
 
           <div class="sync-chip chip-1">Invoice ✓</div>
@@ -103,9 +103,9 @@ const faqJsonLd = JSON.stringify({
   <!-- TRUST STRIP -->
   <section class="ex-trust">
     <div class="container ex-trust-grid">
-      <div><strong>24 hrs</strong><span>to live</span></div>
+      <div><strong>24 hours</strong><span>to go live</span></div>
       <div><strong>0</strong><span>developers needed</span></div>
-      <div><strong>10+</strong><span>objects to connect</span></div>
+      <div><strong>10+</strong><span>objects to map</span></div>
       <div><strong>€73</strong><span>per month</span></div>
     </div>
   </section>
@@ -116,7 +116,7 @@ const faqJsonLd = JSON.stringify({
       <div class="section-header reveal">
         <span class="eyebrow">Features</span>
         <h2>Everything you need to connect</h2>
-        <p>One connector that fully aligns your sales and finance administration.</p>
+        <p>One connector that fully aligns your sales and accounting administration.</p>
       </div>
       <div class="grid-3">
         {features.map((f, i) => (
@@ -134,8 +134,8 @@ const faqJsonLd = JSON.stringify({
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="eyebrow">Exchange all your data</span>
-        <h2>From customer to ledger, fully connected</h2>
+        <span class="eyebrow">Exchange all data</span>
+        <h2>From customer to chart of accounts, fully connected</h2>
         <p>Synchronise the objects that matter to your administration, in one or both directions.</p>
       </div>
       <div class="objects-flow reveal">
@@ -149,7 +149,7 @@ const faqJsonLd = JSON.stringify({
             </div>
           ))}
         </div>
-        <div class="obj-side obj-ex">Business Central</div>
+        <div class="obj-side obj-ex">QuickBooks</div>
       </div>
     </div>
   </section>
@@ -161,7 +161,7 @@ const faqJsonLd = JSON.stringify({
       <div class="section-header reveal">
         <span class="eyebrow">How it works</span>
         <h2 class="text-white">Connected in four steps</h2>
-        <p style="color:rgba(255,255,255,0.7)">No complex implementation project: you’re live the same day.</p>
+        <p style="color:rgba(255,255,255,0.7)">No complex implementation project: you are live the same day.</p>
       </div>
       <div class="steps">
         {steps.map((s, i) => (
@@ -179,22 +179,22 @@ const faqJsonLd = JSON.stringify({
   <section class="section bg-off-white">
     <div class="container ex-pricing-grid">
       <div class="reveal">
-        <span class="eyebrow">Why Influx for Business Central?</span>
+        <span class="eyebrow">Why Influx for QuickBooks?</span>
         <h2>Save time, prevent errors</h2>
         <ul class="list-check" style="margin-top:1.5rem;">
-          <li>Send quotes and invoices directly, without retyping</li>
-          <li>Synchronise stock and items with Business Central</li>
+          <li>Send estimates and invoices instantly, without retyping</li>
+          <li>Synchronise products and services with QuickBooks</li>
           <li>Automatic invoicing from Salesforce</li>
           <li>Real-time financial insight for sales and finance</li>
-          <li>One chart of accounts, no discrepancies between systems</li>
+          <li>One chart of accounts, no differences between systems</li>
           <li>Less manual entry in both systems</li>
         </ul>
       </div>
       <div class="price-card reveal">
-        <span class="price-tag">Influx for Business Central</span>
+        <span class="price-tag">Influx for QuickBooks</span>
         <div class="price-amount"><span class="price-cur">€</span>73<span class="price-per">/month</span></div>
         <ul class="list-check">
-          <li>Connect unlimited objects</li>
+          <li>Unlimited object mapping</li>
           <li>Real-time &amp; scheduled synchronisation</li>
           <li>Visual mapping interface</li>
           <li>Logging &amp; error reporting</li>
@@ -229,8 +229,8 @@ const faqJsonLd = JSON.stringify({
     <div class="cta-glow" aria-hidden="true"></div>
     <div class="container cta-strip-inner reveal">
       <div>
-        <h2>Ready to connect Salesforce and Business Central?</h2>
-        <p>Book a 30-minute demo and discover how fast you’re live.</p>
+        <h2>Ready to connect Salesforce and QuickBooks?</h2>
+        <p>Book a 30-minute demo and discover how quickly you can go live.</p>
       </div>
       <div class="cta-strip-actions">
         <a href="#demo" class="btn btn-primary">Request a demo</a>
@@ -239,8 +239,8 @@ const faqJsonLd = JSON.stringify({
     </div>
   </section>
 
-  <FormModal id="demo" title="Request a demo: Influx for Business Central" formUrl={pardotForms.contact} />
-  <FormModal id="ask" title="Ask a question" formUrl={pardotForms.askBusinessCentral} />
+  <FormModal id="demo" title="Request a demo: Influx for QuickBooks" formUrl={pardotForms.contact} />
+  <FormModal id="ask" title="Ask a question" formUrl={pardotForms.contact} />
 
 </Layout>
 
@@ -267,11 +267,11 @@ const faqJsonLd = JSON.stringify({
 .sync-logo { width: 100px; height: 62px; border-radius: 14px; display: flex; align-items: center; justify-content: center; padding: 10px 16px; background: #fff; border: 1px solid rgba(255,255,255,0.16); box-shadow: 0 10px 24px rgba(0,0,0,0.25); animation: float-y 6s ease-in-out infinite; }
 .sync-logo img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .sync-ex .sync-logo { animation-delay: 0.8s; }
-.sync-rail { position: relative; width: 100%; min-width: 90px; height: 3px; background: linear-gradient(90deg, rgba(109,183,87,0.5), rgba(27,107,176,0.5)); border-radius: 3px; }
+.sync-rail { position: relative; width: 100%; min-width: 90px; height: 3px; background: linear-gradient(90deg, rgba(109,183,87,0.5), rgba(44,160,28,0.5)); border-radius: 3px; }
 .pulse { position: absolute; top: 50%; width: 10px; height: 10px; border-radius: 50%; background: var(--color-green); transform: translateY(-50%); box-shadow: 0 0 10px var(--color-green); animation: flow 2.4s linear infinite; }
 .pulse.p2 { animation-delay: 0.5s; }
 .pulse.p3 { animation-delay: 1s; }
-.pulse.rev { background: #4FB6ED; box-shadow: 0 0 10px #4FB6ED; animation: flow-rev 2.4s linear infinite; }
+.pulse.rev { background: #2CA01C; box-shadow: 0 0 10px #2CA01C; animation: flow-rev 2.4s linear infinite; }
 .pulse.p5 { animation-delay: 1.2s; }
 @keyframes flow { from { left: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } to { left: 100%; opacity: 0; } }
 @keyframes flow-rev { from { left: 100%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } to { left: 0; opacity: 0; } }
@@ -296,14 +296,14 @@ const faqJsonLd = JSON.stringify({
 
 /* ===== FEATURES ===== */
 .ex-feature { display: flex; flex-direction: column; }
-.ex-feature-ico { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; background: linear-gradient(135deg, rgba(109,183,87,0.15), rgba(27,107,176,0.12)); margin-bottom: 1.1rem; }
+.ex-feature-ico { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; background: linear-gradient(135deg, rgba(109,183,87,0.15), rgba(44,160,28,0.12)); margin-bottom: 1.1rem; }
 .ex-feature h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
 
 /* ===== DATA OBJECTS ===== */
 .objects-flow { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1.5rem; }
 .obj-side { writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; font-weight: 800; letter-spacing: 0.05em; padding: 1rem 0.5rem; border-radius: 12px; font-size: 0.9rem; }
 .obj-sf { background: linear-gradient(180deg, rgba(109,183,87,0.16), rgba(109,183,87,0.06)); color: var(--color-green-dark); }
-.obj-ex { background: linear-gradient(180deg, rgba(27,107,176,0.16), rgba(27,107,176,0.06)); color: #1B6BB0; }
+.obj-ex { background: linear-gradient(180deg, rgba(44,160,28,0.16), rgba(44,160,28,0.06)); color: #2CA01C; }
 .obj-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
 .obj-chip { display: flex; align-items: center; gap: 0.6rem; background: var(--color-white); border: 1px solid var(--color-light); border-radius: 12px; padding: 0.7rem 1rem; font-weight: 600; font-size: 0.9rem; transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
 .obj-chip:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: rgba(109,183,87,0.4); }

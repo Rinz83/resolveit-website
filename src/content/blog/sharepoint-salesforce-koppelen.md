@@ -83,7 +83,7 @@ De verschillen op een rij:
 
 Let bij uw keuze ook op de ondersteunde bestandstypen: de Light-licentie werkt met de standaard Office-types (Word, Excel en PowerPoint) en PDF, terwijl vanaf de Pro-licentie alle bestandstypen zijn toegestaan. Werkt uw organisatie veel met afbeeldingen, tekeningen of andere specifieke formaten, dan is Pro het logische startpunt.
 
-Wilt u SalesPoint combineren met andere Salesforce-oplossingen, bijvoorbeeld facturatie via ons [Billing Platform](/producten/billing-module) of een boekhoudkoppeling met de [Influx Exact Connector](/producten/exact-online), dan denken wij graag mee over de inrichting van uw bredere proces.
+Wilt u SalesPoint combineren met andere Salesforce-oplossingen, bijvoorbeeld facturatie via ons [Billing Platform](/producten/billing-module) of een boekhoudkoppeling met de [Influx for Exact Online](/producten/exact-online), dan denken wij graag mee over de inrichting van uw bredere proces.
 
 ## Documentbeheer in Salesforce op orde brengen?
 

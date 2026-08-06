@@ -12,6 +12,9 @@ export interface Props {
   image?: string;
   ogType?: string;
   breadcrumbs?: { name: string; item: string }[];
+  // Override for pages whose language differs from their URL prefix
+  // (e.g. the English campaign LP that lives on the NL root).
+  lang?: 'nl' | 'en';
 }
 
 // Default social-share image: purpose-built 1200x630 branded OG card.
@@ -28,7 +31,7 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://www.resolveit.nl');
-const lang = Astro.url.pathname === '/en' || Astro.url.pathname.startsWith('/en/') ? 'en' : 'nl';
+const lang = Astro.props.lang ?? (Astro.url.pathname === '/en' || Astro.url.pathname.startsWith('/en/') ? 'en' : 'nl');
 const ogImage = new URL(image, Astro.site ?? 'https://www.resolveit.nl').href;
 const ogLocale = lang === 'en' ? 'en_GB' : 'nl_NL';
 
@@ -126,7 +129,9 @@ const cc = lang === 'en'
         logo: 'https://www.resolveit.nl/images/Logo-colored.png',
         email: 'contact@resolveit.nl',
         telephone: '+31411799828',
-        description: 'Salesforce Gold Partner: implementation, integrations, training and consultancy.',
+        description: lang === 'en'
+          ? 'Salesforce Gold Partner: implementation, integrations, training and consultancy.'
+          : 'Salesforce Gold Partner: implementatie, integraties, training en consultancy.',
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Clarissenhof 336',
@@ -212,11 +217,11 @@ const cc = lang === 'en'
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7CSJFKX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <Nav transparent={transparentHeader} />
+  <Nav transparent={transparentHeader} lang={lang} />
   <main id="main-content">
     <slot />
   </main>
-  <Footer />
+  <Footer lang={lang} />
 
   <div id="cookie-consent" class="cc-banner" hidden>
     <p class="cc-text">

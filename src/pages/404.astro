@@ -7,16 +7,37 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <div class="not-found-inner">
         <span class="not-found-code">404</span>
-        <h1>Pagina niet gevonden</h1>
-        <p class="text-muted">De pagina die u zoekt bestaat niet of is verplaatst.</p>
+        <h1 data-nf-h1>Pagina niet gevonden</h1>
+        <p class="text-muted" data-nf-text>De pagina die u zoekt bestaat niet of is verplaatst.</p>
         <div style="display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;">
-          <a href="/" class="btn btn-primary">Terug naar home</a>
-          <a href="/contact" class="btn btn-outline-dark">Contact opnemen</a>
+          <a href="/" class="btn btn-primary" data-nf-home>Terug naar home</a>
+          <a href="/contact" class="btn btn-outline-dark" data-nf-contact>Contact opnemen</a>
         </div>
       </div>
     </div>
   </section>
 </Layout>
+
+<!-- There is one 404 route for the whole site; Dutch is the server-rendered
+     default. When the missing URL sits under /en/, swap to English client-side
+     (same pattern as the thank-you pages). -->
+<script is:inline>
+  (function () {
+    if (!location.pathname.startsWith('/en')) return;
+    document.documentElement.lang = 'en';
+    var set = function (sel, text) {
+      var el = document.querySelector(sel);
+      if (el) el.textContent = text;
+    };
+    set('[data-nf-h1]', 'Page not found');
+    set('[data-nf-text]', 'The page you are looking for does not exist or has been moved.');
+    var home = document.querySelector('[data-nf-home]');
+    if (home) { home.textContent = 'Back to home'; home.setAttribute('href', '/en/'); }
+    var contact = document.querySelector('[data-nf-contact]');
+    if (contact) { contact.textContent = 'Get in touch'; contact.setAttribute('href', '/en/contact'); }
+    document.title = 'Page not found | Resolve IT';
+  })();
+</script>
 
 <style>
 .not-found { padding: 8rem 0; text-align: center; }

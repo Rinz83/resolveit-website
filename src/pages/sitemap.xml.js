@@ -10,7 +10,14 @@ import { translatedPaths } from '../i18n/ui.js';
 const SITE = 'https://www.resolveit.nl';
 
 // Single-language pages (no /en/ counterpart) — listed without hreflang alternates.
-const standalonePaths = ['/improve-customer-experience-where-it-matters-most'];
+const standalonePaths = [
+  '/improve-customer-experience-where-it-matters-most',
+  '/whitepaper/salesforce-implementatiepartner',
+];
+
+// Paths in translatedPaths (needed for hreflang + the language switcher) whose
+// pages are noindex — keep them out of the sitemap to avoid mixed signals.
+const noindexPaths = new Set(['/producten/sharepoint/installatie']);
 
 // Trailing-slash form, matching the canonical URLs each page declares, so the
 // sitemap, canonicals and hreflang all agree on one URL variant.
@@ -47,7 +54,7 @@ export async function GET() {
   </url>`;
 
   const urls = [
-    ...[...translatedPaths].flatMap((p) => [
+    ...[...translatedPaths].filter((p) => !noindexPaths.has(p)).flatMap((p) => [
       bilingualEntry(nlUrl(p), p, false),
       bilingualEntry(enUrl(p), p, true),
     ]),

@@ -1,12 +1,12 @@
 ---
-title: "5 essential features of the Influx Exact Connector"
+title: "5 essential features of Influx for Exact Online"
 description: "What makes the integration between Salesforce and Exact Online so powerful? These five features make the difference, from automatic customer sync to comprehensive logging."
 pubDate: 2026-03-04
 author: "Yatish Salihan"
 category: "Exact Online"
 ---
 
-The Influx Exact Connector links Salesforce seamlessly with Exact Online. As an Exact partner with the highest accreditation (Golden Luca, Level 4), we know what sets a great integration apart from a mediocre one. These are the five features our clients get the most out of.
+Influx for Exact Online links Salesforce seamlessly with Exact Online. As an Exact partner with the highest accreditation (Golden Luca, Level 4), we know what sets a great integration apart from a mediocre one. These are the five features our clients get the most out of.
 
 ## 1. Seamless synchronisation of customer data
 
@@ -30,4 +30,4 @@ An advanced logging and error-reporting system flags synchronisation problems im
 
 ## Stronger together
 
-These five features make the connector not just an integration, but a reliable bridge between your commercial operation and your bookkeeping. [Discover the Influx Exact Connector](/en/producten/exact-online) or [book a demo](/en/contact#afspraak).
+These five features make the connector not just an integration, but a reliable bridge between your commercial operation and your bookkeeping. [Discover Influx for Exact Online](/en/producten/exact-online) or [book a demo](/en/contact#afspraak).

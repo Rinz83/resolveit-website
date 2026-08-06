@@ -63,7 +63,7 @@ Accounts receivable management thereby becomes largely hands-off. Reminders go o
 
 ## Can I pass invoices through to my accounting package?
 
-Yes. The Billing Platform connects to Exact Online, Unit4 Multivers and Microsoft Dynamics 365 Business Central, among others. For Exact Online you use the dedicated [Influx Exact Connector](/en/producten/exact-online), for Business Central the [Influx Business Central Connector](/en/producten/business-central). The Pro licence offers full ERP integration.
+Yes. The Billing Platform connects to Exact Online, Unit4 Multivers and Microsoft Dynamics 365 Business Central, among others. For Exact Online you use the dedicated [Influx for Exact Online](/en/producten/exact-online), for Business Central the [Influx for Business Central](/en/producten/business-central). The Pro licence offers full ERP integration.
 
 That closes the loop: the invoice is created in Salesforce, paid via Stripe and lands automatically in your accounts. Invoices, customers and payments synchronise between both systems, so your financial administration is correct without duplicate entry.
 

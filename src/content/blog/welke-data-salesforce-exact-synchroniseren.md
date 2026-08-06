@@ -6,7 +6,7 @@ author: "Yatish Salihan"
 category: "Exact Online"
 ---
 
-De Influx Exact Connector koppelt veel meer dan alleen facturen. Hieronder leest u precies welke gegevens tussen Salesforce en Exact Online synchroon worden gehouden, en waarom dat ertoe doet.
+Influx for Exact Online koppelt veel meer dan alleen facturen. Hieronder leest u precies welke gegevens tussen Salesforce en Exact Online synchroon worden gehouden, en waarom dat ertoe doet.
 
 ## Klant- en relatiegegevens
 

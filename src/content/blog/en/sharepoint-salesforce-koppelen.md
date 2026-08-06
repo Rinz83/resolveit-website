@@ -83,7 +83,7 @@ The differences at a glance:
 
 When making your choice, also consider the supported file types: the Light licence works with the standard Office types (Word, Excel and PowerPoint) and PDF, while from the Pro licence onwards all file types are allowed. If your organisation works a great deal with images, drawings or other specific formats, Pro is the logical starting point.
 
-If you would like to combine SalesPoint with other Salesforce solutions, for example invoicing through our [Billing Platform](/en/producten/billing-module) or an accounting connection with the [Influx Exact Connector](/en/producten/exact-online), we are happy to think along about the setup of your broader process.
+If you would like to combine SalesPoint with other Salesforce solutions, for example invoicing through our [Billing Platform](/en/producten/billing-module) or an accounting connection with the [Influx for Exact Online](/en/producten/exact-online), we are happy to think along about the setup of your broader process.
 
 ## Ready to get document management in Salesforce in order?
 

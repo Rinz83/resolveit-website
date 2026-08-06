@@ -164,8 +164,10 @@ const redirects = {
 };
 
 // Force 301 (permanent) for every redirect so search engines transfer ranking.
+// Destinations get the trailing-slash (canonical) form, so the 301 lands
+// directly on the final URL instead of chaining through a second redirect.
 const redirectsConfig = Object.fromEntries(
-  Object.entries(redirects).map(([from, to]) => [from, { status: 301, destination: to }])
+  Object.entries(redirects).map(([from, to]) => [from, { status: 301, destination: to.endsWith('/') ? to : `${to}/` }])
 );
 
 // Deployed to Vercel. Pages are prerendered static HTML by default; only the

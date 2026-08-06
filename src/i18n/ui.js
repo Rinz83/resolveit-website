@@ -32,7 +32,7 @@ export const translatedPaths = new Set([
   '/voor-wie/professional-services', '/voor-wie/manufacturing', '/voor-wie/recruitment',
   '/voor-wie/energie-utilities', '/voor-wie/media-communicatie', '/voor-wie/overige-sectoren',
   '/producten', '/producten/ai-prompt-builder', '/producten/billing-module', '/producten/kvk-integratie', '/producten/signflow',
-  '/producten/exact-online', '/producten/business-central', '/producten/sharepoint', '/producten/sharepoint/installatie',
+  '/producten/exact-online', '/producten/business-central', '/producten/quickbooks', '/producten/sharepoint', '/producten/sharepoint/installatie',
   '/over-ons', '/jobs',
   '/cases', '/cases/gospooky', '/cases/opple-lighting', '/cases/gkazas', '/cases/zyfer', '/cases/talpa-studios', '/cases/multa-casting', '/cases/mybusinessmedia',
   '/cases/marketresponse', '/cases/solvid-ondernemen', '/cases/payplaza', '/cases/staff-capital', '/cases/werken-in-de-regio', '/cases/follo-agency', '/cases/marie-stella-maris', '/cases/parkbee',
@@ -78,15 +78,16 @@ export function altLangPath(pathname) {
     const nl = pathname.replace(/^\/en/, '') || '/';
     return nl;
   }
-  // NL -> EN: only if a translation exists, else EN home
+  // NL -> EN: only if a translation exists, else EN home. Trailing-slash form
+  // for the EN home, matching the canonical URL (avoids a redirect hop).
   const clean = pathname.replace(/\/$/, '') || '/';
-  return translatedPaths.has(clean) ? (clean === '/' ? '/en' : `/en${clean}`) : '/en';
+  return translatedPaths.has(clean) ? (clean === '/' ? '/en/' : `/en${clean}`) : '/en/';
 }
 
 // Prefix an internal link for the active language.
 export function localize(path, lang) {
   if (lang !== 'en') return path;
-  if (path === '/') return '/en';
+  if (path === '/') return '/en/';
   return path.startsWith('/en') ? path : `/en${path}`;
 }
 

@@ -26,4 +26,4 @@ Wij zijn gespecialiseerd in het koppelen van Salesforce en Exact Online om dubbe
 
 ## Wat u eraan heeft
 
-Een bekroonde, bewezen koppeling betekent voor u minder risico, een snellere implementatie en een partner die meetbare waarde levert. Dank aan alle klanten die met ons bouwen. [Ontdek de Influx Exact Connector](/producten/exact-online).
+Een bekroonde, bewezen koppeling betekent voor u minder risico, een snellere implementatie en een partner die meetbare waarde levert. Dank aan alle klanten die met ons bouwen. [Ontdek Influx for Exact Online](/producten/exact-online).

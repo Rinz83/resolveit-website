@@ -10,7 +10,7 @@ Invoicing in Salesforce is only truly powerful when it flows seamlessly through 
 
 ## Supported systems
 
-The platform integrates with, among others, **Exact Online**, **Unit4 Multivers** and **Microsoft Dynamics**. Invoices and revenue streams originate in Salesforce, while the final financial processing takes place in your ERP. For Exact Online you use our dedicated [Influx Exact Connector](/en/producten/exact-online).
+The platform integrates with, among others, **Exact Online**, **Unit4 Multivers** and **Microsoft Dynamics**. Invoices and revenue streams originate in Salesforce, while the final financial processing takes place in your ERP. For Exact Online you use our dedicated [Influx for Exact Online](/en/producten/exact-online).
 
 ## One logical flow
 

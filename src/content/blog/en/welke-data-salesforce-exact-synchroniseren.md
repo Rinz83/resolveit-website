@@ -6,7 +6,7 @@ author: "Yatish Salihan"
 category: "Exact Online"
 ---
 
-The Influx Exact Connector connects far more than just invoices. Below you'll read exactly which data is kept in sync between Salesforce and Exact Online, and why that matters.
+Influx for Exact Online connects far more than just invoices. Below you'll read exactly which data is kept in sync between Salesforce and Exact Online, and why that matters.
 
 ## Customer and Relationship Data
 

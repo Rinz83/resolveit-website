@@ -8,7 +8,7 @@ category: "Integraties"
 image: "/images/AdobeStock_-2-1024x683.jpg"
 ---
 
-Een koppeling tussen Salesforce en Exact Online voorkomt dubbele invoer, verkleint de kans op fouten en geeft sales en finance realtime hetzelfde beeld van klanten, orders en facturen. Met een standaardconnector zoals de [Influx Exact Connector](/producten/exact-online) bent u doorgaans binnen 24 uur live, zonder developers. In dit artikel zetten we op een rij waar u op moet letten voordat u de koppeling inricht.
+Een koppeling tussen Salesforce en Exact Online voorkomt dubbele invoer, verkleint de kans op fouten en geeft sales en finance realtime hetzelfde beeld van klanten, orders en facturen. Met een standaardconnector zoals de [Influx for Exact Online](/producten/exact-online) bent u doorgaans binnen 24 uur live, zonder developers. In dit artikel zetten we op een rij waar u op moet letten voordat u de koppeling inricht.
 
 ## Waarom zou u Salesforce koppelen aan Exact Online?
 
@@ -26,7 +26,7 @@ Hoe goed die winst uitpakt, hangt af van de keuzes die u vooraf maakt. De belang
 
 ## Welke data kunt u synchroniseren tussen Salesforce en Exact Online?
 
-Een volwaardige koppeling wisselt meer uit dan alleen klantgegevens. Met de Influx Exact Connector synchroniseert u ruim tien objecttypen tussen Salesforce en Exact Online, in één of beide richtingen en per object instelbaar: van accounts en contacten tot facturen, betalingen en grootboekrekeningen.
+Een volwaardige koppeling wisselt meer uit dan alleen klantgegevens. Met Influx for Exact Online synchroniseert u ruim tien objecttypen tussen Salesforce en Exact Online, in één of beide richtingen en per object instelbaar: van accounts en contacten tot facturen, betalingen en grootboekrekeningen.
 
 Concreet gaat het om deze objecten:
 
@@ -60,13 +60,13 @@ Een praktische vuistregel: begin met eenrichtingsverkeer waar het kan en zet twe
 
 Een goede koppeling gebruikt versleutelde API-verbindingen met OAuth-authenticatie, slaat geen wachtwoorden op en laat u volledige controle houden over de autorisaties. Even belangrijk is foutafhandeling: elke synchronisatie hoort te worden gelogd, met duidelijke foutmeldingen zodat u snel ziet wat er misging en gericht kunt bijsturen.
 
-Beveiliging is bij een koppeling tussen uw CRM en uw boekhouding geen bijzaak. U wisselt immers klantgegevens en financiële data uit. Bij de Influx Exact Connector autoriseert u beide systemen via OAuth, reist alle data via beveiligde API-koppelingen en kunt u autorisaties op elk moment intrekken.
+Beveiliging is bij een koppeling tussen uw CRM en uw boekhouding geen bijzaak. U wisselt immers klantgegevens en financiële data uit. Bij Influx for Exact Online autoriseert u beide systemen via OAuth, reist alle data via beveiligde API-koppelingen en kunt u autorisaties op elk moment intrekken.
 
 Vraag bij elke oplossing die u overweegt door op het foutscenario. Wat gebeurt er als Exact Online tijdelijk onbereikbaar is? Wordt een mislukte synchronisatie automatisch gemeld? Kunt u in een logboek precies terugzien welke records wel en niet zijn verwerkt? Volledige logging met foutrapportage maakt het verschil tussen een koppeling die u vertrouwt en een koppeling die u dagelijks moet controleren.
 
 ## Wat kost een koppeling tussen Salesforce en Exact Online?
 
-Met een standaardconnector betaalt u een vast maandbedrag in plaats van een maatwerktraject. De Influx Exact Connector is er vanaf 73 euro per maand voor de Standaard Connector; de Premium Connector van 95 euro per maand voegt daar AI-guided onboarding met Claude aan toe, inclusief automatische veldmapping.
+Met een standaardconnector betaalt u een vast maandbedrag in plaats van een maatwerktraject. Influx for Exact Online is er vanaf 73 euro per maand voor de Standaard Connector; de Premium Connector van 95 euro per maand voegt daar AI-guided onboarding met Claude aan toe, inclusief automatische veldmapping.
 
 De Standaard Connector omvat onbeperkt objecten koppelen, realtime en geplande synchronisatie, de visuele mapping-interface, logging met foutrapportage en OAuth-beveiliging. Dat dekt voor de meeste organisaties de volledige behoefte.
 
@@ -74,7 +74,7 @@ De Premium-variant maakt de implementatie vrijwel hands-off. U geeft aan welke o
 
 ## Hoe snel bent u live en wat heeft u nodig?
 
-Met de Influx Exact Connector bent u doorgaans binnen 24 uur live. U heeft daarvoor drie dingen nodig: een actief Salesforce-account, een actief Exact Online-account en API-toegang tot beide systemen. Developers zijn niet nodig; u configureert de koppeling zelf of samen met ons.
+Met Influx for Exact Online bent u doorgaans binnen 24 uur live. U heeft daarvoor drie dingen nodig: een actief Salesforce-account, een actief Exact Online-account en API-toegang tot beide systemen. Developers zijn niet nodig; u configureert de koppeling zelf of samen met ons.
 
 De inrichting verloopt in vier stappen:
 

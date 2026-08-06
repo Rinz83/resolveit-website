@@ -8,22 +8,12 @@ const products = [
   { logo: '/images/logos/ai-prompt-builder.svg', title: 'AI Prompt Builder', text: 'Integrate OpenAI, Anthropic, Gemini or your own LLM directly into Salesforce Flows, without code.', badge: 'Managed App', href: '/en/producten/ai-prompt-builder' },
   { logo: '/images/logos/datasolver.svg', title: 'Datasolver (CoC integration)', text: 'Automatically retrieve and sync company data from the Chamber of Commerce into Salesforce.', badge: 'Managed App', href: '/en/producten/kvk-integratie' },
   { logo: '/images/logos/signflow.svg', title: 'SignFlow', text: 'Get contracts and quotes digitally signed straight from Salesforce, without an external signing tool.', badge: 'Managed App', href: '/en/producten/signflow' },
-  { logo: '/images/logos/influx-exact-connector.svg', title: 'Influx Exact Connector', text: 'Seamless connection between Salesforce and Exact Online, now with AI-guided onboarding via our Claude Skill.', badge: 'Exact Online App Store', href: '/en/producten/exact-online' },
-  { logo: '/images/logos/influx-business-central-connector.svg', title: 'Influx Business Central Connector', text: 'Seamless connection between Salesforce and Microsoft Dynamics 365 Business Central.', badge: 'Microsoft Dynamics 365', href: '/en/producten/business-central' },
+  { logo: '/images/logos/influx-exact-connector.svg', title: 'Influx for Exact Online', text: 'Seamless connection between Salesforce and Exact Online, now with AI-guided onboarding via our Claude Skill.', badge: 'Exact Online App Store', href: '/en/producten/exact-online' },
+  { logo: '/images/logos/influx-business-central-connector.svg', title: 'Influx for Business Central', text: 'Seamless connection between Salesforce and Microsoft Dynamics 365 Business Central.', badge: 'Microsoft Dynamics 365', href: '/en/producten/business-central' },
+  { logo: '/images/logos/influx-quickbooks-connector.svg', title: 'Influx for QuickBooks', text: 'Seamless connection between Salesforce and QuickBooks Online: customers, invoices and payments in sync automatically.', badge: 'Managed App', href: '/en/producten/quickbooks' },
   { logo: '/images/logos/salespoint.svg', title: 'SalesPoint', text: 'Manage documents from Salesforce with a direct connection to SharePoint.', badge: 'AppExchange & AppSource', href: '/en/producten/sharepoint' },
 ];
 
-// English labels + descriptions for the industry cards (data/sectors.js is NL).
-const industry = {
-  'backoffice-services': { label: 'Backoffice Services', desc: 'Invoicing, contracts, projects, time tracking & data enrichment, automated.' },
-  'saas': { label: 'SaaS', desc: 'Scalable sales and customer-success processes.' },
-  'professional-services': { label: 'Professional Services', desc: 'Projects, hours and invoicing seamlessly connected.' },
-  'manufacturing': { label: 'Manufacturing', desc: 'Orders, inventory and production in real time.' },
-  'recruitment': { label: 'Recruitment', desc: 'Candidates, vacancies and placements in one pipeline.' },
-  'energie-utilities': { label: 'Energy & Utilities', desc: 'Contracts, field service and compliance streamlined.' },
-  'media-communicatie': { label: 'Media & Communications', desc: 'Ads, subscribers and content in one system.' },
-  'overige-sectoren': { label: 'Other industries', desc: 'Custom Salesforce for every industry.' },
-};
 
 const clients = [
   { src: '/images/clients/gospooky.png', alt: 'GoSpooky' },
@@ -52,6 +42,8 @@ const clients = [
   { src: '/images/clients/aquaplus-sprinkler.png', alt: 'Aqua+ Sprinklersystemen' },
   { src: '/images/clients/mokma.png', alt: 'MoneyOak' },
   { src: '/images/clients/silverstone.png', alt: 'Silverstone Real Estate' },
+  { src: '/images/clients/marie-stella-maris.png', alt: 'Marie-Stella-Maris' },
+  { src: '/images/clients/payplaza.png', alt: 'PayPlaza' },
 ];
 
 const mid = Math.ceil(clients.length / 2);
@@ -59,7 +51,7 @@ const row1 = clients.slice(0, mid);
 const row2 = clients.slice(mid);
 ---
 
-<Layout title="Salesforce Partner for Implementation & Integration" description="Resolve IT implements Salesforce and connects it to Exact, Stripe, SharePoint and more with our own AppExchange products. Gold Partner, 340+ projects." transparentHeader={true}>
+<Layout title="Salesforce Implementation Partner Netherlands" description="Resolve IT implements Salesforce and connects it to Exact, Stripe, SharePoint and more with our own AppExchange products. Based in the Netherlands, 340+ projects." transparentHeader={true}>
 
   <!-- HERO -->
   <section class="hero">
@@ -122,7 +114,7 @@ const row2 = clients.slice(mid);
     <div class="container">
       <div class="section-header reveal" style="margin-bottom:2.5rem;">
         <span class="eyebrow">Our clients</span>
-        <h2>Trusted by organisations across the Netherlands and Belgium</h2>
+        <h2>Trusted by organisations across the Netherlands, Belgium and beyond</h2>
         <p>From scale-ups to established names such as Talpa Studios, Marie-Stella-Maris and PayPlaza.</p>
       </div>
     </div>
@@ -292,7 +284,7 @@ const row2 = clients.slice(mid);
         <div class="value-grid">
           {[
             { num: 2019, suffix: '', label: 'Founded', plain: true },
-            { num: 340, suffix: '+', label: 'Projects completed' },
+            { num: 340, suffix: '+', label: 'Completed projects' },
             { num: 10, suffix: '+', label: 'Certified experts' },
             { num: 5, suffix: '★', label: 'AppExchange rating', plain: true },
           ].map((v, i) => (
@@ -320,8 +312,8 @@ const row2 = clients.slice(mid);
         {sectors.map((s, i) => (
           <a href={`/en${s.href}`} class="sector-card reveal" style={`--reveal-delay:${(i % 4) * 0.07}s`}>
             <span class="sector-ico" set:html={s.svg} />
-            <span class="sector-name">{industry[s.slug].label}</span>
-            <span class="sector-desc">{industry[s.slug].desc}</span>
+            <span class="sector-name">{s.labelEn ?? s.label}</span>
+            <span class="sector-desc">{s.descEn ?? s.desc}</span>
             <span class="sector-arrow" aria-hidden="true">→</span>
           </a>
         ))}

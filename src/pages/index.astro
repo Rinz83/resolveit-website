@@ -7,8 +7,9 @@ const products = [
   { logo: '/images/logos/ai-prompt-builder.svg', title: 'AI Prompt Builder', text: 'Integreer OpenAI, Anthropic, Gemini of uw eigen LLM rechtstreeks in Salesforce Flows, zonder code.', badge: 'Managed App', href: '/producten/ai-prompt-builder' },
   { logo: '/images/logos/datasolver.svg', title: 'Datasolver', text: 'Bedrijfsgegevens ophalen via de Kamer van Koophandel, BTW-nummers valideren via VIES en Peppol ID\'s opzoeken, rechtstreeks in Salesforce.', badge: 'AppExchange', href: '/producten/kvk-integratie' },
   { logo: '/images/logos/signflow.svg', title: 'SignFlow', text: 'Laat contracten en offertes digitaal ondertekenen, rechtstreeks vanuit Salesforce, zonder externe signing-tool.', badge: 'Managed App', href: '/producten/signflow' },
-  { logo: '/images/logos/influx-exact-connector.svg', title: 'Influx Exact Connector', text: 'Naadloze koppeling tussen Salesforce en Exact Online, nu met AI-guided onboarding via onze Claude Skill.', badge: 'Exact Online App Store', href: '/producten/exact-online' },
-  { logo: '/images/logos/influx-business-central-connector.svg', title: 'Influx Business Central Connector', text: 'Naadloze koppeling tussen Salesforce en Microsoft Dynamics 365 Business Central.', badge: 'Microsoft Dynamics 365', href: '/producten/business-central' },
+  { logo: '/images/logos/influx-exact-connector.svg', title: 'Influx for Exact Online', text: 'Naadloze koppeling tussen Salesforce en Exact Online, nu met AI-guided onboarding via onze Claude Skill.', badge: 'Exact Online App Store', href: '/producten/exact-online' },
+  { logo: '/images/logos/influx-business-central-connector.svg', title: 'Influx for Business Central', text: 'Naadloze koppeling tussen Salesforce en Microsoft Dynamics 365 Business Central.', badge: 'Microsoft Dynamics 365', href: '/producten/business-central' },
+  { logo: '/images/logos/influx-quickbooks-connector.svg', title: 'Influx for QuickBooks', text: 'Naadloze koppeling tussen Salesforce en QuickBooks Online: klanten, facturen en betalingen automatisch synchroon.', badge: 'Managed App', href: '/producten/quickbooks' },
   { logo: '/images/logos/salespoint.svg', title: 'SalesPoint', text: 'Documenten en bestanden beheren vanuit Salesforce met een directe koppeling naar SharePoint.', badge: 'AppExchange & AppSource', href: '/producten/sharepoint' },
 ];
 
@@ -44,6 +45,8 @@ const clients = [
   { src: '/images/clients/aquaplus-sprinkler.png', alt: 'Aqua+ Sprinklersystemen' },
   { src: '/images/clients/mokma.png', alt: 'MoneyOak' },
   { src: '/images/clients/silverstone.png', alt: 'Silverstone Real Estate' },
+  { src: '/images/clients/marie-stella-maris.png', alt: 'Marie-Stella-Maris' },
+  { src: '/images/clients/payplaza.png', alt: 'PayPlaza' },
 ];
 
 // Split across two carousel rows that scroll in opposite directions.
@@ -107,6 +110,7 @@ const row2 = clients.slice(mid);
       </div>
     </div>
 
+    <a href="#diensten" class="scroll-cue" aria-label="Scroll naar beneden"><span></span></a>
   </section>
 
   <!-- KLANTEN (tile wall) — direct onder de hero: eerst bewijs, dan verhaal -->
@@ -284,7 +288,7 @@ const row2 = clients.slice(mid);
         <div class="value-grid">
           {[
             { num: 2019, suffix: '', label: 'Opgericht', plain: true },
-            { num: 340, suffix: '+', label: 'Projecten afgerond' },
+            { num: 340, suffix: '+', label: 'Afgeronde projecten' },
             { num: 10, suffix: '+', label: 'Gecertificeerde experts' },
             { num: 5, suffix: '★', label: 'AppExchange rating', plain: true },
           ].map((v, i) => (

@@ -26,7 +26,7 @@ Uw boekhoudsoftware moet Peppol ondersteunen: WinBooks-gebruikers moeten mogelij
 
 ## Compliant met Salesforce en Exact
 
-Onze [Influx Exact Connector](/producten/exact-online) biedt:
+Onze [Influx for Exact Online](/producten/exact-online) biedt:
 
 - automatische factuurcreatie van Salesforce-orders naar Exact Online;
 - realtime statusvolging (aflevering, acceptatie, betaling);

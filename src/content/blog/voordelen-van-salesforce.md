@@ -55,10 +55,10 @@ Salesforce koppelt standaard met Office 365, Google, Exact Online en veel andere
 
 Dit is het punt waarop veel CRM-trajecten zich onderscheiden. Een CRM dat losstaat van uw facturatie, boekhouding en documenten levert alsnog handwerk op. Daarom bouwen en onderhouden wij [eigen producten](/producten) die deze koppelingen verzorgen, waaronder:
 
-1. De **Influx Exact Connector** voor een naadloze koppeling tussen [Salesforce en Exact Online](/producten/exact-online), bekroond met de Exact Golden Luca 2025.
+1. De **Influx for Exact Online** voor een naadloze koppeling tussen [Salesforce en Exact Online](/producten/exact-online), bekroond met de Exact Golden Luca 2025.
 2. Het **Billing Platform** voor [facturatie, abonnementen en betalingen](/producten/billing-module) rechtstreeks vanuit Salesforce, gekoppeld aan Stripe en uw administratie.
 3. **SalesPoint** voor documentbeheer met een directe koppeling naar SharePoint.
-4. De **Influx Business Central Connector** voor organisaties die met Microsoft Dynamics 365 Business Central werken.
+4. De **Influx for Business Central** voor organisaties die met Microsoft Dynamics 365 Business Central werken.
 
 Het voordeel van producten boven los maatwerk: ze worden onderhouden door het team dat ze bouwde, en updates van Salesforce of het gekoppelde systeem worden centraal opgevangen.
 

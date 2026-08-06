@@ -1,7 +1,9 @@
 ---
 import { getLangFromUrl, useTranslations, localize } from '../i18n/ui.js';
 const year = new Date().getFullYear();
-const lang = getLangFromUrl(Astro.url.pathname);
+// lang can be overridden by the layout for pages whose language differs from
+// their URL prefix (e.g. the English campaign LP on the NL root).
+const lang = Astro.props.lang ?? getLangFromUrl(Astro.url.pathname);
 const t = useTranslations(lang);
 const L = (p) => localize(p, lang);
 const en = lang === 'en';
@@ -50,9 +52,10 @@ const en = lang === 'en';
         <li><a href={L('/producten/ai-prompt-builder')}>AI Prompt Builder</a></li>
         <li><a href={L('/producten/kvk-integratie')}>Datasolver</a></li>
         <li><a href={L('/producten/signflow')}>SignFlow</a></li>
-        <li><a href={L('/producten/exact-online')}>Influx Exact Connector</a></li>
-        <li><a href={L('/producten/business-central')}>Influx Business Central Connector</a></li>
         <li><a href={L('/producten/sharepoint')}>SharePoint Connector</a></li>
+        <li><a href={L('/producten/exact-online')}>Influx for Exact Online</a></li>
+        <li><a href={L('/producten/business-central')}>Influx for Business Central</a></li>
+        <li><a href={L('/producten/quickbooks')}>Influx for QuickBooks</a></li>
       </ul>
     </div>
 

@@ -10,9 +10,10 @@
 // API key). BWT_SITE_URL is optional and defaults to the www host, which must
 // match the property exactly as verified in Bing.
 //
-// Note: the query and page endpoints ignore date ranges; Bing returns a rolling
-// window of roughly six months. Only the traffic and crawl series are daily, so
-// only those are compared week over week.
+// Every endpoint returns one row per day per item over a rolling window of
+// roughly six months, so the window is cut locally and compared with the
+// equally long window before it. Bing lags a few days; the report anchors on
+// the newest date the API actually returns rather than on today.
 
 import { readEnv } from './ga.mjs';
 import { main } from './run.mjs';
@@ -47,24 +48,65 @@ async function bwt(method) {
   return data.d || [];
 }
 
-// Bing serialiseert datums als /Date(1754524800000)/
-const parseDate = (s) => new Date(Number(String(s).replace(/[^0-9]/g, '')));
+// Bing serialiseert datums als /Date(1744009200000-0700)/: epoch in millis,
+// gevolgd door een tijdzone-offset die we negeren.
+const parseDate = (s) => {
+  const m = String(s).match(/\/Date\((-?\d+)/);
+  return m ? new Date(Number(m[1])) : null;
+};
 const fmt = (d) => d.toISOString().slice(0, 10);
 const sum = (rows, key) => rows.reduce((t, r) => t + (r[key] || 0), 0);
 const pct = (v) => `${(v * 100).toFixed(1)}%`;
 
-// Vergelijk de laatste `days` dagen met de `days` daarvoor.
-function split(rows) {
-  const sorted = [...rows].sort((a, b) => parseDate(a.Date) - parseDate(b.Date));
-  return { current: sorted.slice(-days), previous: sorted.slice(-days * 2, -days) };
+// Anker op de nieuwste dag die Bing teruggeeft, niet op vandaag: de data loopt
+// een paar dagen achter en een leeg staartje zou de vergelijking vertekenen.
+function windows(all) {
+  const dated = all
+    .map((r) => ({ ...r, _d: parseDate(r.Date) }))
+    .filter((r) => r._d);
+  const end = new Date(Math.max(...dated.map((r) => r._d.getTime())));
+  const startCurrent = new Date(end.getTime() - (days - 1) * 86400_000);
+  const startPrevious = new Date(startCurrent.getTime() - days * 86400_000);
+  return {
+    end,
+    start: startCurrent,
+    current: dated.filter((r) => r._d >= startCurrent && r._d <= end),
+    previous: dated.filter((r) => r._d >= startPrevious && r._d < startCurrent),
+  };
+}
+
+// Tel dagrijen per zoekterm of pagina op tot een totaal over de periode.
+function aggregate(rows, keyField) {
+  const byKey = new Map();
+  for (const r of rows) {
+    const key = r[keyField];
+    if (!key) continue;
+    const acc = byKey.get(key) || { key, clicks: 0, impressions: 0, posSum: 0, posWeight: 0 };
+    acc.clicks += r.Clicks || 0;
+    acc.impressions += r.Impressions || 0;
+    // Positie is een dagwaarde; weeg mee met vertoningen voor een eerlijk gemiddelde.
+    if (r.AvgImpressionPosition > 0 && r.Impressions > 0) {
+      acc.posSum += r.AvgImpressionPosition * r.Impressions;
+      acc.posWeight += r.Impressions;
+    }
+    byKey.set(key, acc);
+  }
+  return [...byKey.values()]
+    .map((a) => ({ ...a, position: a.posWeight ? a.posSum / a.posWeight : null }))
+    .sort((a, b) => b.impressions - a.impressions);
 }
 
 function delta(now, before) {
   if (!before) return now ? ' (nieuw)' : '';
   const change = ((now - before) / before) * 100;
-  const arrow = change >= 0 ? '+' : '';
-  return ` (${arrow}${change.toFixed(0)}% t.o.v. vorige periode)`;
+  return ` (${change >= 0 ? '+' : ''}${change.toFixed(0)}% t.o.v. vorige periode)`;
 }
+
+const line = (label, a) => {
+  const ctr = a.impressions ? pct(a.clicks / a.impressions) : '0.0%';
+  const pos = a.position ? `, positie ${a.position.toFixed(1)}` : '';
+  return `- ${label}: ${a.clicks} kliks / ${a.impressions} vertoningen (CTR ${ctr}${pos})`;
+};
 
 main(async () => {
   const [traffic, queries, pages, crawl] = await Promise.all([
@@ -75,69 +117,69 @@ main(async () => {
   ]);
 
   const out = [];
-  const t = split(traffic);
-  const period = t.current.length
-    ? `${fmt(parseDate(t.current[0].Date))} t/m ${fmt(parseDate(t.current[t.current.length - 1].Date))}`
-    : 'geen data';
-  out.push(`# Bing Webmaster-rapport ${SITE}, ${period}\n`);
+  const t = windows(traffic);
+  out.push(`# Bing Webmaster-rapport ${SITE}, ${fmt(t.start)} t/m ${fmt(t.end)}\n`);
 
   const clicks = sum(t.current, 'Clicks');
   const impressions = sum(t.current, 'Impressions');
-  const prevClicks = sum(t.previous, 'Clicks');
-  const prevImpressions = sum(t.previous, 'Impressions');
   out.push(
-    `Kliks: ${clicks}${delta(clicks, prevClicks)} | ` +
-    `Vertoningen: ${impressions}${delta(impressions, prevImpressions)} | ` +
+    `Kliks: ${clicks}${delta(clicks, sum(t.previous, 'Clicks'))} | ` +
+    `Vertoningen: ${impressions}${delta(impressions, sum(t.previous, 'Impressions'))} | ` +
     `CTR: ${impressions ? pct(clicks / impressions) : '0.0%'}\n`,
   );
 
-  const topQueries = [...queries]
-    .sort((a, b) => (b.Impressions || 0) - (a.Impressions || 0))
-    .slice(0, 25);
-  out.push('## Zoektermen (top 25, rollend venster van Bing)');
-  if (topQueries.length === 0) out.push('- (nog geen zoektermdata)');
-  for (const r of topQueries) {
-    const ctr = r.Impressions ? pct(r.Clicks / r.Impressions) : '0.0%';
-    const pos = r.AvgImpressionPosition ? `, positie ${Number(r.AvgImpressionPosition).toFixed(1)}` : '';
-    out.push(`- "${r.Query}": ${r.Clicks || 0} kliks / ${r.Impressions || 0} vertoningen (CTR ${ctr}${pos})`);
-  }
+  const q = windows(queries);
+  const topQueries = aggregate(q.current, 'Query');
+  out.push('## Zoektermen (top 25)');
+  if (topQueries.length === 0) out.push('- (geen zoektermdata in deze periode)');
+  for (const a of topQueries.slice(0, 25)) out.push(line(`"${a.key}"`, a));
 
-  const topPages = [...pages]
-    .sort((a, b) => (b.Impressions || 0) - (a.Impressions || 0))
-    .slice(0, 15);
+  const p = windows(pages);
+  const topPages = aggregate(p.current, 'Query');
   out.push('\n## Pagina’s (top 15)');
-  if (topPages.length === 0) out.push('- (nog geen paginadata)');
-  for (const r of topPages) {
-    const ctr = r.Impressions ? pct(r.Clicks / r.Impressions) : '0.0%';
-    const path = String(r.Query || r.Url || '').replace(/^https?:\/\/(www\.)?resolveit\.nl/, '') || '/';
-    out.push(`- ${path}: ${r.Clicks || 0} kliks / ${r.Impressions || 0} vertoningen (CTR ${ctr})`);
+  if (topPages.length === 0) out.push('- (geen paginadata in deze periode)');
+  for (const a of topPages.slice(0, 15)) {
+    const path = a.key.replace(/^https?:\/\/(www\.)?resolveit\.nl/, '') || '/';
+    out.push(line(path, a));
   }
 
-  // Kansen: veel vertoningen, nauwelijks kliks. Bing geeft geen positiefilter
-  // dat met Search Console te vergelijken is, dus filteren we puur op CTR.
+  // Kansen: vaak getoond, zelden geklikt, en dicht genoeg bij de top om te winnen.
   const opp = topQueries
-    .filter((r) => (r.Impressions || 0) >= 20 && (r.Clicks || 0) / (r.Impressions || 1) < 0.03)
+    .filter((a) => a.impressions >= 20 && a.clicks / a.impressions < 0.03 &&
+      a.position && a.position > 3 && a.position <= 20)
     .slice(0, 10);
-  out.push('\n## Kansen (veel vertoningen, weinig kliks)');
+  out.push('\n## Kansen (veel vertoningen, weinig kliks, positie 3-20)');
   if (opp.length === 0) out.push('- (geen duidelijke kansen in deze periode)');
-  for (const r of opp) {
-    const pos = r.AvgImpressionPosition ? `, positie ${Number(r.AvgImpressionPosition).toFixed(1)}` : '';
-    out.push(`- "${r.Query}": ${r.Impressions} vertoningen, CTR ${pct((r.Clicks || 0) / r.Impressions)}${pos}`);
+  for (const a of opp) {
+    out.push(`- "${a.key}": ${a.impressions} vertoningen, positie ${a.position.toFixed(1)}, CTR ${pct(a.clicks / a.impressions)}`);
   }
 
-  const c = split(crawl);
+  // Oude URL's die Bing nog toont: teken dat de herindexering na de migratie loopt.
+  const legacy = topPages.filter((a) => /\/(nl|en)\/|\/products\/|\/integrations\//.test(a.key));
+  if (legacy.length > 0) {
+    out.push('\n## Oude URL’s nog in de Bing-resultaten');
+    for (const a of legacy.slice(0, 10)) {
+      out.push(`- ${a.key.replace(/^https?:\/\/(www\.)?resolveit\.nl/, '')}: ${a.impressions} vertoningen`);
+    }
+  }
+
+  const c = windows(crawl);
   out.push('\n## Indexering en crawl');
   if (c.current.length === 0) {
-    out.push('- (nog geen crawldata)');
+    out.push('- (geen crawldata in deze periode)');
   } else {
     const laatste = c.current[c.current.length - 1];
     out.push(`- In de index: ${laatste.InIndex ?? 'onbekend'} pagina’s`);
-    out.push(`- Gecrawld deze periode: ${sum(c.current, 'CrawledPages')} pagina’s`);
-    const errors4xx = sum(c.current, 'Code4xx');
-    const errors5xx = sum(c.current, 'Code5xx');
+    out.push(`- Gecrawld: ${sum(c.current, 'CrawledPages')} pagina’s, ${sum(c.current, 'Code2xx')}x 2xx, ${sum(c.current, 'Code301')}x 301, ${sum(c.current, 'Code302')}x 302`);
+    const e4 = sum(c.current, 'Code4xx');
+    const e5 = sum(c.current, 'Code5xx');
     const blocked = sum(c.current, 'BlockedByRobotsTxt');
-    out.push(`- Fouten: ${errors4xx}x 4xx, ${errors5xx}x 5xx, ${blocked}x geblokkeerd door robots.txt`);
-    if (errors4xx + errors5xx > 0) out.push('  Let op: crawlfouten kosten indexering, controleer welke URL’s dit betreft in Bing Webmaster Tools.');
+    const timeouts = sum(c.current, 'ConnectionTimeout') + sum(c.current, 'DnsFailures');
+    out.push(`- Fouten: ${e4}x 4xx, ${e5}x 5xx, ${blocked}x geblokkeerd door robots.txt, ${timeouts}x timeout of DNS-fout`);
+    out.push(`- Inkomende links volgens Bing: ${laatste.InLinks ?? 'onbekend'}`);
+    if (e4 + e5 > 0) {
+      out.push('  Let op: crawlfouten kosten indexering. Zoek de betreffende URL’s op in Bing Webmaster Tools onder Site Explorer.');
+    }
   }
 
   console.log(out.join('\n'));

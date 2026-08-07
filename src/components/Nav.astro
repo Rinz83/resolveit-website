@@ -95,6 +95,7 @@ const enHref = lang === 'en' ? currentPath : altLangPath(currentPath);
         <a href={nlHref} class={`lang-opt ${lang === 'nl' ? 'active' : ''}`} aria-current={lang === 'nl' ? 'page' : undefined} aria-label={lang === 'nl' ? 'Nederlands (huidige taal)' : 'Nederlandse versie'}>NL</a>
         <a href={enHref} class={`lang-opt ${lang === 'en' ? 'active' : ''}`} aria-current={lang === 'en' ? 'page' : undefined} aria-label={lang === 'en' ? 'English (current language)' : 'English version'}>EN</a>
       </div>
+      <a href="https://crm.resolveit.nl" class="nav-link nav-login">{t('nav.login')}</a>
       <a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary btn-sm">{t('nav.afspraak')}</a>
       <button class="mobile-toggle" aria-label="Menu" id="mobile-toggle">
         <span></span><span></span><span></span>
@@ -124,6 +125,7 @@ const enHref = lang === 'en' ? currentPath : altLangPath(currentPath);
         <a href={enHref} class={`lang-opt ${lang === 'en' ? 'active' : ''}`} aria-current={lang === 'en' ? 'page' : undefined} aria-label={lang === 'en' ? 'English (current language)' : 'English version'}>EN</a>
       </div>
     </li>
+    <li><a href="https://crm.resolveit.nl" class="mobile-nav-link">{t('nav.login')}</a></li>
     <li><a href={calendlyUrl} target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:1rem;display:inline-flex;">{t('nav.afspraak')}</a></li>
   </ul>
 </div>

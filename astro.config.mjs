@@ -32,8 +32,18 @@ const redirects = {
   '/products/datasolver-integration': '/en/producten/kvk-integratie',
   '/products/exact-online': '/en/producten/exact-online',
   '/products/sharepoint-salesforce-integration-module': '/en/producten/sharepoint',
+
+  // The old site had a page per integration. Those are gone; the closest
+  // equivalents are the product pages, or the integrations service page when
+  // no product covers it. Found via Bing Webmaster Tools (still 404 in Aug 2026).
+  '/integrations/salesforce-exact-online': '/en/producten/exact-online',
+  '/integrations/microsoft-teams': '/en/diensten/development',
   '/case/marketresponse': '/en/cases/marketresponse',
   '/case/mybusinessmedia': '/en/cases/mybusinessmedia',
+  '/case/multa-casting': '/en/cases/multa-casting',
+  '/case/payplaza': '/en/cases/payplaza',
+  // The old "automated onboarding" case is the PayPlaza story.
+  '/case/an-automated-onboarding-process-for-new-customers': '/en/cases/payplaza',
   '/make-an-appointement': '/en/contact',
   '/cookie-policy': '/en/cookiebeleid',
   '/privacy-policy': '/en/privacybeleid',
@@ -75,6 +85,7 @@ const redirects = {
   '/blog/the-impact-of-our-billing-module-on-customer-satisfaction': '/en/blog/billing-platform-klanttevredenheid',
   '/blog/validating-european-vat-numbers-in-salesforce-with-vies': '/en/blog/europese-btw-nummers-valideren-vies',
   '/blog/what-can-you-expect-from-our-salesforce-audit': '/en/blog/wat-verwachten-salesforce-audit',
+  '/blog/what-can-you-expect-from-our-free-salesforce-audit': '/en/blog/wat-verwachten-salesforce-audit',
   '/blog/what-data-do-you-synchronize-between-salesforce-and-exact-online': '/en/blog/welke-data-salesforce-exact-synchroniseren',
   '/blog/what-features-are-available-when-i-start-invoicing-from-salesforce': '/en/blog/factureren-vanuit-salesforce-mogelijkheden',
   '/blog/what-is-the-automated-invoice-reminder-system-in-the-billing-module': '/en/blog/geautomatiseerde-betalingsherinneringen',
@@ -98,6 +109,15 @@ const redirects = {
   '/nl/producten/datasolver-integratie': '/producten/kvk-integratie',
   '/nl/producten/exact-online': '/producten/exact-online',
   '/nl/producten/sharepoint-salesforce-integratie': '/producten/sharepoint',
+  '/nl/sharepoint-salesforce-integratie': '/producten/sharepoint',
+
+  // Dutch integration pages from the old site (see the English block above).
+  '/nl/integrations/onedrive-en-sharepoint': '/producten/sharepoint',
+  '/nl/integrations/docusign-integratie': '/producten/signflow',
+  '/nl/integrations/chatgpt-open-ai-integratie': '/diensten/agentforce',
+  '/nl/integrations/microsoft-teams-integratie': '/diensten/development',
+  '/nl/integrations/aircall-integratie': '/diensten/development',
+  '/nl/integrations/sap-integratie': '/diensten/development',
   '/nl/voor-wie': '/voor-wie',
   '/nl/voor-wie/energie-voorzieningen': '/voor-wie/energie-utilities',
   '/nl/voor-wie/maakindustrie': '/voor-wie/manufacturing',
@@ -109,7 +129,11 @@ const redirects = {
   '/nl/cases': '/cases',
   '/nl/case/marketresponse': '/cases/marketresponse',
   '/nl/case/multa-casting': '/cases/multa-casting',
+  '/nl/case/mybusinessmedia': '/cases/mybusinessmedia',
+  '/nl/case/een-geautomatiseerd-onboarding-proces-voor-nieuwe-klanten': '/cases/payplaza',
   '/nl/case/een-systeem-en-platform-om-interne-medewerkers-te-begeleiden-2': '/cases/solvid-ondernemen',
+  // No case page for this client on the new site; the overview is the best match.
+  '/nl/case/stichting-meneer-rick': '/cases',
   '/nl/jobs': '/jobs',
   '/nl/contact': '/contact',
   '/nl/algemene-voorwaarden': '/algemene-voorwaarden',
